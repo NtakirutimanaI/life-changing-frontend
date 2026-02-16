@@ -32,29 +32,24 @@
   <link rel="stylesheet" href="/css/style.css" id="public-style">
   <link rel="stylesheet" href="/css/admin.css" id="admin-style" disabled>
   <style>
-    /* Smooth page load animations - prevent jarring pop-in effects */
+    /* Absolute visibility override to prevent "disappearing" content */
+    body {
+      opacity: 1 !important;
+      visibility: visible !important;
+      display: block !important;
+      background-color: #ffffff;
+    }
+
     .ftco-animate {
       opacity: 1 !important;
       visibility: visible !important;
       transform: none !important;
     }
 
-    /* Smooth initial page load */
-    body {
-      opacity: 0;
-      animation: pageLoad 0.4s ease-out forwards;
-    }
-
-    @keyframes pageLoad {
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* Ensure hero content is immediately visible */
     .hero-wrap,
     .ftco-navbar,
-    .ftco-footer {
+    .ftco-footer,
+    #root {
       opacity: 1 !important;
       visibility: visible !important;
     }
@@ -65,13 +60,46 @@
       animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
 
-    /* Prevent layout shift during load */
     img {
       max-width: 100%;
       height: auto;
     }
+
+    /* Global Responsive Tweaks */
+    @media (max-width: 767.98px) {
+
+      .hero-wrap,
+      .hero-wrap-2 {
+        height: 400px !important;
+        min-height: 400px !important;
+      }
+
+      .hero-wrap .slider-text,
+      .hero-wrap-2 .slider-text {
+        height: 400px !important;
+        padding-top: 80px !important;
+      }
+
+      .hero-wrap h1,
+      .hero-wrap-2 h1 {
+        font-size: 32px !important;
+      }
+
+      .hero-wrap p,
+      .hero-wrap-2 p {
+        font-size: 14px !important;
+      }
+
+      .ftco-section {
+        padding: 50px 0 !important;
+      }
+
+      .heading-section h2 {
+        font-size: 28px !important;
+      }
+    }
   </style>
-  <script type="module" crossorigin src="/assets/index-DdotfcOV.js"></script>
+  <script type="module" crossorigin src="/assets/index-RwVi2gzK.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-DUo_tWHy.css">
 </head>
 

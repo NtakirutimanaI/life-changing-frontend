@@ -169,7 +169,7 @@ const CMS = {
 
             this.renderSiteSettings(data.siteSettings);
             this.renderStats(data.stats);
-            this.renderPrograms(data.programs);
+            // this.renderPrograms(data.programs); // DISABLED - React handles carousel now
             this.renderStories(data.stories);
             this.renderEvents(data.events);
             this.renderPartners(data.partners);
@@ -261,6 +261,11 @@ const CMS = {
     },
 
     renderPrograms: function (programs) {
+        // DISABLED: This function was injecting old program cards into .carousel-cause
+        // The carousel is now managed by React components in HomePage.tsx
+        // Keeping this commented out to prevent conflicts with React rendering
+
+        /* ORIGINAL CODE - DO NOT USE
         const $carousel = $('.carousel-cause');
         const $grid = $('#programs-grid');
 
@@ -297,6 +302,7 @@ const CMS = {
                 $grid.html(html);
             }
         }
+        */
     },
 
     renderStories: function (stories) {

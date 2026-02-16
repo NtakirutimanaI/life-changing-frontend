@@ -13267,3 +13267,56 @@ textarea.form-control {
 .scroll-to-top:focus {
   outline: none;
 }
+
+/* ===== PROGRAM CARD HOVER ANIMATIONS ===== */
+.program-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.program-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(7, 108, 91, 0.18) !important;
+  background-color: #076c5b !important;
+  background: #076c5b !important;
+}
+
+.program-card:hover .program-card-title,
+.program-card:hover .program-card-subtitle,
+.program-card:hover .program-card-desc,
+.program-card:hover .program-card-features-title,
+.program-card:hover .program-card-feature-text {
+  color: #fff !important;
+}
+
+.program-card:hover .program-card-features-box {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.program-card:hover .program-card-feature-dot {
+  background-color: #eacfa2 !important;
+}
+
+.program-card:hover .program-card-icon path {
+  fill: #fff;
+  transition: fill 0.4s ease;
+}
+
+.program-card:hover .program-card-status {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+}
+
+.program-card:hover .program-card-status svg path {
+  fill: #fff !important;
+}
+
+.program-card:hover .program-card-border {
+  opacity: 0;
+}
+
+.program-card .program-card-border {
+  transition: opacity 0.4s ease;
+}

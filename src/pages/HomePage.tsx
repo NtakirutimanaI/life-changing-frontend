@@ -520,7 +520,7 @@ export const HomePage = () => {
                 </div>
             </section>
 
-            <section className="ftco-section" id="stories" style={{ backgroundColor: '#f8faf9', padding: '30px 0 100px 0' }}>
+            <section className="ftco-section" id="stories" style={{ backgroundColor: '#f8faf9', padding: '30px 0 40px 0' }}>
                 <style>
                     {`
                     .story-card {
@@ -603,8 +603,8 @@ export const HomePage = () => {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="carousel-cause owl-carousel">
-                                {[...mockStories, ...mockStories].map((story, index) => (
-                                    <div className="item px-2" key={`${story.id}-${index}`}>
+                                {mockStories.map((story, index) => (
+                                    <div className="item px-2" key={story.id}>
                                         <div className="story-card">
                                             <img
                                                 src={story.media && story.media[0] ? story.media[0].url : '/images/person_1.jpg'}
@@ -638,7 +638,7 @@ export const HomePage = () => {
                         </div>
                     </div>
 
-                    <div className="text-center mt-5">
+                    <div className="text-center mt-4">
                         <Link to="/about" className="btn btn-outline-primary px-5 py-3 font-weight-bold" style={{ borderRadius: '50px', borderWidth: '2px', borderColor: '#076c5b', color: '#076c5b' }}>
                             READ MORE STORIES
                         </Link>
@@ -646,7 +646,7 @@ export const HomePage = () => {
                 </div>
             </section>
 
-            <section className="ftco-gallery mt-5">
+            <section className="ftco-gallery mt-2">
                 <div className="d-md-flex">
                     <a href="/images/cause-2.jpg"
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
