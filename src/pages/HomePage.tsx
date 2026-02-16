@@ -603,8 +603,8 @@ export const HomePage = () => {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="carousel-cause owl-carousel">
-                                {mockStories.map((story, index) => (
-                                    <div className="item px-2" key={story.id}>
+                                {[...mockStories, ...mockStories].map((story, index) => (
+                                    <div className="item px-2" key={`${story.id}-${index}`}>
                                         <div className="story-card">
                                             <img
                                                 src={story.media && story.media[0] ? story.media[0].url : '/images/person_1.jpg'}
