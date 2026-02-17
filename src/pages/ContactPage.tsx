@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
+import { MapPin, Mail, Phone, Clock, Heart, Plus, Minus } from 'lucide-react';
 
 export const ContactPage = () => {
     useLegacyScripts();
@@ -41,8 +42,12 @@ export const ContactPage = () => {
                 ></iframe>
 
                 <div style={{ position: 'absolute', bottom: '20px', left: '20px', display: 'flex', flexDirection: 'column', gap: '8px', zIndex: 10 }}>
-                    <button onClick={handleZoomIn} className="btn shadow-lg" style={{ width: '40px', height: '40px', backgroundColor: '#fff', color: '#076c5b', fontWeight: '900', fontSize: '20px', padding: 0, borderRadius: '4px', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>+</button>
-                    <button onClick={handleZoomOut} className="btn shadow-lg" style={{ width: '40px', height: '40px', backgroundColor: '#fff', color: '#076c5b', fontWeight: '900', fontSize: '20px', padding: 0, borderRadius: '4px', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>−</button>
+                    <button onClick={handleZoomIn} className="btn shadow-lg" style={{ width: '40px', height: '40px', backgroundColor: '#fff', color: '#076c5b', padding: 0, borderRadius: '4px', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Plus size={20} strokeWidth={2.5} />
+                    </button>
+                    <button onClick={handleZoomOut} className="btn shadow-lg" style={{ width: '40px', height: '40px', backgroundColor: '#fff', color: '#076c5b', padding: 0, borderRadius: '4px', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Minus size={20} strokeWidth={2.5} />
+                    </button>
                 </div>
             </div>
 
@@ -88,17 +93,23 @@ export const ContactPage = () => {
                                         <h3 style={{ fontSize: '22px', fontWeight: '800', color: '#122f2b', marginBottom: '20px' }}>Contact Info</h3>
 
                                         <div className="d-flex align-items-center mb-3">
-                                            <span className="icon-map-marker mr-3" style={{ fontSize: '24px', color: '#4FB1A1' }}></span>
+                                            <span className="mr-3 d-flex align-items-center justify-content-center" style={{ width: '24px', height: '24px', color: '#4FB1A1' }}>
+                                                <MapPin size={24} strokeWidth={1.5} />
+                                            </span>
                                             <div style={{ color: '#111', fontSize: '16px', fontWeight: '600' }}>Bugesera, Nyamata, Rwanda</div>
                                         </div>
 
                                         <div className="d-flex align-items-center mb-3">
-                                            <span className="icon-envelope mr-3" style={{ fontSize: '20px', color: '#4FB1A1' }}></span>
+                                            <span className="mr-3 d-flex align-items-center justify-content-center" style={{ width: '24px', height: '24px', color: '#4FB1A1' }}>
+                                                <Mail size={22} strokeWidth={1.5} />
+                                            </span>
                                             <a href="mailto:info.lceo@gmail.com" style={{ color: '#111', fontSize: '16px', fontWeight: '600', textDecoration: 'none' }}>info.lceo@gmail.com</a>
                                         </div>
 
                                         <div className="d-flex align-items-center mb-3">
-                                            <span className="icon-phone mr-3" style={{ fontSize: '24px', color: '#4FB1A1' }}></span>
+                                            <span className="mr-3 d-flex align-items-center justify-content-center" style={{ width: '24px', height: '24px', color: '#4FB1A1' }}>
+                                                <Phone size={24} strokeWidth={1.5} />
+                                            </span>
                                             <a href="tel:+250788123456" style={{ color: '#111', fontSize: '16px', fontWeight: '600', textDecoration: 'none' }}>+250 788 123 456</a>
                                         </div>
 
@@ -106,11 +117,15 @@ export const ContactPage = () => {
                                             <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#122f2b', marginBottom: '15px' }}>Hours</h3>
                                             <ul className="list-unstyled mb-0">
                                                 <li className="mb-2 d-flex align-items-center" style={{ fontSize: '16px', color: '#111', fontWeight: '600' }}>
-                                                    <span className="icon-clock-o mr-3" style={{ fontSize: '20px', color: '#4FB1A1' }}></span>
+                                                    <span className="mr-3 d-flex align-items-center justify-content-center" style={{ width: '24px', height: '24px', color: '#4FB1A1' }}>
+                                                        <Clock size={22} strokeWidth={1.5} />
+                                                    </span>
                                                     <span>Mon - Fri: 9am - 6pm</span>
                                                 </li>
                                                 <li className="d-flex align-items-center" style={{ fontSize: '16px', color: '#111', fontWeight: '600' }}>
-                                                    <span className="icon-clock-o mr-3" style={{ fontSize: '20px', color: '#4FB1A1' }}></span>
+                                                    <span className="mr-3 d-flex align-items-center justify-content-center" style={{ width: '24px', height: '24px', color: '#4FB1A1' }}>
+                                                        <Clock size={22} strokeWidth={1.5} />
+                                                    </span>
                                                     <span>Sat: 9am - 2pm</span>
                                                 </li>
                                             </ul>
@@ -123,7 +138,9 @@ export const ContactPage = () => {
                                             <h4 className="text-white mb-2" style={{ fontWeight: '800', fontSize: '18px' }}>Support Mission</h4>
                                             <Link to="/donate" className="btn btn-sm px-4" style={{ backgroundColor: '#4FB1A1', color: '#fff', fontWeight: '800', border: 'none', borderRadius: '4px' }}>Donate Now</Link>
                                         </div>
-                                        <span className="icon-heart position-absolute" style={{ fontSize: '60px', color: '#fff', opacity: 0.1, bottom: '-10px', right: '-10px', zIndex: 1 }}></span>
+                                        <div className="position-absolute" style={{ color: '#fff', opacity: 0.1, bottom: '-10px', right: '-10px', zIndex: 1 }}>
+                                            <Heart size={80} strokeWidth={1} fill="currentColor" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FloatingScrollToTop } from './FloatingScrollToTop';
 import { Chatbot } from './Chatbot';
+import { Send, Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
 
 export const Footer = () => {
     return (
@@ -36,7 +37,7 @@ export const Footer = () => {
                                     style={{ height: '54px', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff', borderRadius: '8px' }} />
                                 <button type="submit" className="btn d-flex align-items-center justify-content-center px-4"
                                     style={{ height: '54px', background: '#eacfa2', color: '#111', fontWeight: 'bold', borderRadius: '8px', border: 'none', whiteSpace: 'nowrap' }}>
-                                    <span className="icon-paper-plane mr-2" style={{ fontSize: '18px' }}></span>
+                                    <Send size={18} className="mr-2" strokeWidth={1.5} />
                                     Subscribe
                                 </button>
                             </div>
@@ -50,11 +51,11 @@ export const Footer = () => {
                         <div className="ftco-footer-widget mb-4">
                             <h2 className="ftco-heading-2 text-white" style={{ fontWeight: 700 }}>LCEO</h2>
                             <p>Empowering vulnerable young women and girls in Rwanda through education, entrepreneurship, and health programs.</p>
-                            <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                                <li className="ftco-animate"><a href="#" style={{ background: 'rgba(255,255,255,0.1)' }}><span className="icon-facebook"></span></a></li>
-                                <li className="ftco-animate"><a href="#" style={{ background: 'rgba(255,255,255,0.1)' }}><span className="icon-twitter"></span></a></li>
-                                <li className="ftco-animate"><a href="#" style={{ background: 'rgba(255,255,255,0.1)' }}><span className="icon-instagram"></span></a></li>
-                                <li className="ftco-animate"><a href="#" style={{ background: 'rgba(255,255,255,0.1)' }}><span className="icon-linkedin"></span></a></li>
+                            <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5 display-flex">
+                                <li className="ftco-animate"><a href="#" style={{ background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Facebook size={20} strokeWidth={1.5} /></a></li>
+                                <li className="ftco-animate"><a href="#" style={{ background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Twitter size={20} strokeWidth={1.5} /></a></li>
+                                <li className="ftco-animate"><a href="#" style={{ background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Instagram size={20} strokeWidth={1.5} /></a></li>
+                                <li className="ftco-animate"><a href="#" style={{ background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Linkedin size={20} strokeWidth={1.5} /></a></li>
                             </ul>
                         </div>
                     </div>
@@ -93,9 +94,9 @@ export const Footer = () => {
                             <h2 className="ftco-heading-2 text-white" style={{ fontWeight: 700 }}>Contact Us</h2>
                             <div className="block-23 mb-3">
                                 <ul>
-                                    <li><span className="icon icon-map-marker" style={{ color: '#eacfa2' }}></span><span className="text"><strong>Address:</strong> Bugesera District, Nyamata Sector Eastern Province, Rwanda</span></li>
-                                    <li><a href="tel:+250788123456"><span className="icon icon-phone" style={{ color: '#eacfa2' }}></span><span className="text"><strong>Phone:</strong> +250 788 123 456</span></a></li>
-                                    <li><a href="mailto:info.lceo@gmail.com"><span className="icon icon-envelope" style={{ color: '#eacfa2' }}></span><span className="text"><strong>Email:</strong> info.lceo@gmail.com</span></a></li>
+                                    <li><div className="d-flex align-items-start"><MapPin size={24} className="mr-2" style={{ color: '#eacfa2' }} strokeWidth={1.5} /><span className="text"><strong>Address:</strong> Bugesera District, Nyamata Sector Eastern Province, Rwanda</span></div></li>
+                                    <li><a href="tel:+250788123456" className="d-flex align-items-center"><Phone size={24} className="mr-2" style={{ color: '#eacfa2' }} strokeWidth={1.5} /><span className="text"><strong>Phone:</strong> +250 788 123 456</span></a></li>
+                                    <li><a href="mailto:info.lceo@gmail.com" className="d-flex align-items-center"><Mail size={24} className="mr-2" style={{ color: '#eacfa2' }} strokeWidth={1.5} /><span className="text"><strong>Email:</strong> info.lceo@gmail.com</span></a></li>
                                 </ul>
                             </div>
                         </div>

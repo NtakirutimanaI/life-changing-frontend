@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
+import { ArrowLeft, MapPin, Twitter, Facebook, Instagram } from 'lucide-react';
 
 export const OurProgramsDetailsPage = () => {
     useLegacyScripts();
@@ -26,8 +26,8 @@ export const OurProgramsDetailsPage = () => {
                     {/* Back Button */}
                     <div className="row mb-5">
                         <div className="col-12">
-                            <Link to="/" className="btn btn-outline-secondary d-inline-flex align-items-center">
-                                <span className="mr-2">&larr;</span> Back to Programs
+                            <Link to="/programs" className="btn btn-outline-secondary d-inline-flex align-items-center">
+                                <ArrowLeft size={16} className="mr-2" /> Back to Programs
                             </Link>
                         </div>
                     </div>
@@ -157,7 +157,7 @@ export const OurProgramsDetailsPage = () => {
                             <div className="sidebar-box p-4 bg-light rounded mb-4">
                                 <h3 className="heading-sidebar mb-3">Location</h3>
                                 <div className="map-container bg-white border rounded d-flex align-items-center justify-content-center text-muted mb-2" style={{ height: '180px' }}>
-                                    <span className="icon-map-o mr-2"></span> Map View
+                                    <MapPin className="mr-2" size={24} /> Map View
                                 </div>
                                 <p className="small text-muted mb-0">Operating in Gasabo and Nyarugenge districts, Kigali City.</p>
                             </div>
@@ -167,9 +167,9 @@ export const OurProgramsDetailsPage = () => {
                                 <h3 className="heading-sidebar">Stay Connected</h3>
                                 <p>Follow the journey and updates for this program on our platforms.</p>
                                 <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                                    <li className="ftco-animate fadeInUp ftco-animated"><a href="#"><span className="icon-twitter"></span></a></li>
-                                    <li className="ftco-animate fadeInUp ftco-animated"><a href="#"><span className="icon-facebook"></span></a></li>
-                                    <li className="ftco-animate fadeInUp ftco-animated"><a href="#"><span className="icon-instagram"></span></a></li>
+                                    <li className="ftco-animate fadeInUp ftco-animated"><a href="#"><Twitter size={20} className="text-primary" /></a></li>
+                                    <li className="ftco-animate fadeInUp ftco-animated"><a href="#"><Facebook size={20} className="text-primary" /></a></li>
+                                    <li className="ftco-animate fadeInUp ftco-animated"><a href="#"><Instagram size={20} className="text-primary" /></a></li>
                                 </ul>
                             </div>
                         </div>

@@ -115,11 +115,11 @@ export default function ReportsPage() {
         </div>
         <div className="flex gap-2 w-full sm:w-auto">
           <Button variant="outline" className="flex-1 sm:flex-none">
-            <Filter className="w-4 h-4 mr-2" />
+            <Filter className="w-4 h-4 mr-2" strokeWidth={1.5} />
             Filter
           </Button>
           <Button className="bg-teal-600 hover:bg-teal-700 flex-1 sm:flex-none">
-            <FileText className="w-4 h-4 mr-2" />
+            <FileText className="w-4 h-4 mr-2" strokeWidth={1.5} />
             Generate Report
           </Button>
         </div>
@@ -134,7 +134,7 @@ export default function ReportsPage() {
           <CardContent>
             <div className="flex items-center justify-between">
               <div className="text-3xl font-bold">{mockPrograms.length}</div>
-              <Target className="w-8 h-8 text-gray-400" />
+              <Target className="w-8 h-8 text-gray-400" strokeWidth={1.5} />
             </div>
           </CardContent>
         </Card>
@@ -146,7 +146,7 @@ export default function ReportsPage() {
           <CardContent>
             <div className="flex items-center justify-between">
               <div className="text-3xl font-bold text-teal-600">{mockBeneficiaries.length}</div>
-              <Users className="w-8 h-8 text-teal-400" />
+              <Users className="w-8 h-8 text-teal-400" strokeWidth={1.5} />
             </div>
           </CardContent>
         </Card>
@@ -158,7 +158,7 @@ export default function ReportsPage() {
           <CardContent>
             <div className="flex items-center justify-between">
               <div className="text-3xl font-bold text-green-600">${totalDonations.toLocaleString()}</div>
-              <TrendingUp className="w-8 h-8 text-green-400" />
+              <TrendingUp className="w-8 h-8 text-green-400" strokeWidth={1.5} />
             </div>
           </CardContent>
         </Card>
@@ -174,7 +174,7 @@ export default function ReportsPage() {
                   ? Math.round((graduatedBeneficiaries / mockBeneficiaries.length) * 100)
                   : 0}%
               </div>
-              <BarChart3 className="w-8 h-8 text-blue-400" />
+              <BarChart3 className="w-8 h-8 text-blue-400" strokeWidth={1.5} />
             </div>
           </CardContent>
         </Card>
@@ -385,14 +385,14 @@ export default function ReportsPage() {
                   <div className="flex items-start justify-between">
                     <div className="flex items-start gap-4">
                       <div className="p-3 bg-teal-100 rounded-lg">
-                        <FileText className="w-6 h-6 text-teal-600" />
+                        <FileText className="w-6 h-6 text-teal-600" strokeWidth={1.5} />
                       </div>
                       <div>
                         <CardTitle className="text-lg">{report.title}</CardTitle>
                         <CardDescription className="mt-1">{report.description}</CardDescription>
                         <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
                           <span className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
+                            <Calendar className="w-4 h-4" strokeWidth={1.5} />
                             {report.period}
                           </span>
                           <span>Generated: {new Date(report.generated).toLocaleDateString()}</span>
@@ -409,7 +409,7 @@ export default function ReportsPage() {
                       View
                     </Button>
                     <Button size="sm" className="bg-teal-600 hover:bg-teal-700">
-                      <Download className="w-4 h-4 mr-2" />
+                      <Download className="w-4 h-4 mr-2" strokeWidth={1.5} />
                       Download
                     </Button>
                   </div>

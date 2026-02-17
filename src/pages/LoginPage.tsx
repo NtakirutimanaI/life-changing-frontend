@@ -170,7 +170,7 @@ export function LoginPage() {
                                                 onClick={() => setShowPassword(!showPassword)}
                                                 style={{ position: 'absolute', right: '15px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: '#adb5bd' }}
                                             >
-                                                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                                                {showPassword ? <EyeOff size={18} strokeWidth={1.5} /> : <Eye size={18} strokeWidth={1.5} />}
                                             </button>
                                         </div>
                                         {accessType === 'login' && (
@@ -260,26 +260,26 @@ export function LoginPage() {
                             <div className="py-2">
                                 <h5 className="mb-4 font-weight-bold" style={{ color: '#122f2b' }}>Experience LCEO</h5>
 
-{/* Hide admin portal button for demo as requested */}
-{/* <button className="btn btn-outline-light btn-block mb-3 text-left d-flex align-items-center p-3 border" style={{ borderRadius: '12px' }} onClick={() => login('admin@lceo.org', UserType.ADMIN)}>
+                                {/* Hide admin portal button for demo as requested */}
+                                {/* <button className="btn btn-outline-light btn-block mb-3 text-left d-flex align-items-center p-3 border" style={{ borderRadius: '12px' }} onClick={() => login('admin@lceo.org', UserType.ADMIN)}>
     <div className="bg-light rounded-circle p-2 mr-3 d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}><Settings size={20} className="text-primary" /></div>
     <div><div className="font-weight-bold text-dark" style={{ fontSize: '0.9rem' }}>Admin Portal</div><small className="text-muted">Manage the whole organization</small></div>
 </button> */}
 
                                 <button className="btn btn-outline-light btn-block mb-3 text-left d-flex align-items-center p-3 border" style={{ borderRadius: '12px' }} onClick={() => login('ben@lceo.org', UserType.BENEFICIARY)}>
-                                    <div className="bg-light rounded-circle p-2 mr-3 d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}><User size={20} className="text-success" /></div>
+                                    <div className="bg-light rounded-circle p-2 mr-3 d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}><User size={20} className="text-success" strokeWidth={1.5} /></div>
                                     <div><div className="font-weight-bold text-dark" style={{ fontSize: '0.9rem' }}>Beneficiary Area</div><small className="text-muted">View progress and support</small></div>
                                 </button>
 
                                 <button className="btn btn-outline-light btn-block mb-3 text-left d-flex align-items-center p-3 border" style={{ borderRadius: '12px' }} onClick={() => login('donor@lceo.org', UserType.DONOR)}>
-                                    <div className="bg-light rounded-circle p-2 mr-3 d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}><Heart size={20} className="text-danger" /></div>
+                                    <div className="bg-light rounded-circle p-2 mr-3 d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}><Heart size={20} className="text-danger" strokeWidth={1.5} /></div>
                                     <div><div className="font-weight-bold text-dark" style={{ fontSize: '0.9rem' }}>Donor Dashboard</div><small className="text-muted">Track your global impact</small></div>
                                 </button>
                             </div>
                         )}
                         <div className="mt-4 pt-4 border-top">
                             <Link to="/" className="text-muted small d-inline-flex align-items-center">
-                                <ArrowLeft size={14} className="mr-1" /> Back to website
+                                <ArrowLeft size={14} className="mr-1" strokeWidth={1.5} /> Back to website
                             </Link>
                         </div>
                     </div>

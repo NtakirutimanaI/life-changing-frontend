@@ -93,7 +93,7 @@ export const FloatingScrollToTop = () => {
             whileTap={{ scale: 0.9 }}
             title="Scroll to Top"
         >
-            <ArrowUp size={28} />
+            <ArrowUp size={28} strokeWidth={1.5} />
         </motion.button>
     );
 };

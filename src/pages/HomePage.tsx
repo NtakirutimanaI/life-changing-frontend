@@ -4,6 +4,7 @@ import { useLanguage } from '../lib/language-context';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
 import { mockPrograms, mockStories } from '../lib/mock-data';
 import { ProgramCategory } from '../lib/types';
+import { Users, GraduationCap, Briefcase, Award, Wallet, Heart, TrendingUp } from 'lucide-react';
 
 export const HomePage = () => {
     useLegacyScripts();
@@ -30,7 +31,7 @@ export const HomePage = () => {
     const [isDeleting, setIsDeleting] = useState(false);
 
     React.useEffect(() => {
-        let timer: NodeJS.Timeout;
+        let timer: ReturnType<typeof setTimeout>;
         const currentPhrase = typingPhrases[phraseIdx];
 
         if (isDeleting) {
@@ -91,54 +92,78 @@ export const HomePage = () => {
                 </div>
             </div>
 
-            <section className="ftco-counter ftco-intro" id="section-counter">
+            <section className="ftco-counter" id="section-counter" style={{ backgroundColor: '#00594f', padding: '40px 0' }}>
                 <div className="container">
+                    <div className="row mb-3">
+                        <div className="col-md-12 ftco-animate">
+                            <h2 className="text-white font-weight-bold" style={{ fontSize: '24px' }}>Our impact in 2024</h2>
+                        </div>
+                    </div>
                     <div className="row no-gutters">
-                        <div className="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div className="block-18 color-1 align-items-stretch" style={{ padding: '15px 10px' }}>
-                                <div className="text text-center">
-                                    <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>Women & Girls</span>
-                                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', whiteSpace: 'nowrap', margin: '5px 0' }}>
-                                        <strong className="number" data-number={counters.women} style={{ fontSize: '32px' }}>0</strong>
-                                        <span style={{ fontSize: '24px', color: '#000', fontWeight: 600 }}>+</span>
+                        <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate">
+                            <div className="d-flex align-items-center">
+                                <div className="mr-3" style={{ color: 'white', opacity: 0.9 }}>
+                                    <Users size={45} strokeWidth={1.5} />
+                                </div>
+                                <div className="text-white">
+                                    <div className="d-flex align-items-baseline">
+                                        <strong className="number" data-number={counters.women} style={{ fontSize: '36px', fontWeight: '800' }}>0</strong>
+                                        <span style={{ fontSize: '20px', marginLeft: '2px', fontWeight: '700' }}>+</span>
                                     </div>
-                                    <span style={{ fontSize: '13px', lineHeight: '1.2' }}>Reached & Empowered</span>
+                                    <span style={{ fontSize: '13px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
+                                        Women & girls reached <br /> & empowered
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div className="block-18 color-2 align-items-stretch" style={{ padding: '15px 10px' }}>
-                                <div className="text text-center">
-                                    <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>Education</span>
-                                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', whiteSpace: 'nowrap', margin: '5px 0' }}>
-                                        <strong className="number" data-number={counters.education} style={{ fontSize: '32px' }}>0</strong>
-                                        <span style={{ fontSize: '24px', color: '#000', fontWeight: 600 }}>+</span>
+
+                        <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate">
+                            <div className="d-flex align-items-center">
+                                <div className="mr-3" style={{ color: 'white', opacity: 0.9 }}>
+                                    <GraduationCap size={45} strokeWidth={1.5} />
+                                </div>
+                                <div className="text-white">
+                                    <div className="d-flex align-items-baseline">
+                                        <strong className="number" data-number={counters.education} style={{ fontSize: '36px', fontWeight: '800' }}>0</strong>
+                                        <span style={{ fontSize: '20px', marginLeft: '2px', fontWeight: '700' }}>+</span>
                                     </div>
-                                    <span style={{ fontSize: '13px', lineHeight: '1.2' }}>Girls stayed in school</span>
+                                    <span style={{ fontSize: '13px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
+                                        Girls stayed in school <br /> through our support
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div className="block-18 color-3 align-items-stretch" style={{ padding: '15px 10px' }}>
-                                <div className="text text-center">
-                                    <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>Livelihoods</span>
-                                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', whiteSpace: 'nowrap', margin: '5px 0' }}>
-                                        <strong className="number" data-number={counters.livelihoods} style={{ fontSize: '32px' }}>0</strong>
-                                        <span style={{ fontSize: '24px', color: '#000', fontWeight: 600 }}>+</span>
+
+                        <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate">
+                            <div className="d-flex align-items-center">
+                                <div className="mr-3" style={{ color: 'white', opacity: 0.9 }}>
+                                    <Briefcase size={45} strokeWidth={1.5} />
+                                </div>
+                                <div className="text-white">
+                                    <div className="d-flex align-items-baseline">
+                                        <strong className="number" data-number={counters.livelihoods} style={{ fontSize: '36px', fontWeight: '800' }}>0</strong>
+                                        <span style={{ fontSize: '20px', marginLeft: '2px', fontWeight: '700' }}>+</span>
                                     </div>
-                                    <span style={{ fontSize: '13px', lineHeight: '1.2' }}>Businesses launched</span>
+                                    <span style={{ fontSize: '13px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
+                                        Businesses launched <br /> and thriving
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div className="block-18 color-4 align-items-stretch" style={{ padding: '15px 10px' }}>
-                                <div className="text text-center text-white">
-                                    <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px', color: '#fff' }}>Leadership</span>
-                                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', whiteSpace: 'nowrap', margin: '5px 0' }}>
-                                        <strong className="number" data-number={counters.leadership} style={{ fontSize: '32px', color: '#fff' }}>0</strong>
-                                        <span style={{ fontSize: '24px', color: '#fff', fontWeight: 600 }}>+</span>
+
+                        <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate">
+                            <div className="d-flex align-items-center">
+                                <div className="mr-3" style={{ color: 'white', opacity: 0.9 }}>
+                                    <Award size={45} strokeWidth={1.5} />
+                                </div>
+                                <div className="text-white">
+                                    <div className="d-flex align-items-baseline">
+                                        <strong className="number" data-number={counters.leadership} style={{ fontSize: '36px', fontWeight: '800' }}>0</strong>
+                                        <span style={{ fontSize: '20px', marginLeft: '2px', fontWeight: '700' }}>+</span>
                                     </div>
-                                    <span style={{ fontSize: '13px', lineHeight: '1.2', color: '#fff' }}>Change Champions trained</span>
+                                    <span style={{ fontSize: '13px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
+                                        Change Champions <br /> trained as leaders
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -199,40 +224,32 @@ export const HomePage = () => {
                             <div className="row mb-5">
                                 <div className="col-md-6 mb-3 ftco-animate">
                                     <div className="d-flex align-items-center">
-                                        <div className="d-flex align-items-center justify-content-center mr-3" style={{ width: '40px', height: '40px', flexShrink: 0 }}>
-                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95.49-7.4-2.35-7.93-6.3C4.54 9.68 7.38 6.23 11.33 5.7V3.05c5.05.5 8.95 4.77 8.95 9.95 0 4.58-3.06 8.44-7.28 9.63V17.5c0-.28-.22-.5-.5-.5s-.5.22-.5.5v2.43zM13 7.12V12l4.25 2.52-.75 1.23L11.75 13V7.12h1.25z" fill="#076c5b" />
-                                            </svg>
+                                        <div className="d-flex align-items-center justify-content-center mr-3" style={{ width: '40px', height: '40px', flexShrink: 0, color: '#076c5b' }}>
+                                            <Wallet size={32} strokeWidth={1.5} />
                                         </div>
                                         <span style={{ fontSize: '15px', color: '#333', fontWeight: 500 }}>Economic Empowerment</span>
                                     </div>
                                 </div>
                                 <div className="col-md-6 mb-3">
                                     <div className="d-flex align-items-center">
-                                        <div className="d-flex align-items-center justify-content-center mr-3" style={{ width: '40px', height: '40px', flexShrink: 0 }}>
-                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" fill="#076c5b" />
-                                            </svg>
+                                        <div className="d-flex align-items-center justify-content-center mr-3" style={{ width: '40px', height: '40px', flexShrink: 0, color: '#076c5b' }}>
+                                            <GraduationCap size={32} strokeWidth={1.5} />
                                         </div>
                                         <span style={{ fontSize: '15px', color: '#333', fontWeight: 500 }}>Education Access</span>
                                     </div>
                                 </div>
                                 <div className="col-md-6 mb-3">
                                     <div className="d-flex align-items-center">
-                                        <div className="d-flex align-items-center justify-content-center mr-3" style={{ width: '40px', height: '40px', flexShrink: 0 }}>
-                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#076c5b" />
-                                            </svg>
+                                        <div className="d-flex align-items-center justify-content-center mr-3" style={{ width: '40px', height: '40px', flexShrink: 0, color: '#076c5b' }}>
+                                            <Heart size={32} strokeWidth={1.5} />
                                         </div>
                                         <span style={{ fontSize: '15px', color: '#333', fontWeight: 500 }}>Mental Health Support</span>
                                     </div>
                                 </div>
                                 <div className="col-md-6 mb-3">
                                     <div className="d-flex align-items-center">
-                                        <div className="d-flex align-items-center justify-content-center mr-3" style={{ width: '40px', height: '40px', flexShrink: 0 }}>
-                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="#076c5b" />
-                                            </svg>
+                                        <div className="d-flex align-items-center justify-content-center mr-3" style={{ width: '40px', height: '40px', flexShrink: 0, color: '#076c5b' }}>
+                                            <Users size={32} strokeWidth={1.5} />
                                         </div>
                                         <span style={{ fontSize: '15px', color: '#333', fontWeight: 500 }}>Community Advocacy</span>
                                     </div>
@@ -286,10 +303,8 @@ export const HomePage = () => {
                                     zIndex: 3,
                                     maxWidth: '180px'
                                 }}>
-                                    <div className="mr-3 d-flex align-items-center justify-content-center" style={{ width: '44px', height: '44px', flexShrink: 0 }}>
-                                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="#076c5b" />
-                                        </svg>
+                                    <div className="mr-3 d-flex align-items-center justify-content-center" style={{ width: '44px', height: '44px', flexShrink: 0, color: '#076c5b' }}>
+                                        <Users size={32} strokeWidth={1.5} />
                                     </div>
                                     <div>
                                         <span className="d-block font-weight-bold" style={{ fontSize: '16px', color: '#111' }}>150+</span>
@@ -306,15 +321,184 @@ export const HomePage = () => {
                                     zIndex: 3,
                                     maxWidth: '200px'
                                 }}>
-                                    <div className="mr-3 d-flex align-items-center justify-content-center" style={{ width: '44px', height: '44px', flexShrink: 0 }}>
-                                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" fill="#4FB1A1" />
-                                        </svg>
+                                    <div className="mr-3 d-flex align-items-center justify-content-center" style={{ width: '44px', height: '44px', flexShrink: 0, color: '#4FB1A1' }}>
+                                        <TrendingUp size={32} strokeWidth={1.5} />
                                     </div>
                                     <div>
                                         <span className="d-block font-weight-bold" style={{ fontSize: '14px', color: '#111' }}>Sustainable Impact</span>
                                         <span className="text-success font-weight-bold" style={{ fontSize: '10px' }}>⚡ 95% Success Rate</span>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="ftco-section bg-white" id="impact-areas" style={{ padding: '60px 0' }}>
+                <div className="container">
+                    <div className="row justify-content-center mb-5">
+                        <div className="col-md-8 text-center ftco-animate">
+                            <span className="badge badge-light px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', letterSpacing: '1.2px', textTransform: 'uppercase' }}>
+                                Our Impact Areas
+                            </span>
+                            <h2 className="mb-4 font-weight-bold" style={{ fontSize: '36px', color: '#111' }}>
+                                Areas of Intervention
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div className="row">
+                        {/* 1. Emergency Response (Featured) */}
+                        <div className="col-md-4 mb-4 ftco-animate">
+                            <div className="position-relative overflow-hidden" style={{ height: '380px', borderRadius: '4px' }}>
+                                <div style={{
+                                    backgroundImage: "url('/images/bg_3.jpg')",
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    height: '100%',
+                                    width: '100%'
+                                }}></div>
+                                <div className="position-absolute" style={{
+                                    bottom: '0',
+                                    left: '0',
+                                    width: '90%',
+                                    backgroundColor: '#00594f',
+                                    padding: '25px',
+                                    color: '#fff',
+                                    minHeight: '220px'
+                                }}>
+                                    <h3 className="text-white font-weight-bold mb-3" style={{ fontSize: '20px', textDecoration: 'underline', textUnderlineOffset: '6px' }}>
+                                        Emergency Response
+                                    </h3>
+                                    <p className="mb-0" style={{ fontSize: '14px', lineHeight: '1.6', color: 'rgba(255,255,255,0.8)' }}>
+                                        Providing rapid support to girls and women in crisis situations through a dedicated rapid response team. In an emergency situation, we act quickly to save lives and reduce suffering.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 2. Economic Empowerment */}
+                        <div className="col-md-4 mb-4 ftco-animate">
+                            <div className="position-relative overflow-hidden" style={{ height: '380px', borderRadius: '4px' }}>
+                                <div style={{
+                                    backgroundImage: "url('/images/cause-2.jpg')",
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    height: '100%',
+                                    width: '100%'
+                                }}></div>
+                                <div className="position-absolute" style={{
+                                    bottom: '0',
+                                    left: '0',
+                                    width: '100%',
+                                    backgroundColor: '#00594f',
+                                    padding: '15px 20px',
+                                    color: '#fff'
+                                }}>
+                                    <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
+                                        Economic Empowerment
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 3. SRHR & Menstrual Health */}
+                        <div className="col-md-4 mb-4 ftco-animate">
+                            <div className="position-relative overflow-hidden" style={{ height: '380px', borderRadius: '4px' }}>
+                                <div style={{
+                                    backgroundImage: "url('/images/cause-4.jpg')",
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    height: '100%',
+                                    width: '100%'
+                                }}></div>
+                                <div className="position-absolute" style={{
+                                    bottom: '0',
+                                    left: '0',
+                                    width: '100%',
+                                    backgroundColor: '#00594f',
+                                    padding: '15px 20px',
+                                    color: '#fff'
+                                }}>
+                                    <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
+                                        SRHR & Menstrual Health
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 4. Education & School Retention */}
+                        <div className="col-md-4 mb-4 ftco-animate">
+                            <div className="position-relative overflow-hidden" style={{ height: '380px', borderRadius: '4px' }}>
+                                <div style={{
+                                    backgroundImage: "url('/images/cause-1.jpg')",
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    height: '100%',
+                                    width: '100%'
+                                }}></div>
+                                <div className="position-absolute" style={{
+                                    bottom: '0',
+                                    left: '0',
+                                    width: '100%',
+                                    backgroundColor: '#00594f',
+                                    padding: '15px 20px',
+                                    color: '#fff'
+                                }}>
+                                    <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
+                                        Education & School Retention
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 5. Gender & Protection */}
+                        <div className="col-md-4 mb-4 ftco-animate">
+                            <div className="position-relative overflow-hidden" style={{ height: '380px', borderRadius: '4px' }}>
+                                <div style={{
+                                    backgroundImage: "url('/images/bg_2.jpg')",
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    height: '100%',
+                                    width: '100%'
+                                }}></div>
+                                <div className="position-absolute" style={{
+                                    bottom: '0',
+                                    left: '0',
+                                    width: '100%',
+                                    backgroundColor: '#00594f',
+                                    padding: '15px 20px',
+                                    color: '#fff'
+                                }}>
+                                    <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
+                                        Gender & Protection
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 6. Human Capital & Resilience */}
+                        <div className="col-md-4 mb-4 ftco-animate">
+                            <div className="position-relative overflow-hidden" style={{ height: '380px', borderRadius: '4px' }}>
+                                <div style={{
+                                    backgroundImage: "url('/images/cause-3.jpg')",
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    height: '100%',
+                                    width: '100%'
+                                }}></div>
+                                <div className="position-absolute" style={{
+                                    bottom: '0',
+                                    left: '0',
+                                    width: '100%',
+                                    backgroundColor: '#00594f',
+                                    padding: '15px 20px',
+                                    color: '#fff'
+                                }}>
+                                    <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
+                                        Human Capital & Resilience
+                                    </h3>
                                 </div>
                             </div>
                         </div>

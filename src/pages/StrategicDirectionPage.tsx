@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
-import { User, Users, Shield } from 'lucide-react';
+import { User, Users, Shield, Globe, BookOpen, TrendingUp, GraduationCap, Briefcase, Award, ChevronRight } from 'lucide-react';
 
 export const StrategicDirectionPage = () => {
     useLegacyScripts();
@@ -23,54 +23,78 @@ export const StrategicDirectionPage = () => {
                 </div>
             </div>
 
-            <section className="ftco-counter ftco-intro" id="section-counter">
+            <section className="ftco-counter" id="section-counter" style={{ backgroundColor: '#00594f', padding: '40px 0' }}>
                 <div className="container">
-                    <div className="row no-gutters">
-                        <div className="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div className="block-18 color-1 align-items-stretch" style={{ padding: '15px 10px' }}>
-                                <div className="text text-center">
-                                    <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>Women & Girls</span>
-                                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', whiteSpace: 'nowrap', margin: '5px 0' }}>
-                                        <strong className="number" data-number="5000" style={{ fontSize: '32px' }}>0</strong>
-                                        <span style={{ fontSize: '24px', color: '#000', fontWeight: 600 }}>+</span>
+                    <div className="row mb-3">
+                        <div className="col-md-12 ftco-animate">
+                            <h2 className="text-white font-weight-bold" style={{ fontSize: '24px' }}>Our impact in 2024</h2>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-3 d-flex align-items-center mb-0 ftco-animate">
+                            <div className="d-flex align-items-center">
+                                <div className="mr-3" style={{ color: 'white', opacity: 0.9 }}>
+                                    <Users size={45} strokeWidth={1.5} />
+                                </div>
+                                <div className="text-white">
+                                    <div className="d-flex align-items-baseline">
+                                        <strong className="number" data-number="5000" style={{ fontSize: '36px', fontWeight: '800' }}>0</strong>
+                                        <span style={{ fontSize: '20px', marginLeft: '2px', fontWeight: '700' }}>+</span>
                                     </div>
-                                    <span style={{ fontSize: '13px', lineHeight: '1.2' }}>Reached & Empowered</span>
+                                    <span style={{ fontSize: '13px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
+                                        Women & girls reached <br /> & empowered
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div className="block-18 color-2 align-items-stretch" style={{ padding: '15px 10px' }}>
-                                <div className="text text-center">
-                                    <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>Education</span>
-                                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', whiteSpace: 'nowrap', margin: '5px 0' }}>
-                                        <strong className="number" data-number="1200" style={{ fontSize: '32px' }}>0</strong>
-                                        <span style={{ fontSize: '24px', color: '#000', fontWeight: 600 }}>+</span>
+
+                        <div className="col-md-3 d-flex align-items-center mb-0 ftco-animate">
+                            <div className="d-flex align-items-center">
+                                <div className="mr-3" style={{ color: 'white', opacity: 0.9 }}>
+                                    <GraduationCap size={45} strokeWidth={1.5} />
+                                </div>
+                                <div className="text-white">
+                                    <div className="d-flex align-items-baseline">
+                                        <strong className="number" data-number="1200" style={{ fontSize: '36px', fontWeight: '800' }}>0</strong>
+                                        <span style={{ fontSize: '20px', marginLeft: '2px', fontWeight: '700' }}>+</span>
                                     </div>
-                                    <span style={{ fontSize: '13px', lineHeight: '1.2' }}>Girls stayed in school</span>
+                                    <span style={{ fontSize: '13px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
+                                        Girls stayed in school <br /> through our support
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div className="block-18 color-3 align-items-stretch" style={{ padding: '15px 10px' }}>
-                                <div className="text text-center">
-                                    <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>Livelihoods</span>
-                                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', whiteSpace: 'nowrap', margin: '5px 0' }}>
-                                        <strong className="number" data-number="450" style={{ fontSize: '32px' }}>0</strong>
-                                        <span style={{ fontSize: '24px', color: '#000', fontWeight: 600 }}>+</span>
+
+                        <div className="col-md-3 d-flex align-items-center mb-0 ftco-animate">
+                            <div className="d-flex align-items-center">
+                                <div className="mr-3" style={{ color: 'white', opacity: 0.9 }}>
+                                    <Briefcase size={45} strokeWidth={1.5} />
+                                </div>
+                                <div className="text-white">
+                                    <div className="d-flex align-items-baseline">
+                                        <strong className="number" data-number="450" style={{ fontSize: '36px', fontWeight: '800' }}>0</strong>
+                                        <span style={{ fontSize: '20px', marginLeft: '2px', fontWeight: '700' }}>+</span>
                                     </div>
-                                    <span style={{ fontSize: '13px', lineHeight: '1.2' }}>Businesses launched</span>
+                                    <span style={{ fontSize: '13px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
+                                        Businesses launched <br /> and thriving
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div className="block-18 color-4 align-items-stretch" style={{ padding: '15px 10px' }}>
-                                <div className="text text-center text-white">
-                                    <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px', color: '#fff' }}>Leadership</span>
-                                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', whiteSpace: 'nowrap', margin: '5px 0' }}>
-                                        <strong className="number" data-number="300" style={{ fontSize: '32px', color: '#fff' }}>0</strong>
-                                        <span style={{ fontSize: '24px', color: '#fff', fontWeight: 600 }}>+</span>
+
+                        <div className="col-md-3 d-flex align-items-center mb-0 ftco-animate">
+                            <div className="d-flex align-items-center">
+                                <div className="mr-3" style={{ color: 'white', opacity: 0.9 }}>
+                                    <Award size={45} strokeWidth={1.5} />
+                                </div>
+                                <div className="text-white">
+                                    <div className="d-flex align-items-baseline">
+                                        <strong className="number" data-number="300" style={{ fontSize: '36px', fontWeight: '800' }}>0</strong>
+                                        <span style={{ fontSize: '20px', marginLeft: '2px', fontWeight: '700' }}>+</span>
                                     </div>
-                                    <span style={{ fontSize: '13px', lineHeight: '1.2', color: '#fff' }}>Change Champions trained</span>
+                                    <span style={{ fontSize: '13px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
+                                        Change Champions <br /> trained as leaders
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +155,7 @@ export const StrategicDirectionPage = () => {
                                 }}>
                                     LEARN MORE
                                     <div className="ml-2 bg-white rounded-circle d-flex align-items-center justify-content-center" style={{ width: '28px', height: '28px' }}>
-                                        <i className="ion-ios-arrow-forward text-dark" style={{ color: '#076c5b', marginLeft: '2px' }}></i>
+                                        <ChevronRight size={16} className="text-dark" style={{ color: '#076c5b', marginLeft: '0px' }} />
                                     </div>
                                 </Link>
                             </div>
@@ -177,112 +201,131 @@ export const StrategicDirectionPage = () => {
                                 </div>
 
                                 <div className="row mt-5 pt-4">
-                                    <div className="col-md-4 mb-4">
-                                        <div className="icon-box mb-4 d-flex align-items-center justify-content-center" style={{ width: '60px', height: '60px', backgroundColor: '#f0f9f8', borderRadius: '12px' }}>
-                                            <User size={32} strokeWidth={1.5} style={{ color: '#076c5b' }} />
+                                    {/* 1. Individual Level */}
+                                    <div className="col-md-4 mb-5 d-flex">
+                                        <div className="mr-3 d-flex align-items-start justify-content-center" style={{ width: '80px', flexShrink: 0 }}>
+                                            <User size={60} strokeWidth={1} style={{ color: '#076c5b' }} />
                                         </div>
-                                        <h5 className="font-weight-bold mb-3" style={{ fontSize: '20px', color: '#111' }}>1. Individual Level</h5>
-                                        <p style={{ fontSize: '15.5px', color: '#666', lineHeight: '1.6' }}>
-                                            Building agency, confidence, and skills through mindset transformation, education access, and economic literacy.
-                                        </p>
+                                        <div>
+                                            <h5 className="font-weight-bold mb-2 d-flex align-items-center" style={{ fontSize: '20px', color: '#111' }}>
+                                                1. Individual Level <span className="ml-2" style={{ fontSize: '16px', fontWeight: '900', color: '#076c5b', opacity: 0.8 }}>›</span>
+                                            </h5>
+                                            <p style={{ fontSize: '15.5px', color: '#666', lineHeight: '1.6' }}>
+                                                Building agency, confidence, and skills through mindset transformation and education access.
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div className="col-md-4 mb-4">
-                                        <div className="icon-box mb-4 d-flex align-items-center justify-content-center" style={{ width: '60px', height: '60px', backgroundColor: '#f0f9f8', borderRadius: '12px' }}>
-                                            <Users size={32} strokeWidth={1.5} style={{ color: '#076c5b' }} />
+
+                                    {/* 2. Relational Level */}
+                                    <div className="col-md-4 mb-5 d-flex">
+                                        <div className="mr-3 d-flex align-items-start justify-content-center" style={{ width: '80px', flexShrink: 0 }}>
+                                            <Users size={60} strokeWidth={1} style={{ color: '#076c5b' }} />
                                         </div>
-                                        <h5 className="font-weight-bold mb-3" style={{ fontSize: '20px', color: '#111' }}>2. Relational Level</h5>
-                                        <p style={{ fontSize: '15.5px', color: '#666', lineHeight: '1.6' }}>
-                                            Transforming relationships by engaging male champions, family support systems, and peer mentorship circles.
-                                        </p>
+                                        <div>
+                                            <h5 className="font-weight-bold mb-2 d-flex align-items-center" style={{ fontSize: '20px', color: '#111' }}>
+                                                2. Relational Level <span className="ml-2" style={{ fontSize: '16px', fontWeight: '900', color: '#076c5b', opacity: 0.8 }}>›</span>
+                                            </h5>
+                                            <p style={{ fontSize: '15.5px', color: '#666', lineHeight: '1.6' }}>
+                                                Transforming relationships by engaging male champions and peer mentorship circles.
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div className="col-md-4 mb-4">
-                                        <div className="icon-box mb-4 d-flex align-items-center justify-content-center" style={{ width: '60px', height: '60px', backgroundColor: '#f0f9f8', borderRadius: '12px' }}>
-                                            <Shield size={32} strokeWidth={1.5} style={{ color: '#076c5b' }} />
+
+                                    {/* 3. Structural Level */}
+                                    <div className="col-md-4 mb-5 d-flex">
+                                        <div className="mr-3 d-flex align-items-start justify-content-center" style={{ width: '80px', flexShrink: 0 }}>
+                                            <Shield size={60} strokeWidth={1} style={{ color: '#076c5b' }} />
                                         </div>
-                                        <h5 className="font-weight-bold mb-3" style={{ fontSize: '20px', color: '#111' }}>3. Structural Level</h5>
-                                        <p style={{ fontSize: '15.5px', color: '#666', lineHeight: '1.6' }}>
-                                            Addressing systemic barriers through partnerships with local leaders, policy advocacy, and creating enabling environments.
-                                        </p>
+                                        <div>
+                                            <h5 className="font-weight-bold mb-2 d-flex align-items-center" style={{ fontSize: '20px', color: '#111' }}>
+                                                3. Structural Level <span className="ml-2" style={{ fontSize: '16px', fontWeight: '900', color: '#076c5b', opacity: 0.8 }}>›</span>
+                                            </h5>
+                                            <p style={{ fontSize: '15.5px', color: '#666', lineHeight: '1.6' }}>
+                                                Addressing systemic barriers through partnerships with local leaders and policy advocacy.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="col-md-12 ftco-animate mb-5">
-                            <div className="p-4 bg-light">
-                                <h3 className="mb-3" style={{ color: '#4FB1A1' }}>National and Global Alignment</h3>
-                                <div className="row mb-4">
-                                    <div className="col-md-6 mb-3">
-                                        <h5 className="font-weight-bold">Rwanda Vision 2050</h5>
-                                        <p className="small text-muted">Contributing to human capital development, gender equality, and inclusive
-                                            economic growth as envisioned in Rwanda's long-term aspirations.</p>
-                                    </div>
-                                    <div className="col-md-6 mb-3">
-                                        <h5 className="font-weight-bold">NST2 Priorities</h5>
-                                        <p className="small text-muted">Aligned with the National Strategy for Transformation: Quality education,
-                                            skills development, and social protection for inclusive growth.</p>
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+            </section>
 
-                                <h5 className="font-weight-bold mb-3">Sustainable Development Goals (SDGs)</h5>
-                                <p>Our programs directly contribute to achieving these global goals:</p>
-                                <div className="row text-center">
-                                    <div className="col-md-2 col-sm-4 mb-3">
-                                        <div className="p-2 border rounded h-100">
-                                            <div className="font-weight-bold h5 mb-1" style={{ color: '#e5243b' }}>1</div>
-                                            <p className="small mb-0">No Poverty</p>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-2 col-sm-4 mb-3">
-                                        <div className="p-2 border rounded h-100">
-                                            <div className="font-weight-bold h5 mb-1" style={{ color: '#4c9f38' }}>3</div>
-                                            <p className="small mb-0">Good Health</p>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-2 col-sm-4 mb-3">
-                                        <div className="p-2 border rounded h-100">
-                                            <div className="font-weight-bold h5 mb-1" style={{ color: '#c5192d' }}>4</div>
-                                            <p className="small mb-0">Quality Education</p>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-2 col-sm-4 mb-3">
-                                        <div className="p-2 border rounded h-100">
-                                            <div className="font-weight-bold h5 mb-1" style={{ color: '#ff3a21' }}>5</div>
-                                            <p className="small mb-0">Gender Equality</p>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-2 col-sm-4 mb-3">
-                                        <div className="p-2 border rounded h-100">
-                                            <div className="font-weight-bold h5 mb-1" style={{ color: '#a21942' }}>8</div>
-                                            <p className="small mb-0">Decent Work</p>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-2 col-sm-4 mb-3">
-                                        <div className="p-2 border rounded h-100">
-                                            <div className="font-weight-bold h5 mb-1" style={{ color: '#dd1367' }}>10</div>
-                                            <p className="small mb-0">Reduced Inequality</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <section className="ftco-section" style={{ backgroundColor: '#00594f', padding: '100px 0' }}>
+                <div className="container">
+                    <div className="row justify-content-start mb-5 pb-3">
+                        <div className="col-md-12 heading-section ftco-animate">
+                            <h2 className="mb-4 text-white font-weight-bold" style={{ fontSize: '40px' }}>National and Global Alignment</h2>
                         </div>
                     </div>
-                </div >
-            </section >
+                    <div className="row">
+                        {/* Item 1: Rwanda Vision 2050 */}
+                        <div className="col-md-6 mb-5 d-flex ftco-animate">
+                            <div className="mr-4 d-flex align-items-center justify-content-center" style={{ width: '80px', height: '80px', flexShrink: 0 }}>
+                                <Globe className="text-white" size={60} strokeWidth={1} />
+                            </div>
+                            <div>
+                                <h4 className="text-white font-weight-bold mb-3 d-flex align-items-center" style={{ fontSize: '22px' }}>
+                                    Rwanda Vision 2050 <span className="ml-2" style={{ fontSize: '18px', fontWeight: '900', opacity: 0.8 }}>›</span>
+                                </h4>
+                                <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '16px', lineHeight: '1.6' }}>
+                                    Contributing to human capital development, gender equality, and inclusive economic growth as envisioned in Rwanda's long-term aspirations.
+                                </p>
+                            </div>
+                        </div>
 
+                        {/* Item 2: NST2 Priorities */}
+                        <div className="col-md-6 mb-5 d-flex ftco-animate">
+                            <div className="mr-4 d-flex align-items-center justify-content-center" style={{ width: '80px', height: '80px', flexShrink: 0 }}>
+                                <BookOpen className="text-white" size={60} strokeWidth={1} />
+                            </div>
+                            <div>
+                                <h4 className="text-white font-weight-bold mb-3 d-flex align-items-center" style={{ fontSize: '22px' }}>
+                                    NST2 Priorities <span className="ml-2" style={{ fontSize: '18px', fontWeight: '900', opacity: 0.8 }}>›</span>
+                                </h4>
+                                <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '16px', lineHeight: '1.6' }}>
+                                    Aligned with the National Strategy for Transformation: Quality education, skills development, and social protection for inclusive growth.
+                                </p>
+                            </div>
+                        </div>
 
-            <section className="ftco-section-3 img" style={{ backgroundImage: "url(/images/bg_3.jpg)" }}>
-                <div className="overlay"></div>
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-md-7 heading-section ftco-animate text-center">
-                            <h2 className="mb-4 text-white">Join Our Mission</h2>
-                            <p className="text-white opacity-75">Your support enables us to continue our vital work in the community.</p>
-                            <p className="mt-4"><Link to="/donate" className="btn btn-primary px-5 py-3 font-weight-bold">Donate Now</Link></p>
+                        {/* Item 3: Economic Inclusion */}
+                        <div className="col-md-6 mb-5 d-flex ftco-animate">
+                            <div className="mr-4 d-flex align-items-center justify-content-center" style={{ width: '80px', height: '80px', flexShrink: 0 }}>
+                                <TrendingUp className="text-white" size={60} strokeWidth={1} />
+                            </div>
+                            <div>
+                                <h4 className="text-white font-weight-bold mb-3 d-flex align-items-center" style={{ fontSize: '22px' }}>
+                                    Economic Inclusion <span className="ml-2" style={{ fontSize: '18px', fontWeight: '900', opacity: 0.8 }}>›</span>
+                                </h4>
+                                <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '16px', lineHeight: '1.6' }}>
+                                    Directly contributing to SDG 1 (No Poverty) and SDG 8 (Decent Work) by building resilient families through community-led economic empowerment.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Item 4: Quality & Gender Equality */}
+                        <div className="col-md-6 mb-5 d-flex ftco-animate">
+                            <div className="mr-4 d-flex align-items-center justify-content-center" style={{ width: '80px', height: '80px', flexShrink: 0 }}>
+                                <GraduationCap className="text-white" size={60} strokeWidth={1} />
+                            </div>
+                            <div>
+                                <h4 className="text-white font-weight-bold mb-3 d-flex align-items-center" style={{ fontSize: '22px' }}>
+                                    Gender & Education <span className="ml-2" style={{ fontSize: '18px', fontWeight: '900', opacity: 0.8 }}>›</span>
+                                </h4>
+                                <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '16px', lineHeight: '1.6' }}>
+                                    Fulfilling SDG 4 (Quality Education) and SDG 5 (Gender Equality) to ensure every girl has the opportunity to lead and thrive in her community.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+
+
 
         </>
     );

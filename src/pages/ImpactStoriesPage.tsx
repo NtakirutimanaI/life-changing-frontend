@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
-import { Check, Globe } from 'lucide-react';
+import { Check, Globe, Users, GraduationCap, Briefcase, Award } from 'lucide-react';
 
 export const ImpactStoriesPage = () => {
     useLegacyScripts();
@@ -26,21 +26,23 @@ export const ImpactStoriesPage = () => {
             </div>
 
             {/* Split Design Impact Section (Matching Image Structure) */}
-            <section className="ftco-section bg-white" style={{ padding: '100px 0' }}>
+            <section className="ftco-section bg-white" style={{ padding: '60px 0' }}>
                 <div className="container">
                     <div className="row align-items-center">
                         {/* Left Side: Content */}
                         <div className="col-md-6 ftco-animate pr-lg-5">
-                            <span style={{ color: '#fbb124', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '13px', display: 'block', marginBottom: '15px' }}>About Charitian</span>
-                            <h2 className="mb-4" style={{ fontSize: '50px', fontWeight: '800', color: '#122f2b', lineHeight: '1.1' }}>
+                            <span className="badge badge-light px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                                About Charitian
+                            </span>
+                            <h2 className="mb-4" style={{ fontSize: '40px', fontWeight: '800', color: '#122f2b', lineHeight: '1.2' }}>
                                 Together, We Make <br />
                                 A Difference!
                             </h2>
-                            <p className="mb-5" style={{ color: '#666', fontSize: '18px', lineHeight: '1.6' }}>
+                            <p className="mb-4" style={{ color: '#666', fontSize: '16px', lineHeight: '1.6' }}>
                                 Every statistic represents a life changed. Every number tells a story of resilience, growth, and empowerment. See the real impact of LCEO's work across education, entrepreneurship, and empowerment.
                             </p>
                             <p>
-                                <Link to="/donate" className="btn px-5 py-3 shadow" style={{ backgroundColor: '#fbb124', color: '#000', fontWeight: '800', fontSize: '15px', borderRadius: '4px', border: 'none' }}>Make A Donation</Link>
+                                <Link to="/donate" className="btn px-4 py-3 font-weight-bold" style={{ backgroundColor: '#076c5b', color: '#fff', fontSize: '14px', borderRadius: '12px', border: 'none' }}>Make A Donation</Link>
                             </p>
                         </div>
 
@@ -51,11 +53,11 @@ export const ImpactStoriesPage = () => {
                                 <div className="col-8 offset-4 mb-4">
                                     <div style={{
                                         backgroundImage: "url('/images/cause-1.jpg')",
-                                        height: '350px',
+                                        height: '300px',
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
                                         borderRadius: '8px',
-                                        boxShadow: '20px -20px 0px rgba(7, 108, 91, 0.05)'
+                                        boxShadow: '15px -15px 0px rgba(7, 108, 91, 0.05)'
                                     }}></div>
                                 </div>
 
@@ -63,12 +65,12 @@ export const ImpactStoriesPage = () => {
                                 <div className="position-absolute" style={{ top: '15%', left: '0', width: '45%', zIndex: 2 }}>
                                     <div style={{
                                         backgroundImage: "url('/images/cause-2.jpg')",
-                                        height: '250px',
+                                        height: '220px',
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
                                         borderRadius: '8px',
-                                        border: '10px solid #fff',
-                                        boxShadow: '0 15px 35px rgba(0,0,0,0.1)'
+                                        border: '8px solid #fff',
+                                        boxShadow: '0 10px 25px rgba(0,0,0,0.1)'
                                     }}></div>
                                 </div>
 
@@ -76,21 +78,21 @@ export const ImpactStoriesPage = () => {
                                 <div className="col-6 pr-3">
                                     <div style={{
                                         backgroundImage: "url('/images/cause-3.jpg')",
-                                        height: '220px',
+                                        height: '180px',
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
                                         borderRadius: '8px',
-                                        boxShadow: '0 15px 35px rgba(0,0,0,0.08)'
+                                        boxShadow: '0 10px 25px rgba(0,0,0,0.08)'
                                     }}></div>
                                 </div>
                                 <div className="col-6">
                                     <div style={{
                                         backgroundImage: "url('/images/cause-4.jpg')",
-                                        height: '180px',
+                                        height: '150px',
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
                                         borderRadius: '8px',
-                                        boxShadow: '0 15px 35px rgba(0,0,0,0.08)'
+                                        boxShadow: '0 10px 25px rgba(0,0,0,0.08)'
                                     }}></div>
                                 </div>
                             </div>
@@ -112,8 +114,8 @@ export const ImpactStoriesPage = () => {
                     <div className="row">
                         <div className="col-md-3 d-flex ftco-animate">
                             <div className="p-4 bg-white shadow-sm text-center w-100" style={{ borderRadius: '12px', border: '1px solid #f0f2f2' }}>
-                                <div className="icon-section mb-3">
-                                    <span className="icon-people" style={{ fontSize: '40px', color: '#076c5b' }}></span>
+                                <div className="icon-section d-flex align-items-center justify-content-center mb-3" style={{ color: '#076c5b' }}>
+                                    <Users size={40} strokeWidth={1.5} />
                                 </div>
                                 <h3 className="font-weight-bold" style={{ color: '#122f2b', fontSize: '2.2rem' }}>5,000+</h3>
                                 <span className="position mb-2 d-block text-uppercase" style={{ fontSize: '12px', fontWeight: '700', letterSpacing: '1px', color: '#076c5b' }}>Reached & Empowered</span>
@@ -122,8 +124,8 @@ export const ImpactStoriesPage = () => {
                         </div>
                         <div className="col-md-3 d-flex ftco-animate">
                             <div className="p-4 bg-white shadow-sm text-center w-100" style={{ borderRadius: '12px', border: '1px solid #f0f2f2' }}>
-                                <div className="icon-section mb-3">
-                                    <span className="icon-school" style={{ fontSize: '40px', color: '#076c5b' }}></span>
+                                <div className="icon-section d-flex align-items-center justify-content-center mb-3" style={{ color: '#076c5b' }}>
+                                    <GraduationCap size={40} strokeWidth={1.5} />
                                 </div>
                                 <h3 className="font-weight-bold" style={{ color: '#122f2b', fontSize: '2.2rem' }}>1,200+</h3>
                                 <span className="position mb-2 d-block text-uppercase" style={{ fontSize: '12px', fontWeight: '700', letterSpacing: '1px', color: '#076c5b' }}>Stayed In School</span>
@@ -132,8 +134,8 @@ export const ImpactStoriesPage = () => {
                         </div>
                         <div className="col-md-3 d-flex ftco-animate">
                             <div className="p-4 bg-white shadow-sm text-center w-100" style={{ borderRadius: '12px', border: '1px solid #f0f2f2' }}>
-                                <div className="icon-section mb-3">
-                                    <span className="icon-business_center" style={{ fontSize: '40px', color: '#076c5b' }}></span>
+                                <div className="icon-section d-flex align-items-center justify-content-center mb-3" style={{ color: '#076c5b' }}>
+                                    <Briefcase size={40} strokeWidth={1.5} />
                                 </div>
                                 <h3 className="font-weight-bold" style={{ color: '#122f2b', fontSize: '2.2rem' }}>450+</h3>
                                 <span className="position mb-2 d-block text-uppercase" style={{ fontSize: '12px', fontWeight: '700', letterSpacing: '1px', color: '#076c5b' }}>Businesses launched</span>
@@ -142,8 +144,8 @@ export const ImpactStoriesPage = () => {
                         </div>
                         <div className="col-md-3 d-flex ftco-animate">
                             <div className="p-4 bg-white shadow-sm text-center w-100" style={{ borderRadius: '12px', border: '1px solid #f0f2f2' }}>
-                                <div className="icon-section mb-3">
-                                    <span className="icon-star" style={{ fontSize: '40px', color: '#076c5b' }}></span>
+                                <div className="icon-section d-flex align-items-center justify-content-center mb-3" style={{ color: '#076c5b' }}>
+                                    <Award size={40} strokeWidth={1.5} />
                                 </div>
                                 <h3 className="font-weight-bold" style={{ color: '#122f2b', fontSize: '2.2rem' }}>300+</h3>
                                 <span className="position mb-2 d-block text-uppercase" style={{ fontSize: '12px', fontWeight: '700', letterSpacing: '1px', color: '#076c5b' }}>Champions Trained</span>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../../lib/language-context';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
-import { Globe, User as UserIcon, LogOut, LayoutDashboard, ChevronDown } from 'lucide-react';
+import { Globe, User as UserIcon, LogOut, LayoutDashboard, ChevronDown, Menu, Search } from 'lucide-react';
 import { useAuth } from '../../lib/auth-context';
 import { UserType } from '../../lib/types';
 
@@ -338,20 +338,49 @@ export const Navbar = () => {
                         right: 5% !important;
                         top: 100% !important;
                         margin-top: 0 !important;
-                        padding: 25px 40px !important;
+                        padding: 0 !important; /* Managed by inner content */
                         border-radius: 0 0 20px 20px !important;
                         box-shadow: 0 15px 40px rgba(0,0,0,0.12) !important;
                         border: none !important;
-                        border-top: 3px solid #076c5b !important;
+                        border-top: 4px solid #076c5b !important;
                         background: #fff !important;
+                        overflow: hidden;
+                    }
+                    .mega-menu-container {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    @media (min-width: 992px) {
+                        .mega-menu-container {
+                            flex-direction: row;
+                        }
+                    }
+                    .mega-featured-side {
+                        background-color: #e9e9db;
+                        padding: 20px 25px;
+                        width: 100%;
+                    }
+                    @media (min-width: 992px) {
+                        .mega-featured-side {
+                            width: 240px;
+                            min-height: 260px;
+                        }
+                    }
+                    .mega-links-side {
+                        flex-grow: 1;
+                        padding: 25px 35px;
+                        background: #fff;
                     }
                     .mega-menu-content {
                         display: flex;
+                        flex-wrap: wrap;
+                        gap: 20px;
                         justify-content: space-between;
                     }
                     .mega-column {
                         flex: 1;
-                        padding: 0 40px;
+                        min-width: 200px;
+                        padding: 0 20px;
                         border-right: 1.5px solid #e2e8f0;
                     }
                     .mega-column:last-child {
@@ -361,32 +390,46 @@ export const Navbar = () => {
                         font-size: 17px;
                         font-weight: 700;
                         color: #122f2b;
-                        margin-bottom: 12px;
-                        text-transform: none;
-                        letter-spacing: normal;
+                        margin-bottom: 20px;
+                        display: flex;
+                        align-items: center;
                     }
-                    .mega-subtitle {
-                        font-size: 14px;
-                        font-weight: 800;
+                    .mega-title::before {
+                        content: '>';
+                        margin-right: 8px;
                         color: #076c5b;
-                        margin-top: 12px;
-                        margin-bottom: 6px;
-                        display: block;
+                        font-weight: 900;
+                        font-size: 14px;
                     }
                     .mega-link {
                         display: block;
-                        font-size: 14px;
+                        font-size: 15px;
                         color: #555 !important;
-                        padding: 4px 0 !important;
+                        padding: 6px 0 !important;
                         transition: all 0.3s ease;
                         background: transparent !important;
                         border: none !important;
                         text-align: left;
+                        position: relative;
+                        padding-left: 20px !important;
+                    }
+                    .mega-link::before {
+                        content: '>';
+                        position: absolute;
+                        left: 0;
+                        color: #4FB1A1;
+                        opacity: 0.6;
+                        font-size: 12px;
+                        font-weight: 900;
                     }
                     .mega-link:hover {
-                        color: #17d1ac !important;
+                        color: #076c5b !important;
                         transform: translateX(5px);
                         text-decoration: none;
+                    }
+                    .mega-link:hover::before {
+                        opacity: 1;
+                        color: #076c5b;
                     }
                 }
                 
@@ -412,10 +455,10 @@ export const Navbar = () => {
                 }
                 style={
                     hasLightBackground
-                        ? { background: '#ffffff', boxShadow: '0 4px 15px rgba(0,0,0,0.08)', top: 0 }
+                        ? { background: '#ffffff', boxShadow: '0 4px 15px rgba(0,0,0,0.08)', top: 0, zIndex: 100 }
                         : isScrolled
-                            ? { background: 'linear-gradient(90deg, #0f3d34, #17d1ac)', boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)', top: 0 }
-                            : {}
+                            ? { background: 'linear-gradient(90deg, #0f3d34, #17d1ac)', boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)', top: 0, zIndex: 100 }
+                            : { zIndex: 100 }
                 }
                 id="ftco-navbar"
             >
@@ -426,7 +469,7 @@ export const Navbar = () => {
                     </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                         aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="oi oi-menu"></span> Menu
+                        <Menu size={24} strokeWidth={1.5} className="oi-menu" /> Menu
                     </button>
 
                     <div className="collapse navbar-collapse" id="ftco-nav">
@@ -438,25 +481,40 @@ export const Navbar = () => {
                                     {t('nav.about')}
                                 </a>
                                 <div className="dropdown-menu shadow-xl" aria-labelledby="whoWeAreDropdown">
-                                    <div className="container">
-                                        <div className="mega-menu-content">
-                                            {/* Column 1: Our Approach */}
-                                            <div className="mega-column">
-                                                <h5 className="mega-title">Who We Are</h5>
-                                                <Link className="mega-link" to="/about">{t('nav.about')}</Link>
-                                                <Link className="mega-link" to="/how-we-work">{t('nav.how_we_work')}</Link>
+                                    <div className="mega-menu-container">
+                                        {/* Left: Featured Donation Side */}
+                                        <div className="mega-featured-side d-flex flex-column">
+                                            <div className="mb-2 overflow-hidden rounded shadow-sm" style={{ height: '80px' }}>
+                                                <img src="/images/cause-1.jpg" alt="Donate" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                             </div>
+                                            <h4 className="font-weight-bold mb-1" style={{ fontSize: '15px', color: '#111' }}>Donate today</h4>
+                                            <p className="small mb-2 text-muted" style={{ lineHeight: '1.3', fontSize: '11px' }}>Give your support where it's needed most to empower girls and women.</p>
+                                            <Link to="/donate" className="btn px-4 py-2 mt-auto font-weight-bold shadow-sm" style={{ backgroundColor: '#076c5b', color: '#fff', borderRadius: '30px', fontSize: '14px' }}>
+                                                Donate now
+                                            </Link>
+                                        </div>
 
-                                            {/* Column 2: Where We Work */}
-                                            <div className="mega-column">
-                                                <h5 className="mega-title">Our Strategy</h5>
-                                                <Link className="mega-link" to="/strategic-direction">Strategic Direction</Link>
-                                            </div>
+                                        {/* Right: Main Mega Menu Links */}
+                                        <div className="mega-links-side">
+                                            <div className="mega-menu-content">
+                                                {/* Column 1: Our Approach */}
+                                                <div className="mega-column">
+                                                    <h5 className="mega-title">Who We Are</h5>
+                                                    <Link className="mega-link" to="/about">{t('nav.about')}</Link>
+                                                    <Link className="mega-link" to="/how-we-work">{t('nav.how_we_work')}</Link>
+                                                </div>
 
-                                            {/* Column 3: Impact Hub */}
-                                            <div className="mega-column" style={{ borderRight: 'none' }}>
-                                                <h5 className="mega-title">Knowledge Hub</h5>
-                                                <Link className="mega-link" to="/resources">{t('nav.resources')}</Link>
+                                                {/* Column 2: Our Strategy */}
+                                                <div className="mega-column">
+                                                    <h5 className="mega-title">Our Strategy</h5>
+                                                    <Link className="mega-link" to="/strategic-direction">Strategic Direction</Link>
+                                                </div>
+
+                                                {/* Column 3: Impact Hub */}
+                                                <div className="mega-column" style={{ borderRight: 'none' }}>
+                                                    <h5 className="mega-title">Knowledge Hub</h5>
+                                                    <Link className="mega-link" to="/resources">{t('nav.resources')}</Link>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -468,22 +526,37 @@ export const Navbar = () => {
                                     {t('nav.impact')}
                                 </a>
                                 <div className="dropdown-menu shadow-xl" aria-labelledby="impactDropdown">
-                                    <div className="container">
-                                        <div className="mega-menu-content">
-                                            {/* Column 1 */}
-                                            <div className="mega-column">
-                                                <h5 className="mega-title">Real Impact</h5>
-                                                <Link className="mega-link" to="/impact-stories">{t('nav.impact')}</Link>
+                                    <div className="mega-menu-container">
+                                        {/* Left: Featured Report Side */}
+                                        <div className="mega-featured-side d-flex flex-column">
+                                            <div className="mb-2 overflow-hidden rounded shadow-sm" style={{ height: '80px' }}>
+                                                <img src="/images/cause-2.jpg" alt="Annual Report" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                             </div>
+                                            <h4 className="font-weight-bold mb-1" style={{ fontSize: '15px', color: '#111' }}>Read our 2024 annual report</h4>
+                                            <p className="small mb-2 text-muted" style={{ lineHeight: '1.3', fontSize: '11px' }}>LCEO's objectives, activities and achievements in 2024 can be found in our core report.</p>
+                                            <Link to="/resources" className="btn px-4 py-2 mt-auto font-weight-bold shadow-sm" style={{ backgroundColor: '#076c5b', color: '#fff', borderRadius: '30px', fontSize: '14px' }}>
+                                                Read the report
+                                            </Link>
+                                        </div>
 
-                                            {/* Column 2 */}
-                                            <div className="mega-column">
-                                                <h5 className="mega-title">Support & FAQ</h5>
-                                                <Link className="mega-link" to="/help-faq">Help & FAQ</Link>
-                                            </div>
+                                        {/* Right: Main Mega Menu Links */}
+                                        <div className="mega-links-side">
+                                            <div className="mega-menu-content">
+                                                {/* Column 1 */}
+                                                <div className="mega-column">
+                                                    <h5 className="mega-title">Real Impact</h5>
+                                                    <Link className="mega-link" to="/impact-stories">{t('nav.impact')}</Link>
+                                                </div>
 
-                                            {/* Column 3 */}
-                                            <div className="mega-column" style={{ borderRight: 'none' }}>
+                                                {/* Column 2 */}
+                                                <div className="mega-column">
+                                                    <h5 className="mega-title">Help & Support</h5>
+                                                    <Link className="mega-link" to="/help-faq">Help & FAQ</Link>
+                                                </div>
+
+                                                {/* Column 3 */}
+                                                <div className="mega-column" style={{ borderRight: 'none' }}>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -495,22 +568,37 @@ export const Navbar = () => {
                                     {t('nav.contact')}
                                 </a>
                                 <div className="dropdown-menu shadow-xl" aria-labelledby="getInvolvedDropdown">
-                                    <div className="container">
-                                        <div className="mega-menu-content">
-                                            {/* Column 1 */}
-                                            <div className="mega-column">
-                                                <h5 className="mega-title">Get in Touch</h5>
-                                                <Link className="mega-link" to="/contact">{t('nav.contact')}</Link>
+                                    <div className="mega-menu-container">
+                                        {/* Left: Featured Mission Side */}
+                                        <div className="mega-featured-side d-flex flex-column">
+                                            <div className="mb-2 overflow-hidden rounded shadow-sm" style={{ height: '80px' }}>
+                                                <img src="/images/bg_3.jpg" alt="Join Mission" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                             </div>
+                                            <h4 className="font-weight-bold mb-1" style={{ fontSize: '15px', color: '#111' }}>Join our mission</h4>
+                                            <p className="small mb-2 text-muted" style={{ lineHeight: '1.3', fontSize: '11px' }}>Become a champion for change and help us transform more lives together.</p>
+                                            <Link to="/contact" className="btn px-4 py-2 mt-auto font-weight-bold shadow-sm" style={{ backgroundColor: '#076c5b', color: '#fff', borderRadius: '30px', fontSize: '14px' }}>
+                                                Get involved
+                                            </Link>
+                                        </div>
 
-                                            {/* Column 2 */}
-                                            <div className="mega-column">
-                                                <h5 className="mega-title">Support LCEO</h5>
-                                                <Link className="mega-link" to="/donate">{t('btn.donate')}</Link>
-                                            </div>
+                                        {/* Right: Main Mega Menu Links */}
+                                        <div className="mega-links-side">
+                                            <div className="mega-menu-content">
+                                                {/* Column 1 */}
+                                                <div className="mega-column">
+                                                    <h5 className="mega-title">Get in Touch</h5>
+                                                    <Link className="mega-link" to="/contact">{t('nav.contact')}</Link>
+                                                </div>
 
-                                            {/* Column 3 */}
-                                            <div className="mega-column" style={{ borderRight: 'none' }}>
+                                                {/* Column 2 */}
+                                                <div className="mega-column">
+                                                    <h5 className="mega-title">Support LCEO</h5>
+                                                    <Link className="mega-link" to="/donate">{t('btn.donate')}</Link>
+                                                </div>
+
+                                                {/* Column 3 */}
+                                                <div className="mega-column" style={{ borderRight: 'none' }}>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -555,7 +643,7 @@ export const Navbar = () => {
 
                             <li className="nav-item ml-lg-1">
                                 <a href="#" className="nav-link search-icon d-flex align-items-center justify-content-center" data-toggle="modal" data-target="#searchModal" style={{ padding: '15px 10px' }}>
-                                    <span className="icon-search"></span>
+                                    <Search size={20} strokeWidth={2} />
                                 </a>
                             </li>
 

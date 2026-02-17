@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../lib/language-context';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
-import { Zap, Shield, Lightbulb, HeartHandshake, Users, Award } from 'lucide-react';
+import { Zap, Shield, Lightbulb, HeartHandshake, Users, Award, Linkedin } from 'lucide-react';
 
 export const AboutPage = () => {
     useLegacyScripts();
@@ -10,6 +10,13 @@ export const AboutPage = () => {
 
     return (
         <>
+            <style>{`
+                section, .ftco-section, .card, .staff-card, .btn, .staff-card:hover {
+                    box-shadow: none !important;
+                    border: none !important;
+                }
+                .border-bottom { border-bottom: none !important; }
+            `}</style>
             <div className="hero-wrap" style={{ backgroundImage: "url('/images/about.jpg')", height: '500px', minHeight: '500px' }} data-stellar-background-ratio="0.5">
                 <div className="overlay"></div>
                 <div className="container">
@@ -34,7 +41,7 @@ export const AboutPage = () => {
                     <div className="row align-items-center">
                         {/* Left Column: Image with Overlay Caption */}
                         <div className="col-lg-6 mb-5 mb-lg-0 ftco-animate">
-                            <div className="position-relative shadow-lg" style={{
+                            <div className="position-relative" style={{
                                 backgroundImage: "url('/images/bg_3.jpg')",
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center',
@@ -50,8 +57,7 @@ export const AboutPage = () => {
                                     backgroundColor: 'rgba(255, 255, 255, 0.95)',
                                     padding: '25px',
                                     borderRadius: '16px',
-                                    textAlign: 'center',
-                                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                                    textAlign: 'center'
                                 }}>
                                     <h4 className="font-weight-bold mb-0" style={{ fontSize: '18px', color: '#111', lineHeight: '1.4' }}>
                                         Education, Entrepreneurship, and Mentorship <br />
@@ -75,10 +81,10 @@ export const AboutPage = () => {
 
                             {/* Tabs for Vision and Mission */}
                             <div className="ftco-animate">
-                                <ul className="nav nav-pills mb-3 border-bottom" id="pills-tab" role="tablist" style={{ gap: '20px' }}>
+                                <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist" style={{ gap: '20px' }}>
                                     <li className="nav-item">
                                         <a className="nav-link active font-weight-bold px-0 py-2" id="pills-vision-tab" data-toggle="pill" href="#pills-vision" role="tab" aria-controls="pills-vision" aria-selected="true"
-                                            style={{ color: '#111', backgroundColor: 'transparent', borderBottom: '2px solid #076c5b', borderRadius: 0, textTransform: 'uppercase', fontSize: '14px', letterSpacing: '1px' }}>
+                                            style={{ color: '#111', backgroundColor: 'transparent', borderBottom: 'none', borderRadius: 0, textTransform: 'uppercase', fontSize: '14px', letterSpacing: '1px' }}>
                                             Our Vision
                                         </a>
                                     </li>
@@ -146,29 +152,27 @@ export const AboutPage = () => {
 
                             <div className="row justify-content-center">
                                 {[
-                                    { title: 'Empowerment', desc: 'Unlocking the inherent potential in every girl to lead.', icon: <Zap size={24} /> },
-                                    { title: 'Protection', desc: 'Creating safe, nurturing spaces for healing and growth.', icon: <Shield size={24} /> },
-                                    { title: 'Innovation', desc: 'Using evidence-based and creative approaches for change.', icon: <Lightbulb size={24} /> },
-                                    { title: 'Compassion', desc: 'Walking alongside our beneficiaries with empathy and respect.', icon: <HeartHandshake size={24} /> },
-                                    { title: 'Community', desc: 'Building sustainable networks of local and global support.', icon: <Users size={24} /> },
-                                    { title: 'Excellence', desc: 'Committed to delivering measurable and lasting human results.', icon: <Award size={24} /> }
+                                    { title: 'Empowerment', desc: 'Unlocking the inherent potential in every girl to lead.', icon: <Zap size={32} strokeWidth={1.5} /> },
+                                    { title: 'Protection', desc: 'Creating safe, nurturing spaces for healing and growth.', icon: <Shield size={32} strokeWidth={1.5} /> },
+                                    { title: 'Innovation', desc: 'Using evidence-based and creative approaches for change.', icon: <Lightbulb size={32} strokeWidth={1.5} /> },
+                                    { title: 'Compassion', desc: 'Walking alongside our beneficiaries with empathy and respect.', icon: <HeartHandshake size={32} strokeWidth={1.5} /> },
+                                    { title: 'Community', desc: 'Building sustainable networks of local and global support.', icon: <Users size={32} strokeWidth={1.5} /> },
+                                    { title: 'Excellence', desc: 'Committed to delivering measurable and lasting human results.', icon: <Award size={32} strokeWidth={1.5} /> }
                                 ].map((value, idx) => (
                                     <div className="col-md-4 mb-4" key={idx}>
                                         <div className="h-100 p-4 transition-all hover:translate-y-[-8px]" style={{
                                             backgroundColor: 'rgba(255, 255, 255, 0.05)',
                                             backdropFilter: 'blur(12px)',
                                             borderRadius: '24px',
-                                            border: '1px solid rgba(255, 255, 255, 0.1)',
-                                            textAlign: 'left',
-                                            boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                                            border: 'none',
+                                            textAlign: 'left'
                                         }}>
                                             <div className="d-flex align-items-center justify-content-center mb-4" style={{
                                                 width: '56px',
                                                 height: '56px',
                                                 backgroundColor: 'rgba(79, 177, 161, 0.15)',
                                                 borderRadius: '16px',
-                                                color: '#4FB1A1',
-                                                boxShadow: '0 0 20px rgba(79, 177, 161, 0.1)'
+                                                color: '#4FB1A1'
                                             }}>
                                                 {value.icon}
                                             </div>
@@ -185,8 +189,7 @@ export const AboutPage = () => {
                                 <Link to="/contact" className="btn px-5 py-3 font-weight-bold" style={{
                                     borderRadius: '50px',
                                     backgroundColor: '#4FB1A1',
-                                    color: '#fff',
-                                    boxShadow: '0 10px 20px rgba(79, 177, 161, 0.2)'
+                                    color: '#fff'
                                 }}>
                                     Be Part of Our Journey
                                 </Link>
@@ -196,7 +199,7 @@ export const AboutPage = () => {
                 </div>
             </section>
 
-            <section className="ftco-section" id="team" style={{ padding: '20px 0 60px 0', backgroundColor: '#fcfdfd' }}>
+            <section className="ftco-section" id="team" style={{ padding: '20px 0 20px 0', backgroundColor: '#fcfdfd' }}>
                 <div className="container">
                     <div className="row justify-content-center mb-4">
                         <div className="col-md-8 heading-section ftco-animate text-center">
@@ -236,7 +239,6 @@ export const AboutPage = () => {
                             <div className="col-md-3 ftco-animate mb-4" key={idx} style={{ animationDelay: `${idx * 0.1}s` }}>
                                 <div className="staff-card overflow-hidden transition-all duration-500" style={{
                                     borderRadius: '16px',
-                                    boxShadow: '0 8px 25px rgba(0,0,0,0.06)',
                                     backgroundColor: '#fff',
                                     height: '380px', // Fixed shorter height
                                     position: 'relative',
@@ -270,11 +272,10 @@ export const AboutPage = () => {
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
-                                            boxShadow: '0 4px 10px rgba(0,0,0,0.15)',
                                             zIndex: 10,
                                             transition: 'transform 0.3s ease'
                                         }} className="linkedin-pop">
-                                            <span className="icon-linkedin" style={{ color: '#076c5b', fontSize: '14px' }}></span>
+                                            <Linkedin size={18} strokeWidth={2} style={{ color: '#076c5b' }} />
                                         </div>
                                     </div>
 
@@ -321,7 +322,7 @@ export const AboutPage = () => {
                 </div>
             </section>
 
-            <section className="ftco-section bg-white" style={{ padding: '100px 0' }}>
+            <section className="ftco-section bg-white" style={{ padding: '40px 0 100px 0' }}>
                 <div className="container">
                     <div className="row justify-content-center mb-5 pb-4">
                         <div className="col-md-7 heading-section ftco-animate text-center">
@@ -362,7 +363,7 @@ export const AboutPage = () => {
                                             color: '#076c5b',
                                             fontWeight: 'bold',
                                             fontSize: '14px',
-                                            border: '4px solid #fff'
+                                            border: 'none'
                                         }}>
                                             {idx + 1}
                                         </div>
@@ -406,7 +407,7 @@ export const AboutPage = () => {
                                         backgroundPosition: 'center',
                                         borderRadius: '24px',
                                         transform: 'rotate(-10deg) translateX(40px)',
-                                        border: '8px solid #fff',
+                                        border: 'none',
                                         zIndex: 1,
                                         position: 'absolute'
                                     }}>
@@ -425,7 +426,7 @@ export const AboutPage = () => {
                                         backgroundPosition: 'center',
                                         borderRadius: '24px',
                                         transform: 'rotate(5deg) translateY(-20px)',
-                                        border: '8px solid #fff',
+                                        border: 'none',
                                         zIndex: 2,
                                         position: 'absolute'
                                     }}>
@@ -449,7 +450,7 @@ export const AboutPage = () => {
                                         justifyContent: 'center',
                                         color: '#fff',
                                         zIndex: 3,
-                                        border: '6px solid #f0f9f8'
+                                        border: 'none'
                                     }}>
                                         <div className="text-center">
                                             <span style={{ fontSize: '24px', fontWeight: 'bold' }}>5y+</span> <br />
@@ -470,7 +471,7 @@ export const AboutPage = () => {
                         <div className="col-md-7 heading-section ftco-animate text-center">
                             <h2 className="mb-4 text-white">Join Our Mission</h2>
                             <p className="text-white opacity-75">Your support enables us to continue our vital work in the community.</p>
-                            <p className="mt-4"><Link to="/donate" className="btn btn-primary px-5 py-3 font-weight-bold shadow">Donate Now</Link></p>
+                            <p className="mt-4"><Link to="/donate" className="btn btn-primary px-5 py-3 font-weight-bold">Donate Now</Link></p>
                         </div>
                     </div>
                 </div>

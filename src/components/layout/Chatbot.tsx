@@ -161,7 +161,7 @@ export const Chatbot = ({ isFooter }: Props) => {
                 title="Open Assistant"
             >
                 <div className="position-relative">
-                    <MessageCircle size={32} />
+                    <MessageCircle size={32} strokeWidth={1.5} />
                     <span className="position-absolute" style={{
                         top: '-5px',
                         right: '-5px',
@@ -202,7 +202,7 @@ export const Chatbot = ({ isFooter }: Props) => {
                         <div className="p-3 text-white d-flex align-items-center justify-content-between shadow-sm" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', cursor: 'grab' }}>
                             <div className="d-flex align-items-center">
                                 <div className="bg-light rounded-circle p-2 mr-2">
-                                    <Bot size={18} color="#122f2b" />
+                                    <Bot size={18} color="#122f2b" strokeWidth={1.5} />
                                 </div>
                                 <div style={{ pointerEvents: 'none' }}>
                                     <h6 className="mb-0 font-weight-bold" style={{ fontSize: '0.9rem' }}>
@@ -219,11 +219,11 @@ export const Chatbot = ({ isFooter }: Props) => {
                                     className="btn btn-link text-white p-1 opacity-75 hover-opacity-100"
                                     title={isArchiveView ? "Back to Chat" : "View History"}
                                 >
-                                    <History size={16} style={{ color: isArchiveView ? '#17d1ac' : 'white' }} />
+                                    <History size={16} style={{ color: isArchiveView ? '#17d1ac' : 'white' }} strokeWidth={1.5} />
                                 </button>
                                 {!isArchiveView && (
                                     <button onClick={clearHistory} className="btn btn-link text-white p-1 opacity-50 hover-opacity-100" title="Archive All">
-                                        <Trash2 size={14} />
+                                        <Trash2 size={14} strokeWidth={1.5} />
                                     </button>
                                 )}
                                 {isArchiveView && archiveMessages.length > 0 && (
@@ -237,11 +237,11 @@ export const Chatbot = ({ isFooter }: Props) => {
                                         className="btn btn-link text-white p-1 opacity-50 hover-opacity-100"
                                         title="Clear Archive"
                                     >
-                                        <Trash2 size={14} />
+                                        <Trash2 size={14} strokeWidth={1.5} />
                                     </button>
                                 )}
                                 <button onClick={() => setIsOpen(false)} className="btn btn-link text-white p-1 hover-scale" style={{ cursor: 'pointer' }}>
-                                    <X size={18} />
+                                    <X size={18} strokeWidth={1.5} />
                                 </button>
                             </div>
                         </div>
@@ -281,7 +281,7 @@ export const Chatbot = ({ isFooter }: Props) => {
                                                 onMouseEnter={e => e.currentTarget.style.opacity = '1'}
                                                 onMouseLeave={e => e.currentTarget.style.opacity = '0'}
                                             >
-                                                <X size={12} />
+                                                <X size={12} strokeWidth={1.5} />
                                             </button>
                                         )}
                                     </div>
@@ -289,7 +289,7 @@ export const Chatbot = ({ isFooter }: Props) => {
                             ))}
                             {isArchiveView && archiveMessages.length === 0 && (
                                 <div className="text-center mt-5 opacity-40 text-white">
-                                    <History size={32} className="mb-2" />
+                                    <History size={32} className="mb-2" strokeWidth={1.5} />
                                     <p style={{ fontSize: '0.8rem' }}>No archived messages yet.</p>
                                 </div>
                             )}
@@ -314,7 +314,7 @@ export const Chatbot = ({ isFooter }: Props) => {
                                             style={{ width: '35px', height: '35px', backgroundColor: '#17d1ac', color: '#fff', borderRadius: '10px', border: 'none' }}
                                             onClick={handleSend}
                                         >
-                                            <Send size={16} />
+                                            <Send size={16} strokeWidth={1.5} />
                                         </button>
                                     </div>
                                 </div>

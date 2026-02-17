@@ -15,7 +15,7 @@ import { toast } from 'sonner';
 const SectionHeader = ({ title, icon: Icon, description }: any) => (
     <div className="flex items-center gap-3 mb-6">
         <div className="p-2.5 rounded-xl bg-teal-500/10 text-teal-600">
-            <Icon className="h-5 w-5" />
+            <Icon className="h-5 w-5" strokeWidth={1.5} />
         </div>
         <div>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-tight">{title}</h3>
@@ -47,7 +47,7 @@ const InputField = ({ label, type = "text", value, onChange, placeholder, descri
                 defaultValue={value}
             />
         )}
-        {description && <p className="mt-2 text-[11px] text-slate-500 flex items-center gap-1"><Info size={12} /> {description}</p>}
+        {description && <p className="mt-2 text-[11px] text-slate-500 flex items-center gap-1"><Info size={12} strokeWidth={1.5} /> {description}</p>}
     </div>
 );
 
@@ -62,13 +62,13 @@ const MediaUpload = ({ label, value, type = "image" }: any) => {
                         <>
                             <img src={value} alt="Preview" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                                <Button size="sm" variant="secondary" className="h-8 text-xs font-bold"><RefreshCw size={14} className="mr-1.5" /> Replace</Button>
+                                <Button size="sm" variant="secondary" className="h-8 text-xs font-bold"><RefreshCw size={14} className="mr-1.5" strokeWidth={1.5} /> Replace</Button>
                             </div>
                         </>
                     ) : (
                         <div className="text-center p-4">
                             <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border flex items-center justify-center mx-auto mb-2 text-slate-400">
-                                {isVideo ? <Video size={20} /> : <ImageIcon size={20} />}
+                                {isVideo ? <Video size={20} strokeWidth={1.5} /> : <ImageIcon size={20} strokeWidth={1.5} />}
                             </div>
                             <p className="text-[10px] font-bold text-slate-400 uppercase">Click to Upload</p>
                         </div>
@@ -78,7 +78,7 @@ const MediaUpload = ({ label, value, type = "image" }: any) => {
                 <div className="flex-1 flex flex-col justify-center">
                     <div className="bg-white dark:bg-slate-800 rounded-xl p-3 border border-slate-100 dark:border-slate-700 shadow-sm flex items-center gap-3">
                         <div className="h-9 w-9 rounded-lg bg-teal-50 dark:bg-teal-900/20 flex items-center justify-center text-teal-600 shrink-0">
-                            {isVideo ? <Globe size={18} /> : <FileUp size={18} />}
+                            {isVideo ? <Globe size={18} strokeWidth={1.5} /> : <FileUp size={18} strokeWidth={1.5} />}
                         </div>
                         <div className="flex-1 min-w-0">
                             <p className="text-[11px] font-black text-slate-800 dark:text-slate-100 truncate uppercase">Asset Path / URL</p>
@@ -167,18 +167,18 @@ const AboutEditor = () => (
                     <div key={i} className="p-4 rounded-xl border flex items-center justify-between group hover:border-teal-500/50 transition-colors">
                         <div className="flex items-center gap-3">
                             <div className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
-                                <ImageIcon size={18} />
+                                <ImageIcon size={18} strokeWidth={1.5} />
                             </div>
                             <div>
                                 <p className="text-sm font-bold">{name}</p>
                                 <p className="text-[11px] text-slate-500">Executive Member</p>
                             </div>
                         </div>
-                        <Button size="icon" variant="ghost" className="opacity-0 group-hover:opacity-100"><Trash2 size={16} /></Button>
+                        <Button size="icon" variant="ghost" className="opacity-0 group-hover:opacity-100"><Trash2 size={16} strokeWidth={1.5} /></Button>
                     </div>
                 ))}
             </div>
-            <Button variant="outline" className="w-full border-dashed py-6 gap-2"><Plus size={18} /> Add Team Member</Button>
+            <Button variant="outline" className="w-full border-dashed py-6 gap-2"><Plus size={18} strokeWidth={1.5} /> Add Team Member</Button>
         </ContentBlock>
     </div>
 );
@@ -196,7 +196,7 @@ const ResourcesEditor = () => (
                     <div key={file.title} className="p-4 rounded-xl border flex items-center justify-between group bg-slate-50/50">
                         <div className="flex items-center gap-3">
                             <div className="h-10 w-10 rounded-lg bg-white border flex items-center justify-center text-teal-600 shadow-sm">
-                                <FileText size={20} />
+                                <FileText size={20} strokeWidth={1.5} />
                             </div>
                             <div>
                                 <p className="text-sm font-bold">{file.title}</p>
@@ -204,14 +204,14 @@ const ResourcesEditor = () => (
                             </div>
                         </div>
                         <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <Button size="icon" variant="ghost" className="h-8 w-8"><RefreshCw size={14} /></Button>
-                            <Button size="icon" variant="ghost" className="h-8 w-8 text-red-500"><Trash2 size={14} /></Button>
+                            <Button size="icon" variant="ghost" className="h-8 w-8"><RefreshCw size={14} strokeWidth={1.5} /></Button>
+                            <Button size="icon" variant="ghost" className="h-8 w-8 text-red-500"><Trash2 size={14} strokeWidth={1.5} /></Button>
                         </div>
                     </div>
                 ))}
             </div>
             <Button variant="outline" className="w-full border-dashed py-8 gap-3 flex-col text-slate-500 hover:text-teal-600 hover:border-teal-500/30">
-                <Plus size={24} />
+                <Plus size={24} strokeWidth={1.5} />
                 <span className="font-bold uppercase tracking-widest text-[11px]">Upload New Resource</span>
             </Button>
         </ContentBlock>
@@ -351,12 +351,12 @@ const PageContentEditor = () => {
                                             <p className="font-bold text-sm">{story.name}</p>
                                             <p className="text-[11px] text-teal-600 font-bold uppercase tracking-wider">{story.category}</p>
                                         </div>
-                                        <Button variant="ghost" size="icon" className="group-hover:text-red-500 transition-colors"><Trash2 size={16} /></Button>
+                                        <Button variant="ghost" size="icon" className="group-hover:text-red-500 transition-colors"><Trash2 size={16} strokeWidth={1.5} /></Button>
                                     </div>
                                 ))}
                             </div>
                             <Button variant="outline" className="w-full border-dashed py-8 flex-col gap-2">
-                                <Plus size={20} />
+                                <Plus size={20} strokeWidth={1.5} />
                                 <span className="font-bold text-[11px]">Add New Story Chapter</span>
                             </Button>
                         </ContentBlock>
@@ -427,7 +427,7 @@ const PageContentEditor = () => {
                 <Button variant="ghost" className="p-0 hover:bg-transparent mb-10 group" asChild>
                     <Link to="/admin/web-contents" className="flex items-center gap-4">
                         <div className="h-12 w-12 rounded-2xl bg-white dark:bg-slate-900 shadow-sm border border-slate-200 dark:border-slate-800 flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white group-hover:border-teal-600 transition-all duration-300">
-                            <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+                            <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" strokeWidth={1.5} />
                         </div>
                         <div className="flex flex-col items-start translate-y-[2px]">
                             <span className="text-[10px] font-black text-slate-400 uppercase tracking-[3px] leading-none mb-1">Architecture</span>
@@ -439,7 +439,7 @@ const PageContentEditor = () => {
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
                         <div className="flex items-center gap-2 text-slate-400 font-bold text-[10px] uppercase tracking-[2px] mb-2">
-                            <Globe size={14} />
+                            <Globe size={14} strokeWidth={1.5} />
                             <span>Page Management</span>
                         </div>
                         <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">Editing <span className="text-teal-600">{pageName}</span></h2>
@@ -450,7 +450,7 @@ const PageContentEditor = () => {
                             className="h-12 md:h-14 px-8 rounded-2xl bg-white shadow-sm border-slate-200 font-bold text-slate-600 hover:bg-slate-50 transition-all hover:shadow-md w-full sm:w-auto"
                             onClick={handleLiveSite}
                         >
-                            <Eye size={20} className="mr-2" /> Live Site
+                            <Eye size={20} className="mr-2" strokeWidth={1.5} /> Live Site
                         </Button>
                         <Button
                             className="h-12 md:h-14 px-10 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white shadow-2xl shadow-teal-500/30 font-black uppercase tracking-widest text-xs transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 w-full sm:w-auto"
@@ -458,9 +458,9 @@ const PageContentEditor = () => {
                             disabled={isPublishing}
                         >
                             {isPublishing ? (
-                                <RefreshCw size={20} className="mr-2 animate-spin" />
+                                <RefreshCw size={20} className="mr-2 animate-spin" strokeWidth={1.5} />
                             ) : (
-                                <Save size={20} className="mr-2" />
+                                <Save size={20} className="mr-2" strokeWidth={1.5} />
                             )}
                             {isPublishing ? "Publishing..." : "Publish Now"}
                         </Button>
@@ -481,9 +481,9 @@ const PageContentEditor = () => {
                     disabled={isPublishing}
                 >
                     {isPublishing ? (
-                        <RefreshCw size={28} className="animate-spin" />
+                        <RefreshCw size={28} className="animate-spin" strokeWidth={1.5} />
                     ) : (
-                        <Save size={28} />
+                        <Save size={28} strokeWidth={1.5} />
                     )}
                 </Button>
             </div>
@@ -498,7 +498,7 @@ const PageContentEditor = () => {
                         <div className="flex flex-col md:flex-row md:items-center justify-between px-6 py-3 border-b border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md gap-4">
                             <div className="flex items-center gap-4">
                                 <div className="h-9 w-9 rounded-xl bg-teal-50 dark:bg-teal-900/30 flex items-center justify-center text-teal-600 shadow-sm border border-teal-100/50 dark:border-teal-500/20">
-                                    <Eye size={18} />
+                                    <Eye size={18} strokeWidth={1.5} />
                                 </div>
                                 <div className="flex flex-col">
                                     <span className="text-[9px] font-black text-slate-400 uppercase tracking-[2px] mb-0.5">Live Previewing</span>
@@ -534,7 +534,7 @@ const PageContentEditor = () => {
                                     className="h-9 px-4 rounded-xl text-[10px] font-black uppercase tracking-widest border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800"
                                     onClick={() => window.open(getPreviewUrl(), '_blank')}
                                 >
-                                    <ExternalLink size={14} className="mr-2" /> New Tab
+                                    <ExternalLink size={14} className="mr-2" strokeWidth={1.5} /> New Tab
                                 </Button>
                                 <Button
                                     variant="ghost"
@@ -542,7 +542,7 @@ const PageContentEditor = () => {
                                     className="h-9 w-9 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                                     onClick={() => setShowPreview(false)}
                                 >
-                                    <X size={20} className="text-slate-400" />
+                                    <X size={20} className="text-slate-400" strokeWidth={1.5} />
                                 </Button>
                             </div>
                         </div>
@@ -599,7 +599,7 @@ const WebContentsMenu = () => {
                 <div className="p-8 pb-4">
                     <div className="flex items-center gap-4 mb-10">
                         <div className="h-14 w-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center shadow-lg shadow-teal-600/30 shrink-0">
-                            <Globe size={26} strokeWidth={2.5} />
+                            <Globe size={26} strokeWidth={1.5} />
                         </div>
                         <div className="min-w-0">
                             <h3 className="text-2xl font-black text-slate-900 dark:text-white leading-none tracking-tight">LCEO</h3>
@@ -616,9 +616,9 @@ const WebContentsMenu = () => {
                                     to={link.path}
                                     className="flex items-center gap-4 px-5 py-3.5 rounded-2xl text-[15px] font-bold text-slate-700 dark:text-slate-300 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-700 dark:hover:text-white transition-all duration-300 group"
                                 >
-                                    <link.icon size={20} className="text-slate-400 group-hover:text-teal-600 transition-colors" />
+                                    <link.icon size={20} className="text-slate-400 group-hover:text-teal-600 transition-colors" strokeWidth={1.5} />
                                     <span className="flex-1">{link.name}</span>
-                                    <ArrowRight size={14} className="opacity-0 group-hover:opacity-40 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                    <ArrowRight size={14} className="opacity-0 group-hover:opacity-40 -translate-x-2 group-hover:translate-x-0 transition-all" strokeWidth={1.5} />
                                 </Link>
                             ))}
                         </nav>
@@ -630,7 +630,7 @@ const WebContentsMenu = () => {
                         to="/admin/settings"
                         className="flex items-center gap-4 px-5 py-3.5 rounded-2xl text-[11px] font-black uppercase tracking-widest text-slate-500 hover:text-teal-600 hover:bg-teal-50 transition-all group"
                     >
-                        <SettingsIcon size={18} className="group-hover:rotate-45 transition-transform" />
+                        <SettingsIcon size={18} className="group-hover:rotate-45 transition-transform" strokeWidth={1.5} />
                         <span>Global Settings</span>
                     </Link>
                 </div>

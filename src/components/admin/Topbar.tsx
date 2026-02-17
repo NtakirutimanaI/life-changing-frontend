@@ -18,7 +18,7 @@ export function Topbar({ title, onToggleSidebar }: TopbarProps) {
                     onClick={onToggleSidebar}
                     style={{ width: '40px', height: '40px' }}
                 >
-                    <Menu size={24} />
+                    <Menu size={24} strokeWidth={1.5} />
                 </button>
                 <h4 className="font-weight-bold mb-0 text-accent">{title}</h4>
             </div>
@@ -28,18 +28,18 @@ export function Topbar({ title, onToggleSidebar }: TopbarProps) {
                     <button className="btn btn-sm btn-light dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="/images/person_1.jpg" alt="Admin" className="rounded-circle mr-2" style={{ width: '30px', height: '30px', objectFit: 'cover' }} />
                         <span className="d-none d-md-inline">{user?.fullName || 'Admin'}</span>
-                        <ChevronDown size={14} className="ml-2 text-muted" />
+                        <ChevronDown size={14} className="ml-2 text-muted" strokeWidth={1.5} />
                     </button>
                     <div className="dropdown-menu dropdown-menu-right shadow-lg border-0" aria-labelledby="dropdownMenuButton">
                         <a className="dropdown-item d-flex align-items-center py-2" href="#">
-                            <User size={14} className="mr-2" /> Profile
+                            <User size={14} className="mr-2" strokeWidth={1.5} /> Profile
                         </a>
                         <a className="dropdown-item d-flex align-items-center py-2" href="#">
-                            <Settings size={14} className="mr-2" /> Settings
+                            <Settings size={14} className="mr-2" strokeWidth={1.5} /> Settings
                         </a>
                         <div className="dropdown-divider"></div>
                         <button className="dropdown-item d-flex align-items-center py-2 text-danger" onClick={logout}>
-                            <LogOut size={14} className="mr-2" /> Logout
+                            <LogOut size={14} className="mr-2" strokeWidth={1.5} /> Logout
                         </button>
                     </div>
                 </div>

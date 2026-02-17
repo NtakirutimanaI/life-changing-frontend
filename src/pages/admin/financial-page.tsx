@@ -79,11 +79,11 @@ export default function FinancialPage() {
         </div>
         <div className="flex gap-2 w-full sm:w-auto">
           <Button variant="outline" className="flex-1 sm:flex-none">
-            <Filter className="w-4 h-4 mr-2" />
+            <Filter className="w-4 h-4 mr-2" strokeWidth={1.5} />
             Filter
           </Button>
           <Button className="bg-teal-600 hover:bg-teal-700 flex-1 sm:flex-none">
-            <Download className="w-4 h-4 mr-2" />
+            <Download className="w-4 h-4 mr-2" strokeWidth={1.5} />
             Export Report
           </Button>
         </div>
@@ -102,7 +102,7 @@ export default function FinancialPage() {
                 <p className="text-xs text-muted-foreground mt-1">Fiscal year 2024</p>
               </div>
               <div className="w-14 h-14 rounded-lg bg-green-100 text-green-700 flex items-center justify-center shadow-md">
-                <DollarSign className="w-7 h-7" />
+                <DollarSign className="w-7 h-7" strokeWidth={1.5} />
               </div>
             </div>
           </CardContent>
@@ -121,7 +121,7 @@ export default function FinancialPage() {
                 </p>
               </div>
               <div className="w-14 h-14 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shadow-md">
-                <TrendingUp className="w-7 h-7" />
+                <TrendingUp className="w-7 h-7" strokeWidth={1.5} />
               </div>
             </div>
           </CardContent>
@@ -140,7 +140,7 @@ export default function FinancialPage() {
                 </p>
               </div>
               <div className="w-14 h-14 rounded-lg bg-[#4c9789]/20 text-[#4c9789] flex items-center justify-center shadow-md">
-                <BarChart3 className="w-7 h-7" />
+                <BarChart3 className="w-7 h-7" strokeWidth={1.5} />
               </div>
             </div>
           </CardContent>
@@ -157,7 +157,7 @@ export default function FinancialPage() {
                 <p className="text-xs text-muted-foreground mt-1">All time received</p>
               </div>
               <div className="w-14 h-14 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center shadow-md">
-                <DollarSign className="w-7 h-7" />
+                <DollarSign className="w-7 h-7" strokeWidth={1.5} />
               </div>
             </div>
           </CardContent>
@@ -485,7 +485,7 @@ export default function FinancialPage() {
             <div className="border rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 bg-blue-100 rounded-lg">
-                  <FileText className="w-6 h-6 text-blue-600" />
+                  <FileText className="w-6 h-6 text-blue-600" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="font-semibold">Budget Report</h3>
@@ -493,7 +493,7 @@ export default function FinancialPage() {
                 </div>
               </div>
               <Button variant="outline" size="sm" className="w-full">
-                <Download className="w-4 h-4 mr-2" />
+                <Download className="w-4 h-4 mr-2" strokeWidth={1.5} />
                 Download
               </Button>
             </div>
@@ -501,7 +501,7 @@ export default function FinancialPage() {
             <div className="border rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 bg-green-100 rounded-lg">
-                  <FileText className="w-6 h-6 text-green-600" />
+                  <FileText className="w-6 h-6 text-green-600" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="font-semibold">Donation Report</h3>
@@ -509,7 +509,7 @@ export default function FinancialPage() {
                 </div>
               </div>
               <Button variant="outline" size="sm" className="w-full">
-                <Download className="w-4 h-4 mr-2" />
+                <Download className="w-4 h-4 mr-2" strokeWidth={1.5} />
                 Download
               </Button>
             </div>
@@ -517,7 +517,7 @@ export default function FinancialPage() {
             <div className="border rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 bg-purple-100 rounded-lg">
-                  <FileText className="w-6 h-6 text-purple-600" />
+                  <FileText className="w-6 h-6 text-purple-600" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="font-semibold">Expense Report</h3>
@@ -525,7 +525,7 @@ export default function FinancialPage() {
                 </div>
               </div>
               <Button variant="outline" size="sm" className="w-full">
-                <Download className="w-4 h-4 mr-2" />
+                <Download className="w-4 h-4 mr-2" strokeWidth={1.5} />
                 Download
               </Button>
             </div>

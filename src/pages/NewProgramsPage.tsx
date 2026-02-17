@@ -82,7 +82,7 @@ export function ProgramsPage() {
             className="w-full sm:w-auto h-10 px-6 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-bold uppercase tracking-wider shadow-lg shadow-teal-600/10 transition-all active:scale-95 gap-2 text-xs"
             onClick={() => setCreateDialogOpen(true)}
           >
-            <Plus size={16} strokeWidth={3} />
+            <Plus size={16} strokeWidth={1.5} />
             Create Program
           </Button>
         </div>
@@ -91,7 +91,7 @@ export function ProgramsPage() {
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           <div className="relative flex-1 group max-w-2xl">
             <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-              <Search className="h-4 w-4 text-slate-400 group-focus-within:text-teal-600 transition-colors" />
+              <Search className="h-4 w-4 text-slate-400 group-focus-within:text-teal-600 transition-colors" strokeWidth={1.5} />
             </div>
             <input
               type="text"
@@ -106,7 +106,7 @@ export function ProgramsPage() {
                 size="sm"
                 className="h-9 px-3 text-slate-500 hover:text-teal-600 hover:bg-white dark:hover:bg-slate-800 rounded-lg gap-2 font-bold text-[10px] uppercase tracking-wider"
               >
-                <MoreVertical className="w-3.5 h-3.5" />
+                <MoreVertical className="w-3.5 h-3.5" strokeWidth={1.5} />
                 <span className="hidden sm:inline">Advanced</span> Filters
               </Button>
             </div>
@@ -125,7 +125,7 @@ export function ProgramsPage() {
                   </div>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Calendar className="w-6 h-6 text-primary" />
+                  <Calendar className="w-6 h-6 text-primary" strokeWidth={1.5} />
                 </div>
               </div>
             </CardContent>
@@ -141,7 +141,7 @@ export function ProgramsPage() {
                   </div>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                  <DollarSign className="w-6 h-6 text-green-600" />
+                  <DollarSign className="w-6 h-6 text-green-600" strokeWidth={1.5} />
                 </div>
               </div>
             </CardContent>
@@ -157,7 +157,7 @@ export function ProgramsPage() {
                   </div>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center">
-                  <DollarSign className="w-6 h-6 text-orange-600" />
+                  <DollarSign className="w-6 h-6 text-orange-600" strokeWidth={1.5} />
                 </div>
               </div>
             </CardContent>
@@ -211,15 +211,15 @@ export function ProgramsPage() {
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                           <Button variant="ghost" size="icon" className="h-7 w-7 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-                            <MoreVertical className="w-4 h-4 text-slate-400" />
+                            <MoreVertical className="w-4 h-4 text-slate-400" strokeWidth={1.5} />
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end" className="w-44 p-1 rounded-xl shadow-xl border-slate-200/60">
                           <DropdownMenuItem className="font-bold text-[11px] rounded-lg cursor-pointer" onClick={() => navigate(`/programs/${program.id}`)}>
-                            <Search className="w-3.5 h-3.5 mr-2 opacity-50" /> View Analytics
+                            <Search className="w-3.5 h-3.5 mr-2 opacity-50" strokeWidth={1.5} /> View Analytics
                           </DropdownMenuItem>
                           <DropdownMenuItem className="font-bold text-[11px] rounded-lg cursor-pointer">
-                            <Plus className="w-3.5 h-3.5 mr-2 opacity-50" /> Update Data
+                            <Plus className="w-3.5 h-3.5 mr-2 opacity-50" strokeWidth={1.5} /> Update Data
                           </DropdownMenuItem>
                           <DropdownMenuItem className="text-destructive font-bold text-[11px] rounded-lg cursor-pointer">
                             Archive Program

@@ -113,7 +113,7 @@ export function ProfilePage() {
               className="absolute bottom-0 right-0 h-9 w-9 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 hover:scale-110 transition-transform active:scale-95 flex items-center justify-center translate-x-2 translate-y-2"
               title="Change Photo"
             >
-              <Camera className="h-5 w-5 text-teal-600" />
+              <Camera className="h-5 w-5 text-teal-600" strokeWidth={1.5} />
             </button>
           </div>
 
@@ -135,7 +135,7 @@ export function ProfilePage() {
                 className="rounded-lg font-bold"
                 variant="default"
               >
-                <Pencil className="h-3.5 w-3.5 mr-2" />
+                <Pencil className="h-3.5 w-3.5 mr-2" strokeWidth={1.5} />
                 Edit Profile
               </Button>
             ) : (
@@ -144,7 +144,7 @@ export function ProfilePage() {
                   Cancel
                 </Button>
                 <Button onClick={handleSave} className="rounded-xl font-semibold bg-teal-600 hover:bg-teal-700">
-                  <Save className="h-4 w-4 mr-2" />
+                  <Save className="h-4 w-4 mr-2" strokeWidth={1.5} />
                   Save Changes
                 </Button>
               </div>
@@ -192,7 +192,7 @@ export function ProfilePage() {
               <h3 className="font-bold text-slate-900 dark:text-slate-100 mb-2">Verification Status</h3>
               <div className="flex items-center gap-3 p-3 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800">
                 <div className="h-10 w-10 rounded-xl bg-teal-50 dark:bg-teal-900/30 flex items-center justify-center">
-                  <Save className="h-5 w-5 text-teal-600" />
+                  <Save className="h-5 w-5 text-teal-600" strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-slate-900 dark:text-slate-100">Verified Member</p>

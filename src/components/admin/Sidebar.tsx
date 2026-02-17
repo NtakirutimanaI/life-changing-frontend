@@ -39,25 +39,25 @@ export function Sidebar({ activeView, onViewChange, isOpen, onClose }: SidebarPr
     const renderAdminLinks = () => (
         <>
             <a href="#" onClick={(e) => handleLinkClick(e, 'overview')} className={`sidebar-link ${activeView === 'overview' ? 'active' : ''}`}>
-                <LayoutGrid size={18} className="mr-3" /> Dashboard
+                <LayoutGrid size={18} className="mr-3" strokeWidth={1.5} /> Dashboard
             </a>
             <a href="#" onClick={(e) => handleLinkClick(e, 'beneficiaries')} className={`sidebar-link ${activeView === 'beneficiaries' || activeView === 'add-beneficiary' ? 'active' : ''}`}>
-                <Users size={18} className="mr-3" /> Beneficiaries
+                <Users size={18} className="mr-3" strokeWidth={1.5} /> Beneficiaries
             </a>
             <a href="#" onClick={(e) => handleLinkClick(e, 'content')} className={`sidebar-link ${activeView === 'content' ? 'active' : ''}`}>
-                <Target size={18} className="mr-3" /> Programs
+                <Target size={18} className="mr-3" strokeWidth={1.5} /> Programs
             </a>
             <a href="#" onClick={(e) => handleLinkClick(e, 'donors')} className={`sidebar-link ${activeView === 'donors' || activeView === 'add-donor' ? 'active' : ''}`}>
-                <Heart size={18} className="mr-3" /> Donors
+                <Heart size={18} className="mr-3" strokeWidth={1.5} /> Donors
             </a>
             <a href="#" onClick={(e) => handleLinkClick(e, 'financial')} className={`sidebar-link ${activeView === 'financial' ? 'active' : ''}`}>
-                <CircleDollarSign size={18} className="mr-3" /> Financial
+                <CircleDollarSign size={18} className="mr-3" strokeWidth={1.5} /> Financial
             </a>
             <a href="#" onClick={(e) => handleLinkClick(e, 'reports')} className={`sidebar-link ${activeView === 'reports' ? 'active' : ''}`}>
-                <FileText size={18} className="mr-3" /> Reports
+                <FileText size={18} className="mr-3" strokeWidth={1.5} /> Reports
             </a>
             <a href="#" onClick={(e) => handleLinkClick(e, 'settings')} className={`sidebar-link ${activeView === 'settings' ? 'active' : ''}`}>
-                <Settings size={18} className="mr-3" /> Settings
+                <Settings size={18} className="mr-3" strokeWidth={1.5} /> Settings
             </a>
         </>
     );
@@ -65,16 +65,16 @@ export function Sidebar({ activeView, onViewChange, isOpen, onClose }: SidebarPr
     const renderBeneficiaryLinks = () => (
         <>
             <a href="#" onClick={(e) => handleLinkClick(e, 'overview')} className={`sidebar-link ${activeView === 'overview' ? 'active' : ''}`}>
-                <LayoutGrid size={18} className="mr-3" /> My Dashboard
+                <LayoutGrid size={18} className="mr-3" strokeWidth={1.5} /> My Dashboard
             </a>
             <a href="#" onClick={(e) => handleLinkClick(e, 'business')} className={`sidebar-link ${activeView === 'business' ? 'active' : ''}`}>
-                <Briefcase size={18} className="mr-3" /> My Business
+                <Briefcase size={18} className="mr-3" strokeWidth={1.5} /> My Business
             </a>
             <a href="#" onClick={(e) => handleLinkClick(e, 'tasks')} className={`sidebar-link ${activeView === 'tasks' ? 'active' : ''}`}>
-                <ListTodo size={18} className="mr-3" /> Tasks & Goal
+                <ListTodo size={18} className="mr-3" strokeWidth={1.5} /> Tasks & Goal
             </a>
             <a href="#" onClick={(e) => handleLinkClick(e, 'profile')} className={`sidebar-link ${activeView === 'profile' ? 'active' : ''}`}>
-                <User size={18} className="mr-3" /> My Profile
+                <User size={18} className="mr-3" strokeWidth={1.5} /> My Profile
             </a>
         </>
     );
@@ -82,19 +82,19 @@ export function Sidebar({ activeView, onViewChange, isOpen, onClose }: SidebarPr
     const renderDonorLinks = () => (
         <>
             <a href="#" onClick={(e) => handleLinkClick(e, 'overview')} className={`sidebar-link ${activeView === 'overview' ? 'active' : ''}`}>
-                <LayoutGrid size={18} className="mr-3" /> Impact Overview
+                <LayoutGrid size={18} className="mr-3" strokeWidth={1.5} /> Impact Overview
             </a>
             <a href="#" onClick={(e) => handleLinkClick(e, 'donations')} className={`sidebar-link ${activeView === 'donations' ? 'active' : ''}`}>
-                <Heart size={18} className="mr-3" /> My Donations
+                <Heart size={18} className="mr-3" strokeWidth={1.5} /> My Donations
             </a>
             <a href="#" onClick={(e) => handleLinkClick(e, 'reports')} className={`sidebar-link ${activeView === 'reports' ? 'active' : ''}`}>
-                <FileText size={18} className="mr-3" /> Impact Reports
+                <FileText size={18} className="mr-3" strokeWidth={1.5} /> Impact Reports
             </a>
             <a href="#" onClick={(e) => handleLinkClick(e, 'settings')} className={`sidebar-link ${activeView === 'settings' ? 'active' : ''}`}>
-                <Settings size={18} className="mr-3" /> Settings
+                <Settings size={18} className="mr-3" strokeWidth={1.5} /> Settings
             </a>
             <Link to="/donate" className="sidebar-link text-primary font-weight-bold">
-                <PlusCircle size={18} className="mr-3" /> New Donation
+                <PlusCircle size={18} className="mr-3" strokeWidth={1.5} /> New Donation
             </Link>
         </>
     );
@@ -130,7 +130,7 @@ export function Sidebar({ activeView, onViewChange, isOpen, onClose }: SidebarPr
                         </div>
                     </div>
                     <a href="#" onClick={(e) => { e.preventDefault(); logout(); }} className="sidebar-link text-danger p-0 d-flex align-items-center">
-                        <LogOut size={16} className="mr-2" /> Log out
+                        <LogOut size={16} className="mr-2" strokeWidth={1.5} /> Log out
                     </a>
                 </div>
             </div>

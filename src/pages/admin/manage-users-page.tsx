@@ -225,7 +225,7 @@ export function ManageUsersPage() {
                 <Dialog open={isAddModalOpen} onOpenChange={(open) => { setIsAddModalOpen(open); if (!open) resetForm(); }}>
                     <DialogTrigger asChild>
                         <Button className="font-semibold text-xs h-9 px-5 rounded-xl shadow-lg flex items-center gap-2 transition-all duration-200 active:scale-95" style={{ backgroundColor: '#4c9789', color: '#ffffff' }}>
-                            <Plus size={15} />
+                            <Plus size={15} strokeWidth={1.5} />
                             Add User
                         </Button>
                     </DialogTrigger>
@@ -306,7 +306,7 @@ export function ManageUsersPage() {
             {/* Filter/Search Bar */}
             <div className="flex flex-col md:flex-row items-center gap-3 bg-white dark:bg-slate-900 p-3 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
                 <div className="relative flex-1 w-full group">
-                    <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                    <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" strokeWidth={1.5} />
                     <Input
                         placeholder="Search by name, email or phone..."
                         className="h-10 pl-11 pr-4 bg-slate-50/50 dark:bg-slate-950 border-slate-100 dark:border-slate-800 rounded-xl font-medium focus:ring-slate-900"
@@ -389,8 +389,8 @@ export function ManageUsersPage() {
                                             </TableCell>
                                             <TableCell className="py-3">
                                                 <div className="flex flex-col gap-0.5">
-                                                    <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5"><Mail size={12} className="text-slate-400" /> {user.email || '—'}</p>
-                                                    <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5"><Phone size={12} className="text-slate-400" /> {user.phone}</p>
+                                                    <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5"><Mail size={12} className="text-slate-400" strokeWidth={1.5} /> {user.email || '—'}</p>
+                                                    <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5"><Phone size={12} className="text-slate-400" strokeWidth={1.5} /> {user.phone}</p>
                                                 </div>
                                             </TableCell>
                                             <TableCell className="py-3">
@@ -408,7 +408,7 @@ export function ManageUsersPage() {
                                                         title="View Details"
                                                         onClick={() => { setSelectedUser(user); setIsViewModalOpen(true); }}
                                                     >
-                                                        <Eye size={12} />
+                                                        <Eye size={12} strokeWidth={1.5} />
                                                     </Button>
                                                     <Button
                                                         size="icon"
@@ -417,7 +417,7 @@ export function ManageUsersPage() {
                                                         title="Edit Profile"
                                                         onClick={() => { setSelectedUser(user); setIsEditModalOpen(true); }}
                                                     >
-                                                        <Edit size={12} />
+                                                        <Edit size={12} strokeWidth={1.5} />
                                                     </Button>
                                                     <Button
                                                         size="icon"
@@ -426,7 +426,7 @@ export function ManageUsersPage() {
                                                         title="Change Role"
                                                         onClick={() => { setSelectedUser(user); setIsRoleModalOpen(true); }}
                                                     >
-                                                        <UserCog size={12} />
+                                                        <UserCog size={12} strokeWidth={1.5} />
                                                     </Button>
                                                     <Button
                                                         size="icon"
@@ -440,7 +440,7 @@ export function ManageUsersPage() {
                                                         title={user.isActive ? "Suspend" : "Activate"}
                                                         onClick={() => toggleUserStatus(user.id)}
                                                     >
-                                                        <Power size={12} />
+                                                        <Power size={12} strokeWidth={1.5} />
                                                     </Button>
                                                     <Button
                                                         size="icon"
@@ -449,7 +449,7 @@ export function ManageUsersPage() {
                                                         title="Delete User"
                                                         onClick={() => { setSelectedUser(user); setIsDeleteModalOpen(true); }}
                                                     >
-                                                        <Trash2 size={12} />
+                                                        <Trash2 size={12} strokeWidth={1.5} />
                                                     </Button>
                                                 </div>
                                             </TableCell>
@@ -597,7 +597,7 @@ export function ManageUsersPage() {
                             <label key={role} className={cn("flex items-center justify-between p-3 rounded-lg border cursor-pointer transition-all", formData.userType === role ? "bg-[#4c9789] border-[#4c9789] shadow-lg" : "border-slate-100 hover:border-slate-200 bg-white dark:bg-slate-950")}>
                                 <div className="flex items-center gap-2">
                                     <div className={cn("p-1 rounded-md", formData.userType === role ? "bg-white/10 text-white" : "bg-slate-50 text-slate-400")}>
-                                        <Shield size={10} strokeWidth={3} />
+                                        <Shield size={10} strokeWidth={1.5} />
                                     </div>
                                     <span className={cn("font-bold text-[9px] uppercase tracking-widest", formData.userType === role ? "text-white" : "text-slate-600")}>{role}</span>
                                 </div>
@@ -630,7 +630,7 @@ export function ManageUsersPage() {
                     </div>
                     <div className="p-4 pt-3 space-y-3 text-center">
                         <div className="mx-auto w-10 h-10 bg-red-50 dark:bg-red-950/20 text-red-500 rounded-xl flex items-center justify-center">
-                            <AlertCircle size={20} strokeWidth={2.5} />
+                            <AlertCircle size={20} strokeWidth={1.5} />
                         </div>
                         <div className="space-y-1">
                             <p className="text-[10px] font-bold text-slate-500 leading-relaxed px-2">Are you sure you want to delete<br /><span className="text-slate-900 dark:text-white font-black">{selectedUser?.fullName}</span>?<br />This cannot be undone.</p>

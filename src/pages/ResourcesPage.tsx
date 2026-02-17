@@ -148,10 +148,10 @@ export const ResourcesPage = () => {
     const renderResourceCard = (item: any) => (
         <div className="flex items-center bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 h-100 transition-all duration-300 hover:shadow-lg hover:border-teal-500/30 group">
             <div className="mr-4 p-3 rounded-xl transition-colors duration-300 group-hover:bg-teal-500/10" style={{ backgroundColor: 'rgba(79, 177, 161, 0.08)' }}>
-                {item.type === 'PDF' && <FileText size={24} className="text-teal-600" />}
-                {item.type === 'Video' && <Video size={24} className="text-teal-600" />}
-                {item.type === 'PPT' && <FileCode size={24} className="text-teal-600" />}
-                {item.type === 'Album' && <ImageIcon size={24} className="text-teal-600" />}
+                {item.type === 'PDF' && <FileText size={32} strokeWidth={1.5} className="text-teal-600" />}
+                {item.type === 'Video' && <Video size={32} strokeWidth={1.5} className="text-teal-600" />}
+                {item.type === 'PPT' && <FileCode size={32} strokeWidth={1.5} className="text-teal-600" />}
+                {item.type === 'Album' && <ImageIcon size={32} strokeWidth={1.5} className="text-teal-600" />}
             </div>
             <div className="flex-grow">
                 <div className="flex items-center mb-1">
@@ -284,57 +284,72 @@ export const ResourcesPage = () => {
 
                     {/* Multimedia Gallery - Visual Grid */}
                     <div className="row mb-16">
-                        <div className="col-md-12 mb-8 text-center">
-                            <h2 className="text-2xl font-bold mb-2">Impact In Action</h2>
-                            <p className="text-slate-500">Visual highlights from our operations across the country.</p>
+                        <div className="col-md-12 mb-6">
+                            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 text-left">Impact In Action</h2>
+                            <p className="text-slate-600 dark:text-slate-400 text-left">Visual highlights from our operations across the country.</p>
                         </div>
+
+                        {/* Card 1 */}
                         <div className="col-md-4 mb-4 ftco-animate">
-                            <div className="bg-white rounded-2xl shadow-sm border overflow-hidden group">
-                                <div className="aspect-video relative overflow-hidden">
-                                    <img src="/images/image_4.jpg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Gallery 1" />
-                                    <a href="/images/image_4.jpg" className="absolute inset-0 flex items-center justify-center bg-teal-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <span className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30">
-                                            <ImageIcon size={20} />
-                                        </span>
-                                    </a>
+                            <a href="#" className="block group h-full focus:outline-none decoration-none">
+                                <div className="flex flex-col h-full bg-[#076c5b] hover:bg-[#065c4d] transition-colors duration-300 shadow-none rounded-none">
+                                    <div className="relative h-64 overflow-hidden">
+                                        <img src="/images/image_4.jpg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="School Materials" />
+                                    </div>
+                                    <div className="p-6 flex-grow flex flex-col justify-center">
+                                        <h3 className="text-white text-xl font-bold group-hover:underline decoration-2 underline-offset-4 mb-0 group-hover:mb-2 transition-all duration-300 text-left">
+                                            School Materials Distribution
+                                        </h3>
+                                        <div className="max-h-0 overflow-hidden group-hover:max-h-40 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+                                            <p className="text-white/90 text-sm leading-relaxed mb-0 text-left">
+                                                Distribution of essential learning supplies to partner schools in rural districts to support student retention.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="p-5 border-t">
-                                    <span className="text-teal-600 text-xs font-bold uppercase tracking-wider">Education</span>
-                                    <h3 className="text-lg font-bold mt-1 text-slate-800">School Materials Distribution</h3>
-                                </div>
-                            </div>
+                            </a>
                         </div>
+
+                        {/* Card 2 */}
                         <div className="col-md-4 mb-4 ftco-animate">
-                            <div className="bg-white rounded-2xl shadow-sm border overflow-hidden group">
-                                <div className="aspect-video relative overflow-hidden">
-                                    <img src="/images/image_5.jpg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Gallery 2" />
-                                    <a href="/images/image_5.jpg" className="absolute inset-0 flex items-center justify-center bg-teal-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <span className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30">
-                                            <ImageIcon size={20} />
-                                        </span>
-                                    </a>
+                            <a href="#" className="block group h-full focus:outline-none decoration-none">
+                                <div className="flex flex-col h-full bg-[#076c5b] hover:bg-[#065c4d] transition-colors duration-300 shadow-none rounded-none">
+                                    <div className="relative h-64 overflow-hidden">
+                                        <img src="/images/image_5.jpg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Vocational Training" />
+                                    </div>
+                                    <div className="p-6 flex-grow flex flex-col justify-center">
+                                        <h3 className="text-white text-xl font-bold group-hover:underline decoration-2 underline-offset-4 mb-0 group-hover:mb-2 transition-all duration-300 text-left">
+                                            Vocational Training Session
+                                        </h3>
+                                        <div className="max-h-0 overflow-hidden group-hover:max-h-40 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+                                            <p className="text-white/90 text-sm leading-relaxed mb-0 text-left">
+                                                Practical skills workshops and mentorship programs empowering youth with sustainable livelihood opportunities.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="p-5 border-t">
-                                    <span className="text-teal-600 text-xs font-bold uppercase tracking-wider">Entrepreneurship</span>
-                                    <h3 className="text-lg font-bold mt-1 text-slate-800">Vocational Training Session</h3>
-                                </div>
-                            </div>
+                            </a>
                         </div>
+
+                        {/* Card 3 */}
                         <div className="col-md-4 mb-4 ftco-animate">
-                            <div className="bg-white rounded-2xl shadow-sm border overflow-hidden group">
-                                <div className="aspect-video relative overflow-hidden">
-                                    <img src="/images/image_6.jpg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Gallery 3" />
-                                    <a href="https://vimeo.com/45830194" className="absolute inset-0 flex items-center justify-center bg-teal-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <span className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30">
-                                            <PlayCircle size={24} />
-                                        </span>
-                                    </a>
+                            <a href="https://vimeo.com/45830194" className="block group h-full focus:outline-none decoration-none">
+                                <div className="flex flex-col h-full bg-[#076c5b] hover:bg-[#065c4d] transition-colors duration-300 shadow-none rounded-none">
+                                    <div className="relative h-64 overflow-hidden">
+                                        <img src="/images/image_6.jpg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Keza's Journey" />
+                                    </div>
+                                    <div className="p-6 flex-grow flex flex-col justify-center">
+                                        <h3 className="text-white text-xl font-bold group-hover:underline decoration-2 underline-offset-4 mb-0 group-hover:mb-2 transition-all duration-300 text-left">
+                                            Keza's Journey (Video)
+                                        </h3>
+                                        <div className="max-h-0 overflow-hidden group-hover:max-h-40 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+                                            <p className="text-white/90 text-sm leading-relaxed mb-0 text-left">
+                                                Watch the inspiring story of how community support and resilience transformed one family's future features.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="p-5 border-t">
-                                    <span className="text-teal-600 text-xs font-bold uppercase tracking-wider">Story</span>
-                                    <h3 className="text-lg font-bold mt-1 text-slate-800">Keza's Journey (Video)</h3>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>

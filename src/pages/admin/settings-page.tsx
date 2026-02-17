@@ -6,12 +6,12 @@ import { Switch } from '@/components/ui/switch';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Settings, 
-  Bell, 
-  Lock, 
-  Users, 
-  Globe, 
+import {
+  Settings,
+  Bell,
+  Lock,
+  Users,
+  Globe,
   Mail,
   Shield,
   Database,
@@ -81,9 +81,9 @@ export default function SettingsPage() {
 
               <div className="space-y-2">
                 <Label htmlFor="org-address">Address</Label>
-                <Input 
-                  id="org-address" 
-                  defaultValue="KN 4 Ave, Kigali, Rwanda" 
+                <Input
+                  id="org-address"
+                  defaultValue="KN 4 Ave, Kigali, Rwanda"
                 />
               </div>
 
@@ -91,7 +91,7 @@ export default function SettingsPage() {
 
               <div className="space-y-2">
                 <Label htmlFor="org-mission">Mission Statement</Label>
-                <textarea 
+                <textarea
                   id="org-mission"
                   className="w-full border rounded-md p-2 min-h-[100px]"
                   defaultValue="To walk alongside girls and women as they heal, grow and thrive- through mindset shift and mental resilience, education and economic empowerment"
@@ -281,7 +281,7 @@ export default function SettingsPage() {
         {/* Security Settings Tab */}
         <TabsContent value="security" className="space-y-4">
           <Alert className="bg-blue-50 border-blue-200">
-            <Shield className="h-4 w-4 text-blue-600" />
+            <Shield className="h-4 w-4 text-blue-600" strokeWidth={1.5} />
             <AlertTitle className="text-blue-800">Security Status</AlertTitle>
             <AlertDescription className="text-blue-700">
               Your system security settings are configured correctly.
@@ -429,7 +429,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-blue-100 rounded-lg">
-                      <Zap className="w-5 h-5 text-blue-600" />
+                      <Zap className="w-5 h-5 text-blue-600" strokeWidth={1.5} />
                     </div>
                     <div>
                       <h3 className="font-semibold">Stripe</h3>
@@ -437,7 +437,7 @@ export default function SettingsPage() {
                     </div>
                   </div>
                   <Badge className="bg-green-100 text-green-700">
-                    <CheckCircle2 className="w-3 h-3 mr-1" />
+                    <CheckCircle2 className="w-3 h-3 mr-1" strokeWidth={1.5} />
                     Connected
                   </Badge>
                 </div>
@@ -451,7 +451,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-purple-100 rounded-lg">
-                      <Zap className="w-5 h-5 text-purple-600" />
+                      <Zap className="w-5 h-5 text-purple-600" strokeWidth={1.5} />
                     </div>
                     <div>
                       <h3 className="font-semibold">Mobile Money (MTN/Airtel)</h3>
@@ -459,7 +459,7 @@ export default function SettingsPage() {
                     </div>
                   </div>
                   <Badge className="bg-green-100 text-green-700">
-                    <CheckCircle2 className="w-3 h-3 mr-1" />
+                    <CheckCircle2 className="w-3 h-3 mr-1" strokeWidth={1.5} />
                     Connected
                   </Badge>
                 </div>
@@ -473,7 +473,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-gray-100 rounded-lg">
-                      <Zap className="w-5 h-5 text-gray-600" />
+                      <Zap className="w-5 h-5 text-gray-600" strokeWidth={1.5} />
                     </div>
                     <div>
                       <h3 className="font-semibold">PayPal</h3>
@@ -497,7 +497,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-orange-100 rounded-lg">
-                      <Database className="w-5 h-5 text-orange-600" />
+                      <Database className="w-5 h-5 text-orange-600" strokeWidth={1.5} />
                     </div>
                     <div>
                       <h3 className="font-semibold">KoboToolbox</h3>
@@ -505,7 +505,7 @@ export default function SettingsPage() {
                     </div>
                   </div>
                   <Badge className="bg-green-100 text-green-700">
-                    <CheckCircle2 className="w-3 h-3 mr-1" />
+                    <CheckCircle2 className="w-3 h-3 mr-1" strokeWidth={1.5} />
                     Connected
                   </Badge>
                 </div>
@@ -527,7 +527,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-green-100 rounded-lg">
-                      <Mail className="w-5 h-5 text-green-600" />
+                      <Mail className="w-5 h-5 text-green-600" strokeWidth={1.5} />
                     </div>
                     <div>
                       <h3 className="font-semibold">SendGrid</h3>
@@ -535,7 +535,7 @@ export default function SettingsPage() {
                     </div>
                   </div>
                   <Badge className="bg-green-100 text-green-700">
-                    <CheckCircle2 className="w-3 h-3 mr-1" />
+                    <CheckCircle2 className="w-3 h-3 mr-1" strokeWidth={1.5} />
                     Connected
                   </Badge>
                 </div>

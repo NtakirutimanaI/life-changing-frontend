@@ -92,7 +92,7 @@ export const HelpFaqPage = () => {
                                 left: 0,
                                 right: 0,
                                 bottom: 0,
-                                backgroundImage: "url('/images/bg_2.jpg')",
+                                backgroundImage: "url('/images/faq.jpg')",
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center'
                             }}></div>
@@ -143,7 +143,7 @@ export const HelpFaqPage = () => {
                                                     marginRight: '15px',
                                                     fontSize: '1.2rem'
                                                 }}>
-                                                    {isOpen ? <Minus size={20} strokeWidth={2.5} /> : <Plus size={20} strokeWidth={2.5} />}
+                                                    {isOpen ? <Minus size={24} strokeWidth={1.5} /> : <Plus size={24} strokeWidth={1.5} />}
                                                 </span>
                                                 <h4 className="mb-0" style={{
                                                     fontSize: '1.1rem',
@@ -189,7 +189,7 @@ export const HelpFaqPage = () => {
             <div style={{ position: 'fixed', right: '0', top: '50%', transform: 'translateY(-50%)', zIndex: 1000 }} className="d-none d-lg-block">
                 <div className="d-flex align-items-center">
                     <div style={{ backgroundColor: '#fff', padding: '10px', border: '1px solid #eee', borderRight: 'none', borderBottomLeftRadius: '8px', borderTopLeftRadius: '8px', boxShadow: '-5px 0 15px rgba(0,0,0,0.05)' }}>
-                        <ChevronRight size={16} />
+                        <ChevronRight size={16} strokeWidth={1.5} />
                     </div>
                     <div style={{
                         backgroundColor: '#e91e63',

@@ -195,7 +195,7 @@ export function DonationPage() {
                         backdropFilter: 'blur(8px)',
                         border: '1px solid rgba(255,255,255,0.2)'
                     }}>
-                        <Heart size={36} color="#4c9789" fill="#4c9789" />
+                        <Heart size={36} color="#4c9789" fill="#4c9789" strokeWidth={1.5} />
                     </div>
                     <h1 className="font-weight-bold mb-3 responsive-impact-title" style={{
                         lineHeight: '1.1',
@@ -371,7 +371,7 @@ export function DonationPage() {
                                             backgroundColor: '#4c9789',
                                             borderRadius: '15px'
                                         }}>
-                                            <Heart size={30} color="white" fill="white" />
+                                            <Heart size={30} color="white" fill="white" strokeWidth={1.5} />
                                         </div>
                                         <div className="flex-grow-1">
                                             <h5 className="font-weight-bold mb-1 text-dark">Where Needed Most</h5>
@@ -404,7 +404,7 @@ export function DonationPage() {
                                                     backgroundColor: styles.bg,
                                                     borderRadius: '15px'
                                                 }}>
-                                                    <styles.icon size={28} color={styles.color} />
+                                                    <styles.icon size={28} color={styles.color} strokeWidth={1.5} />
                                                 </div>
                                                 <div className="flex-grow-1">
                                                     <h5 className="font-weight-bold mb-1 text-dark">{p.name.en}</h5>
@@ -461,7 +461,7 @@ export function DonationPage() {
                                             <div className="card-body p-4">
                                                 <div className="d-flex align-items-center mb-3">
                                                     <div className="bg-primary-light rounded-circle p-3 mr-3 d-flex align-items-center justify-content-center" style={{ backgroundColor: 'rgba(76, 151, 137, 0.1)', color: '#4c9789', width: '60px', height: '60px', borderRadius: '15px' }}>
-                                                        <RefreshCcw size={28} />
+                                                        <RefreshCcw size={28} strokeWidth={1.5} />
                                                     </div>
                                                     <h4 className="font-weight-bold mb-0">Monthly Giving</h4>
                                                 </div>
@@ -496,7 +496,7 @@ export function DonationPage() {
                                             <div className="card-body p-4">
                                                 <div className="d-flex align-items-center mb-3">
                                                     <div className="bg-secondary-light rounded-circle p-3 mr-3 d-flex align-items-center justify-content-center" style={{ backgroundColor: 'rgba(18, 47, 43, 0.1)', color: '#122f2b', width: '60px', height: '60px', borderRadius: '15px' }}>
-                                                        <Heart size={28} />
+                                                        <Heart size={28} strokeWidth={1.5} />
                                                     </div>
                                                     <h4 className="font-weight-bold mb-0">One-Time Gift</h4>
                                                 </div>
@@ -605,7 +605,7 @@ export function DonationPage() {
                                         <div className="space-y-4">
                                             <div className="d-flex align-items-center mb-3">
                                                 <div className="bg-white rounded-xl shadow-sm d-flex align-items-center justify-content-center mr-3" style={{ width: '50px', height: '50px', backgroundColor: 'rgba(76, 151, 137, 0.1)' }}>
-                                                    <Layers size={24} color="#4c9789" />
+                                                    <Layers size={24} color="#4c9789" strokeWidth={1.5} />
                                                 </div>
                                                 <div>
                                                     <div className="font-weight-bold text-dark" style={{ fontSize: '1.1rem' }}>{Math.max(1, Math.floor(selectedAmount / 25))} girls</div>
@@ -614,7 +614,7 @@ export function DonationPage() {
                                             </div>
                                             <div className="d-flex align-items-center mb-3">
                                                 <div className="bg-white rounded-xl shadow-sm d-flex align-items-center justify-content-center mr-3" style={{ width: '50px', height: '50px', backgroundColor: 'rgba(18, 47, 43, 0.1)' }}>
-                                                    <RefreshCcw size={24} color="#122f2b" />
+                                                    <RefreshCcw size={24} color="#122f2b" strokeWidth={1.5} />
                                                 </div>
                                                 <div>
                                                     <div className="font-weight-bold text-dark" style={{ fontSize: '1.1rem' }}>{Math.max(1, Math.floor(selectedAmount / 50))} months</div>
@@ -623,7 +623,7 @@ export function DonationPage() {
                                             </div>
                                             <div className="d-flex align-items-center">
                                                 <div className="bg-white rounded-xl shadow-sm d-flex align-items-center justify-content-center mr-3" style={{ width: '50px', height: '50px', backgroundColor: 'rgba(217, 119, 6, 0.1)' }}>
-                                                    <Briefcase size={24} color="#d97706" />
+                                                    <Briefcase size={24} color="#d97706" strokeWidth={1.5} />
                                                 </div>
                                                 <div>
                                                     <div className="font-weight-bold text-dark" style={{ fontSize: '1.1rem' }}>{Math.max(1, Math.floor(selectedAmount / 200))} young women</div>
@@ -703,7 +703,7 @@ export function DonationPage() {
                                                     onClick={() => setFormData({ ...formData, paymentMethod: method.id })}
                                                 >
                                                     <div className="mb-2" style={{ color: method.color }}>
-                                                        <method.icon size={28} />
+                                                        <method.icon size={28} strokeWidth={1.5} />
                                                     </div>
                                                     <h6 className="font-weight-bold mb-0" style={{ fontSize: '0.85rem' }}>{method.name}</h6>
                                                 </div>
