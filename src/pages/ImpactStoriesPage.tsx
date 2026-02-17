@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
+import { Check, Globe } from 'lucide-react';
 
 export const ImpactStoriesPage = () => {
     useLegacyScripts();
@@ -153,46 +154,119 @@ export const ImpactStoriesPage = () => {
                 </div>
             </section>
 
-            {/* SDG Alignment Section */}
-            <section className="ftco-section bg-white">
+            {/* SDG Alignment Section (Pricing-Style Redesign) */}
+            <section className="ftco-section bg-white" style={{ padding: '100px 0' }}>
                 <div className="container">
-                    <div className="row justify-content-center mb-5">
+                    <div className="row justify-content-center mb-5 pb-4">
                         <div className="col-md-10 text-center ftco-animate">
-                            <span style={{ color: '#076c5b', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '12px', display: 'block', marginBottom: '10px' }}>Global Agenda</span>
-                            <h2 className="mb-4 font-weight-bold" style={{ fontSize: '36px', color: '#122f2b' }}>
-                                Aligned with Sustainable Development Goals
+                            <span className="badge badge-light px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1.2px', textTransform: 'uppercase' }}>
+                                Global Agenda
+                            </span>
+                            <h2 className="mb-3 font-weight-bold" style={{ fontSize: '48px', color: '#111', letterSpacing: '-1.5px' }}>
+                                Aligned with Global Goals
                             </h2>
+                            <p className="lead mx-auto" style={{ maxWidth: '700px', color: '#666', fontSize: '18px' }}>
+                                LCEO’s programs contribute directly to the 2030 Agenda for Sustainable Development, ensuring no one is left behind in Rwanda's development journey.
+                            </p>
                         </div>
                     </div>
 
-                    <div className="row">
-                        {[
-                            { id: 1, title: 'No Poverty', progress: 78 },
-                            { id: 3, title: 'Good Health', progress: 85 },
-                            { id: 4, title: 'Quality Education', progress: 92 },
-                            { id: 5, title: 'Gender Equality', progress: 88 },
-                            { id: 8, title: 'Economic Growth', progress: 75 },
-                            { id: 10, title: 'Reduced Inequalities', progress: 82 }
-                        ].map(sdg => (
-                            <div key={sdg.id} className="col-md-4 mb-4 ftco-animate">
-                                <div className="p-4 bg-light rounded shadow-sm border" style={{ borderColor: '#f0f2f2' }}>
-                                    <div className="d-flex align-items-center mb-3">
-                                        <div className="rounded-circle d-flex align-items-center justify-content-center mr-3"
-                                            style={{ width: '50px', height: '50px', backgroundColor: '#076c5b', color: '#fff', fontSize: '20px', fontWeight: 'bold' }}>
-                                            {sdg.id}
+                    <div className="row d-flex align-items-stretch no-gutters">
+                        {/* Light Card: Foundation Goals */}
+                        <div className="col-lg-4 mb-4 mb-lg-0 ftco-animate">
+                            <div className="p-5 h-100 d-flex flex-column" style={{
+                                backgroundColor: '#f0f9f8',
+                                borderRadius: '24px 0 0 24px',
+                                border: '1px solid rgba(7, 108, 91, 0.05)'
+                            }}>
+                                <h3 className="font-weight-bold mb-3" style={{ fontSize: '24px', color: '#111' }}>Community Resilience</h3>
+                                <p style={{ color: '#666', fontSize: '15.5px', lineHeight: '1.6', marginBottom: '40px' }}>
+                                    Building the fundamental assets of health, education, and basic stability for the most vulnerable.
+                                </p>
+
+                                <div className="mt-auto">
+                                    {[
+                                        { id: 1, title: 'No Poverty', progress: 78 },
+                                        { id: 3, title: 'Good Health', progress: 85 },
+                                        { id: 4, title: 'Quality Education', progress: 92 }
+                                    ].map(sdg => (
+                                        <div key={sdg.id} className="mb-4">
+                                            <div className="d-flex justify-content-between align-items-center mb-2">
+                                                <span className="font-weight-bold" style={{ fontSize: '14px', color: '#111' }}>Goal {sdg.id}: {sdg.title}</span>
+                                                <span className="font-weight-bold" style={{ color: '#076c5b', fontSize: '13px' }}>{sdg.progress}%</span>
+                                            </div>
+                                            <div className="progress" style={{ height: '5px', backgroundColor: 'rgba(7, 108, 91, 0.1)', borderRadius: '10px' }}>
+                                                <div className="progress-bar" style={{ width: `${sdg.progress}%`, backgroundColor: '#076c5b' }}></div>
+                                            </div>
                                         </div>
-                                        <h5 className="font-weight-bold mb-0" style={{ fontSize: '15px', color: '#122f2b' }}>{sdg.title}</h5>
+                                    ))}
+
+                                    <Link to="/about" className="btn btn-primary w-100 py-3 mt-4 border-0 font-weight-bold" style={{ backgroundColor: '#122f2b', borderRadius: '12px', fontSize: '14px' }}>
+                                        View Full Report
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Dark Card: Systemic Transformation */}
+                        <div className="col-lg-8 ftco-animate">
+                            <div className="p-5 h-100 d-flex text-white" style={{
+                                backgroundColor: '#076c5b',
+                                borderRadius: '0 24px 24px 0',
+                                border: '1px solid rgba(7, 108, 91, 0.1)'
+                            }}>
+                                <div className="row w-100">
+                                    <div className="col-md-7 d-flex flex-column">
+                                        <h3 className="font-weight-bold mb-3 text-white" style={{ fontSize: '28px' }}>Societal Transformation</h3>
+                                        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', lineHeight: '1.7', marginBottom: '40px' }}>
+                                            Driving long-term gender equality, economic growth, and structural reduction of systemic inequalities.
+                                        </p>
+
+                                        <div className="mt-auto">
+                                            {[
+                                                { id: 5, title: 'Gender Equality', progress: 88 },
+                                                { id: 8, title: 'Economic Growth', progress: 75 },
+                                                { id: 10, title: 'Reduced Inequality', progress: 82 }
+                                            ].map(sdg => (
+                                                <div key={sdg.id} className="mb-4">
+                                                    <div className="d-flex justify-content-between align-items-center mb-2">
+                                                        <span className="font-weight-bold" style={{ fontSize: '14px' }}>Goal {sdg.id}: {sdg.title}</span>
+                                                        <span className="font-weight-bold" style={{ color: '#fff', fontSize: '13px' }}>{sdg.progress}%</span>
+                                                    </div>
+                                                    <div className="progress" style={{ height: '5px', backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '10px' }}>
+                                                        <div className="progress-bar" style={{ width: `${sdg.progress}%`, backgroundColor: '#fff' }}></div>
+                                                    </div>
+                                                </div>
+                                            ))}
+
+                                            <button className="btn btn-white w-100 py-3 mt-4 font-weight-bold" style={{ borderRadius: '12px', fontSize: '14px', color: '#076c5b' }}>
+                                                Partner With Us
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className="d-flex justify-content-between align-items-center mb-2">
-                                        <span className="small text-muted">Contribution</span>
-                                        <span className="font-weight-bold" style={{ color: '#076c5b' }}>{sdg.progress}%</span>
-                                    </div>
-                                    <div className="progress" style={{ height: '6px', backgroundColor: '#e9ecef' }}>
-                                        <div className="progress-bar" role="progressbar" style={{ width: `${sdg.progress}%`, backgroundColor: '#076c5b' }}></div>
+
+                                    {/* Right Features Side of Dark Card */}
+                                    <div className="col-md-5 pl-md-5 mt-5 mt-md-0 border-left" style={{ borderColor: 'rgba(255,255,255,0.1) !important' }}>
+                                        <h6 className="font-weight-bold text-uppercase mb-4" style={{ letterSpacing: '2px', fontSize: '12px', color: 'rgba(255,255,255,0.5)' }}>Key Outcomes</h6>
+                                        <ul className="list-unstyled">
+                                            {[
+                                                'Bridging the gender tech gap',
+                                                'Sustainable economic loops',
+                                                'Community-led advocacy',
+                                                'Policy level integration',
+                                                'Girls\' school retention models',
+                                                'Mental resilience hubs'
+                                            ].map((item, idx) => (
+                                                <li key={idx} className="d-flex align-items-start mb-3">
+                                                    <Check size={18} className="mr-3" style={{ color: '#fff', marginTop: '3px' }} />
+                                                    <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.9)' }}>{item}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
             </section>
