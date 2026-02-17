@@ -77,31 +77,94 @@ export const StrategicDirectionPage = () => {
                 </div>
             </section>
 
-            <section className="ftco-section">
-                <div className="container">
-                    <div className="row justify-content-center mb-5 pb-3">
-                        <div className="col-md-10 heading-section ftco-animate text-center">
-                            <h2 className="mb-4">Strategic Direction</h2>
-                            <p>LCEO’s strategic direction defines how we understand change, how we design our programs, and how our work
-                                aligns with national and global priorities to achieve sustainable impact for girls and young women.</p>
+            <section className="ftco-section p-0 overflow-hidden" style={{ backgroundColor: '#f8f9fa' }}>
+                <div className="container-fluid p-0">
+                    <div className="row no-gutters d-flex align-items-stretch">
+                        {/* Image Side */}
+                        <div className="col-md-6" style={{
+                            backgroundImage: "url('/images/cause-1.jpg')",
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center center',
+                            minHeight: '450px',
+                            position: 'relative'
+                        }}>
+                            {/* Subtle gradient to transition into the green side */}
+                            <div style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                background: 'linear-gradient(to right, rgba(7, 108, 91, 0) 70%, rgba(7, 108, 91, 1) 100%)'
+                            }}></div>
+                        </div>
+
+                        {/* Content Side */}
+                        <div className="col-md-6 d-flex align-items-center" style={{
+                            backgroundColor: '#076c5b',
+                            padding: '60px 80px',
+                            color: '#ffffff'
+                        }}>
+                            <div className="w-100">
+                                <h2 className="text-white font-weight-bold mb-4" style={{
+                                    fontSize: '42px',
+                                    lineHeight: '1.2',
+                                    letterSpacing: '-1px'
+                                }}>
+                                    Strategic Direction
+                                </h2>
+
+                                <p className="mb-4 text-white" style={{ fontSize: '18px', lineHeight: '1.6', opacity: '0.9' }}>
+                                    LCEO’s strategic direction defines how we understand change, how we design our programs, and how we achieve results.
+                                </p>
+
+                                <p className="mb-5 text-white" style={{ fontSize: '18px', lineHeight: '1.6', opacity: '0.9' }}>
+                                    Our work aligns with national and global priorities to achieve sustainable impact for girls and young women, building resilient communities.
+                                </p>
+
+                                <Link to="/about" className="d-flex align-items-center text-white font-weight-bold" style={{
+                                    fontSize: '16px',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '1px',
+                                    textDecoration: 'none'
+                                }}>
+                                    LEARN MORE
+                                    <div className="ml-2 bg-white rounded-circle d-flex align-items-center justify-content-center" style={{ width: '28px', height: '28px' }}>
+                                        <i className="ion-ios-arrow-forward text-dark" style={{ color: '#076c5b', marginLeft: '2px' }}></i>
+                                    </div>
+                                </Link>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section className="ftco-section bg-light">
+                <div className="container">
                     <div className="row">
                         <div className="col-md-12 ftco-animate mb-5">
-                            <div className="p-4 bg-light shadow-sm">
-                                <h3 className="mb-3" style={{ color: '#4FB1A1' }}>Our Philosophy</h3>
-                                <p>LCEO believes that lasting transformation starts with mindset, identity, and mental resilience. We
+                            <div className="p-5 bg-white shadow-sm rounded-lg" style={{ borderRadius: '24px', border: '1px solid rgba(0,0,0,0.05)' }}>
+                                <h3 className="mb-4 font-weight-bold" style={{ color: '#076c5b', fontSize: '28px' }}>Our Philosophy</h3>
+                                <p className="lead" style={{ color: '#555', lineHeight: '1.8' }}>
+                                    LCEO believes that lasting transformation starts with mindset, identity, and mental resilience. We
                                     prioritize human capital development through integrated interventions that strengthen confidence,
                                     psychosocial wellbeing, education access, and economic empowerment. This approach enables girls and young
-                                    women to pursue education, achieve economic independence, and emerge as leaders in their communities.</p>
+                                    women to pursue education, achieve economic independence, and emerge as leaders in their communities.
+                                </p>
                             </div>
                         </div>
 
                         <div className="col-md-12 ftco-animate mb-5">
-                            <div className="p-4 bg-light shadow-sm border-left" style={{ borderLeft: '5px solid #4FB1A1 !important' }}>
-                                <h3 className="mb-3" style={{ color: '#4FB1A1' }}>Our Gender-Transformative Change Model</h3>
-                                <p>LCEO implements its work through the <strong>Rugero Rwiza Community Change Model (RR-CCM)</strong>, a
-                                    gender-transformative framework that addresses the root causes of inequality.</p>
+                            <div className="p-5 bg-white shadow-sm" style={{
+                                borderRadius: '24px',
+                                border: '1px solid rgba(0,0,0,0.05)',
+                                borderLeft: '8px solid #076c5b'
+                            }}>
+                                <h3 className="mb-4 font-weight-bold" style={{ color: '#076c5b', fontSize: '28px' }}>Our Gender-Transformative Change Model</h3>
+                                <p className="mb-5" style={{ color: '#666', fontSize: '17px' }}>
+                                    LCEO implements its work through the <strong>Rugero Rwiza Community Change Model (RR-CCM)</strong>, a
+                                    gender-transformative framework that addresses the root causes of inequality.
+                                </p>
 
                                 <div className="row mt-4">
                                     <div className="col-md-4 mb-4">
@@ -188,8 +251,8 @@ export const StrategicDirectionPage = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </div >
+            </section >
 
 
             <section className="ftco-section-3 img" style={{ backgroundImage: "url(/images/bg_3.jpg)" }}>
