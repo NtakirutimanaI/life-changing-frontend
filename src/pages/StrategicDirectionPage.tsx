@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
+import { User, Users, Shield } from 'lucide-react';
 
 export const StrategicDirectionPage = () => {
     useLegacyScripts();
@@ -154,39 +155,54 @@ export const StrategicDirectionPage = () => {
                             </div>
                         </div>
 
-                        <div className="col-md-12 ftco-animate mb-5">
+                        <div className="col-md-12 ftco-animate mb-5 text-left">
                             <div className="p-5 bg-white shadow-sm" style={{
                                 borderRadius: '24px',
-                                border: '1px solid rgba(0,0,0,0.05)',
-                                borderLeft: '8px solid #076c5b'
+                                border: '1px solid rgba(0,0,0,0.05)'
                             }}>
-                                <h3 className="mb-4 font-weight-bold" style={{ color: '#076c5b', fontSize: '28px' }}>Our Gender-Transformative Change Model</h3>
-                                <p className="mb-5" style={{ color: '#666', fontSize: '17px' }}>
-                                    LCEO implements its work through the <strong>Rugero Rwiza Community Change Model (RR-CCM)</strong>, a
-                                    gender-transformative framework that addresses the root causes of inequality.
-                                </p>
+                                <div className="row mb-5">
+                                    <div className="col-lg-7">
+                                        <span className="badge badge-light px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1.2px', textTransform: 'uppercase' }}>
+                                            Change Model
+                                        </span>
+                                        <h2 className="mb-4 font-weight-bold" style={{ fontSize: '46px', lineHeight: '1.1', color: '#111', letterSpacing: '-1.5px' }}>
+                                            Gender-Transformative <br /> Community Change.
+                                        </h2>
+                                    </div>
+                                    <div className="col-lg-5 d-flex align-items-end">
+                                        <p style={{ fontSize: '17px', color: '#666', lineHeight: '1.7', marginBottom: '1.5rem', fontWeight: 400 }}>
+                                            LCEO implements its work through the Rugero Rwiza Community Change Model (RR-CCM), a gender-transformative framework that addresses the root causes of inequality at every level of society.
+                                        </p>
+                                    </div>
+                                </div>
 
-                                <div className="row mt-4">
+                                <div className="row mt-5 pt-4">
                                     <div className="col-md-4 mb-4">
-                                        <div className="p-3 bg-white h-100 shadow-sm rounded">
-                                            <h5 className="font-weight-bold">1. Individual Level</h5>
-                                            <p className="small text-muted">Building agency, confidence, and skills through mindset transformation,
-                                                education access, and economic literacy.</p>
+                                        <div className="icon-box mb-4 d-flex align-items-center justify-content-center" style={{ width: '60px', height: '60px', backgroundColor: '#f0f9f8', borderRadius: '12px' }}>
+                                            <User size={32} strokeWidth={1.5} style={{ color: '#076c5b' }} />
                                         </div>
+                                        <h5 className="font-weight-bold mb-3" style={{ fontSize: '20px', color: '#111' }}>1. Individual Level</h5>
+                                        <p style={{ fontSize: '15.5px', color: '#666', lineHeight: '1.6' }}>
+                                            Building agency, confidence, and skills through mindset transformation, education access, and economic literacy.
+                                        </p>
                                     </div>
                                     <div className="col-md-4 mb-4">
-                                        <div className="p-3 bg-white h-100 shadow-sm rounded">
-                                            <h5 className="font-weight-bold">2. Relational Level</h5>
-                                            <p className="small text-muted">Transforming relationships by engaging male champions, family support
-                                                systems, and peer mentorship circles.</p>
+                                        <div className="icon-box mb-4 d-flex align-items-center justify-content-center" style={{ width: '60px', height: '60px', backgroundColor: '#f0f9f8', borderRadius: '12px' }}>
+                                            <Users size={32} strokeWidth={1.5} style={{ color: '#076c5b' }} />
                                         </div>
+                                        <h5 className="font-weight-bold mb-3" style={{ fontSize: '20px', color: '#111' }}>2. Relational Level</h5>
+                                        <p style={{ fontSize: '15.5px', color: '#666', lineHeight: '1.6' }}>
+                                            Transforming relationships by engaging male champions, family support systems, and peer mentorship circles.
+                                        </p>
                                     </div>
                                     <div className="col-md-4 mb-4">
-                                        <div className="p-3 bg-white h-100 shadow-sm rounded">
-                                            <h5 className="font-weight-bold">3. Structural Level</h5>
-                                            <p className="small text-muted">Addressing systemic barriers through partnerships with local leaders,
-                                                policy advocacy, and creating enabling environments.</p>
+                                        <div className="icon-box mb-4 d-flex align-items-center justify-content-center" style={{ width: '60px', height: '60px', backgroundColor: '#f0f9f8', borderRadius: '12px' }}>
+                                            <Shield size={32} strokeWidth={1.5} style={{ color: '#076c5b' }} />
                                         </div>
+                                        <h5 className="font-weight-bold mb-3" style={{ fontSize: '20px', color: '#111' }}>3. Structural Level</h5>
+                                        <p style={{ fontSize: '15.5px', color: '#666', lineHeight: '1.6' }}>
+                                            Addressing systemic barriers through partnerships with local leaders, policy advocacy, and creating enabling environments.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
