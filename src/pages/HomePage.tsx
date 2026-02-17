@@ -529,7 +529,7 @@ export const HomePage = () => {
                         border-radius: 16px;
                         overflow: hidden;
                         cursor: pointer;
-                        box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+                        box-shadow: none;
                         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
                     }
                     .story-img {
@@ -583,11 +583,23 @@ export const HomePage = () => {
                     }
                     .story-footer-location {
                         margin-top: auto;
-                        color: #666;
-                        font-size: 12px;
-                        font-weight: 600;
                         display: flex;
                         align-items: center;
+                    }
+                    .story-location-badge {
+                        display: inline-flex;
+                        align-items: center;
+                        background: #e2f5f2;
+                        color: #076c5b;
+                        padding: 4px 12px;
+                        border-radius: 50px;
+                        font-size: 11px;
+                        font-weight: 700;
+                        transition: all 0.3s ease;
+                    }
+                    .story-card:hover .story-location-badge {
+                        background: #076c5b;
+                        color: #fff;
                     }
                     `}
                 </style>
@@ -623,12 +635,12 @@ export const HomePage = () => {
                                                 </p>
 
                                                 <div className="story-footer-location">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
-                                                        <circle cx="12" cy="12" r="10"></circle>
-                                                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                                                    </svg>
-                                                    {story.metadata?.location || 'Bugesera, Rwanda'}
+                                                    <div className="story-location-badge">
+                                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2">
+                                                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor" />
+                                                        </svg>
+                                                        {story.metadata?.location || 'Bugesera, Rwanda'}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -709,155 +721,7 @@ export const HomePage = () => {
                 </div>
             </section>
 
-            <section className="ftco-section" id="community-impact" style={{ padding: '30px 0' }}>
-                <style>
-                    {`
-                        @keyframes cardFloat {
-                            0% { transform: translateY(0px); }
-                            50% { transform: translateY(-12px); }
-                            100% { transform: translateY(0px); }
-                        }
-                        @keyframes glowPulse {
-                            0% { box-shadow: 0 8px 30px rgba(18, 47, 43, 0.05); }
-                            50% { box-shadow: 0 20px 50px rgba(7, 108, 91, 0.12); }
-                            100% { box-shadow: 0 8px 30px rgba(18, 47, 43, 0.05); }
-                        }
-                        .floating-card {
-                            animation: cardFloat 4s ease-in-out infinite, glowPulse 4s ease-in-out infinite;
-                        }
-                        .floating-card-1 { animation-delay: 0s; }
-                        .floating-card-2 { animation-delay: 1.2s; }
-                        .floating-card-3 { animation-delay: 2.4s; }
-                        
-                        .impact-card-hover:hover {
-                            animation-play-state: paused;
-                            transform: scale(1.02) translateY(-15px) !important;
-                            z-index: 20;
-                            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                        }
-                    `}
-                </style>
-                <div className="container">
-                    <div className="row justify-content-center mb-5">
-                        <div className="col-md-8 text-center ftco-animate">
-                            <span style={{ color: '#4FB1A1', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '11px', display: 'block', marginBottom: '10px' }}>Recent Impacts!</span>
-                            <h2 className="mb-3" style={{ fontSize: '36px', fontWeight: '800', color: '#122f2b', lineHeight: '1.1' }}>
-                                Redefining Futures through <br className="d-none d-md-block" /> Community-Led Change
-                            </h2>
-                            <p style={{ color: '#666', fontSize: '15px', maxWidth: '750px', margin: '0 auto', lineHeight: '1.6' }}>
-                                Giving is not just about making a donation. It's about making a difference one child, <br className="d-none d-md-block" /> one life, one future at a time.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row d-flex">
-                        {[
-                            {
-                                id: 1,
-                                title: "Empowering Rural Women through Sustainable Farming",
-                                date: "Feb 10, 2026",
-                                category: "Livelihoods",
-                                image: "/images/cause-1.jpg",
-                                excerpt: "Our latest workshop in Bugesera trained 45 women in permaculture techniques, ensuring food security and income.",
-                                goal: 5000,
-                                raised: 4200
-                            },
-                            {
-                                id: 2,
-                                title: "Bridging the Digital Divide: 50 Girls Complete Coding Bootcamp",
-                                date: "Feb 5, 2026",
-                                category: "Education",
-                                image: "/images/bg_4.jpg",
-                                excerpt: "Celebrating the graduation of our intensive 'She Can Code' program, opening doors to careers in tech.",
-                                goal: 8500,
-                                raised: 7100
-                            },
-                            {
-                                id: 3,
-                                title: "Pad Box Initiative Reaches Three New Local Schools",
-                                date: "Jan 28, 2026",
-                                category: "Health",
-                                image: "/images/cause-3.jpg",
-                                excerpt: "Improving school attendance by providing sustainable menstrual hygiene solutions to over 300 girls.",
-                                goal: 3000,
-                                raised: 2850
-                            }
-                        ].map((post, idx) => (
-                            <div className="col-md-4 d-flex ftco-animate mb-4" key={post.id}>
-                                <div className={`bg-white floating-card floating-card-${idx + 1} impact-card-hover`} style={{
-                                    borderRadius: '12px',
-                                    overflow: 'hidden',
-                                    boxShadow: '0 8px 30px rgba(18, 47, 43, 0.05)',
-                                    height: '100%',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    border: '1px solid #f0f2f2',
-                                    width: '100%',
-                                    position: 'relative'
-                                }}>
-                                    <div className="position-relative">
-                                        <div style={{ backgroundImage: `url(${post.image})`, height: '180px', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-                                        <Link to="/donate" className="position-absolute" style={{
-                                            top: '12px',
-                                            right: '12px',
-                                            backgroundColor: '#076c5b',
-                                            color: '#fff',
-                                            padding: '4px 14px',
-                                            borderRadius: '50px',
-                                            fontSize: '11px',
-                                            fontWeight: '700',
-                                            textDecoration: 'none',
-                                            boxShadow: '0 4px 10px rgba(7, 108, 91, 0.2)'
-                                        }}>Donate Now</Link>
-                                        <div className="position-absolute d-flex align-items-center justify-content-center" style={{
-                                            bottom: '-20px',
-                                            right: '20px',
-                                            width: '45px',
-                                            height: '45px',
-                                            borderRadius: '50%',
-                                            backgroundColor: '#4FB1A1',
-                                            color: '#fff',
-                                            fontSize: '11px',
-                                            fontWeight: '700',
-                                            border: '4px solid #fff',
-                                            zIndex: 10,
-                                            boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
-                                        }}>
-                                            {Math.round((post.raised / post.goal) * 100)}%
-                                        </div>
-                                    </div>
-                                    <div className="p-3 pt-4 flex-grow-1 d-flex flex-column">
-                                        <div className="mb-2">
-                                            <span className="badge" style={{
-                                                backgroundColor: '#e8f7f5',
-                                                color: '#076c5b',
-                                                padding: '5px 10px',
-                                                borderRadius: '4px',
-                                                fontSize: '10px',
-                                                fontWeight: '700',
-                                                textTransform: 'uppercase',
-                                                letterSpacing: '0.5px'
-                                            }}>{post.category}</span>
-                                        </div>
-                                        <h3 style={{ fontSize: '17px', fontWeight: '800', color: '#122f2b', marginBottom: '10px', lineHeight: '1.3' }}>{post.title}</h3>
-                                        <p style={{ color: '#666', fontSize: '13px', lineHeight: '1.5', marginBottom: '20px', flexGrow: 1 }}>{post.excerpt}</p>
 
-                                        <div className="d-flex justify-content-between pt-3 border-top" style={{ borderColor: '#f3f6f6 !important' }}>
-                                            <div className="d-flex align-items-center">
-                                                <span className="icon-bar-chart mr-2" style={{ color: '#4FB1A1', fontSize: '12px' }}></span>
-                                                <span style={{ fontSize: '11px', color: '#888', fontWeight: '500' }}>Goal: <strong style={{ color: '#122f2b', marginLeft: '2px' }}>${post.goal.toLocaleString()}</strong></span>
-                                            </div>
-                                            <div className="d-flex align-items-center">
-                                                <span className="icon-refresh mr-2" style={{ color: '#4FB1A1', fontSize: '12px' }}></span>
-                                                <span style={{ fontSize: '11px', color: '#888', fontWeight: '500' }}>Raised: <strong style={{ color: '#122f2b', marginLeft: '2px' }}>${post.raised.toLocaleString()}</strong></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             <section className="ftco-section bg-white" style={{ padding: '40px 0 80px', borderTop: '1px solid #f0f0f0' }}>
                 <div className="container">

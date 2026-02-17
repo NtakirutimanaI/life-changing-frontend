@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../lib/language-context';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
+import { Zap, Shield, Lightbulb, HeartHandshake, Users, Award } from 'lucide-react';
 
 export const AboutPage = () => {
     useLegacyScripts();
@@ -9,7 +10,7 @@ export const AboutPage = () => {
 
     return (
         <>
-            <div className="hero-wrap" style={{ backgroundImage: "url('/images/bg_2.jpg')", height: '500px', minHeight: '500px' }} data-stellar-background-ratio="0.5">
+            <div className="hero-wrap" style={{ backgroundImage: "url('/images/about.jpg')", height: '500px', minHeight: '500px' }} data-stellar-background-ratio="0.5">
                 <div className="overlay"></div>
                 <div className="container">
                     <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '500px', paddingTop: '100px' }} data-scrollax-parent="true">
@@ -129,17 +130,7 @@ export const AboutPage = () => {
                         width: '100vw',
                         marginLeft: 'calc(-50vw + 50%)'
                     }}>
-                        {/* Connectivity Bond Background in Brand Colors */}
-                        <div style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='bond-pattern' width='140' height='140' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='20' cy='20' r='2' fill='%234FB1A1' fill-opacity='0.25'/%3E%3Ccircle cx='120' cy='40' r='1.5' fill='%234FB1A1' fill-opacity='0.25'/%3E%3Ccircle cx='70' cy='110' r='1.8' fill='%234FB1A1' fill-opacity='0.25'/%3E%3Cpath d='M20 20 L120 40 M120 40 L70 110 M70 110 L20 20' stroke='%234FB1A1' stroke-width='0.7' stroke-opacity='0.2' fill='none'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23bond-pattern)'/%3E%3C/svg%3E")`,
-                            opacity: 1,
-                            pointerEvents: 'none'
-                        }}></div>
+                        {/* Gradient Background Only */}
 
                         <div className="container position-relative" style={{ zIndex: 1 }}>
                             <div className="row justify-content-center text-center mb-5">
@@ -155,35 +146,34 @@ export const AboutPage = () => {
 
                             <div className="row justify-content-center">
                                 {[
-                                    { title: 'Empowerment', desc: 'Unlocking the inherent potential in every girl to lead.' },
-                                    { title: 'Protection', desc: 'Creating safe, nurturing spaces for healing and growth.' },
-                                    { title: 'Innovation', desc: 'Using evidence-based and creative approaches for change.' },
-                                    { title: 'Compassion', desc: 'Walking alongside our beneficiaries with empathy and respect.' },
-                                    { title: 'Community', desc: 'Building sustainable networks of local and global support.' },
-                                    { title: 'Excellence', desc: 'Committed to delivering measurable and lasting human results.' }
+                                    { title: 'Empowerment', desc: 'Unlocking the inherent potential in every girl to lead.', icon: <Zap size={24} /> },
+                                    { title: 'Protection', desc: 'Creating safe, nurturing spaces for healing and growth.', icon: <Shield size={24} /> },
+                                    { title: 'Innovation', desc: 'Using evidence-based and creative approaches for change.', icon: <Lightbulb size={24} /> },
+                                    { title: 'Compassion', desc: 'Walking alongside our beneficiaries with empathy and respect.', icon: <HeartHandshake size={24} /> },
+                                    { title: 'Community', desc: 'Building sustainable networks of local and global support.', icon: <Users size={24} /> },
+                                    { title: 'Excellence', desc: 'Committed to delivering measurable and lasting human results.', icon: <Award size={24} /> }
                                 ].map((value, idx) => (
                                     <div className="col-md-4 mb-4" key={idx}>
-                                        <div className="h-100 p-4 transition-all hover:translate-y-[-5px]" style={{
-                                            backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                                            backdropFilter: 'blur(10px)',
-                                            borderRadius: '20px',
+                                        <div className="h-100 p-4 transition-all hover:translate-y-[-8px]" style={{
+                                            backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                                            backdropFilter: 'blur(12px)',
+                                            borderRadius: '24px',
                                             border: '1px solid rgba(255, 255, 255, 0.1)',
-                                            textAlign: 'left'
+                                            textAlign: 'left',
+                                            boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
                                         }}>
-                                            <div className="d-flex align-items-center justify-content-center mb-3" style={{
-                                                width: '36px',
-                                                height: '36px',
-                                                backgroundColor: '#4FB1A1',
-                                                borderRadius: '50%',
-                                                color: '#fff',
-                                                fontWeight: 'bold',
-                                                fontSize: '14px',
-                                                boxShadow: '0 0 15px rgba(79, 177, 161, 0.3)'
+                                            <div className="d-flex align-items-center justify-content-center mb-4" style={{
+                                                width: '56px',
+                                                height: '56px',
+                                                backgroundColor: 'rgba(79, 177, 161, 0.15)',
+                                                borderRadius: '16px',
+                                                color: '#4FB1A1',
+                                                boxShadow: '0 0 20px rgba(79, 177, 161, 0.1)'
                                             }}>
-                                                {idx + 1}
+                                                {value.icon}
                                             </div>
-                                            <h4 className="text-white font-weight-bold mb-2" style={{ fontSize: '18px' }}>{value.title}</h4>
-                                            <p className="text-white opacity-75 mb-0" style={{ fontSize: '14px', lineHeight: '1.6' }}>
+                                            <h4 className="text-white font-weight-bold mb-3" style={{ fontSize: '20px', letterSpacing: '0.5px' }}>{value.title}</h4>
+                                            <p className="text-white opacity-75 mb-0" style={{ fontSize: '15px', lineHeight: '1.7' }}>
                                                 {value.desc}
                                             </p>
                                         </div>

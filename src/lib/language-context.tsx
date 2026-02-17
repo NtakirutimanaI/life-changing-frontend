@@ -11,7 +11,7 @@ interface LanguageContextType {
 const translations: Record<Language, Record<string, string>> = {
     en: {
         'nav.home': 'Home',
-        'nav.about': 'About Us',
+        'nav.about': 'What We Do',
         'nav.how_we_work': 'How We Work',
         'nav.impact': 'Impact & Stories',
         'nav.resources': 'Resources',

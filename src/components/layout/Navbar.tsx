@@ -180,6 +180,48 @@ export const Navbar = () => {
                     transform: translateY(-1px) !important;
                 }
 
+                /* Language Switcher Styling */
+                @media (min-width: 992px) {
+                    .lang-switcher:hover > .dropdown-menu {
+                        display: block !important;
+                        opacity: 1 !important;
+                        visibility: visible !important;
+                        margin-top: 0 !important;
+                    }
+                    .lang-switcher .dropdown-menu {
+                        border-top: 3px solid #076c5b !important;
+                        border-radius: 0 0 15px 15px !important;
+                        box-shadow: 0 15px 40px rgba(0,0,0,0.12) !important;
+                        border: none !important;
+                        padding: 10px 0 !important;
+                    }
+                    /* Line for language switcher */
+                    .lang-switcher:hover > .nav-link::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%) scaleX(1);
+                        width: 20px;
+                        height: 4px;
+                        background-color: #076c5b;
+                        border-radius: 2px;
+                        transition: transform 0.3s ease;
+                    }
+                    .lang-switcher > .nav-link::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%) scaleX(0);
+                        width: 20px;
+                        height: 4px;
+                        background-color: #076c5b;
+                        border-radius: 2px;
+                        transition: transform 0.3s ease;
+                    }
+                }
+
                 .lang-switcher .dropdown-item {
                     font-size: 0.85rem;
                     padding: 0.5rem 1.2rem;
@@ -248,6 +290,117 @@ export const Navbar = () => {
                 .dark .navbar-donation-steps .font-weight-bold[style*="color: rgb(18, 47, 43)"] {
                     color: #122f2b !important;
                 }
+
+                /* Mega Menu Styles */
+                @media (min-width: 992px) {
+                    .nav-item.dropdown:hover > .dropdown-menu {
+                        display: block !important;
+                        opacity: 1 !important;
+                        visibility: visible !important;
+                        margin-top: 0 !important;
+                    }
+                    .nav-item.dropdown:hover > .nav-link {
+                        color: #17d1ac !important;
+                    }
+                    .nav-item.dropdown .nav-link {
+                        position: relative;
+                    }
+                    .nav-item.dropdown:hover > .nav-link::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%) scaleX(1);
+                        width: 30px;
+                        height: 4px;
+                        background-color: #076c5b;
+                        border-radius: 2px;
+                        transition: transform 0.3s ease;
+                    }
+                    .nav-item.dropdown > .nav-link::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%) scaleX(0);
+                        width: 30px;
+                        height: 4px;
+                        background-color: #076c5b;
+                        border-radius: 2px;
+                        transition: transform 0.3s ease;
+                    }
+                    .nav-item.dropdown.mega-dropdown {
+                        position: static !important;
+                    }
+                    .mega-dropdown .dropdown-menu {
+                        width: 90% !important;
+                        left: 5% !important;
+                        right: 5% !important;
+                        top: 100% !important;
+                        margin-top: 0 !important;
+                        padding: 25px 40px !important;
+                        border-radius: 0 0 20px 20px !important;
+                        box-shadow: 0 15px 40px rgba(0,0,0,0.12) !important;
+                        border: none !important;
+                        border-top: 3px solid #076c5b !important;
+                        background: #fff !important;
+                    }
+                    .mega-menu-content {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                    .mega-column {
+                        flex: 1;
+                        padding: 0 40px;
+                        border-right: 1.5px solid #e2e8f0;
+                    }
+                    .mega-column:last-child {
+                        border-right: none;
+                    }
+                    .mega-title {
+                        font-size: 17px;
+                        font-weight: 700;
+                        color: #122f2b;
+                        margin-bottom: 12px;
+                        text-transform: none;
+                        letter-spacing: normal;
+                    }
+                    .mega-subtitle {
+                        font-size: 14px;
+                        font-weight: 800;
+                        color: #076c5b;
+                        margin-top: 12px;
+                        margin-bottom: 6px;
+                        display: block;
+                    }
+                    .mega-link {
+                        display: block;
+                        font-size: 14px;
+                        color: #555 !important;
+                        padding: 4px 0 !important;
+                        transition: all 0.3s ease;
+                        background: transparent !important;
+                        border: none !important;
+                        text-align: left;
+                    }
+                    .mega-link:hover {
+                        color: #17d1ac !important;
+                        transform: translateX(5px);
+                        text-decoration: none;
+                    }
+                }
+                
+                /* Mobile adjustments for mega menu */
+                @media (max-width: 991px) {
+                    .mega-column {
+                        padding: 15px 0;
+                        border-right: none;
+                        border-bottom: 1px solid #eee;
+                    }
+                    .mega-column:last-child {
+                        border-bottom: none;
+                    }
+                }
             `}</style>
 
             <nav
@@ -278,39 +431,89 @@ export const Navbar = () => {
 
                     <div className="collapse navbar-collapse" id="ftco-nav">
                         <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/">{t('nav.home')}</Link>
-                            </li>
-                            <li className="nav-item dropdown">
+
+                            <li className="nav-item dropdown mega-dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="whoWeAreDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {t('nav.about')}
                                 </a>
-                                <div className="dropdown-menu" aria-labelledby="whoWeAreDropdown">
-                                    <Link className="dropdown-item" to="/about">{t('nav.about')}</Link>
-                                    <Link className="dropdown-item" to="/how-we-work">{t('nav.how_we_work')}</Link>
-                                    <Link className="dropdown-item" to="/strategic-direction">Strategic Direction</Link>
-                                    <Link className="dropdown-item" to="/resources">{t('nav.resources')}</Link>
+                                <div className="dropdown-menu shadow-xl" aria-labelledby="whoWeAreDropdown">
+                                    <div className="container">
+                                        <div className="mega-menu-content">
+                                            {/* Column 1: Our Approach */}
+                                            <div className="mega-column">
+                                                <h5 className="mega-title">Who We Are</h5>
+                                                <Link className="mega-link" to="/about">{t('nav.about')}</Link>
+                                                <Link className="mega-link" to="/how-we-work">{t('nav.how_we_work')}</Link>
+                                            </div>
+
+                                            {/* Column 2: Where We Work */}
+                                            <div className="mega-column">
+                                                <h5 className="mega-title">Our Strategy</h5>
+                                                <Link className="mega-link" to="/strategic-direction">Strategic Direction</Link>
+                                            </div>
+
+                                            {/* Column 3: Impact Hub */}
+                                            <div className="mega-column" style={{ borderRight: 'none' }}>
+                                                <h5 className="mega-title">Knowledge Hub</h5>
+                                                <Link className="mega-link" to="/resources">{t('nav.resources')}</Link>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
-                            <li className="nav-item dropdown">
+                            <li className="nav-item dropdown mega-dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="impactDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {t('nav.impact')}
                                 </a>
-                                <div className="dropdown-menu" aria-labelledby="impactDropdown">
-                                    <Link className="dropdown-item" to="/impact-stories">{t('nav.impact')}</Link>
-                                    <Link className="dropdown-item" to="/help-faq">Help & FAQ</Link>
+                                <div className="dropdown-menu shadow-xl" aria-labelledby="impactDropdown">
+                                    <div className="container">
+                                        <div className="mega-menu-content">
+                                            {/* Column 1 */}
+                                            <div className="mega-column">
+                                                <h5 className="mega-title">Real Impact</h5>
+                                                <Link className="mega-link" to="/impact-stories">{t('nav.impact')}</Link>
+                                            </div>
+
+                                            {/* Column 2 */}
+                                            <div className="mega-column">
+                                                <h5 className="mega-title">Support & FAQ</h5>
+                                                <Link className="mega-link" to="/help-faq">Help & FAQ</Link>
+                                            </div>
+
+                                            {/* Column 3 */}
+                                            <div className="mega-column" style={{ borderRight: 'none' }}>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
-                            <li className="nav-item dropdown">
+                            <li className="nav-item dropdown mega-dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="getInvolvedDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {t('nav.contact')}
                                 </a>
-                                <div className="dropdown-menu" aria-labelledby="getInvolvedDropdown">
-                                    <Link className="dropdown-item" to="/contact">{t('nav.contact')}</Link>
-                                    <Link className="dropdown-item" to="/donate">{t('btn.donate')}</Link>
+                                <div className="dropdown-menu shadow-xl" aria-labelledby="getInvolvedDropdown">
+                                    <div className="container">
+                                        <div className="mega-menu-content">
+                                            {/* Column 1 */}
+                                            <div className="mega-column">
+                                                <h5 className="mega-title">Get in Touch</h5>
+                                                <Link className="mega-link" to="/contact">{t('nav.contact')}</Link>
+                                            </div>
+
+                                            {/* Column 2 */}
+                                            <div className="mega-column">
+                                                <h5 className="mega-title">Support LCEO</h5>
+                                                <Link className="mega-link" to="/donate">{t('btn.donate')}</Link>
+                                            </div>
+
+                                            {/* Column 3 */}
+                                            <div className="mega-column" style={{ borderRight: 'none' }}>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
 
