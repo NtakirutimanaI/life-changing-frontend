@@ -321,137 +321,142 @@ export const AboutPage = () => {
                 </div>
             </section>
 
-            <section className="ftco-section bg-light">
+            <section className="ftco-section bg-white" style={{ padding: '100px 0' }}>
                 <div className="container">
-                    <div className="row justify-content-center mb-5 pb-3">
+                    <div className="row justify-content-center mb-5 pb-4">
                         <div className="col-md-7 heading-section ftco-animate text-center">
-                            <h2 className="mb-4">Milestones & Achievements</h2>
+                            <span className="badge badge-light px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                                Progress
+                            </span>
+                            <h2 className="mb-4 font-weight-bold" style={{ fontSize: '42px', color: '#111', letterSpacing: '-1px' }}>Milestones & Achievements</h2>
                         </div>
                     </div>
-                    <div className="row justify-content-center">
-                        <div className="col-md-10">
-                            <div className="timeline-wrapper position-relative">
-                                {/* Vertical Line Connection */}
+
+                    <div className="row align-items-center">
+                        {/* Left Side: Vertical Steps */}
+                        <div className="col-lg-6 mb-5 mb-lg-0 ftco-animate">
+                            <div className="ml-md-4 position-relative">
+                                {/* Connecting Vertical Line */}
                                 <div style={{
                                     position: 'absolute',
-                                    left: '30px',
-                                    top: '0',
-                                    height: '100%',
-                                    width: '2px',
-                                    backgroundColor: '#cbd5e1',
-                                    zIndex: 0
+                                    left: '19px',
+                                    top: '40px',
+                                    bottom: '40px',
+                                    width: '1px',
+                                    backgroundColor: '#e2f5f2'
                                 }}></div>
 
-                                {/* 2020 */}
-                                <div className="timeline-item position-relative mb-4" style={{ paddingLeft: '90px' }}>
-                                    <div className="timeline-year d-flex align-items-center justify-content-center text-white font-weight-bold shadow-sm"
-                                        style={{
-                                            position: 'absolute',
-                                            left: '0',
-                                            top: '0',
-                                            width: '60px',
-                                            height: '60px',
+                                {[
+                                    { year: '2020', title: 'LCEO Founded', desc: 'Established in Bugesera District with a vision to transform lives through mindset and mental resilience.' },
+                                    { year: '2021', title: 'First Program Launch', desc: 'The Girls School Retention program reaches its first 50 beneficiaries with integrated support.' },
+                                    { year: '2022', title: 'IkiraroBiz Initiative', desc: 'A major entrepreneurship shift, supporting 30 young women in launching sustainable businesses.' },
+                                    { year: '2023', title: 'Major Expansion', desc: 'Scaled operations to multiple districts, reaching 200+ beneficiaries across all core pillars.' },
+                                    { year: '2024', title: 'Recognition & Growth', desc: 'Signed strategic partnership with FAWE Rwanda, now serving 312 beneficiaries and counting.' }
+                                ].map((step, idx) => (
+                                    <div key={idx} className="d-flex mb-5 last:mb-0 position-relative" style={{ zIndex: 1 }}>
+                                        <div className="d-flex align-items-center justify-content-center flex-shrink-0" style={{
+                                            width: '40px',
+                                            height: '40px',
+                                            backgroundColor: '#e2f5f2',
                                             borderRadius: '50%',
-                                            backgroundColor: '#4FB1A1',
-                                            zIndex: 1,
-                                            border: '4px solid #f8f9fa'
+                                            color: '#076c5b',
+                                            fontWeight: 'bold',
+                                            fontSize: '14px',
+                                            border: '4px solid #fff'
                                         }}>
-                                        2020
+                                            {idx + 1}
+                                        </div>
+                                        <div className="ml-4">
+                                            <h5 className="font-weight-bold mb-1" style={{ fontSize: '18px', color: '#111' }}>{step.year}: {step.title}</h5>
+                                            <p className="mb-0" style={{ color: '#666', fontSize: '15.5px', lineHeight: '1.6' }}>{step.desc}</p>
+                                        </div>
                                     </div>
-                                    <div className="bg-white p-4 rounded shadow-sm border">
-                                        <h5 className="font-weight-bold mb-2">LCEO Founded</h5>
-                                        <p className="text-muted mb-0">Established in Bugesera District with a vision to transform lives.</p>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Right Side: Stacked Card Graphic */}
+                        <div className="col-lg-6 ftco-animate">
+                            <div className="p-5 d-flex align-items-center justify-content-center" style={{
+                                backgroundColor: '#f0f9f8',
+                                borderRadius: '32px',
+                                minHeight: '550px',
+                                position: 'relative',
+                                overflow: 'hidden'
+                            }}>
+                                {/* Background Decorative Elements */}
+                                <div style={{
+                                    position: 'absolute',
+                                    width: '300px',
+                                    height: '300px',
+                                    borderRadius: '50%',
+                                    background: 'radial-gradient(circle, rgba(7, 108, 91, 0.05) 0%, rgba(7, 108, 91, 0) 70%)',
+                                    top: '-50px',
+                                    right: '-50px'
+                                }}></div>
+
+                                {/* Stacked Photo Cards - Mimicking the Finova design */}
+                                <div className="position-relative w-100 h-100 d-flex align-items-center justify-content-center">
+                                    {/* Bottom/Back Card */}
+                                    <div style={{
+                                        width: '280px',
+                                        height: '400px',
+                                        backgroundImage: "url('/images/cause-2.jpg')",
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                        borderRadius: '24px',
+                                        transform: 'rotate(-10deg) translateX(40px)',
+                                        border: '8px solid #fff',
+                                        zIndex: 1,
+                                        position: 'absolute'
+                                    }}>
+                                        <div style={{ position: 'absolute', bottom: '20px', left: '20px', color: '#fff', zIndex: 2 }}>
+                                            <h6 className="font-weight-bold mb-0">Impact 2023</h6>
+                                        </div>
+                                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to top, rgba(7, 108, 91, 0.4), transparent)', borderRadius: '16px' }}></div>
+                                    </div>
+
+                                    {/* Top/Front Card */}
+                                    <div style={{
+                                        width: '280px',
+                                        height: '400px',
+                                        backgroundImage: "url('/images/cause-1.jpg')",
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                        borderRadius: '24px',
+                                        transform: 'rotate(5deg) translateY(-20px)',
+                                        border: '8px solid #fff',
+                                        zIndex: 2,
+                                        position: 'absolute'
+                                    }}>
+                                        <div style={{ position: 'absolute', bottom: '20px', left: '20px', color: '#fff', zIndex: 2 }}>
+                                            <h6 className="font-weight-bold mb-0">Our Journey</h6>
+                                        </div>
+                                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to top, rgba(7, 108, 91, 0.4), transparent)', borderRadius: '16px' }}></div>
+                                    </div>
+
+                                    {/* Small Decorative Badge */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        bottom: '60px',
+                                        right: '20px',
+                                        width: '100px',
+                                        height: '100px',
+                                        backgroundColor: '#076c5b',
+                                        borderRadius: '50%',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        color: '#fff',
+                                        zIndex: 3,
+                                        border: '6px solid #f0f9f8'
+                                    }}>
+                                        <div className="text-center">
+                                            <span style={{ fontSize: '24px', fontWeight: 'bold' }}>5y+</span> <br />
+                                            <span style={{ fontSize: '10px', textTransform: 'uppercase' }}>Legacy</span>
+                                        </div>
                                     </div>
                                 </div>
-
-                                {/* 2021 */}
-                                <div className="timeline-item position-relative mb-4" style={{ paddingLeft: '90px' }}>
-                                    <div className="timeline-year d-flex align-items-center justify-content-center text-white font-weight-bold shadow-sm"
-                                        style={{
-                                            position: 'absolute',
-                                            left: '0',
-                                            top: '0',
-                                            width: '60px',
-                                            height: '60px',
-                                            borderRadius: '50%',
-                                            backgroundColor: '#4FB1A1',
-                                            zIndex: 1,
-                                            border: '4px solid #f8f9fa'
-                                        }}>
-                                        2021
-                                    </div>
-                                    <div className="bg-white p-4 rounded shadow-sm border">
-                                        <h5 className="font-weight-bold mb-2">First Program Launch</h5>
-                                        <p className="text-muted mb-0">Girls School Retention program reaches 50 beneficiaries.</p>
-                                    </div>
-                                </div>
-
-                                {/* 2022 */}
-                                <div className="timeline-item position-relative mb-4" style={{ paddingLeft: '90px' }}>
-                                    <div className="timeline-year d-flex align-items-center justify-content-center text-white font-weight-bold shadow-sm"
-                                        style={{
-                                            position: 'absolute',
-                                            left: '0',
-                                            top: '0',
-                                            width: '60px',
-                                            height: '60px',
-                                            borderRadius: '50%',
-                                            backgroundColor: '#4FB1A1',
-                                            zIndex: 1,
-                                            border: '4px solid #f8f9fa'
-                                        }}>
-                                        2022
-                                    </div>
-                                    <div className="bg-white p-4 rounded shadow-sm border">
-                                        <h5 className="font-weight-bold mb-2">IkiraroBiz Initiative</h5>
-                                        <p className="text-muted mb-0">Entrepreneurship program launched, supporting 30 young women.</p>
-                                    </div>
-                                </div>
-
-                                {/* 2023 */}
-                                <div className="timeline-item position-relative mb-4" style={{ paddingLeft: '90px' }}>
-                                    <div className="timeline-year d-flex align-items-center justify-content-center text-white font-weight-bold shadow-sm"
-                                        style={{
-                                            position: 'absolute',
-                                            left: '0',
-                                            top: '0',
-                                            width: '60px',
-                                            height: '60px',
-                                            borderRadius: '50%',
-                                            backgroundColor: '#4FB1A1',
-                                            zIndex: 1,
-                                            border: '4px solid #f8f9fa'
-                                        }}>
-                                        2023
-                                    </div>
-                                    <div className="bg-white p-4 rounded shadow-sm border">
-                                        <h5 className="font-weight-bold mb-2">Major Expansion</h5>
-                                        <p className="text-muted mb-0">Programs scaled to reach 200+ beneficiaries across multiple sectors.</p>
-                                    </div>
-                                </div>
-
-                                {/* 2024 */}
-                                <div className="timeline-item position-relative" style={{ paddingLeft: '90px' }}>
-                                    <div className="timeline-year d-flex align-items-center justify-content-center text-white font-weight-bold shadow-sm"
-                                        style={{
-                                            position: 'absolute',
-                                            left: '0',
-                                            top: '0',
-                                            width: '60px',
-                                            height: '60px',
-                                            borderRadius: '50%',
-                                            backgroundColor: '#4FB1A1',
-                                            zIndex: 1,
-                                            border: '4px solid #f8f9fa'
-                                        }}>
-                                        2024
-                                    </div>
-                                    <div className="bg-white p-4 rounded shadow-sm border">
-                                        <h5 className="font-weight-bold mb-2">Recognition & Growth</h5>
-                                        <p className="text-muted mb-0">Partnership with FAWE Rwanda, now serving 312 beneficiaries.</p>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
