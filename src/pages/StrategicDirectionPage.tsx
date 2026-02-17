@@ -144,7 +144,7 @@ export const StrategicDirectionPage = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 ftco-animate mb-5">
-                            <div className="p-5 bg-white shadow-sm rounded-lg" style={{ borderRadius: '24px', border: '1px solid rgba(0,0,0,0.05)' }}>
+                            <div className="p-5 bg-white rounded-lg" style={{ borderRadius: '24px', border: '1px solid rgba(0,0,0,0.05)' }}>
                                 <h3 className="mb-4 font-weight-bold" style={{ color: '#076c5b', fontSize: '28px' }}>Our Philosophy</h3>
                                 <p className="lead" style={{ color: '#555', lineHeight: '1.8' }}>
                                     LCEO believes that lasting transformation starts with mindset, identity, and mental resilience. We
@@ -156,7 +156,7 @@ export const StrategicDirectionPage = () => {
                         </div>
 
                         <div className="col-md-12 ftco-animate mb-5 text-left">
-                            <div className="p-5 bg-white shadow-sm" style={{
+                            <div className="p-5 bg-white" style={{
                                 borderRadius: '24px',
                                 border: '1px solid rgba(0,0,0,0.05)'
                             }}>
@@ -209,7 +209,7 @@ export const StrategicDirectionPage = () => {
                         </div>
 
                         <div className="col-md-12 ftco-animate mb-5">
-                            <div className="p-4 bg-light shadow-sm">
+                            <div className="p-4 bg-light">
                                 <h3 className="mb-3" style={{ color: '#4FB1A1' }}>National and Global Alignment</h3>
                                 <div className="row mb-4">
                                     <div className="col-md-6 mb-3">
@@ -228,37 +228,37 @@ export const StrategicDirectionPage = () => {
                                 <p>Our programs directly contribute to achieving these global goals:</p>
                                 <div className="row text-center">
                                     <div className="col-md-2 col-sm-4 mb-3">
-                                        <div className="p-2 border rounded shadow-sm h-100">
+                                        <div className="p-2 border rounded h-100">
                                             <div className="font-weight-bold h5 mb-1" style={{ color: '#e5243b' }}>1</div>
                                             <p className="small mb-0">No Poverty</p>
                                         </div>
                                     </div>
                                     <div className="col-md-2 col-sm-4 mb-3">
-                                        <div className="p-2 border rounded shadow-sm h-100">
+                                        <div className="p-2 border rounded h-100">
                                             <div className="font-weight-bold h5 mb-1" style={{ color: '#4c9f38' }}>3</div>
                                             <p className="small mb-0">Good Health</p>
                                         </div>
                                     </div>
                                     <div className="col-md-2 col-sm-4 mb-3">
-                                        <div className="p-2 border rounded shadow-sm h-100">
+                                        <div className="p-2 border rounded h-100">
                                             <div className="font-weight-bold h5 mb-1" style={{ color: '#c5192d' }}>4</div>
                                             <p className="small mb-0">Quality Education</p>
                                         </div>
                                     </div>
                                     <div className="col-md-2 col-sm-4 mb-3">
-                                        <div className="p-2 border rounded shadow-sm h-100">
+                                        <div className="p-2 border rounded h-100">
                                             <div className="font-weight-bold h5 mb-1" style={{ color: '#ff3a21' }}>5</div>
                                             <p className="small mb-0">Gender Equality</p>
                                         </div>
                                     </div>
                                     <div className="col-md-2 col-sm-4 mb-3">
-                                        <div className="p-2 border rounded shadow-sm h-100">
+                                        <div className="p-2 border rounded h-100">
                                             <div className="font-weight-bold h5 mb-1" style={{ color: '#a21942' }}>8</div>
                                             <p className="small mb-0">Decent Work</p>
                                         </div>
                                     </div>
                                     <div className="col-md-2 col-sm-4 mb-3">
-                                        <div className="p-2 border rounded shadow-sm h-100">
+                                        <div className="p-2 border rounded h-100">
                                             <div className="font-weight-bold h5 mb-1" style={{ color: '#dd1367' }}>10</div>
                                             <p className="small mb-0">Reduced Inequality</p>
                                         </div>
@@ -278,7 +278,7 @@ export const StrategicDirectionPage = () => {
                         <div className="col-md-7 heading-section ftco-animate text-center">
                             <h2 className="mb-4 text-white">Join Our Mission</h2>
                             <p className="text-white opacity-75">Your support enables us to continue our vital work in the community.</p>
-                            <p className="mt-4"><Link to="/donate" className="btn btn-primary px-5 py-3 font-weight-bold shadow">Donate Now</Link></p>
+                            <p className="mt-4"><Link to="/donate" className="btn btn-primary px-5 py-3 font-weight-bold">Donate Now</Link></p>
                         </div>
                     </div>
                 </div>
