@@ -92,7 +92,7 @@ export const HelpFaqPage = () => {
                                 left: 0,
                                 right: 0,
                                 bottom: 0,
-                                backgroundImage: "url('/images/faq.jpg')",
+                                backgroundImage: "url('/images/testimonial1.jpg')",
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center'
                             }}></div>

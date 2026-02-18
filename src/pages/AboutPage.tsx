@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../lib/language-context';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
 import { Zap, Shield, Lightbulb, HeartHandshake, Users, Award, Linkedin } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const AboutPage = () => {
     useLegacyScripts();
@@ -17,19 +18,31 @@ export const AboutPage = () => {
                 }
                 .border-bottom { border-bottom: none !important; }
             `}</style>
-            <div className="hero-wrap" style={{ backgroundImage: "url('/images/about.jpg')", height: '350px', minHeight: '350px' }} data-stellar-background-ratio="0.5">
+
+            <div className="hero-wrap" style={{ backgroundImage: "url('/images/about.jpg')", height: '350px', minHeight: '350px' }}>
                 <div className="overlay"></div>
                 <div className="container">
-                    <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '350px', paddingTop: '60px' }} data-scrollax-parent="true">
-                        <div className="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                            <p className="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span className="mr-2"><Link
-                                to="/">Home</Link></span> <span>About</span></p>
-                            <h1 className="mb-2 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{t('about.title')}</h1>
+                    <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '350px', paddingTop: '60px' }}>
+                        <div className="col-md-7 text-center">
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6 }}
+                                className="breadcrumbs">
+                                <span className="mr-2"><Link to="/">Home</Link></span>
+                                <span>About</span>
+                            </motion.p>
+                            <motion.h1
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                                className="mb-2 bread">
+                                {t('about.title')}
+                            </motion.h1>
                         </div>
                     </div>
                 </div>
             </div>
-
 
             <section className="ftco-section" style={{
                 padding: '40px 0 30px 0',
@@ -40,15 +53,21 @@ export const AboutPage = () => {
                 <div className="container">
                     <div className="row align-items-center">
                         {/* Left Column: Image with Overlay Caption */}
-                        <div className="col-lg-6 mb-5 mb-lg-0 ftco-animate">
-                            <div className="position-relative" style={{
-                                backgroundImage: "url('/images/bg_3.jpg')",
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                                borderRadius: '24px',
-                                minHeight: '500px',
-                                overflow: 'hidden'
-                            }}>
+                        <div className="col-lg-6 mb-5 mb-lg-0">
+                            <motion.div
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                                className="position-relative"
+                                style={{
+                                    backgroundImage: "url('/images/pic15.jpg')",
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    borderRadius: '24px',
+                                    minHeight: '500px',
+                                    overflow: 'hidden'
+                                }}>
                                 <div style={{
                                     position: 'absolute',
                                     bottom: '20px',
@@ -64,23 +83,46 @@ export const AboutPage = () => {
                                         <span style={{ color: '#076c5b' }}>Delivered by a Dedicated Team</span>
                                     </h4>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* Right Column: Content & Tabs */}
                         <div className="col-lg-6 pl-lg-5">
-                            <span className="badge badge-light px-3 py-2 mb-3 font-weight-bold ftco-animate" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                            <motion.span
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="badge badge-light px-3 py-2 mb-3 font-weight-bold"
+                                style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>
                                 About Us
-                            </span>
-                            <h2 className="mb-4 font-weight-bold ftco-animate" style={{ fontSize: '42px', lineHeight: '1.2', color: '#111' }}>
+                            </motion.span>
+                            <motion.h2
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.1 }}
+                                className="mb-4 font-weight-bold"
+                                style={{ fontSize: '42px', lineHeight: '1.2', color: '#111' }}>
                                 Building Long-Term Impact for <span style={{ color: '#076c5b' }}>Vulnerable Communities</span>
-                            </h2>
-                            <p className="lead mb-4 ftco-animate" style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+                            </motion.h2>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                                className="lead mb-4"
+                                style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
                                 Life-Changing Endeavor Organization (LCEO) is a Kigali-based non-profit delivering education, health, and economic empowerment services under one integrated team. Trusted by communities across Rwanda, we build sustainable systems and growth-driven initiatives that generate real human results.
-                            </p>
+                            </motion.p>
 
                             {/* Tabs for Vision and Mission */}
-                            <div className="ftco-animate">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.3 }}
+                            >
                                 <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist" style={{ gap: '20px' }}>
                                     <li className="nav-item">
                                         <a className="nav-link active font-weight-bold px-0 py-2" id="pills-vision-tab" data-toggle="pill" href="#pills-vision" role="tab" aria-controls="pills-vision" aria-selected="true"
@@ -107,7 +149,7 @@ export const AboutPage = () => {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
@@ -116,41 +158,77 @@ export const AboutPage = () => {
             <section className="ftco-section" id="values" style={{ padding: '40px 0 0 0', backgroundColor: '#fff' }}>
                 <div className="container">
                     <div className="row justify-content-center mb-5">
-                        <div className="col-md-8 text-center ftco-animate">
-                            <span className="badge badge-light px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                        <div className="col-md-8 text-center">
+                            <motion.span
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="badge badge-light px-3 py-2 mb-3 font-weight-bold"
+                                style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>
                                 Our Foundation
-                            </span>
-                            <h2 className="mb-4 font-weight-bold" style={{ fontSize: '42px', color: '#111' }}>
+                            </motion.span>
+                            <motion.h2
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.1 }}
+                                className="mb-4 font-weight-bold"
+                                style={{ fontSize: '42px', color: '#111' }}>
                                 Our Core Values
-                            </h2>
+                            </motion.h2>
                         </div>
                     </div>
                 </div>
 
-                <div className="container-fluid px-0 transition-all ftco-animate">
+                <div className="container-fluid px-0 transition-all">
                     <div style={{
                         background: 'linear-gradient(135deg, #076c5b 0%, #122f2b 100%)',
-                        padding: '80px 0',
+                        padding: '50px 0',
                         position: 'relative',
                         overflow: 'hidden',
                         width: '100vw',
                         marginLeft: 'calc(-50vw + 50%)'
                     }}>
-                        {/* Gradient Background Only */}
-
                         <div className="container position-relative" style={{ zIndex: 1 }}>
                             <div className="row justify-content-center text-center mb-5">
                                 <div className="col-md-10">
-                                    <h3 className="text-white font-weight-bold mb-3" style={{ fontSize: '28px' }}>
-                                        Guided by Purpose, Driven by Impact
-                                    </h3>
-                                    <p className="text-white opacity-75 mx-auto" style={{ maxWidth: '700px', fontSize: '16px' }}>
+                                    <motion.h3
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.8, ease: "easeOut" }}
+                                        className="text-white font-weight-bold mb-3" style={{ fontSize: '36px', letterSpacing: '-1px' }}
+                                    >
+                                        Guided by Purpose, Driven by <span style={{ color: '#4FB1A1' }}>Impact</span>
+                                    </motion.h3>
+                                    <motion.p
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                                        className="text-white opacity-75 mx-auto" style={{ maxWidth: '700px', fontSize: '18px', lineHeight: '1.6' }}
+                                    >
                                         The principles that guide our work and commitment to empowering vulnerable young women and girls in Rwanda.
-                                    </p>
+                                    </motion.p>
                                 </div>
                             </div>
 
-                            <div className="row justify-content-center">
+                            <motion.div
+                                initial="hidden"
+                                whileInView="show"
+                                viewport={{ once: true, margin: "-50px" }}
+                                variants={{
+                                    hidden: { opacity: 0 },
+                                    show: {
+                                        opacity: 1,
+                                        transition: {
+                                            staggerChildren: 0.1
+                                        }
+                                    }
+                                }}
+                                className="row justify-content-center"
+                            >
                                 {[
                                     { title: 'Empowerment', desc: 'Unlocking the inherent potential in every girl to lead.', icon: <Zap size={32} strokeWidth={1.5} /> },
                                     { title: 'Protection', desc: 'Creating safe, nurturing spaces for healing and growth.', icon: <Shield size={32} strokeWidth={1.5} /> },
@@ -159,41 +237,87 @@ export const AboutPage = () => {
                                     { title: 'Community', desc: 'Building sustainable networks of local and global support.', icon: <Users size={32} strokeWidth={1.5} /> },
                                     { title: 'Excellence', desc: 'Committed to delivering measurable and lasting human results.', icon: <Award size={32} strokeWidth={1.5} /> }
                                 ].map((value, idx) => (
-                                    <div className="col-md-4 mb-4" key={idx}>
-                                        <div className="h-100 p-4 transition-all hover:translate-y-[-8px]" style={{
-                                            backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                            backdropFilter: 'blur(12px)',
-                                            borderRadius: '24px',
-                                            border: 'none',
-                                            textAlign: 'left'
+                                    <motion.div
+                                        key={idx}
+                                        variants={{
+                                            hidden: { opacity: 0, y: 30 },
+                                            show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                                        }}
+                                        className="col-md-4 mb-5"
+                                    >
+                                        <div style={{
+                                            backgroundColor: '#fff',
+                                            borderRadius: '12px',
+                                            overflow: 'hidden',
+                                            height: '100%',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            border: '1px solid rgba(255,255,255,0.1)'
                                         }}>
-                                            <div className="d-flex align-items-center justify-content-center mb-4" style={{
-                                                width: '56px',
-                                                height: '56px',
-                                                backgroundColor: 'rgba(79, 177, 161, 0.15)',
-                                                borderRadius: '16px',
-                                                color: '#4FB1A1'
+                                            <div style={{
+                                                backgroundColor: '#122f2b',
+                                                padding: '35px 30px',
+                                                minHeight: '160px',
+                                                position: 'relative'
                                             }}>
-                                                {value.icon}
-                                            </div>
-                                            <h4 className="text-white font-weight-bold mb-3" style={{ fontSize: '20px', letterSpacing: '0.5px' }}>{value.title}</h4>
-                                            <p className="text-white opacity-75 mb-0" style={{ fontSize: '15px', lineHeight: '1.7' }}>
-                                                {value.desc}
-                                            </p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+                                                <div className="mb-3" style={{ color: '#4FB1A1' }}>
+                                                    {value.icon}
+                                                </div>
+                                                <h4 className="text-white font-weight-bold mb-0" style={{ fontSize: '22px', lineHeight: '1.3' }}>
+                                                    {value.title} <br />
+                                                    <span style={{ fontWeight: '400', fontSize: '15px', color: 'rgba(255,255,255,0.6)' }}>Core Principle</span>
+                                                </h4>
 
-                            <div className="text-center mt-5">
+                                                <div style={{
+                                                    position: 'absolute',
+                                                    bottom: '15px',
+                                                    right: '20px',
+                                                    fontSize: '11px',
+                                                    color: 'rgba(255,255,255,0.4)',
+                                                    fontWeight: '700',
+                                                    textTransform: 'uppercase',
+                                                    letterSpacing: '1px'
+                                                }}>
+                                                    LCEO Support
+                                                </div>
+                                            </div>
+
+                                            <div className="p-4 d-flex flex-column justify-content-between flex-grow-1" style={{ backgroundColor: '#fff' }}>
+                                                <p style={{ color: '#4a5568', fontSize: '15px', lineHeight: '1.7', marginBottom: '25px' }}>
+                                                    {value.desc}
+                                                </p>
+                                                <Link to="/contact" className="font-weight-bold" style={{
+                                                    color: '#076c5b',
+                                                    fontSize: '12px',
+                                                    textTransform: 'uppercase',
+                                                    letterSpacing: '1.5px',
+                                                    display: 'flex',
+                                                    alignItems: 'center'
+                                                }}>
+                                                    READ MORE <span className="ml-2" style={{ fontSize: '16px' }}>»</span>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                                className="text-center mt-3"
+                            >
                                 <Link to="/contact" className="btn px-5 py-3 font-weight-bold" style={{
                                     borderRadius: '50px',
                                     backgroundColor: '#4FB1A1',
-                                    color: '#fff'
+                                    color: '#fff',
+                                    transition: 'all 0.3s ease'
                                 }}>
                                     Be Part of Our Journey
                                 </Link>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
@@ -202,11 +326,25 @@ export const AboutPage = () => {
             <section className="ftco-section" id="team" style={{ padding: '20px 0 20px 0', backgroundColor: '#fcfdfd' }}>
                 <div className="container">
                     <div className="row justify-content-center mb-4">
-                        <div className="col-md-8 heading-section ftco-animate text-center">
-                            <span className="badge badge-light px-3 py-2 mb-2 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                        <div className="col-md-8 heading-section text-center">
+                            <motion.span
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="badge badge-light px-3 py-2 mb-2 font-weight-bold"
+                                style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>
                                 Meet Our Team
-                            </span>
-                            <h2 className="mb-2 font-weight-bold" style={{ fontSize: '32px', color: '#111' }}>The People Behind LCEO</h2>
+                            </motion.span>
+                            <motion.h2
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.1 }}
+                                className="mb-2 font-weight-bold"
+                                style={{ fontSize: '32px', color: '#111' }}>
+                                The People Behind LCEO
+                            </motion.h2>
                         </div>
                     </div>
                     <div className="row">
@@ -236,16 +374,21 @@ export const AboutPage = () => {
                                 image: 'https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=600&h=800&auto=format&fit=crop'
                             }
                         ].map((member, idx) => (
-                            <div className="col-md-3 ftco-animate mb-4" key={idx} style={{ animationDelay: `${idx * 0.1}s` }}>
-                                <div className="staff-card overflow-hidden transition-all duration-500" style={{
-                                    borderRadius: '16px',
-                                    backgroundColor: '#fff',
-                                    height: '380px', // Fixed shorter height
-                                    position: 'relative',
-                                    cursor: 'pointer',
-                                    overflow: 'hidden'
-                                }}>
-                                    {/* Image Area with Zoom Effect */}
+                            <div className="col-md-3 mb-4" key={idx}>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: idx * 0.1 }}
+                                    className="staff-card overflow-hidden transition-all duration-500"
+                                    style={{
+                                        borderRadius: '16px',
+                                        backgroundColor: '#fff',
+                                        height: '380px',
+                                        position: 'relative',
+                                        cursor: 'pointer',
+                                        overflow: 'hidden'
+                                    }}>
                                     <div className="team-img-wrapper" style={{
                                         height: '280px',
                                         overflow: 'hidden',
@@ -260,7 +403,6 @@ export const AboutPage = () => {
                                             transition: 'transform 0.8s ease'
                                         }} className="team-photo"></div>
 
-                                        {/* LinkedIn Icon overlapping */}
                                         <div style={{
                                             position: 'absolute',
                                             bottom: '10px',
@@ -279,7 +421,6 @@ export const AboutPage = () => {
                                         </div>
                                     </div>
 
-                                    {/* Info Panel: Slides up on Hover */}
                                     <div className="info-panel p-3 text-center" style={{
                                         backgroundColor: '#076c5b',
                                         color: '#fff',
@@ -296,7 +437,6 @@ export const AboutPage = () => {
                                         <h3 className="mb-0" style={{ fontSize: '17px', fontWeight: 'bold', color: '#fff' }}>{member.name}</h3>
                                         <span className="d-block mb-2" style={{ fontSize: '12px', opacity: 0.8, letterSpacing: '0.5px' }}>{member.role}</span>
 
-                                        {/* Bio Hidden by default, enters from below */}
                                         <p className="small mb-0 bio-text" style={{
                                             lineHeight: '1.4',
                                             fontSize: '11px',
@@ -306,8 +446,6 @@ export const AboutPage = () => {
                                             transition: 'all 0.3s ease'
                                         }}>{member.bio}</p>
                                     </div>
-
-                                    {/* Custom Styles for Advanced Animations */}
                                     <style>{`
                                         .staff-card:hover .team-photo { transform: scale(1.1); }
                                         .staff-card:hover .info-panel { transform: translateY(-30px); height: 130px; }
@@ -315,7 +453,7 @@ export const AboutPage = () => {
                                         .staff-card:hover .linkedin-pop { transform: scale(1.2) rotate(360deg); background-color: #4FB1A1; }
                                         .staff-card:hover .linkedin-pop span { color: #fff; }
                                     `}</style>
-                                </div>
+                                </motion.div>
                             </div>
                         ))}
                     </div>
@@ -325,18 +463,36 @@ export const AboutPage = () => {
             <section className="ftco-section bg-white" style={{ padding: '40px 0 100px 0' }}>
                 <div className="container">
                     <div className="row justify-content-center mb-5 pb-4">
-                        <div className="col-md-7 heading-section ftco-animate text-center">
-                            <span className="badge badge-light px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                        <div className="col-md-7 heading-section text-center">
+                            <motion.span
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="badge badge-light px-3 py-2 mb-3 font-weight-bold"
+                                style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>
                                 Progress
-                            </span>
-                            <h2 className="mb-4 font-weight-bold" style={{ fontSize: '42px', color: '#111', letterSpacing: '-1px' }}>Milestones & Achievements</h2>
+                            </motion.span>
+                            <motion.h2
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.1 }}
+                                className="mb-4 font-weight-bold"
+                                style={{ fontSize: '42px', color: '#111', letterSpacing: '-1px' }}>
+                                Milestones & Achievements
+                            </motion.h2>
                         </div>
                     </div>
 
                     <div className="row align-items-center">
-                        {/* Left Side: Vertical Steps */}
-                        <div className="col-lg-6 mb-5 mb-lg-0 ftco-animate">
-                            <div className="ml-md-4 position-relative">
+                        <div className="col-lg-6 mb-5 mb-lg-0">
+                            <motion.div
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                                className="ml-md-4 position-relative">
                                 {/* Connecting Vertical Line */}
                                 <div style={{
                                     position: 'absolute',
@@ -355,16 +511,17 @@ export const AboutPage = () => {
                                     { year: '2024', title: 'Recognition & Growth', desc: 'Signed strategic partnership with FAWE Rwanda, now serving 312 beneficiaries and counting.' }
                                 ].map((step, idx) => (
                                     <div key={idx} className="d-flex mb-5 last:mb-0 position-relative" style={{ zIndex: 1 }}>
-                                        <div className="d-flex align-items-center justify-content-center flex-shrink-0" style={{
-                                            width: '40px',
-                                            height: '40px',
-                                            backgroundColor: '#e2f5f2',
-                                            borderRadius: '50%',
-                                            color: '#076c5b',
-                                            fontWeight: 'bold',
-                                            fontSize: '14px',
-                                            border: 'none'
-                                        }}>
+                                        <div className="d-flex align-items-center justify-content-center flex-shrink-0"
+                                            style={{
+                                                width: '40px',
+                                                height: '40px',
+                                                backgroundColor: '#e2f5f2',
+                                                borderRadius: '50%',
+                                                color: '#076c5b',
+                                                fontWeight: 'bold',
+                                                fontSize: '14px',
+                                                border: 'none'
+                                            }}>
                                             {idx + 1}
                                         </div>
                                         <div className="ml-4">
@@ -373,19 +530,23 @@ export const AboutPage = () => {
                                         </div>
                                     </div>
                                 ))}
-                            </div>
+                            </motion.div>
                         </div>
 
-                        {/* Right Side: Stacked Card Graphic */}
-                        <div className="col-lg-6 ftco-animate">
-                            <div className="p-5 d-flex align-items-center justify-content-center" style={{
-                                backgroundColor: '#f0f9f8',
-                                borderRadius: '32px',
-                                minHeight: '550px',
-                                position: 'relative',
-                                overflow: 'hidden'
-                            }}>
-                                {/* Background Decorative Elements */}
+                        <div className="col-lg-6">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                                className="p-5 d-flex align-items-center justify-content-center"
+                                style={{
+                                    backgroundColor: '#f0f9f8',
+                                    borderRadius: '32px',
+                                    minHeight: '550px',
+                                    position: 'relative',
+                                    overflow: 'hidden'
+                                }}>
                                 <div style={{
                                     position: 'absolute',
                                     width: '300px',
@@ -396,7 +557,6 @@ export const AboutPage = () => {
                                     right: '-50px'
                                 }}></div>
 
-                                {/* Stacked Photo Cards - Mimicking the Finova design */}
                                 <div className="position-relative w-100 h-100 d-flex align-items-center justify-content-center">
                                     {/* Bottom/Back Card */}
                                     <div style={{
@@ -458,14 +618,11 @@ export const AboutPage = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
             </section>
-
-
-
         </>
     );
 };

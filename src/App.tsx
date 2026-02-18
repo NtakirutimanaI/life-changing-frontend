@@ -170,6 +170,16 @@ function AppContent() {
                     .dark .label,
                     .dark .text-black { color: #94a3b8 !important; }
                     
+                    /* Global Shadow and Border Removal - Modern Aesthetic */
+                    section, .ftco-section, .card, .staff-card, .staff-card:hover, .btn {
+                        box-shadow: none !important;
+                    }
+                    /* Remove legacy borders only */
+                    .ftco-section, .ftco-footer, .navbar {
+                        border: none !important;
+                    }
+                    .border-bottom { border-bottom: none !important; }
+                    
                     /* Background Overrides */
                     .dark .bg-white, 
                     .dark .bg-light,

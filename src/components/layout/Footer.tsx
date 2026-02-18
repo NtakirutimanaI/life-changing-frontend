@@ -16,12 +16,11 @@ export const Footer = () => {
             position: 'relative'
         }}>
             <div style={{
-                height: '24px',
+                height: '15px',
                 width: '100%',
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='24' viewBox='0 0 40 24' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='40' height='24' fill='%23003399'/%3E%3Cpath d='M0 24 L20 4 L40 24 M0 18 L20 -2 L40 18 M0 30 L20 10 L40 30' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E")`,
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='15' viewBox='0 0 40 15' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='40' height='15' fill='%23076c5b'/%3E%3Cpath d='M0 15 L20 0 L40 15 M0 10 L20 -5 L40 10 M0 20 L20 5 L40 20' stroke='%23eacfa2' stroke-width='2.5' fill='none'/%3E%3C/svg%3E")`,
                 backgroundRepeat: 'repeat-x',
-                marginBottom: '56px',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
+                marginBottom: '56px'
             }}></div>
             <div className="container">
 
@@ -32,12 +31,35 @@ export const Footer = () => {
                             Subscribe to our newsletter for updates, impact stories, and ways to get involved
                         </p>
                         <form className="subscribe-form d-flex justify-content-center mt-4">
-                            <div className="d-flex align-items-center" style={{ width: '100%', maxWidth: '550px' }}>
-                                <input type="email" className="form-control px-4 mr-3" placeholder="Enter your email"
-                                    style={{ height: '54px', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.2)', color: '#fff', borderRadius: '8px' }} />
-                                <button type="submit" className="btn d-flex align-items-center justify-content-center px-4"
-                                    style={{ height: '54px', background: '#eacfa2', color: '#111', fontWeight: 'bold', borderRadius: '8px', border: 'none', whiteSpace: 'nowrap' }}>
-                                    <Send size={18} className="mr-2" strokeWidth={1.5} />
+                            <div className="position-relative d-flex align-items-center" style={{ width: '100%', maxWidth: '550px' }}>
+                                <input type="email" className="form-control" placeholder="Enter your email"
+                                    style={{
+                                        height: '60px',
+                                        background: 'rgba(255,255,255,0.08)',
+                                        border: '1px solid rgba(255,255,255,0.2)',
+                                        color: '#fff',
+                                        borderRadius: '12px',
+                                        paddingLeft: '24px',
+                                        paddingRight: '160px',
+                                        width: '100%'
+                                    }} />
+                                <button type="submit" className="btn d-flex align-items-center justify-content-center"
+                                    style={{
+                                        position: 'absolute',
+                                        right: '6px',
+                                        top: '6px',
+                                        bottom: '6px',
+                                        padding: '0 25px',
+                                        background: '#051a1aff',
+                                        color: '#fff',
+                                        fontWeight: '700',
+                                        borderRadius: '10px',
+                                        border: 'none',
+                                        whiteSpace: 'nowrap',
+                                        fontSize: '15px',
+                                        transition: 'all 0.3s ease'
+                                    }}>
+                                    <Send size={16} className="mr-2" strokeWidth={2} />
                                     Subscribe
                                 </button>
                             </div>
@@ -94,9 +116,9 @@ export const Footer = () => {
                             <h2 className="ftco-heading-2 text-white" style={{ fontWeight: 700 }}>Contact Us</h2>
                             <div className="block-23 mb-3">
                                 <ul>
-                                    <li><div className="d-flex align-items-start"><MapPin size={24} className="mr-2" style={{ color: '#eacfa2' }} strokeWidth={1.5} /><span className="text"><strong>Address:</strong> Bugesera District, Nyamata Sector Eastern Province, Rwanda</span></div></li>
-                                    <li><a href="tel:+250788123456" className="d-flex align-items-center"><Phone size={24} className="mr-2" style={{ color: '#eacfa2' }} strokeWidth={1.5} /><span className="text"><strong>Phone:</strong> +250 788 123 456</span></a></li>
-                                    <li><a href="mailto:info.lceo@gmail.com" className="d-flex align-items-center"><Mail size={24} className="mr-2" style={{ color: '#eacfa2' }} strokeWidth={1.5} /><span className="text"><strong>Email:</strong> info.lceo@gmail.com</span></a></li>
+                                    <li><div className="d-flex align-items-start"><MapPin size={22} className="mr-3 mt-1" style={{ color: '#eacfa2' }} strokeWidth={2} /><span className="text"><strong>Address:</strong> Bugesera District, Nyamata Sector Eastern Province, Rwanda</span></div></li>
+                                    <li><a href="tel:+250788123456" className="d-flex align-items-center"><Phone size={22} className="mr-3" style={{ color: '#eacfa2' }} strokeWidth={2} /><span className="text"><strong>Phone:</strong> +250 788 123 456</span></a></li>
+                                    <li><a href="mailto:info.lceo@gmail.com" className="d-flex align-items-center"><Mail size={22} className="mr-3" style={{ color: '#eacfa2' }} strokeWidth={2} /><span className="text"><strong>Email:</strong> info.lceo@gmail.com</span></a></li>
                                 </ul>
                             </div>
                         </div>

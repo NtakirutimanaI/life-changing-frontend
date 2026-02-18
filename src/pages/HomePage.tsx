@@ -272,7 +272,7 @@ export const HomePage = () => {
                             <div className="position-relative" style={{ height: '500px' }}>
                                 {/* Main Image */}
                                 <div className="ftco-animate" style={{
-                                    backgroundImage: "url('/images/bg_3.jpg')",
+                                    backgroundImage: "url('/images/pic9.jpg')",
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
                                     borderRadius: '24px',
@@ -408,7 +408,7 @@ export const HomePage = () => {
                         {/* 1. Emergency Response (Featured) */}
                         <div className="col-md-4 mb-3 ftco-animate">
                             <div className="impact-area-card">
-                                <div className="impact-bg" style={{ backgroundImage: "url('/images/bg_3.jpg')" }}></div>
+                                <div className="impact-bg" style={{ backgroundImage: "url('/images/pic14.jpg')" }}></div>
                                 <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
                                         Emergency Response
@@ -423,7 +423,7 @@ export const HomePage = () => {
                         {/* 2. Economic Empowerment */}
                         <div className="col-md-4 mb-3 ftco-animate">
                             <div className="impact-area-card">
-                                <div className="impact-bg" style={{ backgroundImage: "url('/images/cause-2.jpg')" }}></div>
+                                <div className="impact-bg" style={{ backgroundImage: "url('/images/pic13.jpg')" }}></div>
                                 <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
                                         Economic Empowerment
@@ -438,7 +438,7 @@ export const HomePage = () => {
                         {/* 3. SRHR & Menstrual Health */}
                         <div className="col-md-4 mb-3 ftco-animate">
                             <div className="impact-area-card">
-                                <div className="impact-bg" style={{ backgroundImage: "url('/images/cause-4.jpg')" }}></div>
+                                <div className="impact-bg" style={{ backgroundImage: "url('/images/pic15.jpg')" }}></div>
                                 <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
                                         SRHR & Menstrual Health
@@ -453,7 +453,7 @@ export const HomePage = () => {
                         {/* 4. Education & School Retention */}
                         <div className="col-md-4 mb-3 ftco-animate">
                             <div className="impact-area-card">
-                                <div className="impact-bg" style={{ backgroundImage: "url('/images/cause-1.jpg')" }}></div>
+                                <div className="impact-bg" style={{ backgroundImage: "url('/images/pic16.jpg')" }}></div>
                                 <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
                                         Education & School Retention
@@ -468,7 +468,7 @@ export const HomePage = () => {
                         {/* 5. Gender & Protection */}
                         <div className="col-md-4 mb-3 ftco-animate">
                             <div className="impact-area-card">
-                                <div className="impact-bg" style={{ backgroundImage: "url('/images/bg_2.jpg')" }}></div>
+                                <div className="impact-bg" style={{ backgroundImage: "url('/images/pic11.jpg')" }}></div>
                                 <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
                                         Gender & Protection
@@ -483,7 +483,7 @@ export const HomePage = () => {
                         {/* 6. Human Capital & Resilience */}
                         <div className="col-md-4 mb-3 ftco-animate">
                             <div className="impact-area-card">
-                                <div className="impact-bg" style={{ backgroundImage: "url('/images/cause-3.jpg')" }}></div>
+                                <div className="impact-bg" style={{ backgroundImage: "url('/images/pic2.jpg')" }}></div>
                                 <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
                                         Human Capital & Resilience
@@ -838,28 +838,28 @@ export const HomePage = () => {
                 <div className="d-md-flex">
                     <a href="/images/cause-2.jpg"
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/cause-2.jpg)" }}>
+                        style={{ backgroundImage: "url(/images/testimonial1.jpg)" }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
                     <a href="/images/cause-3.jpg"
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/cause-3.jpg)" }}>
+                        style={{ backgroundImage: "url(/images/pic5.jpg)" }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
                     <a href="/images/cause-4.jpg"
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/cause-4.jpg)" }}>
+                        style={{ backgroundImage: "url(/images/pic11.jpg)" }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
                     <a href="/images/cause-5.jpg"
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/cause-5.jpg)" }}>
+                        style={{ backgroundImage: "url(/images/pic14.jpg)" }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
@@ -868,28 +868,28 @@ export const HomePage = () => {
                 <div className="d-md-flex">
                     <a href="/images/cause-6.jpg"
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/cause-6.jpg)" }}>
+                        style={{ backgroundImage: "url(/images/pic13.jpg)" }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
                     <a href="/images/image_3.jpg"
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/image_3.jpg)" }}>
+                        style={{ backgroundImage: "url(/images/pic9.jpg)" }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
                     <a href="/images/image_1.jpg"
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/image_1.jpg)" }}>
+                        style={{ backgroundImage: "url(/images/pic15.jpg)" }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
                     <a href="/images/image_2.jpg"
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/image_2.jpg)" }}>
+                        style={{ backgroundImage: "url(/images/pic19.jpg)" }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
@@ -1237,7 +1237,7 @@ export const HomePage = () => {
                 </div>
             </section>
 
-            <section className="ftco-section-3 img" style={{ backgroundImage: "url(/images/bg_3.jpg)", padding: '30px 0', position: 'relative' }}>
+            <section className="ftco-section-3 img" style={{ backgroundImage: "url(/images/pic15.jpg)", padding: '30px 0', position: 'relative' }}>
                 <style>
                     {`
                     .movement-card {

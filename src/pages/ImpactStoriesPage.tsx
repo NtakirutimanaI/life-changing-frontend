@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
-import { Check, Globe, Users, GraduationCap, Briefcase, Award } from 'lucide-react';
+import { Check, Globe, Users, GraduationCap, Briefcase, Award, Send } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const ImpactStoriesPage = () => {
     useLegacyScripts();
@@ -9,10 +10,10 @@ export const ImpactStoriesPage = () => {
     return (
         <>
             {/* Hero Section */}
-            <div className="hero-wrap hero-wrap-2" style={{ backgroundImage: "url('/images/bg_2.jpg')", height: '350px', minHeight: '350px' }} data-stellar-background-ratio="0.5">
+            <div className="hero-wrap hero-wrap-2" style={{ backgroundImage: "url('/images/pic1.jpg')", height: '450px', minHeight: '450px' }} data-stellar-background-ratio="0.5">
                 <div className="overlay"></div>
                 <div className="container">
-                    <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '350px', paddingTop: '60px' }} data-scrollax-parent="true">
+                    <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '450px', paddingTop: '80px' }} data-scrollax-parent="true">
                         <div className="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
                             <p className="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span className="mr-2"><Link
                                 to="/">Home</Link></span> <span>Impact & Stories</span></p>
@@ -25,133 +26,230 @@ export const ImpactStoriesPage = () => {
             </div>
 
             {/* Split Design Impact Section */}
-            <section className="ftco-section bg-white" style={{ padding: '40px 0' }}>
+            <section className="ftco-section bg-white" style={{ padding: '40px 0 40px 0' }}>
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-md-6 ftco-animate pr-lg-5">
-                            <span className="badge badge-light px-3 py-2 mb-2 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                            <motion.span
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="badge badge-light px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '13px', letterSpacing: '1.2px', textTransform: 'uppercase' }}>
                                 About Charitian
-                            </span>
-                            <h2 className="mb-3" style={{ fontSize: '32px', fontWeight: '800', color: '#122f2b', lineHeight: '1.2' }}>
+                            </motion.span>
+                            <motion.h2
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.1 }}
+                                className="mb-4" style={{ fontSize: '52px', fontWeight: '800', color: '#122f2b', lineHeight: '1.05', letterSpacing: '-1.5px' }}>
                                 Together, We Make <br />
                                 A Difference!
-                            </h2>
-                            <p className="mb-3" style={{ color: '#666', fontSize: '15px', lineHeight: '1.6' }}>
-                                Every statistic represents a life changed. See the real impact of LCEO's work across education, entrepreneurship, and empowerment.
-                            </p>
-                            <p>
-                                <Link to="/donate" className="btn px-4 py-2 font-weight-bold" style={{ backgroundColor: '#076c5b', color: '#fff', fontSize: '13px', borderRadius: '12px', border: 'none' }}>Make A Donation</Link>
-                            </p>
+                            </motion.h2>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.2 }}
+                                className="mb-5" style={{ color: '#666', fontSize: '19px', lineHeight: '1.8' }}>
+                                Every statistic represents a life changed. See the real impact of LCEO's work across education, entrepreneurship, and empowerment. We believe in building sustainable futures for every girl in Rwanda.
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.3 }}
+                            >
+                                <Link to="/donate" className="btn px-5 py-3 font-weight-bold" style={{ backgroundColor: '#076c5b', color: '#fff', fontSize: '15px', borderRadius: '14px', border: 'none' }}>Make A Impactful Donation</Link>
+                            </motion.p>
                         </div>
 
-                        <div className="col-md-6 ftco-animate position-relative mt-4 mt-md-0">
-                            {/* ... kept grid ... */}
+                        <div className="col-md-6 ftco-animate position-relative mt-5 mt-md-0">
+                            {/* Enlarged Image Grid */}
                             <div className="row no-gutters">
-                                <div className="col-8 offset-4 mb-3">
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6 }}
+                                    className="col-8 offset-4 mb-4"
+                                >
                                     <div style={{
-                                        backgroundImage: "url('/images/cause-1.jpg')",
+                                        backgroundImage: "url('/images/pic2.jpg')",
+                                        height: '320px',
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                        borderRadius: '16px'
+                                    }}></div>
+                                </motion.div>
+                                <motion.div
+                                    initial={{ opacity: 0, x: -30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.2 }}
+                                    className="position-absolute" style={{ top: '15%', left: '0', width: '48%', zIndex: 2 }}
+                                >
+                                    <div style={{
+                                        backgroundImage: "url('/images/pic8.jpg')",
                                         height: '240px',
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
-                                        borderRadius: '8px',
-                                        boxShadow: '15px -15px 0px rgba(7, 108, 91, 0.05)'
+                                        borderRadius: '16px',
+                                        border: '8px solid #fff'
                                     }}></div>
-                                </div>
-                                <div className="position-absolute" style={{ top: '15%', left: '0', width: '45%', zIndex: 2 }}>
+                                </motion.div>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.4 }}
+                                    className="col-6 pr-3"
+                                >
                                     <div style={{
-                                        backgroundImage: "url('/images/cause-2.jpg')",
-                                        height: '180px',
+                                        backgroundImage: "url('/images/pic7s.jpg')",
+                                        height: '190px',
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
-                                        borderRadius: '8px',
-                                        border: '6px solid #fff',
-                                        boxShadow: '0 10px 25px rgba(0,0,0,0.1)'
+                                        borderRadius: '16px',
                                     }}></div>
-                                </div>
-                                <div className="col-6 pr-2">
+                                </motion.div>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: 0.5 }}
+                                    className="col-6"
+                                >
                                     <div style={{
-                                        backgroundImage: "url('/images/cause-3.jpg')",
-                                        height: '140px',
+                                        backgroundImage: "url('/images/pic7.jpg')",
+                                        height: '170px',
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
-                                        borderRadius: '8px',
+                                        borderRadius: '16px',
                                     }}></div>
-                                </div>
-                                <div className="col-6">
-                                    <div style={{
-                                        backgroundImage: "url('/images/cause-4.jpg')",
-                                        height: '120px',
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center',
-                                        borderRadius: '8px',
-                                    }}></div>
-                                </div>
+                                </motion.div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Impact Numbers Section */}
-            <section className="ftco-section" style={{ padding: '50px 0', backgroundColor: '#fcfdfd' }}>
+            {/* Impact Numbers Section - Redesigned to match image theme */}
+            <section className="ftco-section" style={{
+                padding: '120px 0',
+                backgroundColor: '#122f2b',
+                position: 'relative',
+                overflow: 'hidden'
+            }}>
                 <div className="container">
-                    <div className="row justify-content-center mb-4 pb-2">
-                        <div className="col-md-7 heading-section ftco-animate text-center">
-                            <span className="badge px-4 py-2 mb-2" style={{ backgroundColor: '#e8f7f5', color: '#076c5b', fontSize: '11px', fontWeight: 'Bold', borderRadius: '50px' }}>Our Impact</span>
-                            <h2 className="mb-2" style={{ fontSize: '32px', fontWeight: '800', color: '#122f2b' }}>Measurable Change</h2>
-                            <p className="mb-0" style={{ color: '#666', fontSize: '15px' }}>Tracking our progress across education, entrepreneurship, and empowerment.</p>
+                    <div className="row">
+                        {/* Left Side: Image and "Donate now" */}
+                        <div className="col-lg-5 mb-5 mb-lg-0 ftco-animate d-flex flex-column align-items-center justify-content-center">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.7 }}
+                                className="position-relative mb-4" style={{ width: '100%', maxWidth: '400px' }}
+                            >
+                                <div style={{
+                                    backgroundImage: "url('/images/pic6.jpg')",
+                                    height: '280px',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    borderRadius: '12px'
+                                }}></div>
+                            </motion.div>
+                            <motion.h2
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.3 }}
+                                className="text-white font-weight-bold" style={{ fontSize: '56px', letterSpacing: '-1.5px' }}>Donate now</motion.h2>
+                        </div>
+
+                        {/* Right Side: Tabbed Impact Dashboard */}
+                        <div className="col-lg-7 ftco-animate">
+                            <TabbedImpactDashboard />
                         </div>
                     </div>
-                    <div className="row">
-                        {[
-                            { icon: <Users size={32} strokeWidth={1.5} />, num: '5,000+', label: 'Reached & Empowered', sub: 'Vulnerable girls supported.' },
-                            { icon: <GraduationCap size={32} strokeWidth={1.5} />, num: '1,200+', label: 'Stayed In School', sub: 'Facilitated protection.' },
-                            { icon: <Briefcase size={32} strokeWidth={1.5} />, num: '450+', label: 'Businesses launched', sub: 'Supported by IkiraroBiz.' },
-                            { icon: <Award size={32} strokeWidth={1.5} />, num: '300+', label: 'Champions Trained', sub: 'Mindset shift leaders.' },
-                        ].map((stat, i) => (
-                            <div className="col-md-3 d-flex ftco-animate mb-3" key={i}>
-                                <div className="p-3 bg-white shadow-sm text-center w-100" style={{ borderRadius: '12px', border: '1px solid #f0f2f2' }}>
-                                    <div className="icon-section d-flex align-items-center justify-content-center mb-2" style={{ color: '#076c5b' }}>
-                                        {stat.icon}
-                                    </div>
-                                    <h3 className="font-weight-bold mb-1" style={{ color: '#122f2b', fontSize: '1.8rem' }}>{stat.num}</h3>
-                                    <span className="position mb-1 d-block text-uppercase" style={{ fontSize: '11px', fontWeight: '700', letterSpacing: '0.5px', color: '#076c5b' }}>{stat.label}</span>
-                                    <p className="small text-muted mb-0">{stat.sub}</p>
-                                </div>
-                            </div>
-                        ))}
+                </div>
+
+                {/* Exit Site Vertical Button (as seen in image) */}
+                <div style={{
+                    position: 'absolute',
+                    right: '0',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    zIndex: 10
+                }}>
+                    <div style={{
+                        backgroundColor: '#bef264',
+                        color: '#000',
+                        padding: '12px 6px',
+                        writingMode: 'vertical-rl',
+                        textTransform: 'uppercase',
+                        fontWeight: '700',
+                        fontSize: '11px',
+                        letterSpacing: '1px',
+                        borderRadius: '4px 0 0 4px',
+                        cursor: 'pointer'
+                    }}>
+                        Exit Site
                     </div>
                 </div>
             </section>
 
             {/* SDG Alignment Section */}
-            <section className="ftco-section bg-white" style={{ padding: '50px 0' }}>
+            <section className="ftco-section bg-white" style={{ padding: '100px 0 20px 0' }}>
                 <div className="container">
                     <div className="row justify-content-center mb-4 pb-2">
                         <div className="col-md-10 text-center ftco-animate">
-                            <span className="badge badge-light px-3 py-2 mb-2 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1.2px', textTransform: 'uppercase' }}>
+                            <motion.span
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                                className="badge badge-light px-3 py-2 mb-2 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1.2px', textTransform: 'uppercase' }}>
                                 Global Agenda
-                            </span>
-                            <h2 className="mb-2 font-weight-bold" style={{ fontSize: '36px', color: '#111', letterSpacing: '-1px' }}>
+                            </motion.span>
+                            <motion.h2
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.1 }}
+                                className="mb-3 font-weight-bold" style={{ fontSize: '42px', color: '#111', letterSpacing: '-1.5px' }}>
                                 Aligned with Global Goals
-                            </h2>
-                            <p className="mx-auto mb-0" style={{ maxWidth: '700px', color: '#666', fontSize: '16px' }}>
+                            </motion.h2>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.2 }}
+                                className="mx-auto mb-0" style={{ maxWidth: '750px', color: '#666', fontSize: '18px', lineHeight: '1.7' }}>
                                 LCEO’s programs contribute directly to the 2030 Agenda for Sustainable Development in Rwanda.
-                            </p>
+                            </motion.p>
                         </div>
                     </div>
 
-                    <div className="row d-flex align-items-stretch no-gutters">
+                    <div className="row d-flex align-items-stretch no-gutters" style={{ borderRadius: '32px', overflow: 'hidden' }}>
                         {/* Light Card */}
-                        <div className="col-lg-4 mb-4 mb-lg-0 ftco-animate">
-                            <div className="p-4 h-100 d-flex flex-column" style={{
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="col-lg-5 mb-4 mb-lg-0 ftco-animate"
+                        >
+                            <div className="h-100 d-flex flex-column" style={{
                                 backgroundColor: '#f0f9f8',
-                                borderRadius: '24px 0 0 24px',
+                                padding: '60px 45px',
                                 border: '1px solid rgba(7, 108, 91, 0.05)'
                             }}>
-                                <h3 className="font-weight-bold mb-2" style={{ fontSize: '20px', color: '#111' }}>Community Resilience</h3>
-                                <p style={{ color: '#666', fontSize: '14px', lineHeight: '1.6', marginBottom: '25px' }}>
-                                    Building health, education, and basic stability for the most vulnerable.
+                                <h3 className="font-weight-bold mb-3" style={{ fontSize: '28px', color: '#122f2b', letterSpacing: '-0.5px' }}>Community Resilience</h3>
+                                <p style={{ color: '#666', fontSize: '17px', lineHeight: '1.8', marginBottom: '40px' }}>
+                                    Building health, education, and basic stability for the most vulnerable families in Rwanda.
                                 </p>
 
                                 <div className="mt-auto">
@@ -159,36 +257,49 @@ export const ImpactStoriesPage = () => {
                                         { id: 1, title: 'No Poverty', progress: 78 },
                                         { id: 3, title: 'Good Health', progress: 85 },
                                         { id: 4, title: 'Quality Education', progress: 92 }
-                                    ].map(sdg => (
-                                        <div key={sdg.id} className="mb-3">
-                                            <div className="d-flex justify-content-between align-items-center mb-1">
-                                                <span className="font-weight-bold" style={{ fontSize: '13px', color: '#111' }}>Goal {sdg.id}: {sdg.title}</span>
-                                                <span className="font-weight-bold" style={{ color: '#076c5b', fontSize: '12px' }}>{sdg.progress}%</span>
+                                    ].map((sdg, sidx) => (
+                                        <motion.div
+                                            key={sdg.id}
+                                            initial={{ opacity: 0, width: 0 }}
+                                            whileInView={{ opacity: 1, width: '100%' }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.8, delay: 0.3 + (sidx * 0.1) }}
+                                            className="mb-4"
+                                        >
+                                            <div className="d-flex justify-content-between align-items-center mb-2">
+                                                <span className="font-weight-bold" style={{ fontSize: '15px', color: '#111' }}>Goal {sdg.id}: {sdg.title}</span>
+                                                <span className="font-weight-bold" style={{ color: '#076c5b', fontSize: '14px' }}>{sdg.progress}%</span>
                                             </div>
-                                            <div className="progress" style={{ height: '4px', backgroundColor: 'rgba(7, 108, 91, 0.1)', borderRadius: '10px' }}>
+                                            <div className="progress" style={{ height: '8px', backgroundColor: 'rgba(7, 108, 91, 0.1)', borderRadius: '10px' }}>
                                                 <div className="progress-bar" style={{ width: `${sdg.progress}%`, backgroundColor: '#076c5b' }}></div>
                                             </div>
-                                        </div>
+                                        </motion.div>
                                     ))}
-                                    <Link to="/about" className="btn btn-primary w-100 py-2 mt-3 border-0 font-weight-bold" style={{ backgroundColor: '#122f2b', borderRadius: '12px', fontSize: '13px' }}>
-                                        View Report
+                                    <Link to="/about" className="btn btn-primary w-100 py-3 mt-4 border-0 font-weight-bold" style={{ backgroundColor: '#122f2b', borderRadius: '14px', fontSize: '15px', letterSpacing: '0.5px' }}>
+                                        View Detailed Report
                                     </Link>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Dark Card */}
-                        <div className="col-lg-8 ftco-animate">
-                            <div className="p-4 h-100 d-flex text-white" style={{
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="col-lg-7 ftco-animate"
+                        >
+                            <div className="h-100 d-flex text-white" style={{
                                 backgroundColor: '#076c5b',
-                                borderRadius: '0 24px 24px 0',
+                                padding: '60px 40px',
                                 border: '1px solid rgba(7, 108, 91, 0.1)'
                             }}>
                                 <div className="row w-100">
                                     <div className="col-md-7 d-flex flex-column">
-                                        <h3 className="font-weight-bold mb-2 text-white" style={{ fontSize: '24px' }}>Societal Transformation</h3>
-                                        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', lineHeight: '1.7', marginBottom: '25px' }}>
-                                            Driving long-term gender equality and structural reduction of systemic inequalities.
+                                        <h3 className="font-weight-bold mb-3 text-white" style={{ fontSize: '32px', letterSpacing: '-1px' }}>Societal Transformation</h3>
+                                        <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '17px', lineHeight: '1.8', marginBottom: '40px' }}>
+                                            Driving long-term gender equality and structural reduction of systemic inequalities through advocacy.
                                         </p>
 
                                         <div className="mt-auto">
@@ -196,25 +307,32 @@ export const ImpactStoriesPage = () => {
                                                 { id: 5, title: 'Gender Equality', progress: 88 },
                                                 { id: 8, title: 'Economic Growth', progress: 75 },
                                                 { id: 10, title: 'Reduced Inequality', progress: 82 }
-                                            ].map(sdg => (
-                                                <div key={sdg.id} className="mb-3">
-                                                    <div className="d-flex justify-content-between align-items-center mb-1">
-                                                        <span className="font-weight-bold" style={{ fontSize: '13px' }}>Goal {sdg.id}: {sdg.title}</span>
-                                                        <span className="font-weight-bold" style={{ color: '#fff', fontSize: '12px' }}>{sdg.progress}%</span>
+                                            ].map((sdg, sidx) => (
+                                                <motion.div
+                                                    key={sdg.id}
+                                                    initial={{ opacity: 0, width: 0 }}
+                                                    whileInView={{ opacity: 1, width: '100%' }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ duration: 0.8, delay: 0.3 + (sidx * 0.1) }}
+                                                    className="mb-4"
+                                                >
+                                                    <div className="d-flex justify-content-between align-items-center mb-2">
+                                                        <span className="font-weight-bold" style={{ fontSize: '15px' }}>Goal {sdg.id}: {sdg.title}</span>
+                                                        <span className="font-weight-bold" style={{ color: '#fff', fontSize: '14px' }}>{sdg.progress}%</span>
                                                     </div>
-                                                    <div className="progress" style={{ height: '4px', backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '10px' }}>
+                                                    <div className="progress" style={{ height: '8px', backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: '10px' }}>
                                                         <div className="progress-bar" style={{ width: `${sdg.progress}%`, backgroundColor: '#fff' }}></div>
                                                     </div>
-                                                </div>
+                                                </motion.div>
                                             ))}
-                                            <button className="btn btn-white w-100 py-2 mt-3 font-weight-bold" style={{ borderRadius: '12px', fontSize: '13px', color: '#076c5b' }}>
-                                                Partner With Us
+                                            <button className="btn btn-white w-100 py-3 mt-4 font-weight-bold" style={{ borderRadius: '14px', fontSize: '15px', color: '#076c5b', letterSpacing: '0.5px' }}>
+                                                Partner With Our Mission
                                             </button>
                                         </div>
                                     </div>
 
-                                    <div className="col-md-5 pl-md-4 mt-4 mt-md-0 border-left" style={{ borderColor: 'rgba(255,255,255,0.1) !important' }}>
-                                        <h6 className="font-weight-bold text-uppercase mb-3" style={{ letterSpacing: '1px', fontSize: '11px', color: 'rgba(255,255,255,0.5)' }}>Key Outcomes</h6>
+                                    <div className="col-md-5 pl-md-5 mt-5 mt-md-0 border-left" style={{ borderColor: 'rgba(255,255,255,0.1) !important' }}>
+                                        <h6 className="font-weight-bold text-uppercase mb-4" style={{ letterSpacing: '1.5px', fontSize: '12px', color: 'rgba(255,255,255,0.5)' }}>Strategic Outcomes</h6>
                                         <ul className="list-unstyled mb-0">
                                             {[
                                                 'Bridging tech gaps',
@@ -224,21 +342,135 @@ export const ImpactStoriesPage = () => {
                                                 'Retention models',
                                                 'Resilience hubs'
                                             ].map((item, idx) => (
-                                                <li key={idx} className="d-flex align-items-start mb-2">
-                                                    <Check size={16} className="mr-2" style={{ color: '#fff', marginTop: '2px' }} />
-                                                    <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.9)' }}>{item}</span>
-                                                </li>
+                                                <motion.li
+                                                    key={idx}
+                                                    initial={{ opacity: 0, x: 10 }}
+                                                    whileInView={{ opacity: 1, x: 0 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ duration: 0.4, delay: 0.5 + (idx * 0.05) }}
+                                                    className="d-flex align-items-start mb-3"
+                                                >
+                                                    <Check size={20} className="mr-3" style={{ color: '#bef264', marginTop: '4px' }} strokeWidth={3} />
+                                                    <span style={{ fontSize: '16px', color: 'rgba(255,255,255,0.95)', fontWeight: '500' }}>{item}</span>
+                                                </motion.li>
                                             ))}
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
-
-
         </>
+    );
+};
+
+const TabbedImpactDashboard = () => {
+    const [activeTab, setActiveTab] = React.useState('one-off');
+
+    const stats = {
+        'one-off': [
+            { amount: '5,000+', desc: 'Young women reached and mentored through our core education and community programs.' },
+            { amount: '1,200+', desc: 'Girls facilitated with protection systems to ensure they stay safely in school.' },
+            { amount: '300+', desc: 'Champions trained to lead mindset shift initiatives within their own communities.' },
+        ],
+        'monthly': [
+            { amount: '450+', desc: 'Sustainable businesses launched and supported through the IkiraroBiz entrepreneurship wing.' },
+            { amount: '312+', desc: 'Direct beneficiaries currently enrolled in our intensive 2024 empowerment cycle.' },
+            { amount: '85%', desc: 'Success rate in long-term economic independence for our program graduates.' },
+        ]
+    };
+
+    return (
+        <div className="w-100">
+            {/* Tab Headers */}
+            <div className="d-flex mb-0">
+                <button
+                    onClick={() => setActiveTab('one-off')}
+                    style={{
+                        padding: '12px 25px',
+                        backgroundColor: activeTab === 'one-off' ? 'transparent' : 'rgba(255,255,255,0.05)',
+                        color: '#fff',
+                        border: activeTab === 'one-off' ? '1px solid #fff' : 'none',
+                        borderBottom: 'none',
+                        borderRadius: '8px 8px 0 0',
+                        fontSize: '14px',
+                        fontWeight: '700',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease',
+                        position: 'relative',
+                        zIndex: 2,
+                        marginRight: '2px'
+                    }}
+                >
+                    One-off Impact
+                </button>
+                <button
+                    onClick={() => setActiveTab('monthly')}
+                    style={{
+                        padding: '12px 25px',
+                        backgroundColor: activeTab === 'monthly' ? 'transparent' : 'rgba(255,255,255,0.05)',
+                        color: '#fff',
+                        border: activeTab === 'monthly' ? '1px solid #fff' : 'none',
+                        borderBottom: 'none',
+                        borderRadius: '8px 8px 0 0',
+                        fontSize: '14px',
+                        fontWeight: '700',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease',
+                        position: 'relative',
+                        zIndex: 2
+                    }}
+                >
+                    Monthly Change
+                </button>
+            </div>
+
+            {/* Content Box */}
+            <div style={{
+                border: '1px solid #fff',
+                padding: '50px 40px',
+                borderRadius: '0 8px 8px 8px',
+                position: 'relative',
+                marginTop: '-1px',
+                zIndex: 1,
+                minHeight: '340px'
+            }}>
+                <div className="row">
+                    <AnimatePresence mode="wait">
+                        {stats[activeTab as keyof typeof stats].map((item, idx) => (
+                            <motion.div
+                                key={`${activeTab}-${idx}`}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.3, delay: idx * 0.1 }}
+                                className="col-md-4 mb-4 mb-md-0"
+                            >
+                                <h3 className="text-white font-weight-bold mb-3" style={{ fontSize: '48px', lineHeight: '1' }}>{item.amount}</h3>
+                                <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '17px', lineHeight: '1.7', margin: 0 }}>
+                                    {item.desc}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                </div>
+
+                {/* Main Action Button */}
+                <div className="mt-5 pt-3">
+                    <Link to="/donate" className="btn w-100 py-3 font-weight-bold d-flex align-items-center justify-content-center" style={{
+                        backgroundColor: '#d53369',
+                        color: '#fff',
+                        borderRadius: '4px',
+                        fontSize: '16px',
+                        border: 'none',
+                        transition: 'transform 0.2s ease, background-color 0.2s ease'
+                    }}>
+                        Explore more impact stories today
+                    </Link>
+                </div>
+            </div>
+        </div>
     );
 };

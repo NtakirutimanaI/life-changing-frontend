@@ -58,6 +58,34 @@ export const Navbar = () => {
     return (
         <>
             <style>{`
+                .lceo-highlight {
+                    font-weight: 900 !important;
+                    font-size: 26px !important;
+                    background: linear-gradient(135deg, #076c5b 0%, #17d1ac 100%) !important;
+                    -webkit-background-clip: text !important;
+                    -webkit-text-fill-color: transparent !important;
+                    background-clip: text !important;
+                    display: inline-block;
+                    letter-spacing: 1.5px !important;
+                    transition: all 0.3s ease;
+                    filter: drop-shadow(0 2px 4px rgba(7, 108, 91, 0.1));
+                }
+                
+                .navbar-scrolled .lceo-highlight {
+                    background: linear-gradient(135deg, #bef264 0%, #17d1ac 100%) !important;
+                    -webkit-background-clip: text !important;
+                    -webkit-text-fill-color: transparent !important;
+                    filter: drop-shadow(0 0 8px rgba(190, 242, 100, 0.3));
+                }
+
+                .navbar-dark-links .lceo-highlight {
+                    background: linear-gradient(135deg, #076c5b 0%, #17d1ac 100%) !important;
+                }
+
+                .dark .navbar-scrolled .lceo-highlight {
+                    background: linear-gradient(135deg, #bef264 0%, #ffffff 100%) !important;
+                }
+
                 /* Solid navbar for donation/login/dashboard pages – keep white */
                 .navbar.navbar-donation-steps {
                     background: #ffffff !important;
@@ -437,26 +465,45 @@ export const Navbar = () => {
                 @media (max-width: 991px) {
                     .navbar-collapse {
                         background: #ffffff !important;
-                        margin-top: 10px;
-                        border-radius: 20px;
-                        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
-                        padding: 15px !important;
-                        max-height: 80vh;
+                        margin-top: 15px;
+                        border-radius: 16px;
+                        box-shadow: 0 15px 40px rgba(0,0,0,0.15) !important;
+                        padding: 10px !important;
+                        max-height: 85vh;
                         overflow-y: auto;
+                        border: 1px solid rgba(0,0,0,0.05);
                     }
                     .navbar-scrolled .navbar-collapse {
                         background: #0f3d34 !important;
+                        border-color: rgba(255,255,255,0.1);
                     }
                     .nav-link {
-                        padding: 10px 15px !important;
+                        padding: 12px 20px !important;
+                        font-weight: 600 !important;
+                        border-radius: 10px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                    .dropdown-toggle::after {
+                        transition: transform 0.3s ease;
+                        margin-left: 10px;
+                    }
+                    .dropdown.show .dropdown-toggle::after {
+                        transform: rotate(180deg);
                     }
                     .dropdown-menu {
-                        background: transparent !important;
+                        background: rgba(0,0,0,0.02) !important;
                         border: none !important;
                         box-shadow: none !important;
-                        padding-left: 15px !important;
-                        margin: 0 !important;
+                        padding: 0 0 10px 15px !important;
+                        margin: 0 10px 10px 10px !important;
+                        border-left: 2px solid #17d1ac !important;
+                        border-radius: 0 !important;
                         display: none;
+                    }
+                    .navbar-scrolled .dropdown-menu {
+                        background: rgba(255,255,255,0.05) !important;
                     }
                     .dropdown-menu.show {
                         display: block !important;
@@ -465,42 +512,64 @@ export const Navbar = () => {
                         flex-direction: column !important;
                     }
                     .mega-featured-side {
-                        display: none !important; /* Hide featured side on mobile for space */
+                        display: none !important;
                     }
                     .mega-links-side {
-                        padding: 10px 0 !important;
+                        padding: 5px 0 !important;
                         background: transparent !important;
                     }
                     .mega-menu-content {
                         flex-direction: column !important;
-                        gap: 10px !important;
+                        gap: 15px !important;
                     }
                     .mega-column {
-                        padding: 10px 0 !important;
+                        padding: 0 !important;
                         border: none !important;
-                        border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+                        margin-bottom: 10px;
                     }
                     .mega-column:last-child {
-                        border-bottom: none !important;
-                    }
-                    .dark .mega-column {
-                        border-bottom-color: rgba(255,255,255,0.1) !important;
+                        margin-bottom: 0;
                     }
                     .mega-title {
-                        font-size: 15px !important;
-                        margin-bottom: 10px !important;
+                        font-size: 12px !important;
+                        font-weight: 700 !important;
+                        text-transform: uppercase !important;
+                        letter-spacing: 1px !important;
+                        margin-bottom: 8px !important;
                         color: #076c5b !important;
+                        opacity: 0.8;
+                        padding-left: 5px;
+                    }
+                    .navbar-scrolled .mega-title {
+                        color: #17d1ac !important;
                     }
                     .mega-link {
-                        padding: 8px 0 !important;
+                        padding: 10px 12px !important;
                         font-size: 14px !important;
+                        border-radius: 8px;
+                        color: #444 !important;
+                        display: block;
+                        transition: all 0.2s ease;
+                        margin-left: 0 !important;
+                        background: transparent !important;
+                    }
+                    .mega-link::before {
+                        content: none !important;
+                    }
+                    .mega-link:active, .mega-link:hover {
+                        background: rgba(23, 209, 172, 0.1) !important;
+                        color: #076c5b !important;
                     }
                     
                     /* Scrolled mobile colors */
                     .navbar-scrolled .nav-link,
-                    .navbar-scrolled .mega-link,
-                    .navbar-scrolled .mega-title {
+                    .navbar-scrolled .mega-link {
                         color: #ffffff !important;
+                    }
+                    .navbar-scrolled .mega-link:active,
+                    .navbar-scrolled .mega-link:hover {
+                        background: rgba(255, 255, 255, 0.1) !important;
+                        color: #17d1ac !important;
                     }
                 }
             `}</style>
@@ -524,7 +593,7 @@ export const Navbar = () => {
                 <div className="container">
                     <Link className="navbar-brand d-flex align-items-center" to="/">
                         <img src="/images/logo.png" alt="LCEO Logo" style={{ height: '40px', marginRight: '10px' }} />
-                        <span>LCEO</span>
+                        <span><span className="lceo-highlight">LCEO</span></span>
                     </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                         aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">

@@ -99,45 +99,51 @@ const MediaUpload = ({ label, value, type = "image" }: any) => {
 
 const HomeEditor = () => (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-        <SectionHeader title="Hero Banner" icon={Maximize} description="The main entry section of the website." />
-        <ContentBlock>
-            <InputField label="Main Heading" value="Empower a Future Today" />
-            <InputField label="Sub-Text Description" type="textarea" value="We support girls, caregivers, and youth by promoting education, health, mentorship, and skills development..." />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                <MediaUpload label="Hero Background" value="/images/bg_2.jpg" />
-                <div className="space-y-4">
-                    <InputField label="Primary Button Link" value="/about" />
-                    <InputField label="Primary Button Text" value="Learn More" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+                <SectionHeader title="Hero Banner" icon={Maximize} description="The main entry section of the website." />
+                <ContentBlock>
+                    <InputField label="Main Heading" value="Empower a Future Today" />
+                    <InputField label="Sub-Text Description" type="textarea" value="We support girls, caregivers, and youth by promoting education, health, mentorship, and skills development..." />
+                    <MediaUpload label="Hero Background" value="/images/bg_2.jpg" />
+                </ContentBlock>
+            </div>
+            <div className="space-y-8">
+                <div>
+                    <SectionHeader title="Impact Counter" icon={BarChart2} description="Real-time statistics displayed on the home page." />
+                    <ContentBlock className="grid grid-cols-2 gap-4">
+                        <InputField label="Women & Girls" value="5000" />
+                        <InputField label="Education" value="1200" />
+                        <InputField label="Livelihoods" value="450" />
+                        <InputField label="Leadership" value="300" />
+                    </ContentBlock>
+                </div>
+                <div>
+                    <SectionHeader title="Mission Intro" icon={Target} description="Welcome message section below the counter." />
+                    <ContentBlock>
+                        <InputField label="Mission Title" value="Protecting the Dignity and Rights of Women and Girls" />
+                        <InputField label="Mission Text" type="textarea" value="Life-Changing Endeavor Organization (LCEO) is a non-governmental organization based in Bugesera District, Rwanda..." />
+                    </ContentBlock>
                 </div>
             </div>
-        </ContentBlock>
+        </div>
 
-        <SectionHeader title="Impact Counter" icon={BarChart2} description="Real-time statistics displayed on the home page." />
-        <ContentBlock className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            <InputField label="Women & Girls Count" value="5000" />
-            <InputField label="Education Milestone" value="1200" />
-            <InputField label="Livelihoods Created" value="450" />
-            <InputField label="Leadership Trained" value="300" />
-        </ContentBlock>
-
-        <SectionHeader title="Mission Intro" icon={Target} description="Welcome message section below the counter." />
-        <ContentBlock>
-            <InputField label="Mission Subheading" value="Our Mission" />
-            <InputField label="Mission Title" value="Protecting the Dignity and Rights of Women and Girls" />
-            <InputField label="Mission Description Text" type="textarea" value="Life-Changing Endeavor Organization (LCEO) is a non-governmental organization based in Bugesera District, Rwanda..." />
-        </ContentBlock>
-
-        <SectionHeader title="Program Section" icon={Layers} description="The heading for the Our Programs section." />
-        <ContentBlock>
-            <InputField label="Programs Heading" value="Our Programs" />
-            <InputField label="Programs Subtitle" type="textarea" value="We implement integrated interventions that strengthen confidence, psychosocial wellbeing, education access, and economic empowerment." />
-        </ContentBlock>
-
-        <SectionHeader title="Stories of Change" icon={Heart} description="The heading for the stories carousel." />
-        <ContentBlock>
-            <InputField label="Stories Section Heading" value="Stories of Change" />
-            <InputField label="Stories Section Subtitle" type="textarea" value="Real stories from the women and girls whose lives have been transformed through LCEO's initiatives." />
-        </ContentBlock>
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+                <SectionHeader title="Program Section" icon={Layers} description="The heading for the Our Programs section." />
+                <ContentBlock>
+                    <InputField label="Programs Heading" value="Our Programs" />
+                    <InputField label="Programs Subtitle" type="textarea" value="We implement integrated interventions that strengthen confidence, psychosocial wellbeing, education access, and economic empowerment." />
+                </ContentBlock>
+            </div>
+            <div>
+                <SectionHeader title="Stories of Change" icon={Heart} description="The heading for the stories carousel." />
+                <ContentBlock>
+                    <InputField label="Stories Section Heading" value="Stories of Change" />
+                    <InputField label="Stories Section Subtitle" type="textarea" value="Real stories from the women and girls whose lives have been transformed through LCEO's initiatives." />
+                </ContentBlock>
+            </div>
+        </div>
     </div>
 );
 
@@ -365,19 +371,44 @@ const PageContentEditor = () => {
             case 'how-we-work':
                 return (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <SectionHeader title="Operational Model" icon={Briefcase} description="Methodology used in every program." />
-                        <ContentBlock>
-                            <InputField label="Main Heading" value="Our Holistic Approach" />
-                            <InputField label="Intro Text" type="textarea" value="We implement integrated interventions that strengthen confidence, psychosocial wellbeing..." />
-                        </ContentBlock>
-                        <SectionHeader title="Program Steps" icon={List} description="The sequence of support for beneficiaries." />
-                        <ContentBlock>
-                            <div className="space-y-4">
-                                {['Identification', 'Mindset Shift', 'Skill Acquisition', 'Graduation'].map((step, i) => (
-                                    <InputField key={i} label={`Step ${i + 1}`} value={step} />
-                                ))}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <SectionHeader title="Operational Model" icon={Briefcase} description="Methodology used in every program." />
+                                <ContentBlock>
+                                    <InputField label="Main Heading" value="Our Holistic Approach" />
+                                    <InputField label="Intro Text" type="textarea" value="We implement integrated interventions that strengthen confidence, psychosocial wellbeing..." />
+                                </ContentBlock>
+
+                                <SectionHeader title="Strategic Framework" icon={Target} description="The five phases of our operational model." />
+                                <ContentBlock className="space-y-4">
+                                    {['Phase 1: Identification', 'Phase 2: Mindset Shift', 'Phase 3: Skill Acquisition', 'Phase 4: Graduation', 'Phase 5: Sustainable Independence'].map((step, i) => (
+                                        <InputField key={i} label={`Phase ${i + 1}`} value={step} />
+                                    ))}
+                                </ContentBlock>
                             </div>
-                        </ContentBlock>
+
+                            <div className="space-y-8">
+                                <div>
+                                    <SectionHeader title="Core Principles" icon={Check} description="The values that guide our decisions." />
+                                    <ContentBlock className="space-y-4">
+                                        <InputField label="Principle 1" value="Dignity First" />
+                                        <InputField label="Principle 2" value="Sustainable Impact" />
+                                        <InputField label="Principle 3" value="Community Led" />
+                                        <InputField label="Principle 4" value="Equity & Inclusion" />
+                                    </ContentBlock>
+                                </div>
+
+                                <div>
+                                    <SectionHeader title="Key Results" icon={BarChart2} description="The impact measurable metrics." />
+                                    <ContentBlock className="grid grid-cols-2 gap-4">
+                                        <InputField label="Retention Rate" value="98%" />
+                                        <InputField label="Empowerment" value="5k+" />
+                                        <InputField label="Sustainability" value="85%" />
+                                        <InputField label="Growth" value="300+" />
+                                    </ContentBlock>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 );
             case 'resources': return <ResourcesEditor />;
