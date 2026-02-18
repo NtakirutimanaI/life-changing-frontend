@@ -113,6 +113,7 @@ function AppContent() {
                         overflow-x: hidden;
                         background-color: var(--background, #FFFFFF);
                         color: var(--foreground, #020617);
+                        font-family: 'Open Sans', sans-serif !important;
                     }
                     
                     #root {
@@ -146,7 +147,12 @@ function AppContent() {
                     .dark .text-slate-800, 
                     .dark .text-gray-800,
                     .dark .heading,
-                    .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 { color: #f8fafc !important; }
+                    h1, h2, h3, h4, h5, h6,
+                    .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 { 
+                        color: #f8fafc !important; 
+                        font-family: 'Poppins', sans-serif !important;
+                        font-weight: 700 !important;
+                    }
                     
                     .dark .text-slate-700, 
                     .dark .text-gray-700,

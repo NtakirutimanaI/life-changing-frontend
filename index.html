@@ -6,10 +6,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;600;700&family=Work+Sans:wght@600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Poppins:wght@600;700&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="/css/open-iconic-bootstrap.min.css">
@@ -32,12 +32,54 @@
   <link rel="stylesheet" href="/css/style.css" id="public-style">
   <link rel="stylesheet" href="/css/admin.css" id="admin-style" disabled>
   <style>
-    /* Absolute visibility override to prevent "disappearing" content */
+    /* Global Typography Enforcements */
+    body,
+    p,
+    span,
+    div,
+    li,
+    a,
+    button,
+    input,
+    textarea,
+    label {
+      font-family: 'Open Sans', sans-serif !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    .bread {
+      font-family: 'Poppins', sans-serif !important;
+      font-weight: 700 !important;
+    }
+
+    .font-weight-bold,
+    b,
+    strong {
+      font-weight: 700 !important;
+    }
+
+    .font-weight-semibold {
+      font-weight: 600 !important;
+    }
+
     body {
       opacity: 1 !important;
       visibility: visible !important;
       display: block !important;
       background-color: #ffffff;
+      color: #333;
+      font-family: 'Open Sans', sans-serif !important;
     }
 
     .ftco-animate {
