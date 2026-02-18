@@ -146,12 +146,12 @@ export const ResourcesPage = () => {
     ];
 
     const renderResourceCard = (item: any) => (
-        <div className="flex items-center bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 h-100 transition-all duration-300 hover:shadow-lg hover:border-teal-500/30 group">
-            <div className="mr-4 p-3 rounded-xl transition-colors duration-300 group-hover:bg-teal-500/10" style={{ backgroundColor: 'rgba(79, 177, 161, 0.08)' }}>
-                {item.type === 'PDF' && <FileText size={32} strokeWidth={1.5} className="text-teal-600" />}
-                {item.type === 'Video' && <Video size={32} strokeWidth={1.5} className="text-teal-600" />}
-                {item.type === 'PPT' && <FileCode size={32} strokeWidth={1.5} className="text-teal-600" />}
-                {item.type === 'Album' && <ImageIcon size={32} strokeWidth={1.5} className="text-teal-600" />}
+        <div className="flex items-center bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 h-100 transition-all duration-300 hover:border-teal-500/30 group">
+            <div className="mr-4 flex items-center justify-center" style={{ width: '56px', height: '56px', flexShrink: 0 }}>
+                {item.type === 'PDF' && <FileText size={48} strokeWidth={1} className="text-teal-600" />}
+                {item.type === 'Video' && <Video size={48} strokeWidth={1} className="text-teal-600" />}
+                {item.type === 'PPT' && <FileCode size={48} strokeWidth={1} className="text-teal-600" />}
+                {item.type === 'Album' && <ImageIcon size={48} strokeWidth={1} className="text-teal-600" />}
             </div>
             <div className="flex-grow">
                 <div className="flex items-center mb-1">
@@ -172,7 +172,7 @@ export const ResourcesPage = () => {
                     <span>{item.date}</span>
                 </div>
             </div>
-            <button className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all shadow-sm">
+            <button className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 group-hover:bg-teal-600 group-hover:text-white transition-all">
                 {item.action === 'View' ? <PlayCircle size={16} /> : <Download size={16} />}
             </button>
         </div>
@@ -186,9 +186,8 @@ export const ResourcesPage = () => {
                     position: relative;
                     border-radius: 15px;
                     overflow: hidden;
-                    margin-bottom: 30px;
+                    margin-bottom: 10px;
                     height: 350px;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
                     transition: all 0.3s ease;
                 }
                 .impact-card img {
@@ -284,7 +283,6 @@ export const ResourcesPage = () => {
                     backface-visibility: hidden;
                     border-radius: 8px;
                     overflow: hidden;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
                 }
                 .event-flip-front img {
                     width: 100%;
@@ -338,11 +336,11 @@ export const ResourcesPage = () => {
                 </div>
             </div>
 
-            <section className="py-20">
+            <section className="pt-6 pb-0">
                 <div className="container">
                     {/* Annual Reports */}
-                    <div className="row mb-16">
-                        <div className="col-md-12 mb-8">
+                    <div className="row mb-6">
+                        <div className="col-md-12 mb-4">
                             <div className="flex items-center gap-3 mb-2">
                                 <div className="h-1 w-12 bg-teal-500 rounded-full"></div>
                                 <span className="text-teal-600 font-bold tracking-widest text-xs uppercase">Accountability</span>
@@ -357,8 +355,8 @@ export const ResourcesPage = () => {
                     </div>
 
                     {/* Program Briefs */}
-                    <div className="row mb-16">
-                        <div className="col-md-12 mb-8">
+                    <div className="row mb-6">
+                        <div className="col-md-12 mb-4">
                             <div className="flex items-center gap-3 mb-2">
                                 <div className="h-1 w-12 bg-teal-500 rounded-full"></div>
                                 <span className="text-teal-600 font-bold tracking-widest text-xs uppercase">Strategy</span>
@@ -373,8 +371,8 @@ export const ResourcesPage = () => {
                     </div>
 
                     {/* Research & Publications */}
-                    <div className="row mb-16">
-                        <div className="col-md-12 mb-8">
+                    <div className="row mb-6">
+                        <div className="col-md-12 mb-4">
                             <div className="flex items-center gap-3 mb-2">
                                 <div className="h-1 w-12 bg-teal-500 rounded-full"></div>
                                 <span className="text-teal-600 font-bold tracking-widest text-xs uppercase">Knowledge</span>
@@ -390,8 +388,8 @@ export const ResourcesPage = () => {
 
                     <div className="row">
                         {/* Multimedia */}
-                        <div className="col-lg-6 mb-16">
-                            <div className="mb-8">
+                        <div className="col-lg-6 mb-6">
+                            <div className="mb-4">
                                 <div className="flex items-center gap-3 mb-2">
                                     <div className="h-1 w-12 bg-teal-500 rounded-full"></div>
                                     <span className="text-teal-600 font-bold tracking-widest text-xs uppercase">Video</span>
@@ -408,8 +406,8 @@ export const ResourcesPage = () => {
                         </div>
 
                         {/* Photo Gallery */}
-                        <div className="col-lg-6 mb-16">
-                            <div className="mb-8">
+                        <div className="col-lg-6 mb-6">
+                            <div className="mb-4">
                                 <div className="flex items-center gap-3 mb-2">
                                     <div className="h-1 w-12 bg-teal-500 rounded-full"></div>
                                     <span className="text-teal-600 font-bold tracking-widest text-xs uppercase">Gallery</span>
@@ -427,8 +425,8 @@ export const ResourcesPage = () => {
                     </div>
 
                     {/* Multimedia Gallery - Visual Grid */}
-                    <div className="row mb-16">
-                        <div className="col-md-12 mb-6">
+                    <div className="row mb-0">
+                        <div className="col-md-12 mb-3">
                             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 text-left">Impact In Action</h2>
                             <p className="text-slate-600 dark:text-slate-400 text-left">Visual highlights from our operations across the country.</p>
                         </div>
@@ -476,9 +474,9 @@ export const ResourcesPage = () => {
             </section>
 
             {/* Redesigned Upcoming Events Section */}
-            <section className="py-24 bg-white overflow-hidden">
+            <section className="pt-0 pb-6 bg-white overflow-hidden">
                 <div className="container">
-                    <div className="row justify-content-center mb-5">
+                    <div className="row justify-content-center mb-1">
                         <div className="col-md-8 text-center heading-section ftco-animate">
                             <span className="subheading" style={{ color: '#4FB1A1', fontWeight: 'bold', letterSpacing: '2px', textTransform: 'uppercase' }}>Events</span>
                             <h2 className="mb-3" style={{ fontSize: '40px', fontWeight: '900', color: '#122f2b' }}>Upcoming Events & Activities</h2>
@@ -486,9 +484,9 @@ export const ResourcesPage = () => {
                         </div>
                     </div>
 
-                    <div className="row mt-5">
+                    <div className="row mt-0">
                         {/* Slot 1: WHO WE ARE */}
-                        <div className="col-lg-4 mb-5 ftco-animate">
+                        <div className="col-lg-4 mb-2 ftco-animate">
                             <h3 className="event-title-top">Who We Are</h3>
                             <div className="yellow-underline"></div>
                             <div className="event-perspective">
@@ -515,7 +513,7 @@ export const ResourcesPage = () => {
                         </div>
 
                         {/* Slot 2: WHAT WE DO (Mid-tilted style) */}
-                        <div className="col-lg-4 mb-5 ftco-animate">
+                        <div className="col-lg-4 mb-2 ftco-animate">
                             <h3 className="event-title-top">What We Do</h3>
                             <div className="yellow-underline"></div>
                             <div className="event-perspective">
@@ -544,7 +542,7 @@ export const ResourcesPage = () => {
                         </div>
 
                         {/* Slot 3: WHY WE DO IT */}
-                        <div className="col-lg-4 mb-5 ftco-animate">
+                        <div className="col-lg-4 mb-2 ftco-animate">
                             <h3 className="event-title-top">Why We Do It</h3>
                             <div className="yellow-underline"></div>
                             <div className="event-perspective">
