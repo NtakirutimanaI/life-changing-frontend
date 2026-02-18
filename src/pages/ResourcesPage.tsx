@@ -259,6 +259,70 @@ export const ResourcesPage = () => {
                 .impact-card:hover .impact-card-desc {
                     opacity: 1;
                 }
+
+                /* 3D Flip Card Animation for Events */
+                .event-perspective {
+                    perspective: 1500px;
+                    height: 480px;
+                    margin-bottom: 30px;
+                }
+                .event-flip-inner {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+                    transform-style: preserve-3d;
+                    cursor: pointer;
+                }
+                .event-perspective:hover .event-flip-inner {
+                    transform: rotateY(180deg);
+                }
+                .event-flip-front, .event-flip-back {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    backface-visibility: hidden;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+                }
+                .event-flip-front img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                .event-flip-back {
+                    background: #122f2b;
+                    color: white;
+                    transform: rotateY(180deg);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    padding: 40px 30px;
+                    text-align: left;
+                }
+                .event-title-top {
+                    font-size: 22px;
+                    font-weight: 900;
+                    color: #122f2b;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    text-align: center;
+                    margin-bottom: 12px;
+                }
+                .yellow-underline {
+                    width: 60px;
+                    height: 4px;
+                    background: #bef264;
+                    margin: 0 auto 35px auto;
+                    border-radius: 2px;
+                }
+                .middle-card-tilt {
+                    transform: rotateY(-15deg);
+                }
+                .event-perspective:hover .middle-card-tilt {
+                    transform: rotateY(180deg);
+                }
             `}</style>
             <div className="hero-wrap" style={{ backgroundImage: "url('/images/bg_2.jpg')", height: '450px', minHeight: '450px', position: 'relative' }}>
                 <div className="overlay" style={{ background: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7))', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}></div>
@@ -411,42 +475,100 @@ export const ResourcesPage = () => {
                 </div>
             </section>
 
-            {/* Upcoming Events Section */}
-            <section className="ftco-section ftco-degree-bg">
+            {/* Redesigned Upcoming Events Section */}
+            <section className="py-24 bg-white overflow-hidden">
                 <div className="container">
                     <div className="row justify-content-center mb-5">
                         <div className="col-md-8 text-center heading-section ftco-animate">
                             <span className="subheading" style={{ color: '#4FB1A1', fontWeight: 'bold', letterSpacing: '2px', textTransform: 'uppercase' }}>Events</span>
-                            <h2 className="mb-3">Upcoming Events & Activities</h2>
-                            <p>Join us at our upcoming events and see our programs in action</p>
+                            <h2 className="mb-3" style={{ fontSize: '40px', fontWeight: '900', color: '#122f2b' }}>Upcoming Events & Activities</h2>
+                            <p className="text-muted">Join us at our upcoming events and see our programs in action</p>
                         </div>
                     </div>
-                    <div className="row">
-                        {upcomingEvents.map((event, index) => (
-                            <div key={index} className="col-md-4 ftco-animate d-flex">
-                                <div className="blog-entry align-self-stretch w-100 bg-white shadow-sm rounded overflow-hidden border">
-                                    <div className="text p-4">
-                                        <div className="meta mb-2">
-                                            <span className="badge badge-light text-primary font-weight-bold p-2" style={{ color: '#4FB1A1', backgroundColor: 'rgba(79, 177, 161, 0.1)' }}>{event.type}</span>
+
+                    <div className="row mt-5">
+                        {/* Slot 1: WHO WE ARE */}
+                        <div className="col-lg-4 mb-5 ftco-animate">
+                            <h3 className="event-title-top">Who We Are</h3>
+                            <div className="yellow-underline"></div>
+                            <div className="event-perspective">
+                                <div className="event-flip-inner">
+                                    <div className="event-flip-front">
+                                        <img src="/images/event-1.jpg" alt="Stakeholder Meeting" />
+                                    </div>
+                                    <div className="event-flip-back">
+                                        <div className="mb-auto">
+                                            <span className="badge px-3 py-1 mb-4" style={{ backgroundColor: 'rgba(190, 242, 100, 0.15)', color: '#bef264', borderRadius: '50px', fontSize: '11px', fontWeight: '800', textTransform: 'uppercase' }}>{upcomingEvents[0].type}</span>
+                                            <h4 className="text-white font-black mb-4" style={{ fontSize: '24px', lineHeight: '1.2' }}>{upcomingEvents[0].title}</h4>
+                                            <div className="space-y-4 text-white/80">
+                                                <div className="flex items-center"><Calendar size={18} className="mr-3 text-teal-400" /> <span className="font-semibold">{upcomingEvents[0].date}</span></div>
+                                                <div className="flex items-center"><Clock size={18} className="mr-3 text-teal-400" /> <span>{upcomingEvents[0].time}</span></div>
+                                                <div className="flex items-start"><MapPin size={18} className="mr-3 text-teal-400 mt-1" /> <span>{upcomingEvents[0].location}</span></div>
+                                            </div>
                                         </div>
-                                        <h3 className="heading mb-3 font-weight-bold"><a href="#">{event.title}</a></h3>
-                                        <div className="d-flex align-items-center mb-2 text-muted small">
-                                            <Calendar size={16} className="mr-2" />
-                                            <span>{event.date}</span>
-                                        </div>
-                                        <div className="d-flex align-items-center mb-2 text-muted small">
-                                            <Clock size={16} className="mr-2" />
-                                            <span>{event.time}</span>
-                                        </div>
-                                        <div className="d-flex align-items-center mb-4 text-muted small">
-                                            <MapPin size={16} className="mr-2" />
-                                            <span>{event.location}</span>
-                                        </div>
-                                        <p><a href="#" className="btn btn-primary btn-block py-2">Register Interest</a></p>
+                                        <button className="btn w-fit px-5 py-3 mt-8 font-weight-bold" style={{ backgroundColor: '#bef264', color: '#122f2b', borderRadius: '12px', border: 'none', transition: 'all 0.3s ease' }}>
+                                            Register Interest
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                        ))}
+                        </div>
+
+                        {/* Slot 2: WHAT WE DO (Mid-tilted style) */}
+                        <div className="col-lg-4 mb-5 ftco-animate">
+                            <h3 className="event-title-top">What We Do</h3>
+                            <div className="yellow-underline"></div>
+                            <div className="event-perspective">
+                                <div className="event-flip-inner middle-card-tilt">
+                                    <div className="event-flip-front">
+                                        <img src="/images/event-2.jpg" alt="Graduation Ceremony" />
+                                    </div>
+                                    <div className="event-flip-back" style={{ background: '#1a1a4a' }}> {/* Deep Blue as in reference image */}
+                                        <div className="mb-auto">
+                                            <span className="badge px-3 py-1 mb-4" style={{ backgroundColor: 'rgba(190, 242, 100, 0.15)', color: '#bef264', borderRadius: '50px', fontSize: '11px', fontWeight: '800', textTransform: 'uppercase' }}>{upcomingEvents[1].type}</span>
+                                            <h4 className="text-white font-black mb-4" style={{ fontSize: '24px', lineHeight: '1.2' }}>{upcomingEvents[1].title}</h4>
+                                            <p className="text-white/70 mb-5 leading-relaxed" style={{ fontSize: '15px' }}>
+                                                Celebrating the resilience and achievements of IkiraroBiz graduates as they launch their entrepreneurial journeys.
+                                            </p>
+                                            <div className="space-y-4 text-white/80">
+                                                <div className="flex items-center"><Calendar size={18} className="mr-3 text-teal-400" /> <span className="font-semibold">{upcomingEvents[1].date}</span></div>
+                                                <div className="flex items-center"><Clock size={18} className="mr-3 text-teal-400" /> <span>{upcomingEvents[1].time}</span></div>
+                                            </div>
+                                        </div>
+                                        <button className="btn w-fit px-5 py-3 mt-8 font-weight-bold" style={{ backgroundColor: '#2ba898', color: 'white', borderRadius: '12px', border: 'none', transition: 'all 0.3s ease' }}>
+                                            LEARN MORE
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Slot 3: WHY WE DO IT */}
+                        <div className="col-lg-4 mb-5 ftco-animate">
+                            <h3 className="event-title-top">Why We Do It</h3>
+                            <div className="yellow-underline"></div>
+                            <div className="event-perspective">
+                                <div className="event-flip-inner">
+                                    <div className="event-flip-front">
+                                        <img src="/images/event-3.jpg" alt="Empowerment Workshop" />
+                                    </div>
+                                    <div className="event-flip-back">
+                                        <div className="mb-auto">
+                                            <span className="badge px-3 py-1 mb-4" style={{ backgroundColor: 'rgba(190, 242, 100, 0.15)', color: '#bef264', borderRadius: '50px', fontSize: '11px', fontWeight: '800', textTransform: 'uppercase' }}>{upcomingEvents[2].type}</span>
+                                            <h4 className="text-white font-black mb-4" style={{ fontSize: '24px', lineHeight: '1.2' }}>{upcomingEvents[2].title}</h4>
+                                            <div className="space-y-4 text-white/80">
+                                                <div className="flex items-center"><Calendar size={18} className="mr-3 text-teal-400" /> <span className="font-semibold">{upcomingEvents[2].date}</span></div>
+                                                <div className="flex items-center"><Clock size={18} className="mr-3 text-teal-400" /> <span>{upcomingEvents[2].time}</span></div>
+                                                <div className="flex items-start"><MapPin size={18} className="mr-3 text-teal-400 mt-1" /> <span>{upcomingEvents[2].location}</span></div>
+                                            </div>
+                                        </div>
+                                        <button className="btn w-fit px-5 py-3 mt-8 font-weight-bold" style={{ backgroundColor: '#bef264', color: '#122f2b', borderRadius: '12px', border: 'none', transition: 'all 0.3s ease' }}>
+                                            Register Interest
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
