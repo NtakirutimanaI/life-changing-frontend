@@ -8,94 +8,39 @@ export const HowWeWorkPage = () => {
 
     return (
         <>
-            <div className="hero-wrap" style={{ backgroundImage: "url('/images/how_we_work.jpg')", height: '500px', minHeight: '500px' }} data-stellar-background-ratio="0.5">
+            <div className="hero-wrap" style={{ backgroundImage: "url('/images/how_we_work.jpg')", height: '350px', minHeight: '350px' }} data-stellar-background-ratio="0.5">
                 <div className="overlay"></div>
                 <div className="container">
-                    <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '500px', paddingTop: '100px' }} data-scrollax-parent="true">
+                    <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '350px', paddingTop: '60px' }} data-scrollax-parent="true">
                         <div className="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
                             <p className="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span className="mr-2"><Link
                                 to="/">Home</Link></span> <span>How We Work</span></p>
-                            <h1 className="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">How We Work</h1>
+                            <h1 className="mb-2 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">How We Work</h1>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <section className="ftco-counter ftco-intro" id="section-counter">
+            <section className="ftco-section bg-white" style={{ padding: '40px 0 20px 0' }}>
                 <div className="container">
-                    <div className="row no-gutters">
-                        <div className="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div className="block-18 color-1 align-items-stretch" style={{ padding: '15px 10px' }}>
-                                <div className="text text-center">
-                                    <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>Women & Girls</span>
-                                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', whiteSpace: 'nowrap', margin: '5px 0' }}>
-                                        <strong className="number" data-number="5000" style={{ fontSize: '32px' }}>0</strong>
-                                        <span style={{ fontSize: '24px', color: '#000', fontWeight: 600 }}>+</span>
-                                    </div>
-                                    <span style={{ fontSize: '13px', lineHeight: '1.2' }}>Reached & Empowered</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div className="block-18 color-2 align-items-stretch" style={{ padding: '15px 10px' }}>
-                                <div className="text text-center">
-                                    <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>Education</span>
-                                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', whiteSpace: 'nowrap', margin: '5px 0' }}>
-                                        <strong className="number" data-number="1200" style={{ fontSize: '32px' }}>0</strong>
-                                        <span style={{ fontSize: '24px', color: '#000', fontWeight: 600 }}>+</span>
-                                    </div>
-                                    <span style={{ fontSize: '13px', lineHeight: '1.2' }}>Girls stayed in school</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div className="block-18 color-3 align-items-stretch" style={{ padding: '15px 10px' }}>
-                                <div className="text text-center">
-                                    <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px' }}>Livelihoods</span>
-                                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', whiteSpace: 'nowrap', margin: '5px 0' }}>
-                                        <strong className="number" data-number="450" style={{ fontSize: '32px' }}>0</strong>
-                                        <span style={{ fontSize: '24px', color: '#000', fontWeight: 600 }}>+</span>
-                                    </div>
-                                    <span style={{ fontSize: '13px', lineHeight: '1.2' }}>Businesses launched</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div className="block-18 color-4 align-items-stretch" style={{ padding: '15px 10px' }}>
-                                <div className="text text-center text-white">
-                                    <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '5px', color: '#fff' }}>Leadership</span>
-                                    <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', whiteSpace: 'nowrap', margin: '5px 0' }}>
-                                        <strong className="number" data-number="300" style={{ fontSize: '32px', color: '#fff' }}>0</strong>
-                                        <span style={{ fontSize: '24px', color: '#fff', fontWeight: 600 }}>+</span>
-                                    </div>
-                                    <span style={{ fontSize: '13px', lineHeight: '1.2', color: '#fff' }}>Change Champions trained</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="ftco-section bg-white" style={{ padding: '60px 0 30px 0' }}>
-                <div className="container">
-                    <div className="row mb-4">
+                    <div className="row mb-3">
                         <div className="col-md-12">
-                            <h2 style={{ fontSize: '28px', fontWeight: '800', color: '#2c3e50', marginBottom: '30px' }}>More ways to support LCEO</h2>
+                            <h2 style={{ fontSize: '24px', fontWeight: '800', color: '#2c3e50', marginBottom: '15px' }}>More ways to support LCEO</h2>
                         </div>
                     </div>
                     <div className="row">
                         {[
-                            { title: 'Leave a gift in your will', icon: <PenTool size={32} strokeWidth={1.5} /> },
-                            { title: 'Make a regular donation', icon: <Heart size={32} strokeWidth={1.5} /> },
-                            { title: 'Fundraise for LCEO', icon: <Megaphone size={32} strokeWidth={1.5} /> },
-                            { title: 'Become a corporate supporter', icon: <Handshake size={32} strokeWidth={1.5} /> }
+                            { title: 'Leave a gift in your will', icon: <PenTool size={28} strokeWidth={1.5} /> },
+                            { title: 'Make a regular donation', icon: <Heart size={28} strokeWidth={1.5} /> },
+                            { title: 'Fundraise for LCEO', icon: <Megaphone size={28} strokeWidth={1.5} /> },
+                            { title: 'Become a corporate supporter', icon: <Handshake size={28} strokeWidth={1.5} /> }
                         ].map((item, idx) => (
                             <div className="col-md-3 mb-3" key={idx}>
-                                <div className="p-4 d-flex align-items-center h-100" style={{ backgroundColor: '#f9f9f9', borderRadius: '4px' }}>
+                                <div className="p-3 d-flex align-items-center h-100" style={{ backgroundColor: '#f9fbfb', borderRadius: '4px', border: '1px solid #f0f2f2' }}>
                                     <div className="mr-3" style={{ color: '#00594f' }}>
                                         {item.icon}
                                     </div>
-                                    <h5 className="mb-0" style={{ fontSize: '15px', fontWeight: '700' }}>
+                                    <h5 className="mb-0" style={{ fontSize: '14px', fontWeight: '700' }}>
                                         <Link to="#" style={{ color: '#111', textDecoration: 'underline', textDecorationThickness: '1.5px', textUnderlineOffset: '3px' }}>
                                             {item.title}
                                         </Link>
@@ -107,23 +52,22 @@ export const HowWeWorkPage = () => {
                 </div>
             </section>
 
-
-            <section className="ftco-section bg-light" style={{ padding: '80px 0 20px 0' }}>
+            <section className="ftco-section bg-light" style={{ padding: '40px 0 10px 0' }}>
                 <div className="container">
                     <div className="row">
                         {/* Featured Story - Left */}
-                        <div className="col-md-8 ftco-animate mb-4">
-                            <div className="featured-story-main">
+                        <div className="col-md-8 ftco-animate mb-3">
+                            <div className="featured-story-main" style={{ height: '420px', marginBottom: '0' }}>
                                 <img src="/images/cropped_upscaled_image.jpg" alt="Featured Story" />
-                                <div className="featured-overlay">
-                                    <div className="d-flex align-items-center mb-3">
+                                <div className="featured-overlay" style={{ padding: '25px', height: '140px' }}>
+                                    <div className="d-flex align-items-center mb-2">
                                         <span className="story-badge">Story</span>
                                         <span className="story-date">11 February 2026</span>
                                     </div>
-                                    <h2 className="featured-title">
+                                    <h2 className="featured-title" style={{ fontSize: '26px', marginBottom: '10px' }}>
                                         Our mission to protect and empower, explained
                                     </h2>
-                                    <p className="featured-desc">
+                                    <p className="featured-desc" style={{ fontSize: '15px', marginTop: '10px' }}>
                                         Updated for 2026: Discover the five core pillars driving our community-led transformation and how we're scaling our impact across the region.
                                     </p>
                                 </div>
@@ -131,18 +75,18 @@ export const HowWeWorkPage = () => {
                         </div>
 
                         {/* Secondary Story - Right */}
-                        <div className="col-md-4 ftco-animate mb-4">
-                            <div className="secondary-story-card">
-                                <img src="/images/cause-2.jpg" alt="Secondary Story" />
-                                <div className="secondary-overlay">
-                                    <div className="d-flex align-items-center mb-2">
+                        <div className="col-md-4 ftco-animate mb-3">
+                            <div className="secondary-story-card" style={{ height: '420px' }}>
+                                <img src="/images/cause-2.jpg" alt="Secondary Story" style={{ height: '220px' }} />
+                                <div className="secondary-overlay" style={{ padding: '20px', height: '200px' }}>
+                                    <div className="d-flex align-items-center mb-1">
                                         <span className="story-badge">Story</span>
                                         <span className="story-date">17 February 2026</span>
                                     </div>
-                                    <h3 className="secondary-title">
+                                    <h3 className="secondary-title" style={{ fontSize: '18px', marginTop: '10px' }}>
                                         Impact of integrated mentorship
                                     </h3>
-                                    <p className="secondary-desc">
+                                    <p className="secondary-desc" style={{ fontSize: '14px', marginTop: '10px' }}>
                                         Community leaders describe how our integrated approach is creating lasting change in local villages.
                                     </p>
                                 </div>
@@ -152,18 +96,13 @@ export const HowWeWorkPage = () => {
                 </div>
             </section>
 
-
-
-
-            <section className="ftco-section bg-white" style={{ padding: '100px 0' }}>
+            <section className="ftco-section bg-white" style={{ padding: '50px 0' }}>
                 <style>
                     {`
                     .featured-story-main {
                         position: relative;
-                        height: 520px;
                         overflow: hidden;
                         cursor: pointer;
-                        margin-bottom: 30px;
                     }
                     .featured-story-main img {
                         width: 100%;
@@ -180,8 +119,6 @@ export const HowWeWorkPage = () => {
                         left: 0;
                         right: 0;
                         background: #00594f;
-                        padding: 40px;
-                        height: 180px;
                         transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
                         color: white;
                         display: flex;
@@ -190,13 +127,12 @@ export const HowWeWorkPage = () => {
                         z-index: 2;
                     }
                     .featured-story-main:hover .featured-overlay {
-                        height: 100%;
+                        height: 100% !important;
                         background: rgba(0, 89, 79, 0.96);
                         justify-content: center;
                     }
                     .secondary-story-card {
                         position: relative;
-                        height: 480px;
                         overflow: hidden;
                         cursor: pointer;
                         background: #fff;
@@ -204,19 +140,16 @@ export const HowWeWorkPage = () => {
                     }
                     .secondary-story-card img {
                         width: 100%;
-                        height: 260px;
                         object-fit: cover;
                         transition: filter 0.3s ease;
                     }
                     .secondary-overlay {
-                        padding: 25px;
                         background: #fff;
-                        height: 220px;
                         transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
                     }
                     .secondary-story-card:hover .secondary-overlay {
-                        height: 100%;
-                        transform: translateY(-150px);
+                        height: 100% !important;
+                        transform: translateY(-180px);
                         background: #fff;
                     }
                     .story-badge {
@@ -235,26 +168,20 @@ export const HowWeWorkPage = () => {
                     }
                     .featured-title {
                         font-weight: 800;
-                        font-size: 32px;
-                        margin-bottom: 20px;
                         color: white;
                         text-decoration: underline;
                         text-decoration-thickness: 2px;
                         text-underline-offset: 6px;
                     }
                     .secondary-title {
-                        font-size: 22px;
                         font-weight: 800;
                         color: #00594f;
                         line-height: 1.3;
-                        margin-top: 15px;
                     }
                     .featured-desc, .secondary-desc {
                         opacity: 0;
-                        font-size: 16px;
                         line-height: 1.7;
                         transition: opacity 0.4s ease;
-                        margin-top: 20px;
                         color: rgba(255,255,255,0.9);
                     }
                     .secondary-desc {
@@ -266,11 +193,10 @@ export const HowWeWorkPage = () => {
 
                     .impact-card {
                         position: relative;
-                        height: 320px;
+                        height: 280px;
                         overflow: hidden;
                         border-radius: 0;
                         cursor: pointer;
-                        margin-bottom: 30px;
                     }
                     .impact-card img {
                         width: 100%;
@@ -287,8 +213,8 @@ export const HowWeWorkPage = () => {
                         left: 0;
                         right: 0;
                         background: #00594f;
-                        padding: 18px 25px;
-                        height: 60px;
+                        padding: 15px 20px;
+                        height: 54px;
                         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
                         display: flex;
                         flex-direction: column;
@@ -299,12 +225,12 @@ export const HowWeWorkPage = () => {
                     .impact-card:hover .impact-card-overlay {
                         height: 100%;
                         background: rgba(0, 89, 79, 0.92);
-                        padding-top: 40px;
+                        padding-top: 30px;
                     }
                     .impact-card-title {
-                        font-size: 19px;
+                        font-size: 17px;
                         font-weight: 700;
-                        margin-bottom: 20px;
+                        margin-bottom: 15px;
                         white-space: nowrap;
                         text-transform: none;
                         display: inline-block;
@@ -330,11 +256,11 @@ export const HowWeWorkPage = () => {
                     }
                     .impact-card-desc {
                         opacity: 0;
-                        font-size: 15px;
-                        line-height: 1.6;
+                        font-size: 14px;
+                        line-height: 1.5;
                         transition: opacity 0.3s ease;
                         transition-delay: 0.1s;
-                        margin-top: 10px;
+                        margin-top: 5px;
                         color: rgba(255,255,255,0.9);
                     }
                     .impact-card:hover .impact-card-desc {
@@ -343,51 +269,27 @@ export const HowWeWorkPage = () => {
                     `}
                 </style>
                 <div className="container">
-                    <div className="row justify-content-center mb-5">
+                    <div className="row justify-content-center mb-4">
                         <div className="col-md-8 text-center ftco-animate">
-                            <span className="badge badge-light px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                            <span className="badge badge-light px-3 py-2 mb-2 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>
                                 Our Impact Areas
                             </span>
-                            <h2 className="mb-4 font-weight-bold" style={{ fontSize: '42px', color: '#111' }}>
+                            <h2 className="mb-2 font-weight-bold" style={{ fontSize: '32px', color: '#111' }}>
                                 Areas of Intervention
                             </h2>
-                            <p style={{ fontSize: '18px', color: '#666' }}>LCEO operates across multiple strategic areas to create a protective and empowering environment for women and girls.</p>
+                            <p style={{ fontSize: '16px', color: '#666' }}>LCEO operates across multiple strategic areas to create a protective and empowering environment.</p>
                         </div>
                     </div>
                     <div className="row">
                         {[
-                            {
-                                title: 'Education & Retention',
-                                image: '/images/cause-1.jpg',
-                                desc: 'Ensuring every girl has the resources and support to stay in school and complete her education through community-led initiatives and scholarship support.'
-                            },
-                            {
-                                title: 'SRHR & Dignity',
-                                image: '/images/cause-2.jpg',
-                                desc: 'Providing integrated knowledge and supplies for sexual reproductive health and dignity during menstruation for girls and young women in vulnerable areas.'
-                            },
-                            {
-                                title: 'Gender & Protection',
-                                image: '/images/cause-4.jpg',
-                                desc: 'Advocating for rights and protecting girls from abuse, exploitation, and early pregnancy through legal aid and social support systems.'
-                            },
-                            {
-                                title: 'Economic Empowerment',
-                                image: '/images/image_1.jpg',
-                                desc: 'Building livelihoods and financial independence for young women and their families through targeted skills training and market accessibility.'
-                            },
-                            {
-                                title: 'Individual Resilience',
-                                image: '/images/image_2.jpg',
-                                desc: 'Focusing on mental health, confidence, and leadership training through structured mentorship programs and mindset transformation workshops.'
-                            },
-                            {
-                                title: 'Emergency Response',
-                                image: '/images/bg_3.jpg',
-                                desc: 'Providing rapid support to girls and women in crisis situations through a dedicated rapid response team and local community networks.'
-                            }
+                            { title: 'Education & Retention', image: '/images/cause-1.jpg', desc: 'Ensuring every girl has the resources and support to stay in school through community-led initiatives.' },
+                            { title: 'SRHR & Dignity', image: '/images/cause-2.jpg', desc: 'Providing integrated knowledge and supplies for sexual reproductive health and dignity during menstruation.' },
+                            { title: 'Gender & Protection', image: '/images/cause-4.jpg', desc: 'Advocating for rights and protecting girls from abuse and early pregnancy through legal aid systems.' },
+                            { title: 'Economic Empowerment', image: '/images/image_1.jpg', desc: 'Building livelihoods for young women through targeted skills training and market accessibility.' },
+                            { title: 'Individual Resilience', image: '/images/image_2.jpg', desc: 'Focusing on mental health and leadership through structured mentorship and mindset workshops.' },
+                            { title: 'Emergency Response', image: '/images/bg_3.jpg', desc: 'Providing rapid support to girls and women in crisis situations through a dedicated rapid response team.' }
                         ].map((item, idx) => (
-                            <div className="col-md-4 ftco-animate mb-4" key={idx}>
+                            <div className="col-md-4 ftco-animate mb-3" key={idx}>
                                 <div className="impact-card">
                                     <img src={item.image} alt={item.title} />
                                     <div className="impact-card-overlay">
@@ -401,23 +303,21 @@ export const HowWeWorkPage = () => {
                 </div>
             </section>
 
-
             <section className="ftco-section bg-light" style={{ padding: '40px 0' }}>
                 <div className="container">
-                    <div className="row justify-content-center mb-4">
+                    <div className="row justify-content-center mb-3">
                         <div className="col-md-8 text-center ftco-animate">
-                            <span className="badge badge-light px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                            <span className="badge badge-light px-3 py-2 mb-2 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>
                                 Our Methodology
                             </span>
-                            <h2 className="mb-2 font-weight-bold" style={{ fontSize: '32px', color: '#111' }}>
+                            <h2 className="mb-2 font-weight-bold" style={{ fontSize: '28px', color: '#111' }}>
                                 The LCEO Process
                             </h2>
                         </div>
                     </div>
 
                     <div className="row align-items-stretch">
-                        {/* Left: Featured Compact Card */}
-                        <div className="col-lg-5 mb-4 ftco-animate">
+                        <div className="col-lg-5 mb-3 ftco-animate">
                             <div className="h-100 p-4 d-flex flex-column justify-content-between" style={{
                                 background: 'linear-gradient(145deg, #076c5b 0%, #054d41 100%)',
                                 borderRadius: '24px',
@@ -425,54 +325,36 @@ export const HowWeWorkPage = () => {
                                 overflow: 'hidden'
                             }}>
                                 <div style={{ position: 'absolute', top: '15px', left: '15px', opacity: 0.1, color: 'white' }}>
-                                    <LayoutDashboard size={80} strokeWidth={1} />
+                                    <LayoutDashboard size={60} strokeWidth={1} />
                                 </div>
-
-                                <div className="mt-4" style={{ position: 'relative', zIndex: 1 }}>
-                                    <div className="d-flex align-items-center mb-3" style={{ gap: '4px' }}>
-                                        {[1, 2, 3, 4, 5].map(i => <Star key={i} size={14} fill="#FFC107" color="#FFC107" />)}
-                                        <span className="text-white ml-2 font-weight-bold" style={{ fontSize: '13px' }}>Methodology</span>
-                                    </div>
-                                    <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '24px', lineHeight: '1.3' }}>
+                                <div className="mt-2" style={{ position: 'relative', zIndex: 1 }}>
+                                    <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '22px', lineHeight: '1.3' }}>
                                         A systemic approach to sustainable community transformation.
                                     </h3>
                                 </div>
-                                <div className="mt-4 pt-3 border-top" style={{ borderColor: 'rgba(255,255,255,0.1) !important' }}>
-                                    <p className="text-white-50 mb-0" style={{ fontSize: '14px' }}>
-                                        Our process ensures every intervention is evidence-based, community-led, and driven by data.
+                                <div className="mt-3 pt-3 border-top" style={{ borderColor: 'rgba(255,255,255,0.1) !important' }}>
+                                    <p className="text-white-50 mb-0" style={{ fontSize: '13px' }}>
+                                        Our process ensures every intervention is evidence-based and community-led.
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Right: Compact 2x2 Grid */}
                         <div className="col-lg-7 ftco-animate">
                             <div className="row">
                                 {[
-                                    {
-                                        step: '1. Needs Assessment',
-                                        desc: 'We begin by deeply understanding the context, challenges, and aspirations of our beneficiaries through community consultations and baseline surveys.'
-                                    },
-                                    {
-                                        step: '2. Participatory Design',
-                                        desc: 'Programs are co-created with beneficiaries and communities to ensure relevance, ownership, and cultural appropriateness.'
-                                    },
-                                    {
-                                        step: '3. Integrated Delivery',
-                                        desc: 'Multiple interventions work together — education support, mental health services, and economic empowerment — addressing interconnected challenges.'
-                                    },
-                                    {
-                                        step: '4. Continuous Monitoring',
-                                        desc: 'Regular tracking, feedback loops, and adaptive management ensure programs stay effective and responsive to changing needs.'
-                                    }
+                                    { step: '1. Needs Assessment', desc: 'Understanding the context and challenges through community consultations.' },
+                                    { step: '2. Participatory Design', desc: 'Programs are co-created with communities to ensure relevance and ownership.' },
+                                    { step: '3. Integrated Delivery', desc: 'Education support, mental health, and empowerment addressing interconnected challenges.' },
+                                    { step: '4. Continuous Monitoring', desc: 'Regular tracking and feedback ensure programs stay effective.' }
                                 ].map((step, idx) => (
                                     <div className="col-md-6 mb-3" key={idx}>
-                                        <div className="p-4 bg-white d-flex flex-column h-100" style={{
+                                        <div className="p-3 bg-white d-flex flex-column h-100" style={{
                                             borderRadius: '20px',
                                             boxShadow: '0 5px 15px rgba(0,0,0,0.03)'
                                         }}>
-                                            <h4 className="font-weight-bold mb-2" style={{ fontSize: '16px', color: '#076c5b' }}>{step.step}</h4>
-                                            <p className="text-muted mb-0" style={{ fontSize: '13.5px', lineHeight: '1.6' }}>
+                                            <h4 className="font-weight-bold mb-1" style={{ fontSize: '15px', color: '#076c5b' }}>{step.step}</h4>
+                                            <p className="text-muted mb-0" style={{ fontSize: '12.5px', lineHeight: '1.5' }}>
                                                 {step.desc}
                                             </p>
                                         </div>
@@ -484,18 +366,12 @@ export const HowWeWorkPage = () => {
                 </div>
             </section>
 
-
-
-
-
-
-
-            <section className="ftco-section">
+            <section className="ftco-section" style={{ padding: '40px 0' }}>
                 <div className="container">
-                    <div className="row justify-content-center mb-5 pb-3">
+                    <div className="row justify-content-center mb-3">
                         <div className="col-md-7 heading-section ftco-animate text-center">
-                            <h2 className="mb-4">Aligned SDG Goals</h2>
-                            <p>LCEO's work directly contributes to the United Nations Sustainable Development Goals.</p>
+                            <h2 className="mb-2" style={{ fontSize: '28px' }}>Aligned SDG Goals</h2>
+                            <p style={{ fontSize: '15px' }}>LCEO contributes to the UN Sustainable Development Goals.</p>
                         </div>
                     </div>
                     <div className="row text-center">
@@ -505,12 +381,12 @@ export const HowWeWorkPage = () => {
                             { title: 'SDG 5: Gender Equality' },
                             { title: 'SDG 8: Decent Work' }
                         ].map((sdg, idx) => (
-                            <div className="col-md-3 ftco-animate" key={idx}>
-                                <div className="sdg-item p-4" style={{ backgroundColor: '#f8f9fa', borderRadius: '16px' }}>
-                                    <div className="mb-3" style={{ color: '#076c5b' }}>
-                                        <CheckCircle size={40} strokeWidth={1.5} />
+                            <div className="col-md-3 ftco-animate mb-3" key={idx}>
+                                <div className="sdg-item p-3" style={{ backgroundColor: '#f8f9fa', borderRadius: '16px' }}>
+                                    <div className="mb-2" style={{ color: '#076c5b' }}>
+                                        <CheckCircle size={32} strokeWidth={1.5} />
                                     </div>
-                                    <h5 className="font-weight-bold" style={{ fontSize: '16px' }}>{sdg.title}</h5>
+                                    <h5 className="font-weight-bold" style={{ fontSize: '14px' }}>{sdg.title}</h5>
                                 </div>
                             </div>
                         ))}
@@ -518,18 +394,7 @@ export const HowWeWorkPage = () => {
                 </div>
             </section>
 
-            <section className="ftco-section-3 img" style={{ backgroundImage: "url(/images/bg_3.jpg)" }}>
-                <div className="overlay"></div>
-                <div className="container">
-                    <div className="row justify-content-center mb-5">
-                        <div className="col-md-7 heading-section ftco-animate text-center">
-                            <h2 className="mb-4 text-white">Join Our Mission</h2>
-                            <p className="text-white opacity-75">Your support enables us to continue our vital work in the community.</p>
-                            <p className="mt-4"><Link to="/donate" className="btn btn-primary px-5 py-3 font-weight-bold shadow">Donate Now</Link></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
 
         </>

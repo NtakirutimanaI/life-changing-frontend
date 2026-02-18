@@ -17,14 +17,14 @@ export const AboutPage = () => {
                 }
                 .border-bottom { border-bottom: none !important; }
             `}</style>
-            <div className="hero-wrap" style={{ backgroundImage: "url('/images/about.jpg')", height: '500px', minHeight: '500px' }} data-stellar-background-ratio="0.5">
+            <div className="hero-wrap" style={{ backgroundImage: "url('/images/about.jpg')", height: '350px', minHeight: '350px' }} data-stellar-background-ratio="0.5">
                 <div className="overlay"></div>
                 <div className="container">
-                    <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '500px', paddingTop: '100px' }} data-scrollax-parent="true">
+                    <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '350px', paddingTop: '60px' }} data-scrollax-parent="true">
                         <div className="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
                             <p className="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span className="mr-2"><Link
                                 to="/">Home</Link></span> <span>About</span></p>
-                            <h1 className="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{t('about.title')}</h1>
+                            <h1 className="mb-2 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{t('about.title')}</h1>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@ export const AboutPage = () => {
 
 
             <section className="ftco-section" style={{
-                padding: '100px 0 40px 0',
+                padding: '40px 0 30px 0',
                 backgroundColor: '#fff',
                 backgroundImage: 'radial-gradient(#e5e7eb 1.5px, transparent 1.5px)',
                 backgroundSize: '24px 24px'
@@ -464,18 +464,7 @@ export const AboutPage = () => {
                 </div>
             </section>
 
-            <section className="ftco-section-3 img" style={{ backgroundImage: "url(/images/bg_3.jpg)" }}>
-                <div className="overlay"></div>
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-md-7 heading-section ftco-animate text-center">
-                            <h2 className="mb-4 text-white">Join Our Mission</h2>
-                            <p className="text-white opacity-75">Your support enables us to continue our vital work in the community.</p>
-                            <p className="mt-4"><Link to="/donate" className="btn btn-primary px-5 py-3 font-weight-bold">Donate Now</Link></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
         </>
     );

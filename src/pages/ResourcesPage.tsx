@@ -180,6 +180,86 @@ export const ResourcesPage = () => {
 
     return (
         <div className="bg-slate-50 dark:bg-slate-950">
+            <style>{`
+                /* Styles from HowWeWorkPage for Impact Section */
+                .impact-card {
+                    position: relative;
+                    border-radius: 15px;
+                    overflow: hidden;
+                    margin-bottom: 30px;
+                    height: 350px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+                    transition: all 0.3s ease;
+                }
+                .impact-card img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
+                .impact-card:hover img {
+                    transform: scale(1.1);
+                }
+                .impact-card-overlay {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 100%;
+                    background: rgba(0, 89, 79, 0.92);
+                    padding-top: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    opacity: 0;
+                    transition: all 0.3s ease;
+                }
+                .impact-card:hover .impact-card-overlay {
+                    opacity: 1;
+                }
+                .impact-card-title {
+                    font-size: 19px;
+                    font-weight: 700;
+                    margin-bottom: 20px;
+                    white-space: nowrap;
+                    text-transform: none;
+                    display: inline-block;
+                    width: fit-content;
+                    position: relative;
+                    color: #fff;
+                }
+                .impact-card:hover .impact-card-title {
+                    white-space: normal;
+                }
+                .impact-card-title::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -4px;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background-color: #fff;
+                    transition: width 0.3s ease;
+                }
+                .impact-card:hover .impact-card-title::after {
+                    width: 100%;
+                }
+                .impact-card-desc {
+                    opacity: 0;
+                    font-size: 15px;
+                    line-height: 1.6;
+                    transition: opacity 0.3s ease;
+                    transition-delay: 0.1s;
+                    margin-top: 10px;
+                    color: rgba(255,255,255,0.9);
+                    padding: 0 20px;
+                }
+                .impact-card:hover .impact-card-desc {
+                    opacity: 1;
+                }
+            `}</style>
             <div className="hero-wrap" style={{ backgroundImage: "url('/images/bg_2.jpg')", height: '450px', minHeight: '450px', position: 'relative' }}>
                 <div className="overlay" style={{ background: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7))', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}></div>
                 <div className="container h-full relative z-10">
@@ -291,20 +371,12 @@ export const ResourcesPage = () => {
 
                         {/* Card 1 */}
                         <div className="col-md-4 mb-4 ftco-animate">
-                            <a href="#" className="block group h-full focus:outline-none decoration-none">
-                                <div className="flex flex-col h-full bg-[#076c5b] hover:bg-[#065c4d] transition-colors duration-300 shadow-none rounded-none">
-                                    <div className="relative h-64 overflow-hidden">
-                                        <img src="/images/image_4.jpg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="School Materials" />
-                                    </div>
-                                    <div className="p-6 flex-grow flex flex-col justify-center">
-                                        <h3 className="text-white text-xl font-bold group-hover:underline decoration-2 underline-offset-4 mb-0 group-hover:mb-2 transition-all duration-300 text-left">
-                                            School Materials Distribution
-                                        </h3>
-                                        <div className="max-h-0 overflow-hidden group-hover:max-h-40 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
-                                            <p className="text-white/90 text-sm leading-relaxed mb-0 text-left">
-                                                Distribution of essential learning supplies to partner schools in rural districts to support student retention.
-                                            </p>
-                                        </div>
+                            <a href="#" className="block h-full text-decoration-none">
+                                <div className="impact-card">
+                                    <img src="/images/image_4.jpg" alt="School Materials" />
+                                    <div className="impact-card-overlay">
+                                        <h3 className="impact-card-title">School Materials Distribution</h3>
+                                        <p className="impact-card-desc">Distribution of essential learning supplies to partner schools in rural districts to support student retention.</p>
                                     </div>
                                 </div>
                             </a>
@@ -312,20 +384,12 @@ export const ResourcesPage = () => {
 
                         {/* Card 2 */}
                         <div className="col-md-4 mb-4 ftco-animate">
-                            <a href="#" className="block group h-full focus:outline-none decoration-none">
-                                <div className="flex flex-col h-full bg-[#076c5b] hover:bg-[#065c4d] transition-colors duration-300 shadow-none rounded-none">
-                                    <div className="relative h-64 overflow-hidden">
-                                        <img src="/images/image_5.jpg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Vocational Training" />
-                                    </div>
-                                    <div className="p-6 flex-grow flex flex-col justify-center">
-                                        <h3 className="text-white text-xl font-bold group-hover:underline decoration-2 underline-offset-4 mb-0 group-hover:mb-2 transition-all duration-300 text-left">
-                                            Vocational Training Session
-                                        </h3>
-                                        <div className="max-h-0 overflow-hidden group-hover:max-h-40 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
-                                            <p className="text-white/90 text-sm leading-relaxed mb-0 text-left">
-                                                Practical skills workshops and mentorship programs empowering youth with sustainable livelihood opportunities.
-                                            </p>
-                                        </div>
+                            <a href="#" className="block h-full text-decoration-none">
+                                <div className="impact-card">
+                                    <img src="/images/image_5.jpg" alt="Vocational Training" />
+                                    <div className="impact-card-overlay">
+                                        <h3 className="impact-card-title">Vocational Training Session</h3>
+                                        <p className="impact-card-desc">Practical skills workshops and mentorship programs empowering youth with sustainable livelihood opportunities.</p>
                                     </div>
                                 </div>
                             </a>
@@ -333,20 +397,12 @@ export const ResourcesPage = () => {
 
                         {/* Card 3 */}
                         <div className="col-md-4 mb-4 ftco-animate">
-                            <a href="https://vimeo.com/45830194" className="block group h-full focus:outline-none decoration-none">
-                                <div className="flex flex-col h-full bg-[#076c5b] hover:bg-[#065c4d] transition-colors duration-300 shadow-none rounded-none">
-                                    <div className="relative h-64 overflow-hidden">
-                                        <img src="/images/image_6.jpg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Keza's Journey" />
-                                    </div>
-                                    <div className="p-6 flex-grow flex flex-col justify-center">
-                                        <h3 className="text-white text-xl font-bold group-hover:underline decoration-2 underline-offset-4 mb-0 group-hover:mb-2 transition-all duration-300 text-left">
-                                            Keza's Journey (Video)
-                                        </h3>
-                                        <div className="max-h-0 overflow-hidden group-hover:max-h-40 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
-                                            <p className="text-white/90 text-sm leading-relaxed mb-0 text-left">
-                                                Watch the inspiring story of how community support and resilience transformed one family's future features.
-                                            </p>
-                                        </div>
+                            <a href="https://vimeo.com/45830194" className="block h-full text-decoration-none">
+                                <div className="impact-card">
+                                    <img src="/images/image_6.jpg" alt="Keza's Journey" />
+                                    <div className="impact-card-overlay">
+                                        <h3 className="impact-card-title">Keza's Journey (Video)</h3>
+                                        <p className="impact-card-desc">Watch the inspiring story of how community support and resilience transformed one family's future features.</p>
                                     </div>
                                 </div>
                             </a>

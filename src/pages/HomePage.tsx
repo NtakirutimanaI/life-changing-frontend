@@ -4,7 +4,7 @@ import { useLanguage } from '../lib/language-context';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
 import { mockPrograms, mockStories } from '../lib/mock-data';
 import { ProgramCategory } from '../lib/types';
-import { Users, GraduationCap, Briefcase, Award, Wallet, Heart, TrendingUp } from 'lucide-react';
+import { Users, GraduationCap, Briefcase, Award, Wallet, Heart, TrendingUp, Globe, Handshake } from 'lucide-react';
 
 export const HomePage = () => {
     useLegacyScripts();
@@ -92,78 +92,82 @@ export const HomePage = () => {
                 </div>
             </div>
 
-            <section className="ftco-counter" id="section-counter" style={{ backgroundColor: '#00594f', padding: '40px 0' }}>
+            <section className="ftco-counter" id="section-counter" style={{ backgroundColor: '#00594f', padding: '25px 0' }}>
                 <div className="container">
-                    <div className="row mb-3">
-                        <div className="col-md-12 ftco-animate">
-                            <h2 className="text-white font-weight-bold" style={{ fontSize: '24px' }}>Our impact in 2024</h2>
+                    <div className="row align-items-center no-gutters">
+                        <div className="col-lg-2 col-md-12 mb-3 mb-lg-0 ftco-animate">
+                            <h2 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px', borderLeft: '3px solid #4FB1A1', paddingLeft: '15px', lineHeight: '1.2' }}>
+                                Our impact <br className="d-none d-lg-block" /> in 2024
+                            </h2>
                         </div>
-                    </div>
-                    <div className="row no-gutters">
-                        <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate">
-                            <div className="d-flex align-items-center">
-                                <div className="mr-3" style={{ color: 'white', opacity: 0.9 }}>
-                                    <Users size={45} strokeWidth={1.5} />
-                                </div>
-                                <div className="text-white">
-                                    <div className="d-flex align-items-baseline">
-                                        <strong className="number" data-number={counters.women} style={{ fontSize: '36px', fontWeight: '800' }}>0</strong>
-                                        <span style={{ fontSize: '20px', marginLeft: '2px', fontWeight: '700' }}>+</span>
+                        <div className="col-lg-10 col-md-12">
+                            <div className="row no-gutters">
+                                <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate">
+                                    <div className="d-flex align-items-center">
+                                        <div className="mr-2" style={{ color: 'white', opacity: 0.9 }}>
+                                            <Users size={32} strokeWidth={1.5} />
+                                        </div>
+                                        <div className="text-white">
+                                            <div className="d-flex align-items-baseline">
+                                                <strong className="number" data-number={counters.women} style={{ fontSize: '28px', fontWeight: '800' }}>0</strong>
+                                                <span style={{ fontSize: '16px', marginLeft: '1px', fontWeight: '700' }}>+</span>
+                                            </div>
+                                            <span style={{ fontSize: '11px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
+                                                Women & girls reached <br /> & empowered
+                                            </span>
+                                        </div>
                                     </div>
-                                    <span style={{ fontSize: '13px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
-                                        Women & girls reached <br /> & empowered
-                                    </span>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate">
-                            <div className="d-flex align-items-center">
-                                <div className="mr-3" style={{ color: 'white', opacity: 0.9 }}>
-                                    <GraduationCap size={45} strokeWidth={1.5} />
-                                </div>
-                                <div className="text-white">
-                                    <div className="d-flex align-items-baseline">
-                                        <strong className="number" data-number={counters.education} style={{ fontSize: '36px', fontWeight: '800' }}>0</strong>
-                                        <span style={{ fontSize: '20px', marginLeft: '2px', fontWeight: '700' }}>+</span>
+                                <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate">
+                                    <div className="d-flex align-items-center">
+                                        <div className="mr-2" style={{ color: 'white', opacity: 0.9 }}>
+                                            <GraduationCap size={32} strokeWidth={1.5} />
+                                        </div>
+                                        <div className="text-white">
+                                            <div className="d-flex align-items-baseline">
+                                                <strong className="number" data-number={counters.education} style={{ fontSize: '28px', fontWeight: '800' }}>0</strong>
+                                                <span style={{ fontSize: '16px', marginLeft: '1px', fontWeight: '700' }}>+</span>
+                                            </div>
+                                            <span style={{ fontSize: '11px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
+                                                Girls stayed in school <br /> through our support
+                                            </span>
+                                        </div>
                                     </div>
-                                    <span style={{ fontSize: '13px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
-                                        Girls stayed in school <br /> through our support
-                                    </span>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate">
-                            <div className="d-flex align-items-center">
-                                <div className="mr-3" style={{ color: 'white', opacity: 0.9 }}>
-                                    <Briefcase size={45} strokeWidth={1.5} />
-                                </div>
-                                <div className="text-white">
-                                    <div className="d-flex align-items-baseline">
-                                        <strong className="number" data-number={counters.livelihoods} style={{ fontSize: '36px', fontWeight: '800' }}>0</strong>
-                                        <span style={{ fontSize: '20px', marginLeft: '2px', fontWeight: '700' }}>+</span>
+                                <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate">
+                                    <div className="d-flex align-items-center">
+                                        <div className="mr-2" style={{ color: 'white', opacity: 0.9 }}>
+                                            <Briefcase size={32} strokeWidth={1.5} />
+                                        </div>
+                                        <div className="text-white">
+                                            <div className="d-flex align-items-baseline">
+                                                <strong className="number" data-number={counters.livelihoods} style={{ fontSize: '28px', fontWeight: '800' }}>0</strong>
+                                                <span style={{ fontSize: '16px', marginLeft: '1px', fontWeight: '700' }}>+</span>
+                                            </div>
+                                            <span style={{ fontSize: '11px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
+                                                Businesses launched <br /> and thriving
+                                            </span>
+                                        </div>
                                     </div>
-                                    <span style={{ fontSize: '13px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
-                                        Businesses launched <br /> and thriving
-                                    </span>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate">
-                            <div className="d-flex align-items-center">
-                                <div className="mr-3" style={{ color: 'white', opacity: 0.9 }}>
-                                    <Award size={45} strokeWidth={1.5} />
-                                </div>
-                                <div className="text-white">
-                                    <div className="d-flex align-items-baseline">
-                                        <strong className="number" data-number={counters.leadership} style={{ fontSize: '36px', fontWeight: '800' }}>0</strong>
-                                        <span style={{ fontSize: '20px', marginLeft: '2px', fontWeight: '700' }}>+</span>
+                                <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate">
+                                    <div className="d-flex align-items-center">
+                                        <div className="mr-2" style={{ color: 'white', opacity: 0.9 }}>
+                                            <Award size={32} strokeWidth={1.5} />
+                                        </div>
+                                        <div className="text-white">
+                                            <div className="d-flex align-items-baseline">
+                                                <strong className="number" data-number={counters.leadership} style={{ fontSize: '28px', fontWeight: '800' }}>0</strong>
+                                                <span style={{ fontSize: '16px', marginLeft: '1px', fontWeight: '700' }}>+</span>
+                                            </div>
+                                            <span style={{ fontSize: '11px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
+                                                Change Champions <br /> trained as leaders
+                                            </span>
+                                        </div>
                                     </div>
-                                    <span style={{ fontSize: '13px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
-                                        Change Champions <br /> trained as leaders
-                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -335,14 +339,66 @@ export const HomePage = () => {
                 </div>
             </section>
 
-            <section className="ftco-section bg-white" id="impact-areas" style={{ padding: '60px 0' }}>
+            <section className="ftco-section bg-white" id="impact-areas" style={{ padding: '40px 0' }}>
+                <style>
+                    {`
+                    .impact-area-card {
+                        height: 360px;
+                        border-radius: 12px;
+                        overflow: hidden;
+                        position: relative;
+                        cursor: pointer;
+                        transition: all 0.4s ease;
+                    }
+                    .impact-area-card .impact-bg {
+                        width: 100%;
+                        height: 100%;
+                        background-size: cover;
+                        background-position: center;
+                        transition: transform 0.6s ease;
+                    }
+                    .impact-area-card:hover .impact-bg {
+                        transform: scale(1.1);
+                    }
+                    .impact-area-overlay {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        background-color: rgba(0, 89, 79, 0.95);
+                        padding: 15px 20px;
+                        color: #fff;
+                        transition: all 0.4s ease;
+                        min-height: 55px;
+                    }
+                    .impact-area-card:hover .impact-area-overlay {
+                        min-height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                    .impact-area-desc {
+                        opacity: 0;
+                        font-size: 14px;
+                        line-height: 1.6;
+                        margin-top: 15px;
+                        transition: opacity 0.3s ease;
+                        transition-delay: 0.1s;
+                        display: none;
+                    }
+                    .impact-area-card:hover .impact-area-desc {
+                        opacity: 1;
+                        display: block;
+                    }
+                    `}
+                </style>
                 <div className="container">
-                    <div className="row justify-content-center mb-5">
+                    <div className="row justify-content-center mb-3">
                         <div className="col-md-8 text-center ftco-animate">
                             <span className="badge badge-light px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', letterSpacing: '1.2px', textTransform: 'uppercase' }}>
                                 Our Impact Areas
                             </span>
-                            <h2 className="mb-4 font-weight-bold" style={{ fontSize: '36px', color: '#111' }}>
+                            <h2 className="mb-2 font-weight-bold" style={{ fontSize: '36px', color: '#111' }}>
                                 Areas of Intervention
                             </h2>
                         </div>
@@ -350,28 +406,14 @@ export const HomePage = () => {
 
                     <div className="row">
                         {/* 1. Emergency Response (Featured) */}
-                        <div className="col-md-4 mb-4 ftco-animate">
-                            <div className="position-relative overflow-hidden" style={{ height: '380px', borderRadius: '4px' }}>
-                                <div style={{
-                                    backgroundImage: "url('/images/bg_3.jpg')",
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                    height: '100%',
-                                    width: '100%'
-                                }}></div>
-                                <div className="position-absolute" style={{
-                                    bottom: '0',
-                                    left: '0',
-                                    width: '90%',
-                                    backgroundColor: '#00594f',
-                                    padding: '25px',
-                                    color: '#fff',
-                                    minHeight: '220px'
-                                }}>
-                                    <h3 className="text-white font-weight-bold mb-3" style={{ fontSize: '20px', textDecoration: 'underline', textUnderlineOffset: '6px' }}>
+                        <div className="col-md-4 mb-3 ftco-animate">
+                            <div className="impact-area-card">
+                                <div className="impact-bg" style={{ backgroundImage: "url('/images/bg_3.jpg')" }}></div>
+                                <div className="impact-area-overlay">
+                                    <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
                                         Emergency Response
                                     </h3>
-                                    <p className="mb-0" style={{ fontSize: '14px', lineHeight: '1.6', color: 'rgba(255,255,255,0.8)' }}>
+                                    <p className="impact-area-desc">
                                         Providing rapid support to girls and women in crisis situations through a dedicated rapid response team. In an emergency situation, we act quickly to save lives and reduce suffering.
                                     </p>
                                 </div>
@@ -379,126 +421,76 @@ export const HomePage = () => {
                         </div>
 
                         {/* 2. Economic Empowerment */}
-                        <div className="col-md-4 mb-4 ftco-animate">
-                            <div className="position-relative overflow-hidden" style={{ height: '380px', borderRadius: '4px' }}>
-                                <div style={{
-                                    backgroundImage: "url('/images/cause-2.jpg')",
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                    height: '100%',
-                                    width: '100%'
-                                }}></div>
-                                <div className="position-absolute" style={{
-                                    bottom: '0',
-                                    left: '0',
-                                    width: '100%',
-                                    backgroundColor: '#00594f',
-                                    padding: '15px 20px',
-                                    color: '#fff'
-                                }}>
+                        <div className="col-md-4 mb-3 ftco-animate">
+                            <div className="impact-area-card">
+                                <div className="impact-bg" style={{ backgroundImage: "url('/images/cause-2.jpg')" }}></div>
+                                <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
                                         Economic Empowerment
                                     </h3>
+                                    <p className="impact-area-desc">
+                                        Empowering women with skills and resources to achieve financial independence and support their families through sustainable livelihoods.
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
                         {/* 3. SRHR & Menstrual Health */}
-                        <div className="col-md-4 mb-4 ftco-animate">
-                            <div className="position-relative overflow-hidden" style={{ height: '380px', borderRadius: '4px' }}>
-                                <div style={{
-                                    backgroundImage: "url('/images/cause-4.jpg')",
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                    height: '100%',
-                                    width: '100%'
-                                }}></div>
-                                <div className="position-absolute" style={{
-                                    bottom: '0',
-                                    left: '0',
-                                    width: '100%',
-                                    backgroundColor: '#00594f',
-                                    padding: '15px 20px',
-                                    color: '#fff'
-                                }}>
+                        <div className="col-md-4 mb-3 ftco-animate">
+                            <div className="impact-area-card">
+                                <div className="impact-bg" style={{ backgroundImage: "url('/images/cause-4.jpg')" }}></div>
+                                <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
                                         SRHR & Menstrual Health
                                     </h3>
+                                    <p className="impact-area-desc">
+                                        Ensuring girls have access to sexual reproductive health education and quality menstrual products to stay healthy and dignified.
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
                         {/* 4. Education & School Retention */}
-                        <div className="col-md-4 mb-4 ftco-animate">
-                            <div className="position-relative overflow-hidden" style={{ height: '380px', borderRadius: '4px' }}>
-                                <div style={{
-                                    backgroundImage: "url('/images/cause-1.jpg')",
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                    height: '100%',
-                                    width: '100%'
-                                }}></div>
-                                <div className="position-absolute" style={{
-                                    bottom: '0',
-                                    left: '0',
-                                    width: '100%',
-                                    backgroundColor: '#00594f',
-                                    padding: '15px 20px',
-                                    color: '#fff'
-                                }}>
+                        <div className="col-md-4 mb-3 ftco-animate">
+                            <div className="impact-area-card">
+                                <div className="impact-bg" style={{ backgroundImage: "url('/images/cause-1.jpg')" }}></div>
+                                <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
                                         Education & School Retention
                                     </h3>
+                                    <p className="impact-area-desc">
+                                        Working to keep girls in school by providing scholarships, mentorship, and addressing the root causes of school dropouts.
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
                         {/* 5. Gender & Protection */}
-                        <div className="col-md-4 mb-4 ftco-animate">
-                            <div className="position-relative overflow-hidden" style={{ height: '380px', borderRadius: '4px' }}>
-                                <div style={{
-                                    backgroundImage: "url('/images/bg_2.jpg')",
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                    height: '100%',
-                                    width: '100%'
-                                }}></div>
-                                <div className="position-absolute" style={{
-                                    bottom: '0',
-                                    left: '0',
-                                    width: '100%',
-                                    backgroundColor: '#00594f',
-                                    padding: '15px 20px',
-                                    color: '#fff'
-                                }}>
+                        <div className="col-md-4 mb-3 ftco-animate">
+                            <div className="impact-area-card">
+                                <div className="impact-bg" style={{ backgroundImage: "url('/images/bg_2.jpg')" }}></div>
+                                <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
                                         Gender & Protection
                                     </h3>
+                                    <p className="impact-area-desc">
+                                        Protecting girls from gender-based violence and early marriages while promoting gender equality in all spheres of life.
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
                         {/* 6. Human Capital & Resilience */}
-                        <div className="col-md-4 mb-4 ftco-animate">
-                            <div className="position-relative overflow-hidden" style={{ height: '380px', borderRadius: '4px' }}>
-                                <div style={{
-                                    backgroundImage: "url('/images/cause-3.jpg')",
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                    height: '100%',
-                                    width: '100%'
-                                }}></div>
-                                <div className="position-absolute" style={{
-                                    bottom: '0',
-                                    left: '0',
-                                    width: '100%',
-                                    backgroundColor: '#00594f',
-                                    padding: '15px 20px',
-                                    color: '#fff'
-                                }}>
+                        <div className="col-md-4 mb-3 ftco-animate">
+                            <div className="impact-area-card">
+                                <div className="impact-bg" style={{ backgroundImage: "url('/images/cause-3.jpg')" }}></div>
+                                <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
                                         Human Capital & Resilience
                                     </h3>
+                                    <p className="impact-area-desc">
+                                        Building the confidence and leadership skills of youth to create a more resilient and self-reliant community in Bugesera.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -907,120 +899,162 @@ export const HomePage = () => {
 
 
 
-            <section className="ftco-section bg-white" style={{ padding: '40px 0 80px', borderTop: '1px solid #f0f0f0' }}>
+            <section className="ftco-section bg-white" style={{ padding: '60px 0 80px', borderTop: '1px solid #f0f0f0' }}>
                 <div className="container">
-                    <div className="row justify-content-center mb-3">
-                        <div className="col-md-10 text-center">
-                            <h2 className="mb-0 font-weight-normal" style={{ fontSize: '24px', color: '#444' }}>
-                                Trusted global partners working together with <span className="font-weight-bold" style={{ color: '#076c5b' }}>LCEO</span> every day.
+                    <div className="row mb-5">
+                        <div className="col-md-12 ftco-animate">
+                            <h2 style={{ fontSize: '24px', fontWeight: '800', color: '#111', marginBottom: '10px' }}>
+                                Trusted global partners working together with <span style={{ color: '#076c5b' }}>LCEO</span> every day.
                             </h2>
                         </div>
                     </div>
 
-                    <div className="row align-items-center justify-content-center">
-                        <div className="col-md-12">
-                            <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-around px-md-4">
-                                {/* FAWE RWANDA */}
-                                <div className="partner-logo-wrap m-4 m-md-0 ftco-animate">
-                                    <div className="d-flex align-items-center">
-                                        <div style={{ backgroundColor: '#e2f5f2', padding: '12px', borderRadius: '14px', marginRight: '15px' }}>
-                                            <span style={{ fontSize: '24px' }}>🎓</span>
-                                        </div>
-                                        <div className="d-flex flex-column">
-                                            <span className="font-weight-black" style={{ fontSize: '18px', letterSpacing: '0.5px', color: '#111', lineHeight: '1.2' }}>FAWE RWANDA</span>
-                                            <span style={{ fontSize: '9px', color: '#666', fontWeight: 600, letterSpacing: '0.5px' }}>FORUM FOR AFRICAN WOMEN EDUCATIONALISTS</span>
-                                        </div>
+                    <div className="row">
+                        {[
+                            {
+                                title: 'FAWE RWANDA',
+                                subtitle: 'FORUM FOR AFRICAN WOMEN EDUCATIONALISTS',
+                                icon: <GraduationCap size={32} strokeWidth={1.5} />,
+                                color: '#e2f5f2'
+                            },
+                            {
+                                title: 'ECORYS',
+                                subtitle: 'INTERNATIONAL DEVELOPMENT CONSULTANCY',
+                                icon: <Globe size={32} strokeWidth={1.5} />,
+                                color: '#f0f9ff'
+                            },
+                            {
+                                title: 'MOR ASSAYAG',
+                                subtitle: 'STRATEGIC PARTNERSHIP & DEVELOPMENT',
+                                icon: <Handshake size={32} strokeWidth={1.5} />,
+                                color: '#fff5f0'
+                            }
+                        ].map((partner, idx) => (
+                            <div className="col-md-4 mb-3 ftco-animate" key={idx}>
+                                <div className="p-4 d-flex align-items-center h-100 partner-card-hover" style={{ backgroundColor: '#f9f9f9', borderRadius: '4px', transition: 'all 0.3s ease', border: '1px solid transparent' }}>
+                                    <div className="mr-3 d-flex align-items-center justify-content-center" style={{
+                                        color: '#00594f',
+                                        backgroundColor: partner.color,
+                                        width: '56px',
+                                        height: '56px',
+                                        borderRadius: '12px',
+                                        flexShrink: 0
+                                    }}>
+                                        {partner.icon}
                                     </div>
-                                </div>
-
-                                {/* ECORYS */}
-                                <div className="partner-logo-wrap m-4 m-md-0 ftco-animate">
-                                    <div className="d-flex align-items-center">
-                                        <div style={{ backgroundColor: '#f0f9ff', padding: '12px', borderRadius: '14px', marginRight: '15px' }}>
-                                            <span style={{ fontSize: '24px' }}>🌍</span>
-                                        </div>
-                                        <div className="d-flex flex-column">
-                                            <span className="font-weight-black" style={{ fontSize: '18px', letterSpacing: '1px', color: '#111', lineHeight: '1.2' }}>ECORYS</span>
-                                            <span style={{ fontSize: '9px', color: '#666', fontWeight: 600, letterSpacing: '1px' }}>INTERNATIONAL DEVELOPMENT CONSULTANCY</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* MOR ASSAYAG */}
-                                <div className="partner-logo-wrap m-4 m-md-0 ftco-animate">
-                                    <div className="d-flex align-items-center">
-                                        <div style={{ backgroundColor: '#fff5f0', padding: '12px', borderRadius: '14px', marginRight: '15px' }}>
-                                            <span style={{ fontSize: '24px' }}>🤝</span>
-                                        </div>
-                                        <div className="d-flex flex-column">
-                                            <span className="font-weight-black" style={{ fontSize: '18px', letterSpacing: '0.5px', color: '#111', lineHeight: '1.2' }}>MOR ASSAYAG</span>
-                                            <span style={{ fontSize: '9px', color: '#666', fontWeight: 600, letterSpacing: '0.5px' }}>STRATEGIC PARTNERSHIP & DEVELOPMENT</span>
-                                        </div>
+                                    <div className="d-flex flex-column">
+                                        <h5 className="mb-1" style={{ fontSize: '16px', fontWeight: '800', color: '#111', letterSpacing: '0.5px' }}>
+                                            {partner.title}
+                                        </h5>
+                                        <span style={{ fontSize: '9px', color: '#666', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase', lineHeight: '1.3' }}>
+                                            {partner.subtitle}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        ))}
                     </div>
 
-                    <div className="row justify-content-center mt-5 pt-3">
-                        <div className="ftco-animate">
-                            <div style={{ width: '45px', height: '8px', backgroundColor: '#076c5b', borderRadius: '10px' }}></div>
-                        </div>
-                    </div>
+                    <style>
+                        {`
+                            .partner-card-hover:hover {
+                                background-color: #fff !important;
+                                border-color: #076c5b !important;
+                                transform: translateY(-5px);
+                            }
+                        `}
+                    </style>
                 </div>
+            </section>
+
+            <section className="ftco-section" id="impact-circle" style={{ backgroundColor: '#f8faf9', padding: '60px 0' }}>
                 <style>
                     {`
-                        .partner-logo-wrap {
-                            opacity: 0.8;
-                            transition: all 0.3s ease;
-                        }
-                        .partner-logo-wrap:hover {
-                            opacity: 1;
-                            transform: scale(1.05);
-                        }
-                        .font-weight-black {
-                            font-weight: 900;
-                        }
+                    .impact-tier-card {
+                        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                        cursor: pointer;
+                        z-index: 1;
+                    }
+                    .impact-tier-card:hover {
+                        transform: scale(1.02);
+                        z-index: 10;
+                        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+                    }
                     `}
                 </style>
-            </section>
-
-            <section className="ftco-section bg-secondary">
                 <div className="container">
-                    <div className="row justify-content-center mb-5 pb-3">
-                        <div className="col-md-7 heading-section ftco-animate text-center">
-                            <h2 className="mb-4" style={{ color: '#fff' }}>Join Our Impact Circle</h2>
-                            <p style={{ color: 'rgba(255,255,255,.8)' }}>Your monthly support provides sustained transformation for vulnerable
-                                young women and girls in Rwanda.</p>
+                    <div className="row justify-content-center mb-4">
+                        <div className="col-md-8 text-center ftco-animate">
+                            <span className="badge badge-light px-3 py-2 mb-2 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                                Support Sustainable Change
+                            </span>
+                            <h2 className="mb-3 font-weight-bold" style={{ fontSize: '36px', color: '#111' }}>Join Our Impact Circle</h2>
+                            <p style={{ fontSize: '16px', color: '#666' }}>Your monthly support provides sustained transformation for vulnerable young women and girls in Rwanda.</p>
                         </div>
                     </div>
-                    <div className="row">
+
+                    <div className="row no-gutters shadow-lg" style={{ borderRadius: '16px', overflow: 'hidden' }}>
+                        {/* Tier 1: Dark Style */}
                         <div className="col-md-4 d-flex ftco-animate">
-                            <div className="blog-entry align-self-stretch text-center p-4 bg-white rounded shadow-sm w-100">
-                                <h3 className="mb-3 font-weight-bold" style={{ color: '#4FB1A1' }}>$25/mo</h3>
-                                <p className="mb-4">Supports menstrual hygiene for 5 girls every month, ensuring they never miss school.</p>
-                                <p><Link to="/donate" className="btn btn-primary px-4 py-2">Join Circle</Link></p>
+                            <div className="w-100 p-4 py-5 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden impact-tier-card"
+                                style={{ backgroundColor: '#00594f', minHeight: '400px' }}>
+                                {/* Background Icon Watermark */}
+                                <div style={{ position: 'absolute', opacity: 0.08, transform: 'scale(10)', pointerEvents: 'none' }}>
+                                    <Heart size={48} strokeWidth={1} />
+                                </div>
+
+                                <div style={{ position: 'relative', zIndex: 1 }}>
+                                    <h3 className="mb-3 font-weight-bold text-white" style={{ fontSize: '28px' }}>$25/mo</h3>
+                                    <p className="mb-4 text-white-50" style={{ fontSize: '15px', lineHeight: '1.5' }}>
+                                        Supports menstrual hygiene for 5 girls every month, ensuring they never miss school.
+                                    </p>
+                                    <Link to="/donate" className="btn px-4 py-2 font-weight-bold" style={{ backgroundColor: 'white', color: '#00594f', borderRadius: '4px', fontSize: '13px' }}>
+                                        JOIN CIRCLE
+                                    </Link>
+                                </div>
                             </div>
                         </div>
+
+                        {/* Tier 2: White Style with Thick Border */}
                         <div className="col-md-4 d-flex ftco-animate">
-                            <div className="blog-entry align-self-stretch text-center p-4 bg-white rounded shadow-sm w-100">
-                                <h3 className="mb-3 font-weight-bold" style={{ color: '#4FB1A1' }}>$50/mo</h3>
-                                <p className="mb-4">Covers school fees and essential supplies for one girl, securing her education.</p>
-                                <p><Link to="/donate" className="btn btn-primary px-4 py-2">Join Circle</Link></p>
+                            <div className="w-100 p-4 py-5 d-flex flex-column align-items-center justify-content-center text-center bg-white impact-tier-card"
+                                style={{ border: '12px solid #00594f', minHeight: '400px' }}>
+                                <h3 className="mb-3 font-weight-bold" style={{ color: '#00594f', fontSize: '28px' }}>$50/mo</h3>
+                                <p className="mb-4" style={{ color: '#444', fontSize: '15px', lineHeight: '1.5' }}>
+                                    Covers school fees and essential supplies for one girl, securing her education.
+                                </p>
+                                <Link to="/donate" className="btn px-4 py-3 font-weight-bold text-uppercase w-100"
+                                    style={{ backgroundColor: '#076c5b', color: 'white', borderRadius: '4px', fontSize: '13px', letterSpacing: '1px' }}>
+                                    JOIN NOW
+                                </Link>
                             </div>
                         </div>
+
+                        {/* Tier 3: Dark Style */}
                         <div className="col-md-4 d-flex ftco-animate">
-                            <div className="blog-entry align-self-stretch text-center p-4 bg-white rounded shadow-sm w-100">
-                                <h3 className="mb-3 font-weight-bold" style={{ color: '#4FB1A1' }}>$100/mo</h3>
-                                <p className="mb-4">Provides seed capital and mentorship for one entrepreneur to launch her business.</p>
-                                <p><Link to="/donate" className="btn btn-primary px-4 py-2">Join Circle</Link></p>
+                            <div className="w-100 p-4 py-5 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden impact-tier-card"
+                                style={{ backgroundColor: '#00594f', minHeight: '400px' }}>
+                                {/* Background Icon Watermark */}
+                                <div style={{ position: 'absolute', opacity: 0.08, transform: 'scale(10)', pointerEvents: 'none' }}>
+                                    <Briefcase size={48} strokeWidth={1} />
+                                </div>
+
+                                <div style={{ position: 'relative', zIndex: 1 }}>
+                                    <h3 className="mb-3 font-weight-bold text-white" style={{ fontSize: '28px' }}>$100/mo</h3>
+                                    <p className="mb-4 text-white-50" style={{ fontSize: '15px', lineHeight: '1.5' }}>
+                                        Provides seed capital and mentorship for one entrepreneur to launch her business.
+                                    </p>
+                                    <Link to="/donate" className="btn px-4 py-2 font-weight-bold" style={{ backgroundColor: 'white', color: '#00594f', borderRadius: '4px', fontSize: '13px' }}>
+                                        JOIN CIRCLE
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="ftco-section" style={{ padding: '100px 0', backgroundColor: '#fff', overflow: 'hidden' }}>
+            <section className="ftco-section" style={{ padding: '60px 0', backgroundColor: '#fff', overflow: 'hidden' }}>
                 <div className="container">
                     <div className="row align-items-center">
                         {/* Left Column: SDG Grid with Blobs */}
@@ -1114,12 +1148,13 @@ export const HomePage = () => {
                                             borderRight: index % 3 === 2 ? 'none' : '1px solid #f0f0f0',
                                             borderBottom: index >= 3 ? 'none' : '1px solid #f0f0f0'
                                         }}>
-                                            <div className="p-4 text-center transition-all hover:bg-light h-100 d-flex flex-column align-items-center justify-content-center" style={{ minHeight: '200px' }}>
-                                                <div className="mb-4" style={{ color: '#076c5b' }}>
+                                            <div className="p-3 text-center transition-all sdg-card-item h-100 d-flex flex-column align-items-center justify-content-center"
+                                                style={{ minHeight: '160px', '--sdg-color': sdg.color } as any}>
+                                                <div className="mb-3 sdg-icon-box" style={{ color: '#076c5b' }}>
                                                     {sdg.icon}
                                                 </div>
-                                                <h5 className="font-weight-bold mb-1" style={{ fontSize: '15px', color: '#111', lineHeight: '1.2' }}>{sdg.name}</h5>
-                                                <span className="font-weight-bold" style={{ color: sdg.color, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px' }}>Goal {sdg.id}</span>
+                                                <h5 className="font-weight-bold mb-1 sdg-card-title" style={{ fontSize: '14px', color: '#111', lineHeight: '1.2' }}>{sdg.name}</h5>
+                                                <span className="font-weight-bold sdg-card-goal" style={{ color: sdg.color, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px' }}>Goal {sdg.id}</span>
                                             </div>
                                         </div>
                                     ))}
@@ -1128,35 +1163,127 @@ export const HomePage = () => {
                         </div>
 
                         {/* Right Column: Content */}
-                        <div className="col-lg-5 pl-lg-5 ftco-animate">
-                            <h2 className="mb-4 font-weight-bold" style={{ fontSize: '42px', lineHeight: '1.2', color: '#111' }}>
+                        <div className="col-lg-5 pl-lg-5">
+                            <style>
+                                {`
+                                @keyframes revealText {
+                                    from { opacity: 0; transform: translateY(20px); }
+                                    to { opacity: 1; transform: translateY(0); }
+                                }
+                                .sdg-text-reveal {
+                                    opacity: 0;
+                                    animation: revealText 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+                                }
+                                .sdg-delay-1 { animation-delay: 0.1s; }
+                                .sdg-delay-2 { animation-delay: 0.2s; }
+                                .sdg-delay-3 { animation-delay: 0.3s; }
+                                .sdg-delay-4 { animation-delay: 0.4s; }
+
+                                .hover-glow-text {
+                                    transition: all 0.3s ease;
+                                    cursor: default;
+                                }
+                                .hover-glow-text:hover {
+                                    text-shadow: 0 0 15px rgba(7, 108, 91, 0.2);
+                                    transform: translateX(5px);
+                                }
+
+                                .sdg-card-item {
+                                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                                    cursor: pointer;
+                                    position: relative;
+                                    background-color: transparent;
+                                }
+                                .sdg-card-item:hover {
+                                    background-color: var(--sdg-color) !important;
+                                    transform: scale(1.02);
+                                    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                                    z-index: 2;
+                                }
+                                .sdg-card-item:hover .sdg-icon-box,
+                                .sdg-card-item:hover .sdg-card-title,
+                                .sdg-card-item:hover .sdg-card-goal {
+                                    color: #fff !important;
+                                }
+                                @keyframes iconPulse {
+                                    0% { transform: scale(1); }
+                                    50% { transform: scale(1.15); }
+                                    100% { transform: scale(1); }
+                                }
+                                .sdg-card-item:hover .sdg-icon-box {
+                                    animation: iconPulse 1.5s infinite ease-in-out;
+                                }
+                                .sdg-icon-box { transition: all 0.3s ease; }
+                                .sdg-card-title { transition: all 0.3s ease; }
+                                .sdg-card-goal { transition: all 0.3s ease; }
+                                `}
+                            </style>
+                            <h2 className="mb-3 font-weight-bold sdg-text-reveal sdg-delay-1 hover-glow-text" style={{ fontSize: '32px', lineHeight: '1.2', color: '#111' }}>
                                 Empowering Lives + <span style={{ color: '#076c5b' }}>Strengthening Communities</span> Through Global Goals
                             </h2>
-                            <p className="lead mb-4" style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
+                            <p className="lead mb-3 sdg-text-reveal sdg-delay-2" style={{ fontSize: '16px', color: '#666', lineHeight: '1.7' }}>
                                 At LCEO, we believe that sustainable development is only possible when we align our grassroots efforts with global standards. By focusing on these key Sustainable Development Goals, we ensure that every scholarship, business grant, and mental health session contributes to a larger vision of dignity and equality for all Rwandans.
                             </p>
-                            <p className="mb-5" style={{ fontSize: '14px', color: '#888' }}>
+                            <p className="mb-3 sdg-text-reveal sdg-delay-3" style={{ fontSize: '14px', color: '#888' }}>
                                 Our integrated approach in Bugesera District directly impacts thousands of lives, bridging the gap between local challenges and international aspirations for social justice and economic resilience.
                             </p>
-                            <Link to="/about" className="btn px-5 py-3 font-weight-bold shadow-sm" style={{ backgroundColor: '#076c5b', color: '#fff', borderRadius: '12px', fontSize: '16px' }}>
-                                View Our Impact Report &rarr;
-                            </Link>
+                            <div className="sdg-text-reveal sdg-delay-4">
+                                <Link to="/about" className="btn px-5 py-3 font-weight-bold shadow-sm" style={{ backgroundColor: '#076c5b', color: '#fff', borderRadius: '12px', fontSize: '15px' }}>
+                                    View Our Impact Report &rarr;
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="ftco-section-3 img" style={{ backgroundImage: "url(/images/bg_3.jpg)", padding: '40px 0', position: 'relative' }}>
+            <section className="ftco-section-3 img" style={{ backgroundImage: "url(/images/bg_3.jpg)", padding: '30px 0', position: 'relative' }}>
+                <style>
+                    {`
+                    .movement-card {
+                        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                        border: 1px solid #f0f2f2 !important;
+                    }
+                    .movement-card:hover {
+                        transform: translateY(-8px);
+                        border-color: #076c5b !important;
+                        box-shadow: 0 15px 30px rgba(7, 108, 91, 0.1) !important;
+                    }
+                    .volunteer-form-wrap {
+                        transition: all 0.5s ease;
+                        border: 1px solid transparent;
+                    }
+                    .volunteer-form-wrap:hover {
+                        border-color: #076c5b;
+                        box-shadow: 0 25px 50px rgba(0,0,0,0.15) !important;
+                    }
+                    .form-animated-input {
+                        transition: all 0.3s ease;
+                    }
+                    .form-animated-input:focus {
+                        background-color: #fff !important;
+                        border-color: #076c5b !important;
+                        box-shadow: 0 0 0 4px rgba(7, 108, 91, 0.05) !important;
+                    }
+                    .btn-animated {
+                        transition: all 0.3s ease;
+                    }
+                    .btn-animated:hover {
+                        transform: scale(1.02);
+                        filter: brightness(1.1);
+                    }
+                    `}
+                </style>
                 <div className="overlay" style={{ opacity: 0.95, backgroundColor: '#fcfdfd' }}></div>
                 <div className="container" style={{ position: 'relative', zIndex: 2 }}>
                     {/* Header matching image structure */}
-                    <div className="row justify-content-center mb-5">
+                    <div className="row justify-content-center mb-3">
                         <div className="col-md-10 text-center ftco-animate">
-                            <span style={{ color: '#076c5b', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '13px', display: 'block', marginBottom: '10px' }}>Join The Movement</span>
-                            <h2 className="mb-4" style={{ fontSize: '42px', fontWeight: '800', color: '#122f2b', lineHeight: '1.2' }}>
+                            <span style={{ color: '#076c5b', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '12px', display: 'block', marginBottom: '8px' }}>Join The Movement</span>
+                            <h2 className="mb-2" style={{ fontSize: '36px', fontWeight: '800', color: '#122f2b', lineHeight: '1.2' }}>
                                 Be Part of the Transformation
                             </h2>
-                            <p style={{ fontSize: '18px', color: '#666', maxWidth: '800px', margin: '0 auto' }}>
+                            <p style={{ fontSize: '16px', color: '#666', maxWidth: '800px', margin: '0 auto' }}>
                                 Whether you give your time or your resources, you are investing in a future where every girl can thrive. Choose your path to impact.
                             </p>
                         </div>
@@ -1184,10 +1311,10 @@ export const HomePage = () => {
                                         desc: 'Raise awareness and champion the rights of girls and women in the Bugesera region within your local network.'
                                     }
                                 ].map((item, idx) => (
-                                    <div className="col-md-6 mb-4 mt-2" key={idx}>
-                                        <div className="p-4 bg-white h-100 shadow-sm transition-all hover:translate-y-[-5px]" style={{ borderRadius: '4px', border: '1px solid #f0f2f2' }}>
-                                            <h4 style={{ fontSize: '20px', fontWeight: '800', color: '#122f2b', marginBottom: '15px' }}>{item.title}</h4>
-                                            <p style={{ color: '#666', fontSize: '15px', lineHeight: '1.6', marginBottom: 0 }}>{item.desc}</p>
+                                    <div className="col-md-6 mb-3 mt-1" key={idx}>
+                                        <div className="p-4 bg-white h-100 shadow-sm movement-card" style={{ borderRadius: '4px' }}>
+                                            <h4 style={{ fontSize: '18px', fontWeight: '800', color: '#122f2b', marginBottom: '10px' }}>{item.title}</h4>
+                                            <p style={{ color: '#666', fontSize: '14px', lineHeight: '1.6', marginBottom: 0 }}>{item.desc}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -1196,29 +1323,29 @@ export const HomePage = () => {
 
                         {/* Right Side: Sidebar Form Card */}
                         <div className="col-lg-4">
-                            <div className="bg-white p-5 shadow-lg" style={{ borderRadius: '8px', position: 'relative', marginTop: '8px' }}>
-                                <span style={{ color: '#fbb124', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '11px', display: 'block', marginBottom: '5px' }}>Join Us Now</span>
-                                <h3 className="mb-4" style={{ fontSize: '24px', fontWeight: '800', color: '#122f2b' }}>Become A Volunteer</h3>
+                            <div className="bg-white p-4 shadow-lg volunteer-form-wrap" style={{ borderRadius: '8px', position: 'relative', marginTop: '4px' }}>
+                                <span style={{ color: '#fbb124', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '10px', display: 'block', marginBottom: '4px' }}>Join Us Now</span>
+                                <h3 className="mb-3" style={{ fontSize: '22px', fontWeight: '800', color: '#122f2b' }}>Become A Volunteer</h3>
 
                                 <form action="#" className="volunteer-form-premium">
                                     <div className="row">
-                                        <div className="col-md-6 mb-3">
-                                            <input type="text" className="form-control" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '45px', fontSize: '14px' }} placeholder="Your Name" />
+                                        <div className="col-md-6 mb-2">
+                                            <input type="text" className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '42px', fontSize: '13px' }} placeholder="Your Name" />
                                         </div>
-                                        <div className="col-md-6 mb-3">
-                                            <input type="email" className="form-control" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '45px', fontSize: '14px' }} placeholder="Your Email" />
+                                        <div className="col-md-6 mb-2">
+                                            <input type="email" className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '42px', fontSize: '13px' }} placeholder="Your Email" />
                                         </div>
-                                        <div className="col-md-6 mb-3">
-                                            <input type="text" className="form-control" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '45px', fontSize: '14px' }} placeholder="Phone No" />
+                                        <div className="col-md-6 mb-2">
+                                            <input type="text" className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '42px', fontSize: '13px' }} placeholder="Phone No" />
                                         </div>
-                                        <div className="col-md-6 mb-3">
-                                            <input type="text" className="form-control" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '45px', fontSize: '14px' }} placeholder="Location" />
+                                        <div className="col-md-6 mb-2">
+                                            <input type="text" className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '42px', fontSize: '13px' }} placeholder="Location" />
                                         </div>
-                                        <div className="col-md-12 mb-4">
-                                            <textarea name="" id="" cols={30} rows={3} className="form-control" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', fontSize: '14px', paddingTop: '10px' }} placeholder="Your Message"></textarea>
+                                        <div className="col-md-12 mb-3">
+                                            <textarea name="" id="" cols={30} rows={3} className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', fontSize: '13px', paddingTop: '10px' }} placeholder="Your Message"></textarea>
                                         </div>
                                         <div className="col-md-12">
-                                            <button type="submit" className="btn py-3 px-4 w-100 shadow-sm" style={{ backgroundColor: '#076c5b', color: '#fff', fontWeight: '800', fontSize: '14px', borderRadius: '4px', border: 'none' }}>
+                                            <button type="submit" className="btn py-2 px-4 w-100 shadow-sm btn-animated" style={{ backgroundColor: '#076c5b', color: '#fff', fontWeight: '800', fontSize: '13px', borderRadius: '4px', border: 'none' }}>
                                                 Become A Volunteer
                                             </button>
                                         </div>
