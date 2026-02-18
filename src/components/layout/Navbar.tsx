@@ -435,13 +435,72 @@ export const Navbar = () => {
                 
                 /* Mobile adjustments for mega menu */
                 @media (max-width: 991px) {
+                    .navbar-collapse {
+                        background: #ffffff !important;
+                        margin-top: 10px;
+                        border-radius: 20px;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+                        padding: 15px !important;
+                        max-height: 80vh;
+                        overflow-y: auto;
+                    }
+                    .navbar-scrolled .navbar-collapse {
+                        background: #0f3d34 !important;
+                    }
+                    .nav-link {
+                        padding: 10px 15px !important;
+                    }
+                    .dropdown-menu {
+                        background: transparent !important;
+                        border: none !important;
+                        box-shadow: none !important;
+                        padding-left: 15px !important;
+                        margin: 0 !important;
+                        display: none;
+                    }
+                    .dropdown-menu.show {
+                        display: block !important;
+                    }
+                    .mega-menu-container {
+                        flex-direction: column !important;
+                    }
+                    .mega-featured-side {
+                        display: none !important; /* Hide featured side on mobile for space */
+                    }
+                    .mega-links-side {
+                        padding: 10px 0 !important;
+                        background: transparent !important;
+                    }
+                    .mega-menu-content {
+                        flex-direction: column !important;
+                        gap: 10px !important;
+                    }
                     .mega-column {
-                        padding: 15px 0;
-                        border-right: none;
-                        border-bottom: 1px solid #eee;
+                        padding: 10px 0 !important;
+                        border: none !important;
+                        border-bottom: 1px solid rgba(0,0,0,0.05) !important;
                     }
                     .mega-column:last-child {
-                        border-bottom: none;
+                        border-bottom: none !important;
+                    }
+                    .dark .mega-column {
+                        border-bottom-color: rgba(255,255,255,0.1) !important;
+                    }
+                    .mega-title {
+                        font-size: 15px !important;
+                        margin-bottom: 10px !important;
+                        color: #076c5b !important;
+                    }
+                    .mega-link {
+                        padding: 8px 0 !important;
+                        font-size: 14px !important;
+                    }
+                    
+                    /* Scrolled mobile colors */
+                    .navbar-scrolled .nav-link,
+                    .navbar-scrolled .mega-link,
+                    .navbar-scrolled .mega-title {
+                        color: #ffffff !important;
                     }
                 }
             `}</style>
