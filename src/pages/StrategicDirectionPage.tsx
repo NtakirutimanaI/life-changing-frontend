@@ -43,51 +43,39 @@ export const StrategicDirectionPage = () => {
                 </div>
             </div>
 
-            <section className="ftco-counter" id="section-counter" style={{ backgroundColor: '#00594f', padding: '60px 0' }}>
+            <section className="ftco-counter" id="section-counter" style={{ backgroundColor: '#00594f', padding: '25px 0' }}>
                 <div className="container">
-                    <div className="row mb-5">
-                        <div className="col-md-12">
-                            <motion.h2
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5 }}
-                                className="text-white font-weight-bold" style={{ fontSize: '32px', letterSpacing: '-1px' }}
-                            >
-                                Our impact in 2024
-                            </motion.h2>
+                    <div className="row align-items-center no-gutters">
+                        <div className="col-lg-2 col-md-12 mb-3 mb-lg-0 ftco-animate">
+                            <h2 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px', borderLeft: '3px solid #4FB1A1', paddingLeft: '15px', lineHeight: '1.2' }}>
+                                Our impact <br className="d-none d-lg-block" /> in 2024
+                            </h2>
                         </div>
-                    </div>
-                    <div className="row">
-                        {[
-                            { icon: <Users size={45} strokeWidth={1.5} />, number: '5000', label: 'Women & girls reached \n & empowered' },
-                            { icon: <GraduationCap size={45} strokeWidth={1.5} />, number: '1200', label: 'Girls stayed in school \n through our support' },
-                            { icon: <Briefcase size={45} strokeWidth={1.5} />, number: '450', label: 'Businesses launched \n and thriving' },
-                            { icon: <Award size={45} strokeWidth={1.5} />, number: '300', label: 'Change Champions \n trained as leaders' }
-                        ].map((stat, idx) => (
-                            <div className="col-md-3 d-flex align-items-center mb-4 mb-md-0" key={idx}>
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                    className="d-flex align-items-center"
-                                >
-                                    <div className="mr-3" style={{ color: 'white', opacity: 0.9 }}>
-                                        {stat.icon}
-                                    </div>
-                                    <div className="text-white">
-                                        <div className="d-flex align-items-baseline">
-                                            <strong className="number" style={{ fontSize: '36px', fontWeight: '800' }}>{stat.number}</strong>
-                                            <span style={{ fontSize: '20px', marginLeft: '2px', fontWeight: '700' }}>+</span>
+                        <div className="col-lg-10 col-md-12">
+                            <div className="row no-gutters">
+                                {[{ icon: <Users size={32} strokeWidth={1.5} />, number: '5000', label: 'Women & girls reached \n & empowered' },
+                                  { icon: <GraduationCap size={32} strokeWidth={1.5} />, number: '1200', label: 'Girls stayed in school \n through our support' },
+                                  { icon: <Briefcase size={32} strokeWidth={1.5} />, number: '450', label: 'Businesses launched \n and thriving' },
+                                  { icon: <Award size={32} strokeWidth={1.5} />, number: '300', label: 'Change Champions \n trained as leaders' }].map((stat, idx) => (
+                                    <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate" key={idx}>
+                                        <div className="d-flex align-items-center">
+                                            <div className="mr-2" style={{ color: 'white', opacity: 0.9 }}>
+                                                {stat.icon}
+                                            </div>
+                                            <div className="text-white">
+                                                <div className="d-flex align-items-baseline">
+                                                    <strong className="number" style={{ fontSize: '28px', fontWeight: '800' }}>{stat.number}</strong>
+                                                    <span style={{ fontSize: '16px', marginLeft: '1px', fontWeight: '700' }}>+</span>
+                                                </div>
+                                                <span style={{ fontSize: '11px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2', whiteSpace: 'pre-line' }}>
+                                                    {stat.label}
+                                                </span>
+                                            </div>
                                         </div>
-                                        <span style={{ fontSize: '13px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2', whiteSpace: 'pre-line' }}>
-                                            {stat.label}
-                                        </span>
                                     </div>
-                                </motion.div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
             </section>
