@@ -322,7 +322,7 @@ export const ResourcesPage = () => {
                     transform: rotateY(180deg);
                 }
             `}</style>
-            <div className="hero-wrap" style={{ backgroundImage: "url('/images/bg_2.jpg')", height: '450px', minHeight: '450px', position: 'relative' }}>
+            <div className="hero-wrap" style={{ backgroundImage: "url('/images/pic15.jpg')", height: '450px', minHeight: '450px', position: 'relative' }}>
                 <div className="overlay" style={{ background: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7))', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}></div>
                 <div className="container h-full relative z-10">
                     <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '450px' }}>
@@ -435,7 +435,7 @@ export const ResourcesPage = () => {
                         <div className="col-md-4 mb-4 ftco-animate">
                             <a href="#" className="block h-full text-decoration-none">
                                 <div className="impact-card">
-                                    <img src="/images/image_4.jpg" alt="School Materials" />
+                                    <img src="/images/p7.jpg" alt="School Materials" />
                                     <div className="impact-card-overlay">
                                         <h3 className="impact-card-title">School Materials Distribution</h3>
                                         <p className="impact-card-desc">Distribution of essential learning supplies to partner schools in rural districts to support student retention.</p>
@@ -448,7 +448,7 @@ export const ResourcesPage = () => {
                         <div className="col-md-4 mb-4 ftco-animate">
                             <a href="#" className="block h-full text-decoration-none">
                                 <div className="impact-card">
-                                    <img src="/images/image_5.jpg" alt="Vocational Training" />
+                                    <img src="/images/p4.jpg" alt="Vocational Training" />
                                     <div className="impact-card-overlay">
                                         <h3 className="impact-card-title">Vocational Training Session</h3>
                                         <p className="impact-card-desc">Practical skills workshops and mentorship programs empowering youth with sustainable livelihood opportunities.</p>
@@ -461,7 +461,7 @@ export const ResourcesPage = () => {
                         <div className="col-md-4 mb-4 ftco-animate">
                             <a href="https://vimeo.com/45830194" className="block h-full text-decoration-none">
                                 <div className="impact-card">
-                                    <img src="/images/image_6.jpg" alt="Keza's Journey" />
+                                    <img src="/images/p5.jpg" alt="Keza's Journey" />
                                     <div className="impact-card-overlay">
                                         <h3 className="impact-card-title">Keza's Journey (Video)</h3>
                                         <p className="impact-card-desc">Watch the inspiring story of how community support and resilience transformed one family's future features.</p>
@@ -492,7 +492,7 @@ export const ResourcesPage = () => {
                             <div className="event-perspective">
                                 <div className="event-flip-inner">
                                     <div className="event-flip-front">
-                                        <img src="/images/event-1.jpg" alt="Stakeholder Meeting" />
+                                        <img src="/images/pic14.jpg" alt="Stakeholder Meeting" />
                                     </div>
                                     <div className="event-flip-back">
                                         <div className="mb-auto">
@@ -519,7 +519,7 @@ export const ResourcesPage = () => {
                             <div className="event-perspective">
                                 <div className="event-flip-inner middle-card-tilt">
                                     <div className="event-flip-front">
-                                        <img src="/images/event-2.jpg" alt="Graduation Ceremony" />
+                                        <img src="/images/pic2.jpg" alt="Graduation Ceremony" />
                                     </div>
                                     <div className="event-flip-back" style={{ background: '#1a1a4a' }}> {/* Deep Blue as in reference image */}
                                         <div className="mb-auto">
@@ -548,7 +548,7 @@ export const ResourcesPage = () => {
                             <div className="event-perspective">
                                 <div className="event-flip-inner">
                                     <div className="event-flip-front">
-                                        <img src="/images/event-3.jpg" alt="Empowerment Workshop" />
+                                        <img src="/images/pic19.jpg" alt="Empowerment Workshop" />
                                     </div>
                                     <div className="event-flip-back">
                                         <div className="mb-auto">

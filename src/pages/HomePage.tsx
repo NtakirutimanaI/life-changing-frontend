@@ -4,7 +4,7 @@ import { useLanguage } from '../lib/language-context';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
 import { mockPrograms, mockStories } from '../lib/mock-data';
 import { ProgramCategory } from '../lib/types';
-import { Users, GraduationCap, Briefcase, Award, Wallet, Heart, TrendingUp, Globe, Handshake } from 'lucide-react';
+import { Users, GraduationCap, Briefcase, Award, Wallet, Heart, TrendingUp, Globe, Handshake, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const HomePage = () => {
     useLegacyScripts();
@@ -29,6 +29,46 @@ export const HomePage = () => {
     const typingPhrases = ["And Improvements.", "Empowering Communities.", "Changing Lives.", "For a Better Future."];
     const [phraseIdx, setPhraseIdx] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [selectedImageIndex, setSelectedImageIndex] = useState<number>(-1);
+
+    const galleryImages = [
+        '/images/testimonial1.jpg',
+        '/images/pic5.jpg',
+        '/images/pic11.jpg',
+        '/images/pic14.jpg',
+        '/images/pic13.jpg',
+        '/images/pic9.jpg',
+        '/images/pic15.jpg',
+        '/images/pic19.jpg'
+    ];
+
+    const openLightbox = (e: React.MouseEvent, index: number) => {
+        e.preventDefault();
+        setSelectedImageIndex(index);
+        setSelectedImage(galleryImages[index]);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        setSelectedImage(null);
+        setSelectedImageIndex(-1);
+        document.body.style.overflow = 'auto';
+    };
+
+    const nextImage = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
+        const nextIdx = (selectedImageIndex + 1) % galleryImages.length;
+        setSelectedImageIndex(nextIdx);
+        setSelectedImage(galleryImages[nextIdx]);
+    };
+
+    const prevImage = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
+        const prevIdx = (selectedImageIndex - 1 + galleryImages.length) % galleryImages.length;
+        setSelectedImageIndex(prevIdx);
+        setSelectedImage(galleryImages[prevIdx]);
+    };
 
     React.useEffect(() => {
         let timer: ReturnType<typeof setTimeout>;
@@ -836,66 +876,193 @@ export const HomePage = () => {
 
             <section className="ftco-gallery mt-2">
                 <div className="d-md-flex">
-                    <a href="/images/cause-2.jpg"
+                    <a href={galleryImages[0]}
+                        onClick={(e) => openLightbox(e, 0)}
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/testimonial1.jpg)" }}>
+                        style={{ backgroundImage: `url(${galleryImages[0]})` }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
-                    <a href="/images/cause-3.jpg"
+                    <a href={galleryImages[1]}
+                        onClick={(e) => openLightbox(e, 1)}
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/pic5.jpg)" }}>
+                        style={{ backgroundImage: `url(${galleryImages[1]})` }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
-                    <a href="/images/cause-4.jpg"
+                    <a href={galleryImages[2]}
+                        onClick={(e) => openLightbox(e, 2)}
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/pic11.jpg)" }}>
+                        style={{ backgroundImage: `url(${galleryImages[2]})` }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
-                    <a href="/images/cause-5.jpg"
+                    <a href={galleryImages[3]}
+                        onClick={(e) => openLightbox(e, 3)}
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/pic14.jpg)" }}>
+                        style={{ backgroundImage: `url(${galleryImages[3]})` }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
                 </div>
                 <div className="d-md-flex">
-                    <a href="/images/cause-6.jpg"
+                    <a href={galleryImages[4]}
+                        onClick={(e) => openLightbox(e, 4)}
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/pic13.jpg)" }}>
+                        style={{ backgroundImage: `url(${galleryImages[4]})` }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
-                    <a href="/images/image_3.jpg"
+                    <a href={galleryImages[5]}
+                        onClick={(e) => openLightbox(e, 5)}
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/pic9.jpg)" }}>
+                        style={{ backgroundImage: `url(${galleryImages[5]})` }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
-                    <a href="/images/image_1.jpg"
+                    <a href={galleryImages[6]}
+                        onClick={(e) => openLightbox(e, 6)}
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/pic15.jpg)" }}>
+                        style={{ backgroundImage: `url(${galleryImages[6]})` }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
-                    <a href="/images/image_2.jpg"
+                    <a href={galleryImages[7]}
+                        onClick={(e) => openLightbox(e, 7)}
                         className="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-                        style={{ backgroundImage: "url(/images/pic19.jpg)" }}>
+                        style={{ backgroundImage: `url(${galleryImages[7]})` }}>
                         <div className="icon d-flex justify-content-center align-items-center">
                             <span className="icon-search"></span>
                         </div>
                     </a>
                 </div>
             </section>
+
+            {/* Lightbox Modal */}
+            {selectedImage && (
+                <div className="lightbox-overlay" style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(0, 0, 0, 0.95)',
+                    zIndex: 99999,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backdropFilter: 'blur(5px)',
+                    animation: 'fadeIn 0.3s ease-out'
+                }} onClick={closeLightbox}>
+                    <button onClick={closeLightbox} style={{
+                        position: 'absolute',
+                        top: '20px',
+                        right: '20px',
+                        background: 'transparent',
+                        border: 'none',
+                        color: 'white',
+                        cursor: 'pointer',
+                        zIndex: 100000,
+                        padding: '10px'
+                    }}>
+                        <X size={32} />
+                    </button>
+
+                    <button onClick={prevImage} style={{
+                        position: 'absolute',
+                        left: '20px',
+                        background: 'rgba(255,255,255,0.1)',
+                        border: 'none',
+                        color: 'white',
+                        width: '50px',
+                        height: '50px',
+                        borderRadius: '50%',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 100000,
+                        transition: 'all 0.2s ease'
+                    }}>
+                        <ChevronLeft size={32} />
+                    </button>
+
+                    <div style={{
+                        position: 'relative',
+                        maxWidth: '90%',
+                        maxHeight: '90%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center'
+                    }}>
+                        <img
+                            src={selectedImage}
+                            alt="Gallery Zoom"
+                            style={{
+                                maxWidth: '100%',
+                                maxHeight: '80vh',
+                                borderRadius: '8px',
+                                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                                objectFit: 'contain',
+                                animation: 'zoomIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)'
+                            }}
+                            onClick={(e) => e.stopPropagation()}
+                        />
+                        <div style={{
+                            color: 'white',
+                            marginTop: '20px',
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            letterSpacing: '1px'
+                        }}>
+                            {selectedImageIndex + 1} / {galleryImages.length}
+                        </div>
+                    </div>
+
+                    <button onClick={nextImage} style={{
+                        position: 'absolute',
+                        right: '20px',
+                        background: 'rgba(255,255,255,0.1)',
+                        border: 'none',
+                        color: 'white',
+                        width: '50px',
+                        height: '50px',
+                        borderRadius: '50%',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 100000,
+                        transition: 'all 0.2s ease'
+                    }}>
+                        <ChevronRight size={32} />
+                    </button>
+
+                    <style>
+                        {`
+                        @keyframes fadeIn {
+                            from { opacity: 0; }
+                            to { opacity: 1; }
+                        }
+                        @keyframes zoomIn {
+                            from { transform: scale(0.9); opacity: 0; }
+                            to { transform: scale(1); opacity: 1; }
+                        }
+                        .lightbox-overlay button:hover {
+                            background: rgba(255,255,255,0.2) !important;
+                            transform: scale(1.1);
+                        }
+                        `}
+                    </style>
+                </div>
+            )}
 
 
 

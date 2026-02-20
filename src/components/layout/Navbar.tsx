@@ -15,6 +15,7 @@ export const Navbar = () => {
     const { language, setLanguage, t } = useLanguage();
     const { user, isAuthenticated, logout } = useAuth();
     const [isScrolled, setIsScrolled] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
     const isHelpFaqPage = location.pathname === '/help-faq';
     const hasLightBackground = isDonationPage || isLoginPage || isDashboard;
@@ -210,7 +211,8 @@ export const Navbar = () => {
 
                 /* Language Switcher Styling */
                 @media (min-width: 992px) {
-                    .lang-switcher:hover > .dropdown-menu {
+                    .lang-switcher:hover > .dropdown-menu,
+                    .lang-switcher.is-active > .dropdown-menu {
                         display: block !important;
                         opacity: 1 !important;
                         visibility: visible !important;
@@ -224,7 +226,8 @@ export const Navbar = () => {
                         padding: 10px 0 !important;
                     }
                     /* Line for language switcher */
-                    .lang-switcher:hover > .nav-link::after {
+                    .lang-switcher:hover > .nav-link::after,
+                    .lang-switcher.is-active > .nav-link::after {
                         content: '';
                         position: absolute;
                         bottom: 0;
@@ -321,19 +324,22 @@ export const Navbar = () => {
 
                 /* Mega Menu Styles */
                 @media (min-width: 992px) {
-                    .nav-item.dropdown:hover > .dropdown-menu {
+                    .nav-item.dropdown:hover > .dropdown-menu,
+                    .nav-item.dropdown.is-active > .dropdown-menu {
                         display: block !important;
                         opacity: 1 !important;
                         visibility: visible !important;
                         margin-top: 0 !important;
                     }
-                    .nav-item.dropdown:hover > .nav-link {
+                    .nav-item.dropdown:hover > .nav-link,
+                    .nav-item.dropdown.is-active > .nav-link {
                         color: #17d1ac !important;
                     }
                     .nav-item.dropdown .nav-link {
                         position: relative;
                     }
-                    .nav-item.dropdown:hover > .nav-link::after {
+                    .nav-item.dropdown:hover > .nav-link::after,
+                    .nav-item.dropdown.is-active > .nav-link::after {
                         content: '';
                         position: absolute;
                         bottom: 0;
@@ -575,6 +581,7 @@ export const Navbar = () => {
             `}</style>
 
             <nav
+                onMouseLeave={() => setActiveDropdown(null)}
                 className={
                     `navbar navbar-expand-lg ftco_navbar ftco-navbar-light ` +
                     `${hasLightBackground ? 'navbar-donation-steps ' : ''}` +
@@ -603,7 +610,10 @@ export const Navbar = () => {
                     <div className="collapse navbar-collapse" id="ftco-nav">
                         <ul className="navbar-nav ml-auto">
 
-                            <li className="nav-item dropdown mega-dropdown">
+                            <li
+                                className={`nav-item dropdown mega-dropdown ${activeDropdown === 'about' ? 'is-active' : ''}`}
+                                onMouseEnter={() => setActiveDropdown('about')}
+                            >
                                 <a className="nav-link dropdown-toggle" href="#" id="whoWeAreDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {t('nav.about')}
@@ -648,7 +658,10 @@ export const Navbar = () => {
                                     </div>
                                 </div>
                             </li>
-                            <li className="nav-item dropdown mega-dropdown">
+                            <li
+                                className={`nav-item dropdown mega-dropdown ${activeDropdown === 'impact' ? 'is-active' : ''}`}
+                                onMouseEnter={() => setActiveDropdown('impact')}
+                            >
                                 <a className="nav-link dropdown-toggle" href="#" id="impactDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {t('nav.impact')}
@@ -658,7 +671,7 @@ export const Navbar = () => {
                                         {/* Left: Featured Report Side */}
                                         <div className="mega-featured-side d-flex flex-column">
                                             <div className="mb-2 overflow-hidden rounded shadow-sm" style={{ height: '80px' }}>
-                                                <img src="/images/cause-2.jpg" alt="Annual Report" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                <img src="/images/img1.jpg" alt="Annual Report" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                             </div>
                                             <h4 className="font-weight-bold mb-1" style={{ fontSize: '15px', color: '#111' }}>Read our 2024 annual report</h4>
                                             <p className="small mb-2 text-muted" style={{ lineHeight: '1.3', fontSize: '11px' }}>LCEO's objectives, activities and achievements in 2024 can be found in our core report.</p>
@@ -690,7 +703,10 @@ export const Navbar = () => {
                                     </div>
                                 </div>
                             </li>
-                            <li className="nav-item dropdown mega-dropdown">
+                            <li
+                                className={`nav-item dropdown mega-dropdown ${activeDropdown === 'contact' ? 'is-active' : ''}`}
+                                onMouseEnter={() => setActiveDropdown('contact')}
+                            >
                                 <a className="nav-link dropdown-toggle" href="#" id="getInvolvedDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {t('nav.contact')}
@@ -700,7 +716,7 @@ export const Navbar = () => {
                                         {/* Left: Featured Mission Side */}
                                         <div className="mega-featured-side d-flex flex-column">
                                             <div className="mb-2 overflow-hidden rounded shadow-sm" style={{ height: '80px' }}>
-                                                <img src="/images/bg_3.jpg" alt="Join Mission" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                <img src="/images/pic12.jpg" alt="Join Mission" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                             </div>
                                             <h4 className="font-weight-bold mb-1" style={{ fontSize: '15px', color: '#111' }}>Join our mission</h4>
                                             <p className="small mb-2 text-muted" style={{ lineHeight: '1.3', fontSize: '11px' }}>Become a champion for change and help us transform more lives together.</p>
@@ -740,7 +756,10 @@ export const Navbar = () => {
                                     </Link>
                                 </li>
                             ) : (
-                                <li className="nav-item dropdown ml-lg-2 d-flex align-items-center">
+                                <li
+                                    className={`nav-item dropdown ml-lg-2 d-flex align-items-center ${activeDropdown === 'user' ? 'is-active' : ''}`}
+                                    onMouseEnter={() => setActiveDropdown('user')}
+                                >
                                     <Link className="nav-link pr-1" to="/profile">
                                         <div className="d-flex align-items-center bg-emerald-light rounded-pill px-3 py-1 shadow-sm hover:opacity-80 transition-all border border-emerald-light" style={{ backgroundColor: 'rgba(23, 209, 172, 0.1)', border: '1px solid rgba(23, 209, 172, 0.2)' }}>
                                             <UserIcon size={16} className="text-emerald mr-2" style={{ color: '#17D1AC' }} />
@@ -782,7 +801,10 @@ export const Navbar = () => {
                             </li>
 
                             {/* Language Switcher at the very end */}
-                            <li className="nav-item dropdown lang-switcher ml-lg-2">
+                            <li
+                                className={`nav-item dropdown lang-switcher ml-lg-2 ${activeDropdown === 'lang' ? 'is-active' : ''}`}
+                                onMouseEnter={() => setActiveDropdown('lang')}
+                            >
                                 <a className="nav-link dropdown-toggle d-flex align-items-center" href="#" id="langDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ padding: '15px 10px' }}>
                                     <Globe

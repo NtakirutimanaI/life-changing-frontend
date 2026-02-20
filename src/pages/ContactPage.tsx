@@ -54,7 +54,7 @@ export const ContactPage = () => {
 
             {/* Premium Contact Section */}
             <section className="ftco-section" style={{
-                padding: '100px 0',
+                padding: '10px 0', // Further reduced padding to minimize white space
                 backgroundColor: '#fff',
                 position: 'relative',
                 overflow: 'hidden'

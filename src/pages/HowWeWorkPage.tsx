@@ -441,17 +441,33 @@ export const HowWeWorkPage = () => {
                                             whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true }}
                                             transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                            className="p-5 bg-white d-flex flex-column h-100 transition-all hover:bg-teal-50/20" style={{
-                                                borderRadius: '32px',
-                                                border: '1px solid #f0f4f4'
+                                            className="p-4 bg-white d-flex flex-column h-100 transition-all hover:bg-teal-50/20" style={{
+                                                borderRadius: '16px', // Reduced border radius for smaller cards
+                                                border: '1px solid #f0f4f4',
+                                                padding: '16px', // Reduced padding for smaller size
+                                                fontSize: '14px' // Adjusted font size for smaller cards
                                             }}>
-                                            <div className="mb-3 d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px', borderRadius: '12px', backgroundColor: '#f0faf9', color: '#076c5b', fontSize: '14px', fontWeight: '800' }}>
+                                            <div className="mb-3 d-flex align-items-center" style={{
+                                                fontSize: '64px', // Larger font size for the number
+                                                fontWeight: '900',
+                                                color: '#ffffff',
+                                                backgroundColor: '#2f4f4f', // Dark green background
+                                                width: '80px',
+                                                height: '80px',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                borderRadius: '8px', // Consistent border radius
+                                                marginRight: '16px' // Space between number and text
+                                            }}>
                                                 {idx + 1}
                                             </div>
-                                            <h4 className="font-weight-bold mb-3" style={{ fontSize: '20px', color: '#122f2b', letterSpacing: '-0.5px' }}>{step.step.split('. ')[1]}</h4>
-                                            <p className="text-muted mb-0" style={{ fontSize: '15px', lineHeight: '1.7' }}>
-                                                {step.desc}
-                                            </p>
+                                            <div>
+                                                <h4 className="font-weight-bold mb-1" style={{ fontSize: '20px', color: '#122f2b', letterSpacing: '-0.5px' }}>{step.step.split('. ')[1]}</h4>
+                                                <p className="text-muted mb-0" style={{ fontSize: '15px', lineHeight: '1.7' }}>
+                                                    {step.desc}
+                                                </p>
+                                            </div>
                                         </motion.div>
                                     </div>
                                 ))}
@@ -559,7 +575,19 @@ export const HowWeWorkPage = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                    className="text-center p-4 h-100" style={{ backgroundColor: '#fff', borderRadius: '24px', border: '1px solid #f0f4f4' }}>
+                                    className="text-center p-4 h-100 transition-all" style={{
+                                        backgroundColor: '#fff',
+                                        borderRadius: '24px',
+                                        border: '1px solid #f0f4f4',
+                                        transition: 'transform 0.3s ease, background-color 0.3s ease',
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.transform = 'scale(1.2)'; // Further increased zoom effect on hover
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.transform = 'scale(1)'; // Revert to original size
+                                    }}
+                                >
                                     <div className="mb-3 d-inline-flex align-items-center justify-content-center" style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: '#e2f5f2', color: '#076c5b' }}>
                                         {principle.icon}
                                     </div>
@@ -629,12 +657,22 @@ export const HowWeWorkPage = () => {
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ duration: 0.4, delay: idx * 0.05 }}
-                                    className="sdg-item p-3" style={{ backgroundColor: '#f8f9fa', borderRadius: '16px' }}>
-                                    <div className="mb-2" style={{ color: '#076c5b' }}>
-                                        <CheckCircle size={32} strokeWidth={1.5} />
-                                    </div>
-                                    <h5 className="font-weight-bold" style={{ fontSize: '14px' }}>{sdg.title}</h5>
+                                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                    className="p-4 h-100 text-center" style={{
+                                        backgroundColor: '#fff',
+                                        borderRadius: '12px',
+                                        border: '1px solid #f0f4f4',
+                                        transition: 'transform 0.3s ease, background-color 0.3s ease',
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.transform = 'scale(1.2)'; // Zoom effect on hover
+                                        e.currentTarget.style.backgroundColor = '#e2f5e9'; // Green background on hover
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.transform = 'scale(1)'; // Revert to original size
+                                        e.currentTarget.style.backgroundColor = '#fff'; // Revert to original background color
+                                    }}>
+                                    <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#2c3e50' }}>{sdg.title}</h3>
                                 </motion.div>
                             </div>
                         ))}
