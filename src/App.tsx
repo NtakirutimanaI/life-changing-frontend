@@ -17,6 +17,7 @@ import { HelpFaqPage } from '@/pages/HelpFaqPage';
 import { ResourcesPage as PublicResourcesPage } from '@/pages/ResourcesPage';
 import { OurProgramsDetailsPage } from '@/pages/OurProgramsDetailsPage';
 import { DonationPage } from '@/pages/DonationPage';
+import { GetInvolvedPage } from '@/pages/GetInvolvedPage';
 
 // Layouts and Components
 import { DashboardLayout } from './components/layout/dashboard-layout';
@@ -170,7 +171,7 @@ function AppContent() {
                     .dark .text-black { color: #94a3b8 !important; }
                     
                     /* Global Shadow and Border Removal - Modern Aesthetic */
-                    section, .ftco-section, .card, .staff-card, .staff-card:hover, .btn {
+                    section, .ftco-section, .card, .staff-card, .staff-card:hover {
                         box-shadow: none !important;
                     }
                     /* Remove legacy borders only */
@@ -269,6 +270,7 @@ function AppContent() {
                     <Route path="/resources" element={<PublicResourcesPage />} />
                     <Route path="/resources" element={<PublicResourcesPage />} />
                     <Route path="/our-programs-details" element={<OurProgramsDetailsPage />} />
+                    <Route path="/get-involved" element={<GetInvolvedPage />} />
 
                     {/* Admin Dashboard Routes */}
                     <Route element={<ProtectedRoute allowedRoles={[UserType.ADMIN]} />}>

@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../../lib/language-context';
 import { FloatingScrollToTop } from './FloatingScrollToTop';
 import { Chatbot } from './Chatbot';
 import { Send, Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
 
 export const Footer = () => {
+    const { t } = useLanguage();
+
     return (
         <footer className="ftco-footer ftco-section" style={{
             backgroundColor: '#051a1aff',
@@ -26,13 +29,13 @@ export const Footer = () => {
 
                 <div className="row justify-content-center mb-5 pb-5" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
                     <div className="col-md-10 text-center ftco-animate">
-                        <h2 className="mb-2 text-white font-weight-bold" style={{ fontSize: '36px', letterSpacing: '-1px' }}>Stay Connected</h2>
+                        <h2 className="mb-2 text-white font-weight-bold" style={{ fontSize: '36px', letterSpacing: '-1px' }}>{t('footer.stay_connected')}</h2>
                         <p className="mb-4" style={{ color: 'rgba(204, 201, 201, 0.7)', fontSize: '18px' }}>
-                            Subscribe to our newsletter for updates, impact stories, and ways to get involved
+                            {t('footer.newsletter_desc')}
                         </p>
                         <form className="subscribe-form d-flex justify-content-center mt-4">
                             <div className="position-relative d-flex align-items-center" style={{ width: '100%', maxWidth: '550px' }}>
-                                <input type="email" className="form-control" placeholder="Enter your email"
+                                <input type="email" className="form-control" placeholder={t('footer.email_placeholder')}
                                     style={{
                                         height: '60px',
                                         background: 'rgba(255,255,255,0.08)',
@@ -60,7 +63,7 @@ export const Footer = () => {
                                         transition: 'all 0.3s ease'
                                     }}>
                                     <Send size={16} className="mr-2" strokeWidth={2} />
-                                    Subscribe
+                                    {t('footer.subscribe')}
                                 </button>
                             </div>
                         </form>
@@ -72,7 +75,7 @@ export const Footer = () => {
                     <div className="col-md-3">
                         <div className="ftco-footer-widget mb-4">
                             <h2 className="ftco-heading-2 text-white" style={{ fontWeight: 700 }}>LCEO</h2>
-                            <p>Empowering vulnerable young women and girls in Rwanda through education, entrepreneurship, and health programs.</p>
+                            <p>{t('footer.brand_desc')}</p>
                             <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5 display-flex">
                                 <li className="ftco-animate"><a href="#" style={{ background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Facebook size={20} strokeWidth={1.5} /></a></li>
                                 <li className="ftco-animate"><a href="#" style={{ background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Twitter size={20} strokeWidth={1.5} /></a></li>
@@ -85,14 +88,14 @@ export const Footer = () => {
                     {/* Quick Links */}
                     <div className="col-md-3">
                         <div className="ftco-footer-widget mb-4 ml-md-4">
-                            <h2 className="ftco-heading-2 text-white" style={{ fontWeight: 700 }}>Quick Links</h2>
+                            <h2 className="ftco-heading-2 text-white" style={{ fontWeight: 700 }}>{t('footer.quick_links')}</h2>
                             <ul className="list-unstyled">
-                                <li><Link to="/about" className="py-2 d-block">About Us</Link></li>
-                                <li><Link to="/how-we-work" className="py-2 d-block">How We Work</Link></li>
-                                <li><Link to="/strategic-direction" className="py-2 d-block">Strategic Direction</Link></li>
-                                <li><Link to="/impact-stories" className="py-2 d-block">Impact & Stories</Link></li>
-                                <li><Link to="/resources" className="py-2 d-block">Resources</Link></li>
-                                <li><Link to="/contact" className="py-2 d-block">Contact Us</Link></li>
+                                <li><Link to="/about" className="py-2 d-block">{t('nav.about')}</Link></li>
+                                <li><Link to="/how-we-work" className="py-2 d-block">{t('nav.how_we_work')}</Link></li>
+                                <li><Link to="/strategic-direction" className="py-2 d-block">{t('nav.strategic_direction')}</Link></li>
+                                <li><Link to="/impact-stories" className="py-2 d-block">{t('nav.impact')}</Link></li>
+                                <li><Link to="/resources" className="py-2 d-block">{t('nav.resources')}</Link></li>
+                                <li><Link to="/contact" className="py-2 d-block">{t('nav.contact')}</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -100,12 +103,12 @@ export const Footer = () => {
                     {/* Get Involved */}
                     <div className="col-md-3">
                         <div className="ftco-footer-widget mb-4 ml-md-4">
-                            <h2 className="ftco-heading-2 text-white" style={{ fontWeight: 700 }}>Get Involved</h2>
+                            <h2 className="ftco-heading-2 text-white" style={{ fontWeight: 700 }}>{t('footer.get_involved')}</h2>
                             <ul className="list-unstyled">
-                                <li><Link to="/donate" className="py-2 d-block">Donate</Link></li>
-                                <li><Link to="/contact" className="py-2 d-block">Monthly Giving</Link></li>
-                                <li><Link to="/contact" className="py-2 d-block">Volunteer</Link></li>
-                                <li><Link to="/contact" className="py-2 d-block">Partner With Us</Link></li>
+                                <li><Link to="/donate" className="py-2 d-block">{t('nav.donate')}</Link></li>
+                                <li><Link to="/contact" className="py-2 d-block">{t('footer.monthly_giving')}</Link></li>
+                                <li><Link to="/contact" className="py-2 d-block">{t('footer.volunteer')}</Link></li>
+                                <li><Link to="/contact" className="py-2 d-block">{t('footer.partner_with_us')}</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -113,12 +116,12 @@ export const Footer = () => {
                     {/* Contact Us */}
                     <div className="col-md-3">
                         <div className="ftco-footer-widget mb-4">
-                            <h2 className="ftco-heading-2 text-white" style={{ fontWeight: 700 }}>Contact Us</h2>
+                            <h2 className="ftco-heading-2 text-white" style={{ fontWeight: 700 }}>{t('footer.contact_us')}</h2>
                             <div className="block-23 mb-3">
                                 <ul>
-                                    <li><div className="d-flex align-items-start"><MapPin size={22} className="mr-3 mt-1" style={{ color: '#eacfa2' }} strokeWidth={2} /><span className="text"><strong>Address:</strong> Bugesera District, Nyamata Sector Eastern Province, Rwanda</span></div></li>
-                                    <li><a href="tel:+250788123456" className="d-flex align-items-center"><Phone size={22} className="mr-3" style={{ color: '#eacfa2' }} strokeWidth={2} /><span className="text"><strong>Phone:</strong> +250 788 123 456</span></a></li>
-                                    <li><a href="mailto:info.lceo@gmail.com" className="d-flex align-items-center"><Mail size={22} className="mr-3" style={{ color: '#eacfa2' }} strokeWidth={2} /><span className="text"><strong>Email:</strong> info.lceo@gmail.com</span></a></li>
+                                    <li><div className="d-flex align-items-start"><MapPin size={22} className="mr-3 mt-1" style={{ color: '#eacfa2' }} strokeWidth={2} /><span className="text"><strong>{t('footer.address_label')}:</strong> {t('footer.address_value')}</span></div></li>
+                                    <li><a href={`tel:${t('footer.phone_value')}`} className="d-flex align-items-center"><Phone size={22} className="mr-3" style={{ color: '#eacfa2' }} strokeWidth={2} /><span className="text"><strong>{t('footer.phone_label')}:</strong> {t('footer.phone_value')}</span></a></li>
+                                    <li><a href={`mailto:${t('footer.email_value')}`} className="d-flex align-items-center"><Mail size={22} className="mr-3" style={{ color: '#eacfa2' }} strokeWidth={2} /><span className="text"><strong>{t('footer.email_label')}:</strong> {t('footer.email_value')}</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -128,7 +131,7 @@ export const Footer = () => {
                 <div className="row py-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
                     <div className="col-md-12 text-center">
                         <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '0' }}>
-                            Copyright &copy; {new Date().getFullYear()} Life-Changing Endeavor Organization. All rights reserved.
+                            Copyright &copy; {new Date().getFullYear()} {t('footer.brand_name')} {t('footer.copyright')}
                         </p>
                     </div>
                 </div>

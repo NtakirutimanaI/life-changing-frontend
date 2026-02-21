@@ -9,6 +9,50 @@ export const AboutPage = () => {
     useLegacyScripts();
     const { t } = useLanguage();
 
+    const coreValues = [
+        { title: t('about.value_empowerment_title'), desc: t('about.value_empowerment_desc'), icon: <Zap size={32} strokeWidth={1.5} /> },
+        { title: t('about.value_protection_title'), desc: t('about.value_protection_desc'), icon: <Shield size={32} strokeWidth={1.5} /> },
+        { title: t('about.value_innovation_title'), desc: t('about.value_innovation_desc'), icon: <Lightbulb size={32} strokeWidth={1.5} /> },
+        { title: t('about.value_compassion_title'), desc: t('about.value_compassion_desc'), icon: <HeartHandshake size={32} strokeWidth={1.5} /> },
+        { title: t('about.value_community_title'), desc: t('about.value_community_desc'), icon: <Users size={32} strokeWidth={1.5} /> },
+        { title: t('about.value_excellence_title'), desc: t('about.value_excellence_desc'), icon: <Award size={32} strokeWidth={1.5} /> }
+    ];
+
+    const teamMembers = [
+        {
+            name: 'Sarah Mugabo',
+            role: t('about.team_role_sarah'),
+            bio: t('about.team_bio_sarah'),
+            image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&h=800&auto=format&fit=crop'
+        },
+        {
+            name: 'Jean Paul Uwimana',
+            role: t('about.team_role_jean'),
+            bio: t('about.team_bio_jean'),
+            image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&h=800&auto=format&fit=crop'
+        },
+        {
+            name: 'Grace Mutesi',
+            role: t('about.team_role_grace'),
+            bio: t('about.team_bio_grace'),
+            image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=600&h=800&auto=format&fit=crop'
+        },
+        {
+            name: 'Emmanuel Nkusi',
+            role: t('about.team_role_emmanuel'),
+            bio: t('about.team_bio_emmanuel'),
+            image: 'https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=600&h=800&auto=format&fit=crop'
+        }
+    ];
+
+    const milestones = [
+        { year: '2020', title: t('about.milestone_2020_title'), desc: t('about.milestone_2020_desc') },
+        { year: '2021', title: t('about.milestone_2021_title'), desc: t('about.milestone_2021_desc') },
+        { year: '2022', title: t('about.milestone_2022_title'), desc: t('about.milestone_2022_desc') },
+        { year: '2023', title: t('about.milestone_2023_title'), desc: t('about.milestone_2023_desc') },
+        { year: '2024', title: t('about.milestone_2024_title'), desc: t('about.milestone_2024_desc') }
+    ];
+
     return (
         <>
             <style>{`
@@ -17,6 +61,12 @@ export const AboutPage = () => {
                     border: none !important;
                 }
                 .border-bottom { border-bottom: none !important; }
+                
+                .staff-card:hover .team-photo { transform: scale(1.1); }
+                .staff-card:hover .info-panel { transform: translateY(-30px); height: 130px; }
+                .staff-card:hover .bio-text { max-height: 60px; opacity: 1; margin-top: 8px; }
+                .staff-card:hover .linkedin-pop { transform: scale(1.2) rotate(360deg); background-color: #4FB1A1; }
+                .staff-card:hover .linkedin-pop span { color: #fff; }
             `}</style>
 
             <div className="hero-wrap" style={{ backgroundImage: "url('/images/about.jpg')", height: '350px', minHeight: '350px' }}>
@@ -29,8 +79,8 @@ export const AboutPage = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6 }}
                                 className="breadcrumbs">
-                                <span className="mr-2"><Link to="/">Home</Link></span>
-                                <span>About</span>
+                                <span className="mr-2"><Link to="/">{t('about.breadcrumb_home')}</Link></span>
+                                <span>{t('about.breadcrumb_about')}</span>
                             </motion.p>
                             <motion.h1
                                 initial={{ opacity: 0, y: 20 }}
@@ -52,7 +102,6 @@ export const AboutPage = () => {
             }}>
                 <div className="container">
                     <div className="row align-items-center">
-                        {/* Left Column: Image with Overlay Caption */}
                         <div className="col-lg-6 mb-5 mb-lg-0">
                             <motion.div
                                 initial={{ opacity: 0, x: -30 }}
@@ -79,14 +128,13 @@ export const AboutPage = () => {
                                     textAlign: 'center'
                                 }}>
                                     <h4 className="font-weight-bold mb-0" style={{ fontSize: '18px', color: '#111', lineHeight: '1.4' }}>
-                                        Education, Entrepreneurship, and Mentorship <br />
-                                        <span style={{ color: '#076c5b' }}>Delivered by a Dedicated Team</span>
+                                        {t('about.team_caption_title')} <br />
+                                        <span style={{ color: '#076c5b' }}>{t('about.team_caption_subtitle')}</span>
                                     </h4>
                                 </div>
                             </motion.div>
                         </div>
 
-                        {/* Right Column: Content & Tabs */}
                         <div className="col-lg-6 pl-lg-5">
                             <motion.span
                                 initial={{ opacity: 0, y: 10 }}
@@ -95,7 +143,7 @@ export const AboutPage = () => {
                                 transition={{ duration: 0.5 }}
                                 className="badge badge-light px-3 py-2 mb-3 font-weight-bold"
                                 style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>
-                                About Us
+                                {t('about.badge')}
                             </motion.span>
                             <motion.h2
                                 initial={{ opacity: 0, y: 20 }}
@@ -104,7 +152,7 @@ export const AboutPage = () => {
                                 transition={{ duration: 0.6, delay: 0.1 }}
                                 className="mb-4 font-weight-bold"
                                 style={{ fontSize: '42px', lineHeight: '1.2', color: '#111' }}>
-                                Building Long-Term Impact for <span style={{ color: '#076c5b' }}>Vulnerable Communities</span>
+                                {t('about.title_impact_prefix')}<span style={{ color: '#076c5b' }}>{t('about.title_impact_highlight')}</span>
                             </motion.h2>
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
@@ -113,10 +161,9 @@ export const AboutPage = () => {
                                 transition={{ duration: 0.6, delay: 0.2 }}
                                 className="lead mb-4"
                                 style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
-                                Life-Changing Endeavor Organization (LCEO) is a Kigali-based non-profit delivering education, health, and economic empowerment services under one integrated team. Trusted by communities across Rwanda, we build sustainable systems and growth-driven initiatives that generate real human results.
+                                {t('about.description')}
                             </motion.p>
 
-                            {/* Tabs for Vision and Mission */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -127,25 +174,25 @@ export const AboutPage = () => {
                                     <li className="nav-item">
                                         <a className="nav-link active font-weight-bold px-0 py-2" id="pills-vision-tab" data-toggle="pill" href="#pills-vision" role="tab" aria-controls="pills-vision" aria-selected="true"
                                             style={{ color: '#111', backgroundColor: 'transparent', borderBottom: 'none', borderRadius: 0, textTransform: 'uppercase', fontSize: '14px', letterSpacing: '1px' }}>
-                                            Our Vision
+                                            {t('about.vision_tab')}
                                         </a>
                                     </li>
                                     <li className="nav-item">
                                         <a className="nav-link font-weight-bold px-0 py-2" id="pills-mission-tab" data-toggle="pill" href="#pills-mission" role="tab" aria-controls="pills-mission" aria-selected="false"
                                             style={{ color: '#888', backgroundColor: 'transparent', borderRadius: 0, textTransform: 'uppercase', fontSize: '14px', letterSpacing: '1px' }}>
-                                            Our Mission
+                                            {t('about.mission_tab')}
                                         </a>
                                     </li>
                                 </ul>
                                 <div className="tab-content pt-2" id="pills-tabContent">
                                     <div className="tab-pane fade show active" id="pills-vision" role="tabpanel" aria-labelledby="pills-vision-tab">
                                         <p style={{ color: '#666', fontSize: '15px', lineHeight: '1.7' }}>
-                                            A society where young women and girls are mentally strong, educated, and economically empowered — free to lead and thrive in their communities.
+                                            {t('about.vision_desc')}
                                         </p>
                                     </div>
                                     <div className="tab-pane fade" id="pills-mission" role="tabpanel" aria-labelledby="pills-mission-tab">
                                         <p style={{ color: '#666', fontSize: '15px', lineHeight: '1.7' }}>
-                                            To walk alongside girls and women as they heal, grow, and thrive — through mindset shift, mental resilience, quality education, and sustainable economic empowerment.
+                                            {t('about.mission_desc')}
                                         </p>
                                     </div>
                                 </div>
@@ -166,7 +213,7 @@ export const AboutPage = () => {
                                 transition={{ duration: 0.5 }}
                                 className="badge badge-light px-3 py-2 mb-3 font-weight-bold"
                                 style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>
-                                Our Foundation
+                                {t('about.foundation_badge')}
                             </motion.span>
                             <motion.h2
                                 initial={{ opacity: 0, y: 20 }}
@@ -175,7 +222,7 @@ export const AboutPage = () => {
                                 transition={{ duration: 0.6, delay: 0.1 }}
                                 className="mb-4 font-weight-bold"
                                 style={{ fontSize: '42px', color: '#111' }}>
-                                Our Core Values
+                                {t('about.values_title')}
                             </motion.h2>
                         </div>
                     </div>
@@ -200,7 +247,7 @@ export const AboutPage = () => {
                                         transition={{ duration: 0.8, ease: "easeOut" }}
                                         className="text-white font-weight-bold mb-3" style={{ fontSize: '36px', letterSpacing: '-1px' }}
                                     >
-                                        Guided by Purpose, Driven by <span style={{ color: '#4FB1A1' }}>Impact</span>
+                                        {t('about.values_heading_prefix')}<span style={{ color: '#4FB1A1' }}>{t('about.values_heading_highlight')}</span>
                                     </motion.h3>
                                     <motion.p
                                         initial={{ opacity: 0, y: 20 }}
@@ -209,7 +256,7 @@ export const AboutPage = () => {
                                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                                         className="text-white opacity-75 mx-auto" style={{ maxWidth: '700px', fontSize: '18px', lineHeight: '1.6' }}
                                     >
-                                        The principles that guide our work and commitment to empowering vulnerable young women and girls in Rwanda.
+                                        {t('about.values_desc')}
                                     </motion.p>
                                 </div>
                             </div>
@@ -229,14 +276,7 @@ export const AboutPage = () => {
                                 }}
                                 className="row justify-content-center"
                             >
-                                {[
-                                    { title: 'Empowerment', desc: 'Unlocking the inherent potential in every girl to lead.', icon: <Zap size={32} strokeWidth={1.5} /> },
-                                    { title: 'Protection', desc: 'Creating safe, nurturing spaces for healing and growth.', icon: <Shield size={32} strokeWidth={1.5} /> },
-                                    { title: 'Innovation', desc: 'Using evidence-based and creative approaches for change.', icon: <Lightbulb size={32} strokeWidth={1.5} /> },
-                                    { title: 'Compassion', desc: 'Walking alongside our beneficiaries with empathy and respect.', icon: <HeartHandshake size={32} strokeWidth={1.5} /> },
-                                    { title: 'Community', desc: 'Building sustainable networks of local and global support.', icon: <Users size={32} strokeWidth={1.5} /> },
-                                    { title: 'Excellence', desc: 'Committed to delivering measurable and lasting human results.', icon: <Award size={32} strokeWidth={1.5} /> }
-                                ].map((value, idx) => (
+                                {coreValues.map((value, idx) => (
                                     <motion.div
                                         key={idx}
                                         variants={{
@@ -265,7 +305,7 @@ export const AboutPage = () => {
                                                 </div>
                                                 <h4 className="text-white font-weight-bold mb-0" style={{ fontSize: '22px', lineHeight: '1.3' }}>
                                                     {value.title} <br />
-                                                    <span style={{ fontWeight: '400', fontSize: '15px', color: 'rgba(255,255,255,0.6)' }}>Core Principle</span>
+                                                    <span style={{ fontWeight: '400', fontSize: '15px', color: 'rgba(255,255,255,0.6)' }}>{t('about.value_card_badge')}</span>
                                                 </h4>
 
                                                 <div style={{
@@ -278,7 +318,7 @@ export const AboutPage = () => {
                                                     textTransform: 'uppercase',
                                                     letterSpacing: '1px'
                                                 }}>
-                                                    LCEO Support
+                                                    {t('about.value_card_footer')}
                                                 </div>
                                             </div>
 
@@ -294,7 +334,7 @@ export const AboutPage = () => {
                                                     display: 'flex',
                                                     alignItems: 'center'
                                                 }}>
-                                                    READ MORE <span className="ml-2" style={{ fontSize: '16px' }}>»</span>
+                                                    {t('about.read_more_btn')} <span className="ml-2" style={{ fontSize: '16px' }}>»</span>
                                                 </Link>
                                             </div>
                                         </div>
@@ -315,7 +355,7 @@ export const AboutPage = () => {
                                     color: '#fff',
                                     transition: 'all 0.3s ease'
                                 }}>
-                                    Be Part of Our Journey
+                                    {t('about.journey_btn')}
                                 </Link>
                             </motion.div>
                         </div>
@@ -334,7 +374,7 @@ export const AboutPage = () => {
                                 transition={{ duration: 0.5 }}
                                 className="badge badge-light px-3 py-2 mb-2 font-weight-bold"
                                 style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>
-                                Meet Our Team
+                                {t('about.team_badge')}
                             </motion.span>
                             <motion.h2
                                 initial={{ opacity: 0, y: 20 }}
@@ -343,37 +383,12 @@ export const AboutPage = () => {
                                 transition={{ duration: 0.6, delay: 0.1 }}
                                 className="mb-2 font-weight-bold"
                                 style={{ fontSize: '32px', color: '#111' }}>
-                                The People Behind LCEO
+                                {t('about.team_title')}
                             </motion.h2>
                         </div>
                     </div>
                     <div className="row">
-                        {[
-                            {
-                                name: 'Sarah Mugabo',
-                                role: 'Executive Director',
-                                bio: '15+ years of experience in development and empowerment work in Rwanda.',
-                                image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&h=800&auto=format&fit=crop'
-                            },
-                            {
-                                name: 'Jean Paul Uwimana',
-                                role: 'Program Manager',
-                                bio: 'Expert in education and youth development programs across local communities.',
-                                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&h=800&auto=format&fit=crop'
-                            },
-                            {
-                                name: 'Grace Mutesi',
-                                role: 'Finance Director',
-                                bio: 'Ensuring transparency, accountability, and sustainable financial operations.',
-                                image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=600&h=800&auto=format&fit=crop'
-                            },
-                            {
-                                name: 'Emmanuel Nkusi',
-                                role: 'M&E Specialist',
-                                bio: 'Data-driven approach to measuring and improving program effectiveness.',
-                                image: 'https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=600&h=800&auto=format&fit=crop'
-                            }
-                        ].map((member, idx) => (
+                        {teamMembers.map((member, idx) => (
                             <div className="col-md-3 mb-4" key={idx}>
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}
@@ -446,13 +461,6 @@ export const AboutPage = () => {
                                             transition: 'all 0.3s ease'
                                         }}>{member.bio}</p>
                                     </div>
-                                    <style>{`
-                                        .staff-card:hover .team-photo { transform: scale(1.1); }
-                                        .staff-card:hover .info-panel { transform: translateY(-30px); height: 130px; }
-                                        .staff-card:hover .bio-text { maxHeight: 60px; opacity: 1; margin-top: 8px; }
-                                        .staff-card:hover .linkedin-pop { transform: scale(1.2) rotate(360deg); background-color: #4FB1A1; }
-                                        .staff-card:hover .linkedin-pop span { color: #fff; }
-                                    `}</style>
                                 </motion.div>
                             </div>
                         ))}
@@ -471,7 +479,7 @@ export const AboutPage = () => {
                                 transition={{ duration: 0.5 }}
                                 className="badge badge-light px-3 py-2 mb-3 font-weight-bold"
                                 style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>
-                                Progress
+                                {t('about.progress_badge')}
                             </motion.span>
                             <motion.h2
                                 initial={{ opacity: 0, y: 20 }}
@@ -480,7 +488,7 @@ export const AboutPage = () => {
                                 transition={{ duration: 0.6, delay: 0.1 }}
                                 className="mb-4 font-weight-bold"
                                 style={{ fontSize: '42px', color: '#111', letterSpacing: '-1px' }}>
-                                Milestones & Achievements
+                                {t('about.progress_title')}
                             </motion.h2>
                         </div>
                     </div>
@@ -503,13 +511,7 @@ export const AboutPage = () => {
                                     backgroundColor: '#e2f5f2'
                                 }}></div>
 
-                                {[
-                                    { year: '2020', title: 'LCEO Founded', desc: 'Established in Bugesera District with a vision to transform lives through mindset and mental resilience.' },
-                                    { year: '2021', title: 'First Program Launch', desc: 'The Girls School Retention program reaches its first 50 beneficiaries with integrated support.' },
-                                    { year: '2022', title: 'IkiraroBiz Initiative', desc: 'A major entrepreneurship shift, supporting 30 young women in launching sustainable businesses.' },
-                                    { year: '2023', title: 'Major Expansion', desc: 'Scaled operations to multiple districts, reaching 200+ beneficiaries across all core pillars.' },
-                                    { year: '2024', title: 'Recognition & Growth', desc: 'Signed strategic partnership with FAWE Rwanda, now serving 312 beneficiaries and counting.' }
-                                ].map((step, idx) => (
+                                {milestones.map((step, idx) => (
                                     <div key={idx} className="d-flex mb-5 last:mb-0 position-relative" style={{ zIndex: 1 }}>
                                         <div className="d-flex align-items-center justify-content-center flex-shrink-0"
                                             style={{
@@ -572,7 +574,7 @@ export const AboutPage = () => {
                                         position: 'absolute'
                                     }}>
                                         <div style={{ position: 'absolute', bottom: '20px', left: '20px', color: '#fff', zIndex: 2 }}>
-                                            <h6 className="font-weight-bold mb-0">Impact 2023</h6>
+                                            <h6 className="font-weight-bold mb-0">{t('about.image_impact_label')}</h6>
                                         </div>
                                         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to top, rgba(7, 108, 91, 0.4), transparent)', borderRadius: '16px' }}></div>
                                     </div>
@@ -591,7 +593,7 @@ export const AboutPage = () => {
                                         position: 'absolute'
                                     }}>
                                         <div style={{ position: 'absolute', bottom: '20px', left: '20px', color: '#fff', zIndex: 2 }}>
-                                            <h6 className="font-weight-bold mb-0">Our Journey</h6>
+                                            <h6 className="font-weight-bold mb-0">{t('about.image_journey_label')}</h6>
                                         </div>
                                         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to top, rgba(7, 108, 91, 0.4), transparent)', borderRadius: '16px' }}></div>
                                     </div>
@@ -614,7 +616,7 @@ export const AboutPage = () => {
                                     }}>
                                         <div className="text-center">
                                             <span style={{ fontSize: '24px', fontWeight: 'bold' }}>5y+</span> <br />
-                                            <span style={{ fontSize: '10px', textTransform: 'uppercase' }}>Legacy</span>
+                                            <span style={{ fontSize: '10px', textTransform: 'uppercase' }}>{t('about.legacy_label')}</span>
                                         </div>
                                     </div>
                                 </div>

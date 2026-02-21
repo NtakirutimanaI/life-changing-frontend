@@ -36,9 +36,7 @@ export const Navbar = () => {
 
     const languages = [
         { code: 'en', name: 'English' },
-        { code: 'rw', name: 'Kinyarwanda' },
-        { code: 'sw', name: 'Swahili' },
-        { code: 'fr', name: 'French' }
+        { code: 'rw', name: 'Kinyarwanda' }
     ] as const;
 
     const handleLogout = () => {
@@ -359,9 +357,19 @@ export const Navbar = () => {
                         transform: translateX(-50%) scaleX(0);
                         width: 30px;
                         height: 4px;
-                        background-color: #076c5b;
+                        background-color: #17d1ac;
                         border-radius: 2px;
                         transition: transform 0.3s ease;
+                    }
+                    .dropdown-toggle::after {
+                        display: none !important;
+                    }
+                    .dropdown-chevron {
+                        transition: transform 0.3s ease;
+                    }
+                    .nav-item.dropdown:hover .dropdown-chevron,
+                    .nav-item.dropdown.is-active .dropdown-chevron {
+                        transform: rotate(180deg);
                     }
                     .nav-item.dropdown.mega-dropdown {
                         position: static !important;
@@ -429,11 +437,14 @@ export const Navbar = () => {
                         align-items: center;
                     }
                     .mega-title::before {
-                        content: '>';
-                        margin-right: 8px;
-                        color: #076c5b;
-                        font-weight: 900;
-                        font-size: 14px;
+                        content: '';
+                        display: inline-block;
+                        width: 10px;
+                        height: 10px;
+                        margin-right: 12px;
+                        border-right: 3px solid #17d1ac;
+                        border-bottom: 3px solid #17d1ac;
+                        transform: rotate(-45deg);
                     }
                     .mega-link {
                         display: block;
@@ -448,13 +459,17 @@ export const Navbar = () => {
                         padding-left: 20px !important;
                     }
                     .mega-link::before {
-                        content: '>';
+                        content: '';
                         position: absolute;
                         left: 0;
-                        color: #4FB1A1;
+                        top: 50%;
+                        width: 6px;
+                        height: 6px;
+                        border-right: 2px solid #4FB1A1;
+                        border-bottom: 2px solid #4FB1A1;
+                        transform: translateY(-50%) rotate(-45deg);
                         opacity: 0.6;
-                        font-size: 12px;
-                        font-weight: 900;
+                        transition: all 0.3s ease;
                     }
                     .mega-link:hover {
                         color: #076c5b !important;
@@ -604,7 +619,7 @@ export const Navbar = () => {
                     </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                         aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <Menu size={24} strokeWidth={1.5} className="oi-menu" /> Menu
+                        <Menu size={24} strokeWidth={1.5} className="oi-menu" /> {t('nav.menu') || 'Menu'}
                     </button>
 
                     <div className="collapse navbar-collapse" id="ftco-nav">
@@ -614,9 +629,10 @@ export const Navbar = () => {
                                 className={`nav-item dropdown mega-dropdown ${activeDropdown === 'about' ? 'is-active' : ''}`}
                                 onMouseEnter={() => setActiveDropdown('about')}
                             >
-                                <a className="nav-link dropdown-toggle" href="#" id="whoWeAreDropdown" role="button"
+                                <a className="nav-link dropdown-toggle d-flex align-items-center" href="#" id="whoWeAreDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {t('nav.about')}
+                                    <ChevronDown size={14} className="ml-2 dropdown-chevron" />
                                 </a>
                                 <div className="dropdown-menu shadow-xl" aria-labelledby="whoWeAreDropdown">
                                     <div className="mega-menu-container">
@@ -625,10 +641,10 @@ export const Navbar = () => {
                                             <div className="mb-2 overflow-hidden rounded shadow-sm" style={{ height: '80px' }}>
                                                 <img src="/images/cause-1.jpg" alt="Donate" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                             </div>
-                                            <h4 className="font-weight-bold mb-1" style={{ fontSize: '15px', color: '#111' }}>Donate today</h4>
-                                            <p className="small mb-2 text-muted" style={{ lineHeight: '1.3', fontSize: '11px' }}>Give your support where it's needed most to empower girls and women.</p>
+                                            <h4 className="font-weight-bold mb-1" style={{ fontSize: '15px', color: '#111' }}>{t('navbar.mega.donate_title')}</h4>
+                                            <p className="small mb-2 text-muted" style={{ lineHeight: '1.3', fontSize: '11px' }}>{t('navbar.mega.donate_desc')}</p>
                                             <Link to="/donate" className="btn px-4 py-2 mt-auto font-weight-bold shadow-sm" style={{ backgroundColor: '#076c5b', color: '#fff', borderRadius: '30px', fontSize: '14px' }}>
-                                                Donate now
+                                                {t('navbar.mega.donate_btn')}
                                             </Link>
                                         </div>
 
@@ -637,20 +653,20 @@ export const Navbar = () => {
                                             <div className="mega-menu-content">
                                                 {/* Column 1: Our Approach */}
                                                 <div className="mega-column">
-                                                    <h5 className="mega-title">Who We Are</h5>
+                                                    <h5 className="mega-title">{t('navbar.mega.who_we_are')}</h5>
                                                     <Link className="mega-link" to="/about">{t('nav.about')}</Link>
                                                     <Link className="mega-link" to="/how-we-work">{t('nav.how_we_work')}</Link>
                                                 </div>
 
                                                 {/* Column 2: Our Strategy */}
                                                 <div className="mega-column">
-                                                    <h5 className="mega-title">Our Strategy</h5>
-                                                    <Link className="mega-link" to="/strategic-direction">Strategic Direction</Link>
+                                                    <h5 className="mega-title">{t('navbar.mega.our_strategy')}</h5>
+                                                    <Link className="mega-link" to="/strategic-direction">{t('nav.strategic_direction')}</Link>
                                                 </div>
 
                                                 {/* Column 3: Impact Hub */}
                                                 <div className="mega-column" style={{ borderRight: 'none' }}>
-                                                    <h5 className="mega-title">Knowledge Hub</h5>
+                                                    <h5 className="mega-title">{t('navbar.mega.knowledge_hub')}</h5>
                                                     <Link className="mega-link" to="/resources">{t('nav.resources')}</Link>
                                                 </div>
                                             </div>
@@ -662,9 +678,10 @@ export const Navbar = () => {
                                 className={`nav-item dropdown mega-dropdown ${activeDropdown === 'impact' ? 'is-active' : ''}`}
                                 onMouseEnter={() => setActiveDropdown('impact')}
                             >
-                                <a className="nav-link dropdown-toggle" href="#" id="impactDropdown" role="button"
+                                <a className="nav-link dropdown-toggle d-flex align-items-center" href="#" id="impactDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {t('nav.impact')}
+                                    <ChevronDown size={14} className="ml-2 dropdown-chevron" />
                                 </a>
                                 <div className="dropdown-menu shadow-xl" aria-labelledby="impactDropdown">
                                     <div className="mega-menu-container">
@@ -673,10 +690,10 @@ export const Navbar = () => {
                                             <div className="mb-2 overflow-hidden rounded shadow-sm" style={{ height: '80px' }}>
                                                 <img src="/images/img1.jpg" alt="Annual Report" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                             </div>
-                                            <h4 className="font-weight-bold mb-1" style={{ fontSize: '15px', color: '#111' }}>Read our 2024 annual report</h4>
-                                            <p className="small mb-2 text-muted" style={{ lineHeight: '1.3', fontSize: '11px' }}>LCEO's objectives, activities and achievements in 2024 can be found in our core report.</p>
+                                            <h4 className="font-weight-bold mb-1" style={{ fontSize: '15px', color: '#111' }}>{t('navbar.mega.report_title')}</h4>
+                                            <p className="small mb-2 text-muted" style={{ lineHeight: '1.3', fontSize: '11px' }}>{t('navbar.mega.report_desc')}</p>
                                             <Link to="/resources" className="btn px-4 py-2 mt-auto font-weight-bold shadow-sm" style={{ backgroundColor: '#076c5b', color: '#fff', borderRadius: '30px', fontSize: '14px' }}>
-                                                Read the report
+                                                {t('navbar.mega.report_btn')}
                                             </Link>
                                         </div>
 
@@ -685,14 +702,14 @@ export const Navbar = () => {
                                             <div className="mega-menu-content">
                                                 {/* Column 1 */}
                                                 <div className="mega-column">
-                                                    <h5 className="mega-title">Real Impact</h5>
+                                                    <h5 className="mega-title">{t('navbar.mega.real_impact')}</h5>
                                                     <Link className="mega-link" to="/impact-stories">{t('nav.impact')}</Link>
                                                 </div>
 
                                                 {/* Column 2 */}
                                                 <div className="mega-column">
-                                                    <h5 className="mega-title">Help & Support</h5>
-                                                    <Link className="mega-link" to="/help-faq">Help & FAQ</Link>
+                                                    <h5 className="mega-title">{t('navbar.mega.help_support')}</h5>
+                                                    <Link className="mega-link" to="/help-faq">{t('navbar.mega.help_faq')}</Link>
                                                 </div>
 
                                                 {/* Column 3 */}
@@ -707,9 +724,10 @@ export const Navbar = () => {
                                 className={`nav-item dropdown mega-dropdown ${activeDropdown === 'contact' ? 'is-active' : ''}`}
                                 onMouseEnter={() => setActiveDropdown('contact')}
                             >
-                                <a className="nav-link dropdown-toggle" href="#" id="getInvolvedDropdown" role="button"
+                                <a className="nav-link dropdown-toggle d-flex align-items-center" href="#" id="getInvolvedDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {t('nav.contact')}
+                                    <ChevronDown size={14} className="ml-2 dropdown-chevron" />
                                 </a>
                                 <div className="dropdown-menu shadow-xl" aria-labelledby="getInvolvedDropdown">
                                     <div className="mega-menu-container">
@@ -718,10 +736,10 @@ export const Navbar = () => {
                                             <div className="mb-2 overflow-hidden rounded shadow-sm" style={{ height: '80px' }}>
                                                 <img src="/images/pic12.jpg" alt="Join Mission" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                             </div>
-                                            <h4 className="font-weight-bold mb-1" style={{ fontSize: '15px', color: '#111' }}>Join our mission</h4>
-                                            <p className="small mb-2 text-muted" style={{ lineHeight: '1.3', fontSize: '11px' }}>Become a champion for change and help us transform more lives together.</p>
+                                            <h4 className="font-weight-bold mb-1" style={{ fontSize: '15px', color: '#111' }}>{t('navbar.mega.join_mission_title')}</h4>
+                                            <p className="small mb-2 text-muted" style={{ lineHeight: '1.3', fontSize: '11px' }}>{t('navbar.mega.join_mission_desc')}</p>
                                             <Link to="/contact" className="btn px-4 py-2 mt-auto font-weight-bold shadow-sm" style={{ backgroundColor: '#076c5b', color: '#fff', borderRadius: '30px', fontSize: '14px' }}>
-                                                Get involved
+                                                {t('navbar.mega.get_involved_btn')}
                                             </Link>
                                         </div>
 
@@ -730,13 +748,14 @@ export const Navbar = () => {
                                             <div className="mega-menu-content">
                                                 {/* Column 1 */}
                                                 <div className="mega-column">
-                                                    <h5 className="mega-title">Get in Touch</h5>
+                                                    <h5 className="mega-title">{t('navbar.mega.get_in_touch')}</h5>
                                                     <Link className="mega-link" to="/contact">{t('nav.contact')}</Link>
                                                 </div>
 
                                                 {/* Column 2 */}
                                                 <div className="mega-column">
-                                                    <h5 className="mega-title">Support LCEO</h5>
+                                                    <h5 className="mega-title">{t('navbar.mega.support_lceo')}</h5>
+                                                    <Link className="mega-link" to="/get-involved">Get Involved</Link>
                                                     <Link className="mega-link" to="/donate">{t('btn.donate')}</Link>
                                                 </div>
 
@@ -766,12 +785,13 @@ export const Navbar = () => {
                                             <span className="font-weight-bold" style={{ color: '#122f2b', fontSize: '0.9rem' }}>{user?.fullName?.split(' ')[0]}</span>
                                         </div>
                                     </Link>
-                                    <a className="nav-link dropdown-toggle pl-1" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                    <a className="nav-link dropdown-toggle pl-1 d-flex align-items-center" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
+                                        <ChevronDown size={14} className="dropdown-chevron" />
                                     </a>
                                     <div className="dropdown-menu dropdown-menu-right shadow-lg border-0 py-2 mt-2" aria-labelledby="userDropdown" style={{ borderRadius: '12px', minWidth: '180px' }}>
                                         <div className="px-4 py-2 border-bottom mb-2">
-                                            <div className="small text-muted">Role</div>
+                                            <div className="small text-muted">{t('navbar.user.role')}</div>
                                             <div className="font-weight-bold text-capitalize" style={{ fontSize: '0.85rem' }}>{user?.userType}</div>
                                         </div>
                                         <Link className="dropdown-item py-2 d-flex align-items-center" to={getDashboardLink()}>
@@ -815,6 +835,7 @@ export const Navbar = () => {
                                                 : 'text-white'
                                         }
                                     />
+                                    <ChevronDown size={14} className={"ml-1 dropdown-chevron " + (hasLightBackground || (isHelpFaqPage && !isScrolled) ? 'text-dark' : 'text-white')} />
                                 </a>
                                 <div className="dropdown-menu dropdown-menu-right shadow border-0" aria-labelledby="langDropdown">
                                     {languages.map((lang) => (

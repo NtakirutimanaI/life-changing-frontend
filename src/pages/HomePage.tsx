@@ -8,12 +8,7 @@ import { Users, GraduationCap, Briefcase, Award, Wallet, Heart, TrendingUp, Glob
 
 export const HomePage = () => {
     useLegacyScripts();
-
-    const [heroContent, setHeroContent] = useState({
-        title: 'Empower a Future Today',
-        subtitle: 'We support girls, caregivers, and youth by promoting education, health, mentorship, and skills development to strengthen families and build resilient communities.',
-        bgImage: '/images/bg_2.jpg'
-    });
+    const { language, t } = useLanguage();
 
     const [counters, setCounters] = useState({
         women: '5000',
@@ -22,11 +17,14 @@ export const HomePage = () => {
         leadership: '300'
     });
 
-    const [missionText, setMissionText] = useState('Life-Changing Endeavor Organization (LCEO) is a non-governmental organization based in Bugesera District, Rwanda. We support girls, caregivers, and youth by promoting education, health, mentorship, and skills development to strengthen families and build resilient communities.');
-
     // Typing effect state for Mission section
     const [typingText, setTypingText] = useState('');
-    const typingPhrases = ["And Improvements.", "Empowering Communities.", "Changing Lives.", "For a Better Future."];
+    const typingPhrases = {
+        en: ["And Improvements.", "Empowering Communities.", "Changing Lives.", "For a Better Future."],
+        rw: ["N'Inzira y'Iterambere.", "Guhindura Ubuzima.", "Kubaka Imiryango.", "Heza hazaza."],
+        sw: ["Na Maboresho.", "Kuwezesha Jamii.", "Kubadilisha Maisha.", "Kwa Baadaye Bora."],
+        fr: ["Et Améliorations.", "Autonomiser Communautés.", "Changer des Vies.", "Pour un Meilleur Avenir."]
+    };
     const [phraseIdx, setPhraseIdx] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -72,14 +70,15 @@ export const HomePage = () => {
 
     React.useEffect(() => {
         let timer: ReturnType<typeof setTimeout>;
-        const currentPhrase = typingPhrases[phraseIdx];
+        const phrases = typingPhrases[language as keyof typeof typingPhrases] || typingPhrases.en;
+        const currentPhrase = phrases[phraseIdx];
 
         if (isDeleting) {
             timer = setTimeout(() => {
                 setTypingText(currentPhrase.substring(0, typingText.length - 1));
                 if (typingText.length <= 1) {
                     setIsDeleting(false);
-                    setPhraseIdx((prev) => (prev + 1) % typingPhrases.length);
+                    setPhraseIdx((prev) => (prev + 1) % phrases.length);
                 }
             }, 50);
         } else {
@@ -93,15 +92,13 @@ export const HomePage = () => {
         }
 
         return () => clearTimeout(timer);
-    }, [typingText, isDeleting, phraseIdx]);
+    }, [typingText, isDeleting, phraseIdx, language]);
 
     // Helper to calculate percentage
     const getPercentage = (allocated: number = 0, budget: number = 100) => {
         if (!budget) return 0;
         return Math.min(100, Math.round((allocated / budget) * 100));
     };
-
-    const { t } = useLanguage();
 
     const getCategoryColor = (category: ProgramCategory) => {
         const colors = {
@@ -115,33 +112,30 @@ export const HomePage = () => {
 
     return (
         <>
-            <div className="hero-wrap" id="hero" style={{ backgroundImage: "url('" + heroContent.bgImage + "')" }} data-stellar-background-ratio="0.5">
+            <div className="hero-wrap" style={{ backgroundImage: "url('/images/bg_2.jpg')", height: '600px', backgroundPosition: 'center center' }} data-stellar-background-ratio="0.5">
                 <div className="overlay"></div>
                 <div className="container">
-                    <div className="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-                        <div className="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-                            <h1 className="mb-4" data-cms="heroTitle" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                                {t('hero.title')}</h1>
-                            <p className="mb-5" data-cms="heroSubtitle" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
-                                {t('hero.subtitle')}</p>
-
-                            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><Link to="/about"
-                                className="btn btn-white btn-outline-white px-4 py-3">{t('btn.learn_more')}</Link></p>
+                    <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '600px' }}>
+                        <div className="col-md-9 ftco-animate text-center">
+                            <h1 className="mb-4" style={{ fontSize: '56px', fontWeight: '900', lineHeight: '1.1' }}>{t('hero.title')}</h1>
+                            <p style={{ fontSize: '20px', lineHeight: '1.6', marginBottom: '40px', fontWeight: '500', opacity: 0.9 }}>{t('hero.subtitle')}</p>
+                            <p className="d-flex justify-content-center" style={{ gap: '20px' }}>
+                                <Link to="/donate" className="btn btn-white px-5 py-3" style={{ borderRadius: '50px', fontWeight: '700', color: '#076c5b' }}>{t('btn.donate')}</Link>
+                                <Link to="/about" className="btn btn-outline-white px-5 py-3" style={{ borderRadius: '50px', fontWeight: '700', borderWidth: '2px' }}>{t('btn.learn_more')}</Link>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <section className="ftco-counter" id="section-counter" style={{ backgroundColor: '#00594f', padding: '25px 0' }}>
+            <section className="ftco-counter ftco-intro" id="section-counter" style={{ marginTop: '-80px', position: 'relative', zIndex: 10 }}>
                 <div className="container">
-                    <div className="row align-items-center no-gutters">
-                        <div className="col-lg-2 col-md-12 mb-3 mb-lg-0 ftco-animate">
-                            <h2 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px', borderLeft: '3px solid #4FB1A1', paddingLeft: '15px', lineHeight: '1.2' }}>
-                                Our impact <br className="d-none d-lg-block" /> in 2024
-                            </h2>
-                        </div>
-                        <div className="col-lg-10 col-md-12">
-                            <div className="row no-gutters">
+                    <div className="row no-gutters">
+                        <div className="col-md-12">
+                            <div className="row no-gutters d-md-flex align-items-center justify-content-between p-4" style={{ background: 'linear-gradient(135deg, #076c5b 0%, #122f2b 100%)', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}>
+                                <div className="col-md-12 mb-4 text-center">
+                                    <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '24px' }}>{t('home.impact_heading')}</h3>
+                                </div>
                                 <div className="col-md-3 d-flex justify-content-center align-items-center mb-0 ftco-animate">
                                     <div className="d-flex align-items-center">
                                         <div className="mr-2" style={{ color: 'white', opacity: 0.9 }}>
@@ -153,7 +147,7 @@ export const HomePage = () => {
                                                 <span style={{ fontSize: '16px', marginLeft: '1px', fontWeight: '700' }}>+</span>
                                             </div>
                                             <span style={{ fontSize: '11px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
-                                                Women & girls reached <br /> & empowered
+                                                {t('home.impact_women')}
                                             </span>
                                         </div>
                                     </div>
@@ -170,7 +164,7 @@ export const HomePage = () => {
                                                 <span style={{ fontSize: '16px', marginLeft: '1px', fontWeight: '700' }}>+</span>
                                             </div>
                                             <span style={{ fontSize: '11px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
-                                                Girls stayed in school <br /> through our support
+                                                {t('home.impact_education')}
                                             </span>
                                         </div>
                                     </div>
@@ -187,7 +181,7 @@ export const HomePage = () => {
                                                 <span style={{ fontSize: '16px', marginLeft: '1px', fontWeight: '700' }}>+</span>
                                             </div>
                                             <span style={{ fontSize: '11px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
-                                                Businesses launched <br /> and thriving
+                                                {t('home.impact_livelihoods')}
                                             </span>
                                         </div>
                                     </div>
@@ -204,7 +198,7 @@ export const HomePage = () => {
                                                 <span style={{ fontSize: '16px', marginLeft: '1px', fontWeight: '700' }}>+</span>
                                             </div>
                                             <span style={{ fontSize: '11px', textTransform: 'none', opacity: 0.85, display: 'block', lineHeight: '1.2' }}>
-                                                Change Champions <br /> trained as leaders
+                                                {t('home.impact_leadership')}
                                             </span>
                                         </div>
                                     </div>
@@ -252,17 +246,17 @@ export const HomePage = () => {
                                 `}
                             </style>
                             <span className="badge badge-light px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase' }}>
-                                Our Mission
+                                {t('home.mission_badge')}
                             </span>
                             <h2 className="mb-4 font-weight-bold ftco-animate mission-bounce" style={{ fontSize: '42px', lineHeight: '1.2', color: '#111' }}>
-                                Protecting the Dignity and <span style={{ color: '#076c5b' }}>Rights of Women and Girls.</span>
+                                {t('home.mission_title')}
                                 <br />
                                 <span style={{ color: '#076c5b', fontSize: '32px', opacity: 0.8 }}>
                                     {typingText}<span className="typing-cursor"></span>
                                 </span>
                             </h2>
                             <p className="lead mb-4 ftco-animate" style={{ fontSize: '16px', color: '#666', lineHeight: '1.8' }}>
-                                Whether through education scholarships, business seed funding, or mental health support, we deliver the comprehensive care needed to transform lives. From grassroots community engagement to systemic advocacy, we help vulnerable women and girls convert challenges into measurable impact, strengthen resilience, and accelerate their journey to independence in Bugesera and beyond.
+                                {t('home.mission_desc')}
                             </p>
 
                             <div className="row mb-5">
@@ -271,7 +265,7 @@ export const HomePage = () => {
                                         <div className="d-flex align-items-center justify-content-center mr-3" style={{ width: '40px', height: '40px', flexShrink: 0, color: '#076c5b' }}>
                                             <Wallet size={32} strokeWidth={1.5} />
                                         </div>
-                                        <span style={{ fontSize: '15px', color: '#333', fontWeight: 500 }}>Economic Empowerment</span>
+                                        <span style={{ fontSize: '15px', color: '#333', fontWeight: 500 }}>{t('home.mission_empowerment')}</span>
                                     </div>
                                 </div>
                                 <div className="col-md-6 mb-3">
@@ -279,7 +273,7 @@ export const HomePage = () => {
                                         <div className="d-flex align-items-center justify-content-center mr-3" style={{ width: '40px', height: '40px', flexShrink: 0, color: '#076c5b' }}>
                                             <GraduationCap size={32} strokeWidth={1.5} />
                                         </div>
-                                        <span style={{ fontSize: '15px', color: '#333', fontWeight: 500 }}>Education Access</span>
+                                        <span style={{ fontSize: '15px', color: '#333', fontWeight: 500 }}>{t('home.mission_education')}</span>
                                     </div>
                                 </div>
                                 <div className="col-md-6 mb-3">
@@ -287,7 +281,7 @@ export const HomePage = () => {
                                         <div className="d-flex align-items-center justify-content-center mr-3" style={{ width: '40px', height: '40px', flexShrink: 0, color: '#076c5b' }}>
                                             <Heart size={32} strokeWidth={1.5} />
                                         </div>
-                                        <span style={{ fontSize: '15px', color: '#333', fontWeight: 500 }}>Mental Health Support</span>
+                                        <span style={{ fontSize: '15px', color: '#333', fontWeight: 500 }}>{t('home.mission_health')}</span>
                                     </div>
                                 </div>
                                 <div className="col-md-6 mb-3">
@@ -295,14 +289,14 @@ export const HomePage = () => {
                                         <div className="d-flex align-items-center justify-content-center mr-3" style={{ width: '40px', height: '40px', flexShrink: 0, color: '#076c5b' }}>
                                             <Users size={32} strokeWidth={1.5} />
                                         </div>
-                                        <span style={{ fontSize: '15px', color: '#333', fontWeight: 500 }}>Community Advocacy</span>
+                                        <span style={{ fontSize: '15px', color: '#333', fontWeight: 500 }}>{t('home.mission_advocacy')}</span>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="ftco-animate">
                                 <Link to="/about" className="btn px-4 py-3 font-weight-bold shadow-sm" style={{ backgroundColor: '#076c5b', color: '#fff', borderRadius: '8px' }}>
-                                    Learn More About Us
+                                    {t('home.mission_learn_more')}
                                 </Link>
                             </div>
                         </div>
@@ -351,8 +345,8 @@ export const HomePage = () => {
                                         <Users size={32} strokeWidth={1.5} />
                                     </div>
                                     <div>
-                                        <span className="d-block font-weight-bold" style={{ fontSize: '16px', color: '#111' }}>150+</span>
-                                        <span style={{ fontSize: '11px', color: '#888' }}>Lives Changed</span>
+                                        <span className="d-block font-weight-bold" style={{ fontSize: '16px', color: '#111' }}>{t('home.mission_lives_changed_count')}</span>
+                                        <span style={{ fontSize: '11px', color: '#888' }}>{t('home.mission_lives_changed')}</span>
                                     </div>
                                 </div>
 
@@ -369,8 +363,8 @@ export const HomePage = () => {
                                         <TrendingUp size={32} strokeWidth={1.5} />
                                     </div>
                                     <div>
-                                        <span className="d-block font-weight-bold" style={{ fontSize: '14px', color: '#111' }}>Sustainable Impact</span>
-                                        <span className="text-success font-weight-bold" style={{ fontSize: '10px' }}>⚡ 95% Success Rate</span>
+                                        <span className="d-block font-weight-bold" style={{ fontSize: '14px', color: '#111' }}>{t('home.mission_sustainable_impact')}</span>
+                                        <span className="text-success font-weight-bold" style={{ fontSize: '10px' }}>{t('home.mission_success_rate')}</span>
                                     </div>
                                 </div>
                             </div>
@@ -436,10 +430,10 @@ export const HomePage = () => {
                     <div className="row justify-content-center mb-3">
                         <div className="col-md-8 text-center ftco-animate">
                             <span className="badge badge-light px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', letterSpacing: '1.2px', textTransform: 'uppercase' }}>
-                                Our Impact Areas
+                                {t('home.impact_areas_badge')}
                             </span>
                             <h2 className="mb-2 font-weight-bold" style={{ fontSize: '36px', color: '#111' }}>
-                                Areas of Intervention
+                                {t('home.impact_areas_title')}
                             </h2>
                         </div>
                     </div>
@@ -451,10 +445,10 @@ export const HomePage = () => {
                                 <div className="impact-bg" style={{ backgroundImage: "url('/images/pic14.jpg')" }}></div>
                                 <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
-                                        Emergency Response
+                                        {t('home.impact_areas_emergency_title')}
                                     </h3>
                                     <p className="impact-area-desc">
-                                        Providing rapid support to girls and women in crisis situations through a dedicated rapid response team. In an emergency situation, we act quickly to save lives and reduce suffering.
+                                        {t('home.impact_areas_emergency_desc')}
                                     </p>
                                 </div>
                             </div>
@@ -466,10 +460,10 @@ export const HomePage = () => {
                                 <div className="impact-bg" style={{ backgroundImage: "url('/images/pic13.jpg')" }}></div>
                                 <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
-                                        Economic Empowerment
+                                        {t('home.impact_areas_economic_title')}
                                     </h3>
                                     <p className="impact-area-desc">
-                                        Empowering women with skills and resources to achieve financial independence and support their families through sustainable livelihoods.
+                                        {t('home.impact_areas_economic_desc')}
                                     </p>
                                 </div>
                             </div>
@@ -481,10 +475,10 @@ export const HomePage = () => {
                                 <div className="impact-bg" style={{ backgroundImage: "url('/images/pic15.jpg')" }}></div>
                                 <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
-                                        SRHR & Menstrual Health
+                                        {t('home.impact_areas_srhr_title')}
                                     </h3>
                                     <p className="impact-area-desc">
-                                        Ensuring girls have access to sexual reproductive health education and quality menstrual products to stay healthy and dignified.
+                                        {t('home.impact_areas_srhr_desc')}
                                     </p>
                                 </div>
                             </div>
@@ -496,10 +490,10 @@ export const HomePage = () => {
                                 <div className="impact-bg" style={{ backgroundImage: "url('/images/pic16.jpg')" }}></div>
                                 <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
-                                        Education & School Retention
+                                        {t('home.impact_areas_education_title')}
                                     </h3>
                                     <p className="impact-area-desc">
-                                        Working to keep girls in school by providing scholarships, mentorship, and addressing the root causes of school dropouts.
+                                        {t('home.impact_areas_education_desc')}
                                     </p>
                                 </div>
                             </div>
@@ -511,10 +505,10 @@ export const HomePage = () => {
                                 <div className="impact-bg" style={{ backgroundImage: "url('/images/pic11.jpg')" }}></div>
                                 <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
-                                        Gender & Protection
+                                        {t('home.impact_areas_gender_title')}
                                     </h3>
                                     <p className="impact-area-desc">
-                                        Protecting girls from gender-based violence and early marriages while promoting gender equality in all spheres of life.
+                                        {t('home.impact_areas_gender_desc')}
                                     </p>
                                 </div>
                             </div>
@@ -526,10 +520,10 @@ export const HomePage = () => {
                                 <div className="impact-bg" style={{ backgroundImage: "url('/images/pic2.jpg')" }}></div>
                                 <div className="impact-area-overlay">
                                     <h3 className="text-white font-weight-bold mb-0" style={{ fontSize: '18px' }}>
-                                        Human Capital & Resilience
+                                        {t('home.impact_areas_human_title')}
                                     </h3>
                                     <p className="impact-area-desc">
-                                        Building the confidence and leadership skills of youth to create a more resilient and self-reliant community in Bugesera.
+                                        {t('home.impact_areas_human_desc')}
                                     </p>
                                 </div>
                             </div>
@@ -539,43 +533,20 @@ export const HomePage = () => {
             </section>
 
 
-            <section className="ftco-section" id="programs" style={{
-                position: 'relative',
-                padding: '15px 0 60px 0',
-                backgroundColor: '#fff'
-            }}>
+            <section className="ftco-section bg-light" id="programs">
                 <div className="container">
-                    <div className="row justify-content-center mb-3 pb-2">
+                    <div className="row justify-content-center mb-5 pb-3">
                         <div className="col-md-7 heading-section ftco-animate text-center">
-                            <h2 className="mb-4" style={{
-                                fontSize: '40px',
-                                fontWeight: 'bold',
-                                color: '#122f2b',
-                                position: 'relative',
-                                display: 'inline-block',
-                                paddingBottom: '15px'
-                            }}>
-                                Our Programs
-                                <span style={{
-                                    position: 'absolute',
-                                    bottom: '0',
-                                    left: '50%',
-                                    transform: 'translateX(-50%)',
-                                    width: '60px',
-                                    height: '4px',
-                                    backgroundColor: '#4FB1A1',
-                                    borderRadius: '2px'
-                                }}></span>
-                            </h2>
-                            <p className="lead mt-3" style={{ fontSize: '18px', color: '#555', maxWidth: '800px', margin: '0 auto' }}>
-                                We implement integrated interventions that strengthen confidence, psychosocial wellbeing, education access,
-                                and economic empowerment in Bugesera.
-                            </p>
+                            <span className="subheading" style={{ color: '#076c5b', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '2px' }}>{t('programs.subheading')}</span>
+                            <h2 className="mb-4" style={{ fontWeight: '800' }}>{t('programs.heading')}</h2>
+                            <p>{t('programs.desc')}</p>
                         </div>
                     </div>
 
                     <div className="row">
                         {mockPrograms.map((program, index) => {
+                            const programTitle = program.name[language] || program.name.en;
+                            const programDesc = program.description[language] || program.description.en;
                             // Map existing data to the new design format using BRAND COLORS
                             interface ProgramDesignInfo {
                                 svgPath: string;
@@ -596,12 +567,12 @@ export const HomePage = () => {
                                 p1: {
                                     svgPath: 'M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z',
                                     iconColor: '#4FB1A1',
-                                    title: 'She Can Code',
-                                    description: 'Empowering young women with software development skills to bridge the gender gap in tech.',
-                                    subtitle: 'Boarding School Development',
-                                    featuresTitle: 'Key Features:',
-                                    features: ['Advanced STEM curriculum', 'Entrepreneurship incubator', 'International partnerships', 'Scholarship programs'],
-                                    status: 'Development Phase',
+                                    title: t('programs.p1.title'),
+                                    description: t('programs.p1.description'),
+                                    subtitle: t('programs.p1.subtitle'),
+                                    featuresTitle: t('programs.p1.features_title'),
+                                    features: [t('programs.p1.feature1'), t('programs.p1.feature2'), t('programs.p1.feature3'), t('programs.p1.feature4')],
+                                    status: t('programs.p1.status'),
                                     statusColor: '#4FB1A115',
                                     statusIconColor: '#4FB1A1',
                                     borderColor: '#4FB1A1',
@@ -610,12 +581,12 @@ export const HomePage = () => {
                                 p2: {
                                     svgPath: 'M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z',
                                     iconColor: '#076c5b',
-                                    title: 'Business Incubation',
-                                    description: 'Supporting women entrepreneurs to start and grow businesses through seed funding and mentorship.',
-                                    subtitle: 'Entrepreneurship & Skills',
-                                    featuresTitle: 'Impact Metrics:',
-                                    features: ['Business seed funding', 'Mentorship & coaching', 'Market access support', 'Financial literacy training'],
-                                    status: 'Active Implementation',
+                                    title: t('programs.p2.title'),
+                                    description: t('programs.p2.description'),
+                                    subtitle: t('programs.p2.subtitle'),
+                                    featuresTitle: t('programs.p2.features_title'),
+                                    features: [t('programs.p2.feature1'), t('programs.p2.feature2'), t('programs.p2.feature3'), t('programs.p2.feature4')],
+                                    status: t('programs.p2.status'),
                                     statusColor: '#076c5b15',
                                     statusIconColor: '#076c5b',
                                     borderColor: '#076c5b',
@@ -624,12 +595,12 @@ export const HomePage = () => {
                                 p3: {
                                     svgPath: 'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z',
                                     iconColor: '#eacfa2',
-                                    title: 'Community Health',
-                                    description: 'Providing health education, reproductive health resources, and hygiene kits to rural communities.',
-                                    subtitle: 'Holistic Health Support',
-                                    featuresTitle: 'Program Scope:',
-                                    features: ['Reproductive health kits', 'Mental health counseling', 'Hygiene & sanitation', 'Community outreach'],
-                                    status: 'Scale-up Phase',
+                                    title: t('programs.p3.title'),
+                                    description: t('programs.p3.description'),
+                                    subtitle: t('programs.p3.subtitle'),
+                                    featuresTitle: t('programs.p3.features_title'),
+                                    features: [t('programs.p3.feature1'), t('programs.p3.feature2'), t('programs.p3.feature3'), t('programs.p3.feature4')],
+                                    status: t('programs.p3.status'),
                                     statusColor: '#eacfa225',
                                     statusIconColor: '#c4a56e',
                                     borderColor: '#eacfa2',
@@ -678,14 +649,14 @@ export const HomePage = () => {
                                                     </svg>
                                                 </div>
                                                 <div>
-                                                    <h3 className="program-card-title mb-0" style={{ fontWeight: 800, fontSize: '18px', color: '#122f2b', lineHeight: '1.2' }}>{programInfo.title || program.name.en}</h3>
+                                                    <h3 className="program-card-title mb-0" style={{ fontWeight: 800, fontSize: '18px', color: '#122f2b', lineHeight: '1.2' }}>{programInfo.title || programTitle}</h3>
                                                     <span className="program-card-subtitle" style={{ fontSize: '12px', letterSpacing: '0.3px', color: '#666', fontWeight: 600 }}>{programInfo.subtitle}</span>
                                                 </div>
                                             </div>
 
                                             {/* Description */}
                                             <p className="program-card-desc mb-3" style={{ color: '#444', fontSize: '14px', lineHeight: '1.7' }}>
-                                                {programInfo.description || program.description.en}
+                                                {programInfo.description || programDesc}
                                             </p>
 
                                             {/* Features Section */}
@@ -730,7 +701,7 @@ export const HomePage = () => {
                             backgroundColor: '#4FB1A1',
                             color: '#fff'
                         }}>
-                            VIEW ALL OUR PROGRAMS
+                            {t('home.programs_view_all')}
                         </Link>
                     </div>
                 </div>
@@ -822,20 +793,20 @@ export const HomePage = () => {
                 <div className="container">
                     <div className="row justify-content-center mb-5">
                         <div className="col-md-9 text-center ftco-animate">
-                            <span className="subheading mb-2 d-block font-weight-bold" style={{ color: '#4FB1A1', letterSpacing: '2px', textTransform: 'uppercase' }}>Impact Stories</span>
-                            <h2 className="mb-3 font-weight-bold" style={{ color: '#122f2b', fontSize: '38px' }}>Stories of Change</h2>
-                            <p style={{ color: '#666', fontSize: '18px' }}>Witness the profound transformation in the lives of those we serve.</p>
+                            <span className="subheading mb-2 d-block font-weight-bold" style={{ color: '#4FB1A1', letterSpacing: '2px', textTransform: 'uppercase' }}>{t('stories.subheading')}</span>
+                            <h2 className="mb-3 font-weight-bold" style={{ color: '#122f2b', fontSize: '38px' }}>{t('stories.heading')}</h2>
+                            <p style={{ color: '#666', fontSize: '18px' }}>{t('stories.desc')}</p>
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="col-md-12">
                             <div className="carousel-cause owl-carousel">
-                                {[...mockStories, ...mockStories].map((story, index) => (
+                                {mockStories.map((story, index) => (
                                     <div className="item px-2" key={`${story.id}-${index}`}>
                                         <div className="story-card">
                                             <img
-                                                src={story.media && story.media[0] ? story.media[0].url : '/images/person_1.jpg'}
+                                                src={story.media && story.media[0] ? story.media[0].url : '/images/story1.jpg'}
                                                 alt={story.authorName}
                                                 className="story-img"
                                             />
@@ -843,11 +814,13 @@ export const HomePage = () => {
                                             <div className="story-overlay-glass">
                                                 <div className="story-header-text">
                                                     <span className="story-user-name">{story.authorName}</span>
-                                                    <span className="story-user-headline">{story.title.en.replace(story.authorName, '').replace("'s Journey", " invested in her community's future and growth")}</span>
+                                                    <span className="story-user-headline">
+                                                        {(story.title[language] || story.title.en).replace(story.authorName, '').replace("'s Journey", t('home.stories_journey_suffix'))}
+                                                    </span>
                                                 </div>
 
                                                 <p className="story-user-quote">
-                                                    "{story.content.en.length > 320 ? story.content.en.substring(0, 320) + '...' : story.content.en}"
+                                                    "{(story.content[language] || story.content.en).length > 320 ? (story.content[language] || story.content.en).substring(0, 320) + '...' : (story.content[language] || story.content.en)}"
                                                 </p>
 
                                                 <div className="story-footer-location">
@@ -868,7 +841,7 @@ export const HomePage = () => {
 
                     <div className="text-center mt-4">
                         <Link to="/about" className="btn btn-outline-primary px-5 py-3 font-weight-bold" style={{ borderRadius: '50px', borderWidth: '2px', borderColor: '#076c5b', color: '#076c5b' }}>
-                            READ MORE STORIES
+                            {t('home.stories_read_more')}
                         </Link>
                     </div>
                 </div>
@@ -1071,7 +1044,7 @@ export const HomePage = () => {
                     <div className="row mb-5">
                         <div className="col-md-12 ftco-animate">
                             <h2 style={{ fontSize: '24px', fontWeight: '800', color: '#111', marginBottom: '10px' }}>
-                                Trusted global partners working together with <span style={{ color: '#076c5b' }}>LCEO</span> every day.
+                                {t('home.partners_heading')}
                             </h2>
                         </div>
                     </div>
@@ -1080,19 +1053,19 @@ export const HomePage = () => {
                         {[
                             {
                                 title: 'FAWE RWANDA',
-                                subtitle: 'FORUM FOR AFRICAN WOMEN EDUCATIONALISTS',
+                                subtitle: t('home.partner_fawe_subtitle'),
                                 icon: <GraduationCap size={32} strokeWidth={1.5} />,
                                 color: '#e2f5f2'
                             },
                             {
                                 title: 'ECORYS',
-                                subtitle: 'INTERNATIONAL DEVELOPMENT CONSULTANCY',
+                                subtitle: t('home.partner_ecorys_subtitle'),
                                 icon: <Globe size={32} strokeWidth={1.5} />,
                                 color: '#f0f9ff'
                             },
                             {
                                 title: 'MOR ASSAYAG',
-                                subtitle: 'STRATEGIC PARTNERSHIP & DEVELOPMENT',
+                                subtitle: t('home.partner_mor_subtitle'),
                                 icon: <Handshake size={32} strokeWidth={1.5} />,
                                 color: '#fff5f0'
                             }
@@ -1153,10 +1126,10 @@ export const HomePage = () => {
                     <div className="row justify-content-center mb-4">
                         <div className="col-md-8 text-center ftco-animate">
                             <span className="badge badge-light px-3 py-2 mb-2 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '11px', letterSpacing: '1px', textTransform: 'uppercase' }}>
-                                Support Sustainable Change
+                                {t('home.impact_circle_badge')}
                             </span>
-                            <h2 className="mb-3 font-weight-bold" style={{ fontSize: '36px', color: '#111' }}>Join Our Impact Circle</h2>
-                            <p style={{ fontSize: '16px', color: '#666' }}>Your monthly support provides sustained transformation for vulnerable young women and girls in Rwanda.</p>
+                            <h2 className="mb-3 font-weight-bold" style={{ fontSize: '36px', color: '#111' }}>{t('home.impact_circle_title')}</h2>
+                            <p style={{ fontSize: '16px', color: '#666' }}>{t('home.impact_circle_desc')}</p>
                         </div>
                     </div>
 
@@ -1171,12 +1144,12 @@ export const HomePage = () => {
                                 </div>
 
                                 <div style={{ position: 'relative', zIndex: 1 }}>
-                                    <h3 className="mb-3 font-weight-bold text-white" style={{ fontSize: '28px' }}>$25/mo</h3>
+                                    <h3 className="mb-3 font-weight-bold text-white" style={{ fontSize: '28px' }}>{t('home.impact_circle_tier1_price')}</h3>
                                     <p className="mb-4 text-white-50" style={{ fontSize: '15px', lineHeight: '1.5' }}>
-                                        Supports menstrual hygiene for 5 girls every month, ensuring they never miss school.
+                                        {t('home.impact_circle_tier1_desc')}
                                     </p>
                                     <Link to="/donate" className="btn px-4 py-2 font-weight-bold" style={{ backgroundColor: 'white', color: '#00594f', borderRadius: '4px', fontSize: '13px' }}>
-                                        JOIN CIRCLE
+                                        {t('home.impact_circle_btn')}
                                     </Link>
                                 </div>
                             </div>
@@ -1186,13 +1159,13 @@ export const HomePage = () => {
                         <div className="col-md-4 d-flex ftco-animate">
                             <div className="w-100 p-4 py-5 d-flex flex-column align-items-center justify-content-center text-center bg-white impact-tier-card"
                                 style={{ border: '12px solid #00594f', minHeight: '400px' }}>
-                                <h3 className="mb-3 font-weight-bold" style={{ color: '#00594f', fontSize: '28px' }}>$50/mo</h3>
+                                <h3 className="mb-3 font-weight-bold" style={{ color: '#00594f', fontSize: '28px' }}>{t('home.impact_circle_tier2_price')}</h3>
                                 <p className="mb-4" style={{ color: '#444', fontSize: '15px', lineHeight: '1.5' }}>
-                                    Covers school fees and essential supplies for one girl, securing her education.
+                                    {t('home.impact_circle_tier2_desc')}
                                 </p>
                                 <Link to="/donate" className="btn px-4 py-3 font-weight-bold text-uppercase w-100"
                                     style={{ backgroundColor: '#076c5b', color: 'white', borderRadius: '4px', fontSize: '13px', letterSpacing: '1px' }}>
-                                    JOIN NOW
+                                    {t('home.impact_circle_btn_alt')}
                                 </Link>
                             </div>
                         </div>
@@ -1207,12 +1180,12 @@ export const HomePage = () => {
                                 </div>
 
                                 <div style={{ position: 'relative', zIndex: 1 }}>
-                                    <h3 className="mb-3 font-weight-bold text-white" style={{ fontSize: '28px' }}>$100/mo</h3>
+                                    <h3 className="mb-3 font-weight-bold text-white" style={{ fontSize: '28px' }}>{t('home.impact_circle_tier3_price')}</h3>
                                     <p className="mb-4 text-white-50" style={{ fontSize: '15px', lineHeight: '1.5' }}>
-                                        Provides seed capital and mentorship for one entrepreneur to launch her business.
+                                        {t('home.impact_circle_tier3_desc')}
                                     </p>
                                     <Link to="/donate" className="btn px-4 py-2 font-weight-bold" style={{ backgroundColor: 'white', color: '#00594f', borderRadius: '4px', fontSize: '13px' }}>
-                                        JOIN CIRCLE
+                                        {t('home.impact_circle_btn')}
                                     </Link>
                                 </div>
                             </div>
@@ -1254,7 +1227,7 @@ export const HomePage = () => {
                                 <div className="row no-gutters">
                                     {[
                                         {
-                                            id: 1, name: 'No Poverty', color: '#e5243b',
+                                            id: 1, name: t('home.sdg_goal1'), color: '#e5243b',
                                             icon: (
                                                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                                                     <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
@@ -1263,7 +1236,7 @@ export const HomePage = () => {
                                             )
                                         },
                                         {
-                                            id: 3, name: 'Good Health', color: '#4c9f38',
+                                            id: 3, name: t('home.sdg_goal3'), color: '#4c9f38',
                                             icon: (
                                                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                                                     <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
@@ -1271,7 +1244,7 @@ export const HomePage = () => {
                                             )
                                         },
                                         {
-                                            id: 4, name: 'Quality Education', color: '#c5192d',
+                                            id: 4, name: t('home.sdg_goal4'), color: '#c5192d',
                                             icon: (
                                                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                                                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
@@ -1280,7 +1253,7 @@ export const HomePage = () => {
                                             )
                                         },
                                         {
-                                            id: 5, name: 'Gender Equality', color: '#ff3a21',
+                                            id: 5, name: t('home.sdg_goal5'), color: '#ff3a21',
                                             icon: (
                                                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                                                     <path d="M12 7V3m-4 4V5m8 2V5"></path>
@@ -1290,7 +1263,7 @@ export const HomePage = () => {
                                             )
                                         },
                                         {
-                                            id: 8, name: 'Decent Work', color: '#a21942',
+                                            id: 8, name: t('home.sdg_goal8'), color: '#a21942',
                                             icon: (
                                                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                                                     <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
@@ -1301,7 +1274,7 @@ export const HomePage = () => {
                                             )
                                         },
                                         {
-                                            id: 10, name: 'Reduced Inequality', color: '#dd1367',
+                                            id: 10, name: t('home.sdg_goal10'), color: '#dd1367',
                                             icon: (
                                                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                                                     <circle cx="12" cy="12" r="10"></circle>
@@ -1321,7 +1294,7 @@ export const HomePage = () => {
                                                     {sdg.icon}
                                                 </div>
                                                 <h5 className="font-weight-bold mb-1 sdg-card-title" style={{ fontSize: '14px', color: '#111', lineHeight: '1.2' }}>{sdg.name}</h5>
-                                                <span className="font-weight-bold sdg-card-goal" style={{ color: sdg.color, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px' }}>Goal {sdg.id}</span>
+                                                <span className="font-weight-bold sdg-card-goal" style={{ color: sdg.color, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('home.sdg_goal_label')} {sdg.id}</span>
                                             </div>
                                         </div>
                                     ))}
@@ -1386,17 +1359,17 @@ export const HomePage = () => {
                                 `}
                             </style>
                             <h2 className="mb-3 font-weight-bold sdg-text-reveal sdg-delay-1 hover-glow-text" style={{ fontSize: '32px', lineHeight: '1.2', color: '#111' }}>
-                                Empowering Lives + <span style={{ color: '#076c5b' }}>Strengthening Communities</span> Through Global Goals
+                                {t('home.sdg_title')}
                             </h2>
                             <p className="lead mb-3 sdg-text-reveal sdg-delay-2" style={{ fontSize: '16px', color: '#666', lineHeight: '1.7' }}>
-                                At LCEO, we believe that sustainable development is only possible when we align our grassroots efforts with global standards. By focusing on these key Sustainable Development Goals, we ensure that every scholarship, business grant, and mental health session contributes to a larger vision of dignity and equality for all Rwandans.
+                                {t('home.sdg_desc1')}
                             </p>
                             <p className="mb-3 sdg-text-reveal sdg-delay-3" style={{ fontSize: '14px', color: '#888' }}>
-                                Our integrated approach in Bugesera District directly impacts thousands of lives, bridging the gap between local challenges and international aspirations for social justice and economic resilience.
+                                {t('home.sdg_desc2')}
                             </p>
                             <div className="sdg-text-reveal sdg-delay-4">
                                 <Link to="/about" className="btn px-5 py-3 font-weight-bold shadow-sm" style={{ backgroundColor: '#076c5b', color: '#fff', borderRadius: '12px', fontSize: '15px' }}>
-                                    View Our Impact Report &rarr;
+                                    {t('home.sdg_report_btn')}
                                 </Link>
                             </div>
                         </div>
@@ -1446,12 +1419,12 @@ export const HomePage = () => {
                     {/* Header matching image structure */}
                     <div className="row justify-content-center mb-3">
                         <div className="col-md-10 text-center ftco-animate">
-                            <span style={{ color: '#076c5b', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '12px', display: 'block', marginBottom: '8px' }}>Join The Movement</span>
+                            <span style={{ color: '#076c5b', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '12px', display: 'block', marginBottom: '8px' }}>{t('home.movement_badge')}</span>
                             <h2 className="mb-2" style={{ fontSize: '36px', fontWeight: '800', color: '#122f2b', lineHeight: '1.2' }}>
-                                Be Part of the Transformation
+                                {t('home.movement_title')}
                             </h2>
                             <p style={{ fontSize: '16px', color: '#666', maxWidth: '800px', margin: '0 auto' }}>
-                                Whether you give your time or your resources, you are investing in a future where every girl can thrive. Choose your path to impact.
+                                {t('home.movement_desc')}
                             </p>
                         </div>
                     </div>
@@ -1462,20 +1435,20 @@ export const HomePage = () => {
                             <div className="row">
                                 {[
                                     {
-                                        title: 'Financial Donor',
-                                        desc: 'Support our mission through one-time or recurring financial gifts that directly fund scholarships and business grants.'
+                                        title: t('home.movement_donor_title'),
+                                        desc: t('home.movement_donor_desc')
                                     },
                                     {
-                                        title: 'Skilled Volunteer',
-                                        desc: 'Share your expertise in healthcare, education, or business to provide high-quality mentorship and training.'
+                                        title: t('home.movement_volunteer_title'),
+                                        desc: t('home.movement_volunteer_desc')
                                     },
                                     {
-                                        title: 'Strategic Partner',
-                                        desc: 'Join forces with LCEO to scale our integrated empowerment model across new sectors and communities.'
+                                        title: t('home.movement_partner_title'),
+                                        desc: t('home.movement_partner_desc')
                                     },
                                     {
-                                        title: 'Community Advocate',
-                                        desc: 'Raise awareness and champion the rights of girls and women in the Bugesera region within your local network.'
+                                        title: t('home.movement_advocacy_title'),
+                                        desc: t('home.movement_advocacy_desc')
                                     }
                                 ].map((item, idx) => (
                                     <div className="col-md-6 mb-3 mt-1" key={idx}>
@@ -1491,29 +1464,29 @@ export const HomePage = () => {
                         {/* Right Side: Sidebar Form Card */}
                         <div className="col-lg-4">
                             <div className="bg-white p-4 shadow-lg volunteer-form-wrap" style={{ borderRadius: '8px', position: 'relative', marginTop: '4px' }}>
-                                <span style={{ color: '#fbb124', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '10px', display: 'block', marginBottom: '4px' }}>Join Us Now</span>
-                                <h3 className="mb-3" style={{ fontSize: '22px', fontWeight: '800', color: '#122f2b' }}>Become A Volunteer</h3>
+                                <span style={{ color: '#fbb124', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase', fontSize: '10px', display: 'block', marginBottom: '4px' }}>{t('home.movement_form_badge')}</span>
+                                <h3 className="mb-3" style={{ fontSize: '22px', fontWeight: '800', color: '#122f2b' }}>{t('home.movement_form_title')}</h3>
 
                                 <form action="#" className="volunteer-form-premium">
                                     <div className="row">
                                         <div className="col-md-6 mb-2">
-                                            <input type="text" className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '42px', fontSize: '13px' }} placeholder="Your Name" />
+                                            <input type="text" className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '42px', fontSize: '13px' }} placeholder={t('home.movement_name_placeholder')} />
                                         </div>
                                         <div className="col-md-6 mb-2">
-                                            <input type="email" className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '42px', fontSize: '13px' }} placeholder="Your Email" />
+                                            <input type="email" className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '42px', fontSize: '13px' }} placeholder={t('home.movement_email_placeholder')} />
                                         </div>
                                         <div className="col-md-6 mb-2">
-                                            <input type="text" className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '42px', fontSize: '13px' }} placeholder="Phone No" />
+                                            <input type="text" className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '42px', fontSize: '13px' }} placeholder={t('home.movement_phone_placeholder')} />
                                         </div>
                                         <div className="col-md-6 mb-2">
-                                            <input type="text" className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '42px', fontSize: '13px' }} placeholder="Location" />
+                                            <input type="text" className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', height: '42px', fontSize: '13px' }} placeholder={t('home.movement_location_placeholder')} />
                                         </div>
                                         <div className="col-md-12 mb-3">
-                                            <textarea name="" id="" cols={30} rows={3} className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', fontSize: '13px', paddingTop: '10px' }} placeholder="Your Message"></textarea>
+                                            <textarea name="" id="" cols={30} rows={3} className="form-control form-animated-input" style={{ backgroundColor: '#f9fbfb', border: '1px solid #eef2f2', borderRadius: '4px', fontSize: '13px', paddingTop: '10px' }} placeholder={t('home.movement_message_placeholder')}></textarea>
                                         </div>
                                         <div className="col-md-12">
                                             <button type="submit" className="btn py-2 px-4 w-100 shadow-sm btn-animated" style={{ backgroundColor: '#076c5b', color: '#fff', fontWeight: '800', fontSize: '13px', borderRadius: '4px', border: 'none' }}>
-                                                Become A Volunteer
+                                                {t('home.movement_btn')}
                                             </button>
                                         </div>
                                     </div>

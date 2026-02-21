@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../lib/language-context';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
-import { FileText, Download, PlayCircle, Image as ImageIcon, Calendar, Clock, MapPin, Mail, ArrowRight, Video, File, FileCode } from 'lucide-react';
+import { FileText, Download, PlayCircle, Image as ImageIcon, Calendar, Clock, MapPin, Video, FileCode, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const ResourcesPage = () => {
+    const { t } = useLanguage();
     useLegacyScripts();
 
     const annualReports = [
@@ -42,18 +45,6 @@ export const ResourcesPage = () => {
             type: "PDF",
             size: "980 KB",
             date: "Dec 2024"
-        },
-        {
-            title: "Human Capital Development Framework",
-            type: "PDF",
-            size: "1.5 MB",
-            date: "Nov 2024"
-        },
-        {
-            title: "Pad Box Initiative Case Study",
-            type: "PDF",
-            size: "750 KB",
-            date: "Oct 2024"
         }
     ];
 
@@ -69,12 +60,6 @@ export const ResourcesPage = () => {
             type: "PDF",
             size: "2.8 MB",
             date: "Sep 2024"
-        },
-        {
-            title: "Mental Resilience & Mindset Shift Report",
-            type: "PDF",
-            size: "2.1 MB",
-            date: "Jun 2024"
         }
     ];
 
@@ -90,13 +75,6 @@ export const ResourcesPage = () => {
             type: "Video",
             date: "Dec 2024",
             action: "View"
-        },
-        {
-            title: "Program Overview Presentation",
-            type: "PPT",
-            size: "5.6 MB",
-            date: "Nov 2024",
-            action: "Download"
         }
     ];
 
@@ -112,33 +90,27 @@ export const ResourcesPage = () => {
             type: "Album",
             date: "Nov 2024",
             action: "View"
-        },
-        {
-            title: "Training & Workshops",
-            type: "Album",
-            date: "Oct 2024",
-            action: "View"
         }
     ];
 
     const upcomingEvents = [
         {
             type: "In-Person",
-            title: "Annual Stakeholder Meeting",
+            title: t('events.report_launch_title'),
             date: "March 15, 2025",
             time: "10:00 AM - 2:00 PM",
             location: "Bugesera District Office"
         },
         {
             type: "Public Event",
-            title: "IkiraroBiz Graduation Ceremony",
+            title: t('events.graduation_title'),
             date: "April 22, 2025",
             time: "9:00 AM - 12:00 PM",
             location: "Nyamata Community Center"
         },
         {
             type: "Program Activity",
-            title: "Girls Empowerment Workshop",
+            title: t('events.workshop_title'),
             date: "May 8, 2025",
             time: "2:00 PM - 5:00 PM",
             location: "Safe Space Centers"
@@ -146,18 +118,18 @@ export const ResourcesPage = () => {
     ];
 
     const renderResourceCard = (item: any) => (
-        <div className="flex items-center bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 h-100 transition-all duration-300 hover:border-teal-500/30 group">
+        <div className="flex items-center bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 transition-all duration-300 hover:border-teal-500/30 group shadow-sm hover:shadow-md h-full mb-4">
             <div className="mr-4 flex items-center justify-center" style={{ width: '56px', height: '56px', flexShrink: 0 }}>
-                {item.type === 'PDF' && <FileText size={48} strokeWidth={1} className="text-teal-600" />}
-                {item.type === 'Video' && <Video size={48} strokeWidth={1} className="text-teal-600" />}
-                {item.type === 'PPT' && <FileCode size={48} strokeWidth={1} className="text-teal-600" />}
-                {item.type === 'Album' && <ImageIcon size={48} strokeWidth={1} className="text-teal-600" />}
+                {item.type === 'PDF' && <FileText size={42} strokeWidth={1} className="text-teal-600" />}
+                {item.type === 'Video' && <Video size={42} strokeWidth={1} className="text-teal-600" />}
+                {item.type === 'PPT' && <FileCode size={42} strokeWidth={1} className="text-teal-600" />}
+                {item.type === 'Album' && <ImageIcon size={42} strokeWidth={1} className="text-teal-600" />}
             </div>
             <div className="flex-grow">
                 <div className="flex items-center mb-1">
                     <h5 className="font-bold mb-0 text-slate-800 dark:text-slate-100 group-hover:text-teal-600 transition-colors" style={{ fontSize: '1rem' }}>{item.title}</h5>
                     {item.isLatest && (
-                        <span className="badge ml-2 px-2 py-0.5 text-white rounded-full bg-amber-400 font-bold" style={{ fontSize: '9px' }}>LATEST</span>
+                        <span className="badge ml-2 px-2 py-0.5 text-white rounded-full bg-emerald-500 font-bold" style={{ fontSize: '9px' }}>{t('resources.latest_badge')}</span>
                     )}
                 </div>
                 <div className="flex items-center text-slate-500 dark:text-slate-400 text-xs mt-1 space-x-2">
@@ -179,87 +151,57 @@ export const ResourcesPage = () => {
     );
 
     return (
-        <div className="bg-slate-50 dark:bg-slate-950">
+        <div className="bg-slate-50 dark:bg-slate-950 min-h-screen">
             <style>{`
-                /* Styles from HowWeWorkPage for Impact Section */
                 .impact-card {
                     position: relative;
-                    border-radius: 15px;
+                    border-radius: 20px;
                     overflow: hidden;
-                    margin-bottom: 10px;
-                    height: 350px;
-                    transition: all 0.3s ease;
+                    height: 380px;
+                    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+                    margin-bottom: 30px !important;
+                }
+                .impact-card:hover {
+                    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
+                    transform: translateY(-5px);
                 }
                 .impact-card img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    transition: transform 0.5s ease;
+                    transition: transform 0.7s ease;
                 }
                 .impact-card:hover img {
                     transform: scale(1.1);
                 }
                 .impact-card-overlay {
                     position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    height: 100%;
-                    background: rgba(0, 89, 79, 0.92);
-                    padding-top: 40px;
+                    inset: 0;
+                    background: linear-gradient(to top, rgba(18, 47, 43, 0.95) 0%, rgba(18, 47, 43, 0.4) 100%);
                     display: flex;
                     flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    text-align: center;
+                    justify-content: flex-end;
+                    padding: 30px;
                     opacity: 0;
-                    transition: all 0.3s ease;
+                    transition: all 0.4s ease;
                 }
                 .impact-card:hover .impact-card-overlay {
                     opacity: 1;
                 }
                 .impact-card-title {
-                    font-size: 19px;
-                    font-weight: 700;
-                    margin-bottom: 20px;
-                    white-space: nowrap;
-                    text-transform: none;
-                    display: inline-block;
-                    width: fit-content;
-                    position: relative;
-                    color: #fff;
-                }
-                .impact-card:hover .impact-card-title {
-                    white-space: normal;
-                }
-                .impact-card-title::after {
-                    content: '';
-                    position: absolute;
-                    bottom: -4px;
-                    left: 0;
-                    width: 0;
-                    height: 2px;
-                    background-color: #fff;
-                    transition: width 0.3s ease;
-                }
-                .impact-card:hover .impact-card-title::after {
-                    width: 100%;
+                    font-size: 20px;
+                    font-weight: 800;
+                    color: white;
+                    margin-bottom: 12px;
+                    line-height: 1.2;
                 }
                 .impact-card-desc {
-                    opacity: 0;
-                    font-size: 15px;
+                    font-size: 14px;
+                    color: rgba(255,255,255,0.8);
                     line-height: 1.6;
-                    transition: opacity 0.3s ease;
-                    transition-delay: 0.1s;
-                    margin-top: 10px;
-                    color: rgba(255,255,255,0.9);
-                    padding: 0 20px;
-                }
-                .impact-card:hover .impact-card-desc {
-                    opacity: 1;
                 }
 
-                /* 3D Flip Card Animation for Events */
                 .event-perspective {
                     perspective: 1500px;
                     height: 480px;
@@ -271,23 +213,16 @@ export const ResourcesPage = () => {
                     height: 100%;
                     transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
                     transform-style: preserve-3d;
-                    cursor: pointer;
                 }
                 .event-perspective:hover .event-flip-inner {
                     transform: rotateY(180deg);
                 }
                 .event-flip-front, .event-flip-back {
                     position: absolute;
-                    width: 100%;
-                    height: 100%;
+                    inset: 0;
                     backface-visibility: hidden;
-                    border-radius: 8px;
+                    border-radius: 20px;
                     overflow: hidden;
-                }
-                .event-flip-front img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
                 }
                 .event-flip-back {
                     background: #122f2b;
@@ -296,281 +231,212 @@ export const ResourcesPage = () => {
                     display: flex;
                     flex-direction: column;
                     justify-content: flex-start;
-                    padding: 40px 30px;
-                    text-align: left;
+                    padding: 40px;
                 }
-                .event-title-top {
-                    font-size: 22px;
-                    font-weight: 900;
-                    color: #122f2b;
-                    letter-spacing: 1px;
-                    text-transform: uppercase;
-                    text-align: center;
-                    margin-bottom: 12px;
+                
+                .resource-section-wrapper {
+                    padding: 60px 0;
                 }
-                .yellow-underline {
-                    width: 60px;
-                    height: 4px;
-                    background: #bef264;
-                    margin: 0 auto 35px auto;
-                    border-radius: 2px;
-                }
-                .middle-card-tilt {
-                    transform: rotateY(-15deg);
-                }
-                .event-perspective:hover .middle-card-tilt {
-                    transform: rotateY(180deg);
+                
+                .resource-col-spacing {
+                    padding: 15px !important;
                 }
             `}</style>
-            <div className="hero-wrap" style={{ backgroundImage: "url('/images/pic15.jpg')", height: '450px', minHeight: '450px', position: 'relative' }}>
-                <div className="overlay" style={{ background: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7))', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}></div>
-                <div className="container h-full relative z-10">
-                    <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '450px' }}>
-                        <div className="col-md-9 ftco-animate text-center">
-                            <p className="breadcrumbs mb-2"><span className="mr-2"><Link
-                                to="/" className="text-teal-400">Home</Link></span> <span className="text-white opacity-70">Resources</span></p>
-                            <h1 className="mb-4 text-white font-bold" style={{ fontSize: '3.5rem', lineHeight: 1.1 }}>Reports, Research & Media</h1>
-                            <p className="text-white/80 mx-auto" style={{ fontSize: '1.25rem', maxWidth: '700px' }}>Access our latest impact reports, program briefs, and multimedia content showcasing our work across Rwanda.</p>
+
+            {/* Full Height Hero Section (Contact Page Style) */}
+            <div className="hero-wrap" style={{ backgroundImage: "url('/images/bg_1.jpg')", height: '500px', minHeight: '500px', backgroundPosition: 'center', backgroundSize: 'cover' }} data-stellar-background-ratio="0.5">
+                <div className="overlay"></div>
+                <div className="container">
+                    <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '500px', paddingTop: '100px' }}>
+                        <div className="col-md-7 ftco-animate text-center">
+                            <h1 className="mb-0 bread" style={{ fontWeight: '800', fontSize: '48px', color: '#fff', textShadow: '0 2px 15px rgba(0,0,0,0.4)' }}>{t('resources.title')}</h1>
+                            <p className="breadcrumbs" style={{ fontSize: '18px', fontWeight: '500', marginTop: '10px' }}>
+                                <span className="mr-2"><Link to="/" style={{ color: '#fff' }}>{t('resources.breadcrumb_home')}</Link></span>
+                                <span style={{ color: '#4FB1A1' }}>{t('resources.breadcrumb_resources')}</span>
+                            </p>
+                            <p className="mt-4 text-white" style={{ fontSize: '1.1rem', opacity: 0.9, maxWidth: '600px', margin: '20px auto 0' }}>{t('resources.subtitle')}</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <section className="pt-6 pb-0">
+            <section className="bg-gray-50" style={{ padding: '80px 0' }}>
                 <div className="container">
-                    {/* Annual Reports */}
-                    <div className="row mb-6">
-                        <div className="col-md-12 mb-4">
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="h-1 w-12 bg-teal-500 rounded-full"></div>
-                                <span className="text-teal-600 font-bold tracking-widest text-xs uppercase">Accountability</span>
+                    {/* Annual Reports Section */}
+                    <div className="row mb-5">
+                        <div className="col-md-12">
+                            <div className="flex items-center gap-3 mb-6">
+                                <span className="text-emerald-600 font-black text-xs uppercase tracking-[0.2em]">{t('resources.accountability_badge')}</span>
+                                <div className="h-px flex-1 bg-gray-200"></div>
                             </div>
-                            <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Annual Reports</h2>
+                            <h2 className="text-3xl font-black text-gray-900 mb-5">{t('resources.reports_title')}</h2>
                         </div>
-                        {annualReports.map((report, index) => (
-                            <div key={index} className="col-lg-4 col-md-6 mb-4 ftco-animate">
-                                {renderResourceCard(report)}
-                            </div>
-                        ))}
+                        <div className="row">
+                            {annualReports.map((report, idx) => (
+                                <div key={idx} className="col-md-4 mb-4 resource-col-spacing">
+                                    <motion.div whileHover={{ y: -5 }}>
+                                        {renderResourceCard(report)}
+                                    </motion.div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
-                    {/* Program Briefs */}
-                    <div className="row mb-6">
-                        <div className="col-md-12 mb-4">
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="h-1 w-12 bg-teal-500 rounded-full"></div>
-                                <span className="text-teal-600 font-bold tracking-widest text-xs uppercase">Strategy</span>
+                    {/* Program Briefs & Research */}
+                    <div className="row mb-5">
+                        <div className="col-md-6 mb-5">
+                            <div className="flex items-center gap-3 mb-6">
+                                <span className="text-emerald-600 font-black text-xs uppercase tracking-[0.2em]">{t('resources.strategy_badge')}</span>
+                                <div className="h-px flex-1 bg-gray-200"></div>
                             </div>
-                            <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Program Briefs</h2>
+                            <h2 className="text-3xl font-black text-gray-900 mb-5">{t('resources.briefs_title')}</h2>
+                            <div className="row">
+                                {programBriefs.map((brief, idx) => (
+                                    <div key={idx} className="col-md-12 resource-col-spacing">
+                                        <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                                            {renderResourceCard(brief)}
+                                        </motion.div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        {programBriefs.map((brief, index) => (
-                            <div key={index} className="col-lg-6 mb-4 ftco-animate">
-                                {renderResourceCard(brief)}
+                        <div className="col-md-6 mb-5">
+                            <div className="flex items-center gap-3 mb-6">
+                                <span className="text-emerald-600 font-black text-xs uppercase tracking-[0.2em]">{t('resources.knowledge_badge')}</span>
+                                <div className="h-px flex-1 bg-gray-200"></div>
                             </div>
-                        ))}
+                            <h2 className="text-3xl font-black text-gray-900 mb-5">{t('resources.research_title')}</h2>
+                            <div className="row">
+                                {researchPublications.map((pub, idx) => (
+                                    <div key={idx} className="col-md-12 resource-col-spacing">
+                                        <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                                            {renderResourceCard(pub)}
+                                        </motion.div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Research & Publications */}
-                    <div className="row mb-6">
-                        <div className="col-md-12 mb-4">
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="h-1 w-12 bg-teal-500 rounded-full"></div>
-                                <span className="text-teal-600 font-bold tracking-widest text-xs uppercase">Knowledge</span>
+                    {/* Multimedia & Photos */}
+                    <div className="row mb-5">
+                        <div className="col-md-6 mb-5">
+                            <div className="flex items-center gap-3 mb-6">
+                                <span className="text-emerald-600 font-black text-xs uppercase tracking-[0.2em]">{t('resources.video_badge')}</span>
+                                <div className="h-px flex-1 bg-gray-200"></div>
                             </div>
-                            <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Research & Publications</h2>
+                            <h2 className="text-3xl font-black text-gray-900 mb-5 text-left">{t('resources.multimedia_title')}</h2>
+                            <div className="row">
+                                {multimedia.map((item, idx) => (
+                                    <div key={idx} className="col-md-12 resource-col-spacing">
+                                        <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                                            {renderResourceCard(item)}
+                                        </motion.div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        {researchPublications.map((pub, index) => (
-                            <div key={index} className="col-lg-4 col-md-6 mb-4 ftco-animate">
-                                {renderResourceCard(pub)}
+                        <div className="col-md-6 mb-5">
+                            <div className="flex items-center gap-3 mb-6">
+                                <span className="text-emerald-600 font-black text-xs uppercase tracking-[0.2em]">{t('resources.gallery_badge')}</span>
+                                <div className="h-px flex-1 bg-gray-200"></div>
                             </div>
-                        ))}
+                            <h2 className="text-3xl font-black text-gray-900 mb-5 text-left">{t('resources.gallery_title')}</h2>
+                            <div className="row">
+                                {photoGallery.map((item, idx) => (
+                                    <div key={idx} className="col-md-12 resource-col-spacing">
+                                        <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                                            {renderResourceCard(item)}
+                                        </motion.div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Impact Grid */}
+                    <div className="row mb-5">
+                        <div className="col-md-12 text-center mb-5">
+                            <h2 className="text-4xl font-black text-gray-900 mb-4">{t('resources.action_title')}</h2>
+                            <p className="text-lg text-gray-600 max-w-2xl mx-auto">{t('resources.action_desc')}</p>
+                        </div>
+                        <div className="row">
+                            {[
+                                { img: '/images/p7.jpg', title: 'School Materials Distribution', desc: 'Distribution of essential learning supplies to partner schools.' },
+                                { img: '/images/p4.jpg', title: 'Vocational Training Session', desc: 'Practical skills workshops empowering youth with livelihood opportunities.' },
+                                { img: '/images/p5.jpg', title: "Keza's Journey (Video)", desc: 'Watch the inspiring story of community support and resilience.' }
+                            ].map((card, idx) => (
+                                <div key={idx} className="col-md-4 mb-4 resource-col-spacing">
+                                    <div className="impact-card group cursor-pointer">
+                                        <img src={card.img} alt={card.title} />
+                                        <div className="impact-card-overlay">
+                                            <h3 className="impact-card-title">{card.title}</h3>
+                                            <p className="impact-card-desc">{card.desc}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Events Section */}
+            <section className="py-24 bg-white relative overflow-hidden">
+                <div className="container relative z-10">
+                    <div className="text-center max-w-3xl mx-auto mb-20">
+                        <span className="text-emerald-600 font-black text-xs uppercase tracking-[0.3em] mb-4 block">{t('resources.events_badge')}</span>
+                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">{t('resources.events_title')}</h2>
+                        <p className="text-lg text-gray-600">{t('resources.events_desc')}</p>
                     </div>
 
                     <div className="row">
-                        {/* Multimedia */}
-                        <div className="col-lg-6 mb-6">
-                            <div className="mb-4">
-                                <div className="flex items-center gap-3 mb-2">
-                                    <div className="h-1 w-12 bg-teal-500 rounded-full"></div>
-                                    <span className="text-teal-600 font-bold tracking-widest text-xs uppercase">Video</span>
+                        {[
+                            { title: t('resources.who_we_are'), img: '/images/pic14.jpg', event: upcomingEvents[0], color: 'emerald' },
+                            { title: t('resources.what_we_do'), img: '/images/pic2.jpg', event: upcomingEvents[1], color: 'blue' },
+                            { title: t('resources.why_we_do_it'), img: '/images/pic19.jpg', event: upcomingEvents[2], color: 'rose' }
+                        ].map((item, idx) => (
+                            <div key={idx} className="col-md-4 mb-5 resource-col-spacing">
+                                <h3 className="text-2xl font-black text-gray-900 text-center uppercase tracking-wider mb-4">{item.title}</h3>
+                                <div className="event-perspective group">
+                                    <div className="event-flip-inner">
+                                        <div className="event-flip-front">
+                                            <img src={item.img} alt={item.title} />
+                                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+                                        </div>
+                                        <div className="event-flip-back shadow-2xl">
+                                            <div className="mb-auto">
+                                                <span className="inline-block px-3 py-1 mb-6 text-[10px] font-black tracking-widest text-emerald-400 bg-emerald-400/10 rounded-full border border-emerald-400/20 uppercase">
+                                                    {item.event.type}
+                                                </span>
+                                                <h4 className="text-2xl font-black mb-6 leading-tight">{item.event.title}</h4>
+                                                <div className="space-y-4 text-white/70">
+                                                    <div className="flex items-center gap-3">
+                                                        <Calendar size={18} className="text-emerald-500" />
+                                                        <span className="font-bold text-white">{item.event.date}</span>
+                                                    </div>
+                                                    <div className="flex items-center gap-3">
+                                                        <Clock size={18} className="text-emerald-500" />
+                                                        <span>{item.event.time}</span>
+                                                    </div>
+                                                    <div className="flex items-start gap-3">
+                                                        <MapPin size={18} className="text-emerald-500 mt-1" />
+                                                        <span className="text-sm">{item.event.location}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button className="w-full py-4 bg-emerald-500 text-white font-black rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center gap-2 group/btn">
+                                                {item.color === 'blue' ? t('resources.learn_more_btn') : t('resources.register_btn')}
+                                                <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Multimedia</h2>
                             </div>
-                            <div className="space-y-4">
-                                {multimedia.map((item, index) => (
-                                    <div key={index} className="ftco-animate">
-                                        {renderResourceCard(item)}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Photo Gallery */}
-                        <div className="col-lg-6 mb-6">
-                            <div className="mb-4">
-                                <div className="flex items-center gap-3 mb-2">
-                                    <div className="h-1 w-12 bg-teal-500 rounded-full"></div>
-                                    <span className="text-teal-600 font-bold tracking-widest text-xs uppercase">Gallery</span>
-                                </div>
-                                <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Photo Gallery</h2>
-                            </div>
-                            <div className="space-y-4">
-                                {photoGallery.map((item, index) => (
-                                    <div key={index} className="ftco-animate">
-                                        {renderResourceCard(item)}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Multimedia Gallery - Visual Grid */}
-                    <div className="row mb-0">
-                        <div className="col-md-12 mb-3">
-                            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 text-left">Impact In Action</h2>
-                            <p className="text-slate-600 dark:text-slate-400 text-left">Visual highlights from our operations across the country.</p>
-                        </div>
-
-                        {/* Card 1 */}
-                        <div className="col-md-4 mb-4 ftco-animate">
-                            <a href="#" className="block h-full text-decoration-none">
-                                <div className="impact-card">
-                                    <img src="/images/p7.jpg" alt="School Materials" />
-                                    <div className="impact-card-overlay">
-                                        <h3 className="impact-card-title">School Materials Distribution</h3>
-                                        <p className="impact-card-desc">Distribution of essential learning supplies to partner schools in rural districts to support student retention.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        {/* Card 2 */}
-                        <div className="col-md-4 mb-4 ftco-animate">
-                            <a href="#" className="block h-full text-decoration-none">
-                                <div className="impact-card">
-                                    <img src="/images/p4.jpg" alt="Vocational Training" />
-                                    <div className="impact-card-overlay">
-                                        <h3 className="impact-card-title">Vocational Training Session</h3>
-                                        <p className="impact-card-desc">Practical skills workshops and mentorship programs empowering youth with sustainable livelihood opportunities.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        {/* Card 3 */}
-                        <div className="col-md-4 mb-4 ftco-animate">
-                            <a href="https://vimeo.com/45830194" className="block h-full text-decoration-none">
-                                <div className="impact-card">
-                                    <img src="/images/p5.jpg" alt="Keza's Journey" />
-                                    <div className="impact-card-overlay">
-                                        <h3 className="impact-card-title">Keza's Journey (Video)</h3>
-                                        <p className="impact-card-desc">Watch the inspiring story of how community support and resilience transformed one family's future features.</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
-
-            {/* Redesigned Upcoming Events Section */}
-            <section className="pt-0 pb-6 bg-white overflow-hidden">
-                <div className="container">
-                    <div className="row justify-content-center mb-1">
-                        <div className="col-md-8 text-center heading-section ftco-animate">
-                            <span className="subheading" style={{ color: '#4FB1A1', fontWeight: 'bold', letterSpacing: '2px', textTransform: 'uppercase' }}>Events</span>
-                            <h2 className="mb-3" style={{ fontSize: '40px', fontWeight: '900', color: '#122f2b' }}>Upcoming Events & Activities</h2>
-                            <p className="text-muted">Join us at our upcoming events and see our programs in action</p>
-                        </div>
-                    </div>
-
-                    <div className="row mt-0">
-                        {/* Slot 1: WHO WE ARE */}
-                        <div className="col-lg-4 mb-2 ftco-animate">
-                            <h3 className="event-title-top">Who We Are</h3>
-                            <div className="yellow-underline"></div>
-                            <div className="event-perspective">
-                                <div className="event-flip-inner">
-                                    <div className="event-flip-front">
-                                        <img src="/images/pic14.jpg" alt="Stakeholder Meeting" />
-                                    </div>
-                                    <div className="event-flip-back">
-                                        <div className="mb-auto">
-                                            <span className="badge px-3 py-1 mb-4" style={{ backgroundColor: 'rgba(190, 242, 100, 0.15)', color: '#bef264', borderRadius: '50px', fontSize: '11px', fontWeight: '800', textTransform: 'uppercase' }}>{upcomingEvents[0].type}</span>
-                                            <h4 className="text-white font-black mb-4" style={{ fontSize: '24px', lineHeight: '1.2' }}>{upcomingEvents[0].title}</h4>
-                                            <div className="space-y-4 text-white/80">
-                                                <div className="flex items-center"><Calendar size={18} className="mr-3 text-teal-400" /> <span className="font-semibold">{upcomingEvents[0].date}</span></div>
-                                                <div className="flex items-center"><Clock size={18} className="mr-3 text-teal-400" /> <span>{upcomingEvents[0].time}</span></div>
-                                                <div className="flex items-start"><MapPin size={18} className="mr-3 text-teal-400 mt-1" /> <span>{upcomingEvents[0].location}</span></div>
-                                            </div>
-                                        </div>
-                                        <button className="btn w-fit px-5 py-3 mt-8 font-weight-bold" style={{ backgroundColor: '#bef264', color: '#122f2b', borderRadius: '12px', border: 'none', transition: 'all 0.3s ease' }}>
-                                            Register Interest
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Slot 2: WHAT WE DO (Mid-tilted style) */}
-                        <div className="col-lg-4 mb-2 ftco-animate">
-                            <h3 className="event-title-top">What We Do</h3>
-                            <div className="yellow-underline"></div>
-                            <div className="event-perspective">
-                                <div className="event-flip-inner middle-card-tilt">
-                                    <div className="event-flip-front">
-                                        <img src="/images/pic2.jpg" alt="Graduation Ceremony" />
-                                    </div>
-                                    <div className="event-flip-back" style={{ background: '#1a1a4a' }}> {/* Deep Blue as in reference image */}
-                                        <div className="mb-auto">
-                                            <span className="badge px-3 py-1 mb-4" style={{ backgroundColor: 'rgba(190, 242, 100, 0.15)', color: '#bef264', borderRadius: '50px', fontSize: '11px', fontWeight: '800', textTransform: 'uppercase' }}>{upcomingEvents[1].type}</span>
-                                            <h4 className="text-white font-black mb-4" style={{ fontSize: '24px', lineHeight: '1.2' }}>{upcomingEvents[1].title}</h4>
-                                            <p className="text-white/70 mb-5 leading-relaxed" style={{ fontSize: '15px' }}>
-                                                Celebrating the resilience and achievements of IkiraroBiz graduates as they launch their entrepreneurial journeys.
-                                            </p>
-                                            <div className="space-y-4 text-white/80">
-                                                <div className="flex items-center"><Calendar size={18} className="mr-3 text-teal-400" /> <span className="font-semibold">{upcomingEvents[1].date}</span></div>
-                                                <div className="flex items-center"><Clock size={18} className="mr-3 text-teal-400" /> <span>{upcomingEvents[1].time}</span></div>
-                                            </div>
-                                        </div>
-                                        <button className="btn w-fit px-5 py-3 mt-8 font-weight-bold" style={{ backgroundColor: '#2ba898', color: 'white', borderRadius: '12px', border: 'none', transition: 'all 0.3s ease' }}>
-                                            LEARN MORE
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Slot 3: WHY WE DO IT */}
-                        <div className="col-lg-4 mb-2 ftco-animate">
-                            <h3 className="event-title-top">Why We Do It</h3>
-                            <div className="yellow-underline"></div>
-                            <div className="event-perspective">
-                                <div className="event-flip-inner">
-                                    <div className="event-flip-front">
-                                        <img src="/images/pic19.jpg" alt="Empowerment Workshop" />
-                                    </div>
-                                    <div className="event-flip-back">
-                                        <div className="mb-auto">
-                                            <span className="badge px-3 py-1 mb-4" style={{ backgroundColor: 'rgba(190, 242, 100, 0.15)', color: '#bef264', borderRadius: '50px', fontSize: '11px', fontWeight: '800', textTransform: 'uppercase' }}>{upcomingEvents[2].type}</span>
-                                            <h4 className="text-white font-black mb-4" style={{ fontSize: '24px', lineHeight: '1.2' }}>{upcomingEvents[2].title}</h4>
-                                            <div className="space-y-4 text-white/80">
-                                                <div className="flex items-center"><Calendar size={18} className="mr-3 text-teal-400" /> <span className="font-semibold">{upcomingEvents[2].date}</span></div>
-                                                <div className="flex items-center"><Clock size={18} className="mr-3 text-teal-400" /> <span>{upcomingEvents[2].time}</span></div>
-                                                <div className="flex items-start"><MapPin size={18} className="mr-3 text-teal-400 mt-1" /> <span>{upcomingEvents[2].location}</span></div>
-                                            </div>
-                                        </div>
-                                        <button className="btn w-fit px-5 py-3 mt-8 font-weight-bold" style={{ backgroundColor: '#bef264', color: '#122f2b', borderRadius: '12px', border: 'none', transition: 'all 0.3s ease' }}>
-                                            Register Interest
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
         </div>
     );
 };

@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLegacyScripts } from '../hooks/useLegacyScripts';
-import { MapPin, Mail, Phone, Clock, Heart, Plus, Minus } from 'lucide-react';
+import { MapPin, Mail, Phone, Clock, Heart, Plus, Minus, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../lib/language-context';
 
 export const ContactPage = () => {
     useLegacyScripts();
+    const { t } = useLanguage();
     const [zoom, setZoom] = React.useState(15);
 
     const handleZoomIn = () => setZoom(prev => Math.min(prev + 1, 21));
@@ -19,10 +21,10 @@ export const ContactPage = () => {
                 <div className="container">
                     <div className="row no-gutters slider-text align-items-center justify-content-center" style={{ height: '500px', paddingTop: '100px' }}>
                         <div className="col-md-7 ftco-animate text-center">
-                            <h1 className="mb-0 bread" style={{ fontWeight: '800', fontSize: '48px', color: '#fff', textShadow: '0 2px 15px rgba(0,0,0,0.4)' }}>Contact Us</h1>
+                            <h1 className="mb-0 bread" style={{ fontWeight: '800', fontSize: '48px', color: '#fff', textShadow: '0 2px 15px rgba(0,0,0,0.4)' }}>{t('contact.title')}</h1>
                             <p className="breadcrumbs" style={{ fontSize: '18px', fontWeight: '500', marginTop: '10px' }}>
-                                <span className="mr-2"><Link to="/" style={{ color: '#fff' }}>Home</Link></span>
-                                <span style={{ color: '#4FB1A1' }}>Contact</span>
+                                <span className="mr-2"><Link to="/" style={{ color: '#fff' }}>{t('contact.breadcrumb_home')}</Link></span>
+                                <span style={{ color: '#4FB1A1' }}>{t('contact.breadcrumb_contact')}</span>
                             </p>
                         </div>
                     </div>
@@ -112,32 +114,32 @@ export const ContactPage = () => {
                                         minHeight: '600px',
                                         marginTop: '40px' // Moved down a little
                                     }}>
-                                        <h2 style={{ fontSize: '36px', fontWeight: '900', color: '#122f2b', marginBottom: '10px', letterSpacing: '-1px' }}>Get in Touch</h2>
+                                        <h2 style={{ fontSize: '36px', fontWeight: '900', color: '#122f2b', marginBottom: '10px', letterSpacing: '-1px' }}>{t('contact.get_in_touch')}</h2>
                                         <p style={{ color: '#666', fontSize: '17px', marginBottom: '40px', maxWidth: '450px' }}>
-                                            Have questions about our programs or want to partner with us? Our team is here to support you.
+                                            {t('contact.get_in_touch_desc')}
                                         </p>
 
                                         <form action="#" className="contact-form-premium">
                                             <div className="row">
                                                 <div className="col-md-6 mb-4">
-                                                    <label style={{ fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', color: '#122f2b', display: 'block', marginBottom: '8px', letterSpacing: '0.5px' }}>First Name</label>
-                                                    <input type="text" className="form-control" style={{ height: '55px', backgroundColor: 'rgba(255, 255, 255, 0.6)', border: '1px solid #eef2f2', borderRadius: '12px', fontSize: '15px', fontWeight: '500' }} placeholder="First Name" />
+                                                    <label style={{ fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', color: '#122f2b', display: 'block', marginBottom: '8px', letterSpacing: '0.5px' }}>{t('contact.first_name')}</label>
+                                                    <input type="text" className="form-control" style={{ height: '55px', backgroundColor: 'rgba(255, 255, 255, 0.6)', border: '1px solid #eef2f2', borderRadius: '12px', fontSize: '15px', fontWeight: '500' }} placeholder={t('contact.first_name')} />
                                                 </div>
                                                 <div className="col-md-6 mb-4">
-                                                    <label style={{ fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', color: '#122f2b', display: 'block', marginBottom: '8px', letterSpacing: '0.5px' }}>Last Name</label>
-                                                    <input type="text" className="form-control" style={{ height: '55px', backgroundColor: 'rgba(255, 255, 255, 0.6)', border: '1px solid #eef2f2', borderRadius: '12px', fontSize: '15px', fontWeight: '500' }} placeholder="Last Name" />
+                                                    <label style={{ fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', color: '#122f2b', display: 'block', marginBottom: '8px', letterSpacing: '0.5px' }}>{t('contact.last_name')}</label>
+                                                    <input type="text" className="form-control" style={{ height: '55px', backgroundColor: 'rgba(255, 255, 255, 0.6)', border: '1px solid #eef2f2', borderRadius: '12px', fontSize: '15px', fontWeight: '500' }} placeholder={t('contact.last_name')} />
                                                 </div>
                                                 <div className="col-md-12 mb-4">
-                                                    <label style={{ fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', color: '#122f2b', display: 'block', marginBottom: '8px', letterSpacing: '0.5px' }}>Email Address</label>
+                                                    <label style={{ fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', color: '#122f2b', display: 'block', marginBottom: '8px', letterSpacing: '0.5px' }}>{t('contact.email')}</label>
                                                     <input type="email" className="form-control" style={{ height: '55px', backgroundColor: 'rgba(255, 255, 255, 0.6)', border: '1px solid #eef2f2', borderRadius: '12px', fontSize: '15px', fontWeight: '500' }} placeholder="name@company.com" />
                                                 </div>
                                                 <div className="col-md-12 mb-4">
-                                                    <label style={{ fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', color: '#122f2b', display: 'block', marginBottom: '8px', letterSpacing: '0.5px' }}>How can we help?</label>
-                                                    <textarea name="" id="" cols={30} rows={5} className="form-control" style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', border: '1px solid #eef2f2', borderRadius: '12px', fontSize: '15px', fontWeight: '500', paddingTop: '15px' }} placeholder="Tell us more about your inquiry..."></textarea>
+                                                    <label style={{ fontSize: '12px', fontWeight: '800', textTransform: 'uppercase', color: '#122f2b', display: 'block', marginBottom: '8px', letterSpacing: '0.5px' }}>{t('contact.help_label')}</label>
+                                                    <textarea name="" id="" cols={30} rows={5} className="form-control" style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', border: '1px solid #eef2f2', borderRadius: '12px', fontSize: '15px', fontWeight: '500', paddingTop: '15px' }} placeholder={t('contact.help_placeholder')}></textarea>
                                                 </div>
                                                 <div className="col-md-12 mt-2">
                                                     <button type="submit" className="btn px-5 py-3 shadow-lg pulse-hover" style={{ backgroundColor: '#076c5b', color: '#fff', fontWeight: '800', fontSize: '15px', borderRadius: '12px', border: 'none', transition: 'all 0.3s ease' }}>
-                                                        Send Message
+                                                        {t('contact.send_message')}
                                                     </button>
                                                 </div>
                                             </div>
@@ -149,10 +151,10 @@ export const ContactPage = () => {
                                 <div className="col-md-5 pl-lg-5 ftco-animate">
                                     <div className="p-4 p-md-5 rounded-3xl" style={{ backgroundColor: 'transparent' }}>
                                         <div className="mb-5">
-                                            <span className="badge px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', textTransform: 'uppercase' }}>Contact Us</span>
-                                            <h3 style={{ fontSize: '32px', fontWeight: '900', color: '#122f2b', marginBottom: '20px', letterSpacing: '-1px' }}>Let's start a conversation</h3>
+                                            <span className="badge px-3 py-2 mb-3 font-weight-bold" style={{ color: '#076c5b', backgroundColor: '#e2f5f2', borderRadius: '50px', fontSize: '12px', textTransform: 'uppercase' }}>{t('contact.badge')}</span>
+                                            <h3 style={{ fontSize: '32px', fontWeight: '900', color: '#122f2b', marginBottom: '20px', letterSpacing: '-1px' }}>{t('contact.conversation_title')}</h3>
                                             <p style={{ color: '#666', fontSize: '16px', lineHeight: '1.7' }}>
-                                                Our team typically responds within 24 hours. Connect with us via email, phone, or visit our office in Bugesera.
+                                                {t('contact.conversation_desc')}
                                             </p>
                                         </div>
 
@@ -161,8 +163,8 @@ export const ContactPage = () => {
                                                 <MapPin size={28} strokeWidth={1.5} />
                                             </div>
                                             <div>
-                                                <p className="small mb-1 font-weight-bold text-muted text-uppercase">Office Location</p>
-                                                <p className="mb-0 font-weight-bold" style={{ color: '#122f2b' }}>Bugesera, Nyamata, Rwanda</p>
+                                                <p className="small mb-1 font-weight-bold text-muted text-uppercase">{t('contact.office_location')}</p>
+                                                <p className="mb-0 font-weight-bold" style={{ color: '#122f2b' }}>{t('contact.office_address')}</p>
                                             </div>
                                         </div>
 
@@ -171,7 +173,7 @@ export const ContactPage = () => {
                                                 <Mail size={26} strokeWidth={1.5} />
                                             </div>
                                             <div>
-                                                <p className="small mb-1 font-weight-bold text-muted text-uppercase">Email Us</p>
+                                                <p className="small mb-1 font-weight-bold text-muted text-uppercase">{t('contact.email_us')}</p>
                                                 <a href="mailto:info.lceo@gmail.com" className="mb-0 font-weight-bold d-block" style={{ color: '#122f2b', textDecoration: 'none' }}>info.lceo@gmail.com</a>
                                             </div>
                                         </div>
@@ -181,7 +183,7 @@ export const ContactPage = () => {
                                                 <Phone size={28} strokeWidth={1.5} />
                                             </div>
                                             <div>
-                                                <p className="small mb-1 font-weight-bold text-muted text-uppercase">Call Support</p>
+                                                <p className="small mb-1 font-weight-bold text-muted text-uppercase">{t('contact.call_support')}</p>
                                                 <a href="tel:+250788123456" className="mb-0 font-weight-bold d-block" style={{ color: '#122f2b', textDecoration: 'none' }}>+250 788 123 456</a>
                                             </div>
                                         </div>
@@ -189,10 +191,10 @@ export const ContactPage = () => {
                                         {/* Premium CTA Card */}
                                         <div className="p-5 rounded-3xl text-white shadow-2xl overflow-hidden position-relative animate-in" style={{ backgroundColor: '#122f2b', borderRadius: '24px' }}>
                                             <div className="position-relative" style={{ zIndex: 2 }}>
-                                                <h4 className="text-white mb-3" style={{ fontWeight: '900', fontSize: '24px', letterSpacing: '-0.5px' }}>Ready to empower others?</h4>
-                                                <p className="text-white opacity-80 mb-4" style={{ fontSize: '15px' }}>Join our community of supporters and make a lasting difference in Rwanda today.</p>
+                                                <h4 className="text-white mb-3" style={{ fontWeight: '900', fontSize: '24px', letterSpacing: '-0.5px' }}>{t('contact.cta_title')}</h4>
+                                                <p className="text-white opacity-80 mb-4" style={{ fontSize: '15px' }}>{t('contact.cta_desc')}</p>
                                                 <Link to="/donate" className="btn px-5 py-3 font-weight-bold d-inline-block" style={{ backgroundColor: '#bef264', color: '#122f2b', borderRadius: '12px', border: 'none', transition: 'all 0.3s ease' }}>
-                                                    Donate Now
+                                                    {t('contact.donate_now')}
                                                 </Link>
                                             </div>
                                             <div className="position-absolute" style={{ color: '#fff', opacity: 0.05, bottom: '-20px', right: '-20px', zIndex: 1 }}>

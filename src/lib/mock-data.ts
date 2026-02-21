@@ -39,14 +39,14 @@ import {
 
 // Images
 const IMAGES = {
-    education: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1080",
-    entrepreneurship: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1080",
-    health: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1080",
-    portrait_1: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1080",
-    portrait_2: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1080",
-    portrait_3: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1080",
-    project_1: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=1080",
-    project_2: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1080",
+    education: "/images/woman/woman/p8.jpg",
+    entrepreneurship: "/images/woman/woman/p5.jpg",
+    health: "/images/woman/woman/p7.jpg",
+    portrait_1: "/images/woman/woman/p1.jpg",
+    portrait_2: "/images/woman/woman/p3.jpg",
+    portrait_3: "/images/woman/woman/p4.jpg",
+    project_1: "/images/cause-1.jpg",
+    project_2: "/images/cause-2.jpg",
 };
 
 // 1. Mock Users
@@ -488,6 +488,56 @@ export const mockStories: Story[] = [
         metadata: { tags: ['education', 'tech'], location: 'Kigali', duration: 0 },
         createdAt: new Date('2023-10-15'),
         updatedAt: new Date('2023-10-15'),
+    },
+    {
+        id: 'st3',
+        title: { en: 'A New Beginning for Keza', rw: 'Intangiriro nshya kuri Keza' },
+        content: {
+            en: 'After years of uncertainty, Keza found a new family and a future through our mentorship program. She is now thriving in her studies.',
+            rw: 'Nyuma y\'imyaka myinshi yo kutamenya ejo hazaza, Keza yabonye umuryango mushya n\'ahazaza binyuze muri gahunda yacu yo guhugura no kuyobora abato. Ubu aratsinda neza mu masomo ye.'
+        },
+        authorName: 'LCEO Comms',
+        authorRole: AuthorRole.STAFF,
+        authorPhoto: null,
+        program: mockPrograms[0],
+        beneficiaryId: null,
+        media: [
+            { url: IMAGES.portrait_2, type: 'image', caption: 'Keza smiling', thumbnail: IMAGES.portrait_2 }
+        ],
+        isFeatured: true,
+        isPublished: true,
+        publishedDate: new Date('2023-11-05'),
+        language: Language.EN,
+        viewCount: 150,
+        shareCount: 20,
+        metadata: { tags: ['mentorship', 'success'], location: 'Bugesera', duration: 0 },
+        createdAt: new Date('2023-11-05'),
+        updatedAt: new Date('2023-11-05'),
+    },
+    {
+        id: 'st4',
+        title: { en: 'Health and Hope in Rural Communities', rw: 'Ubuzima n\'icyizere mu baturage' },
+        content: {
+            en: 'Our community health outreach programs have reached over 500 women this quarter, providing essential resources and education.',
+            rw: 'Gahunda yacu y\'ubuzima mu baturage yageze ku bagore barenga 500 muri iki gihembwe, ikabaha ibikoresho n\'uburezi bakeneye.'
+        },
+        authorName: 'LCEO Comms',
+        authorRole: AuthorRole.STAFF,
+        authorPhoto: null,
+        program: mockPrograms[2],
+        beneficiaryId: null,
+        media: [
+            { url: IMAGES.health, type: 'image', caption: 'Health outreach', thumbnail: IMAGES.health }
+        ],
+        isFeatured: true,
+        isPublished: true,
+        publishedDate: new Date('2023-12-10'),
+        language: Language.EN,
+        viewCount: 180,
+        shareCount: 30,
+        metadata: { tags: ['health', 'community'], location: 'Nyarugenge', duration: 0 },
+        createdAt: new Date('2023-12-10'),
+        updatedAt: new Date('2023-12-10'),
     }
 ];
 
