@@ -84,19 +84,19 @@ export function LoginPage() {
     };
 
     return (
-        <div style={{ backgroundColor: '#fcfdfd', padding: '120px 0 80px 0' }}>
+        <div style={{ backgroundColor: '#fcfdfd', padding: '100px 0 60px 0', minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
             <div className="container">
-                <div className="login-container text-center mx-auto" style={{ maxWidth: '400px', background: '#fff', borderRadius: '15px', boxShadow: '0 15px 40px rgba(0, 0, 0, 0.05)', overflow: 'hidden' }}>
+                <div className="login-container text-center mx-auto mt-4 mt-md-5" style={{ maxWidth: '400px', background: '#fff', borderRadius: '15px', boxShadow: '0 15px 40px rgba(0, 0, 0, 0.05)', overflow: 'hidden' }}>
 
                     {/* Compact Tabs */}
                     <div className="d-flex" style={{ borderBottom: '1px solid #f0f0f0' }}>
                         <button
-                            className="flex-fill py-3 border-0 transition-all font-weight-bold"
+                            className="flex-fill py-2 border-0 transition-all font-weight-bold"
                             style={{
                                 background: 'white',
                                 color: (accessType === 'login' || accessType === 'signup') ? '#17D1AC' : '#6c757d',
                                 borderBottom: (accessType === 'login' || accessType === 'signup') ? '4px solid #17D1AC' : '4px solid transparent',
-                                fontSize: '1.1rem',
+                                fontSize: '1rem',
                                 transition: 'all 0.3s ease'
                             }}
                             onClick={() => setAccessType('login')}
@@ -104,12 +104,12 @@ export function LoginPage() {
                             {accessType === 'signup' ? 'Sign Up' : 'Login'}
                         </button>
                         <button
-                            className="flex-fill py-3 border-0 transition-all font-weight-bold"
+                            className="flex-fill py-2 border-0 transition-all font-weight-bold"
                             style={{
                                 background: 'white',
                                 color: accessType === 'demo' ? '#17D1AC' : '#6c757d',
                                 borderBottom: accessType === 'demo' ? '4px solid #17D1AC' : '4px solid transparent',
-                                fontSize: '1.1rem',
+                                fontSize: '1rem',
                                 transition: 'all 0.3s ease'
                             }}
                             onClick={() => setAccessType('demo')}
@@ -118,19 +118,19 @@ export function LoginPage() {
                         </button>
                     </div>
 
-                    <div className="p-4">
+                    <div className="p-3">
                         {accessType !== 'demo' ? (
                             <>
-                                <div className="role-badge mb-3" style={{ display: 'inline-block', padding: '4px 12px', background: 'rgba(23, 209, 172, 0.1)', borderRadius: '20px', fontSize: '11px', fontWeight: 700, color: '#122f2b', textTransform: 'uppercase' }}>
+                                <div className="role-badge mb-2" style={{ display: 'inline-block', padding: '2px 10px', background: 'rgba(23, 209, 172, 0.1)', borderRadius: '20px', fontSize: '10px', fontWeight: 700, color: '#122f2b', textTransform: 'uppercase' }}>
                                     {getRoleName()} {accessType === 'signup' ? 'Registration' : 'Login'}
                                 </div>
-                                <h4 className="mb-4 font-weight-bold" style={{ color: '#122f2b' }}>
+                                <h5 className="mb-3 font-weight-bold" style={{ color: '#122f2b' }}>
                                     {accessType === 'signup' ? 'Create Account' : 'Welcome Back'}
-                                </h4>
+                                </h5>
 
                                 <form onSubmit={handleSubmit}>
                                     {accessType === 'signup' && (
-                                        <div className="form-group text-left mb-3">
+                                        <div className="form-group text-left mb-2">
                                             <input
                                                 type="text"
                                                 className="form-control"
@@ -138,12 +138,12 @@ export function LoginPage() {
                                                 onChange={(e) => setName(e.target.value)}
                                                 placeholder="Full Name"
                                                 required
-                                                style={{ height: '48px', background: '#f8f9fa', border: '1px solid #eee', borderRadius: '8px', fontSize: '0.9rem' }}
+                                                style={{ height: '42px', background: '#f8f9fa', border: '1px solid #eee', borderRadius: '8px', fontSize: '0.85rem' }}
                                             />
                                         </div>
                                     )}
 
-                                    <div className="form-group text-left mb-3">
+                                    <div className="form-group text-left mb-2">
                                         <input
                                             type="email"
                                             className="form-control"
@@ -151,10 +151,10 @@ export function LoginPage() {
                                             onChange={(e) => setEmail(e.target.value)}
                                             placeholder="Email Address"
                                             required
-                                            style={{ height: '48px', background: '#f8f9fa', border: '1px solid #eee', borderRadius: '8px', fontSize: '0.9rem' }}
+                                            style={{ height: '42px', background: '#f8f9fa', border: '1px solid #eee', borderRadius: '8px', fontSize: '0.85rem' }}
                                         />
                                     </div>
-                                    <div className="form-group text-left mb-4">
+                                    <div className="form-group text-left mb-3">
                                         <div style={{ position: 'relative' }}>
                                             <input
                                                 type={showPassword ? "text" : "password"}
@@ -163,19 +163,19 @@ export function LoginPage() {
                                                 onChange={(e) => setPassword(e.target.value)}
                                                 placeholder="Password"
                                                 required
-                                                style={{ height: '48px', background: '#f8f9fa', border: '1px solid #eee', borderRadius: '8px', paddingRight: '45px', fontSize: '0.9rem' }}
+                                                style={{ height: '42px', background: '#f8f9fa', border: '1px solid #eee', borderRadius: '8px', paddingRight: '45px', fontSize: '0.85rem' }}
                                             />
                                             <button
                                                 type="button"
                                                 onClick={() => setShowPassword(!showPassword)}
                                                 style={{ position: 'absolute', right: '15px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: '#adb5bd' }}
                                             >
-                                                {showPassword ? <EyeOff size={18} strokeWidth={1.5} /> : <Eye size={18} strokeWidth={1.5} />}
+                                                {showPassword ? <EyeOff size={16} strokeWidth={1.5} /> : <Eye size={16} strokeWidth={1.5} />}
                                             </button>
                                         </div>
                                         {accessType === 'login' && (
-                                            <div className="text-right mt-2">
-                                                <a href="#" className="small text-muted">Forgot Password?</a>
+                                            <div className="text-right mt-1">
+                                                <a href="#" className="small text-muted" style={{ fontSize: '0.7rem' }}>Forgot Password?</a>
                                             </div>
                                         )}
                                     </div>
@@ -204,33 +204,33 @@ export function LoginPage() {
                                         </div>
                                     )}
 
-                                    {error && <div className="alert alert-danger mb-3 py-2 small">{error}</div>}
+                                    {error && <div className="alert alert-danger mb-2 py-1 small" style={{ fontSize: '0.75rem' }}>{error}</div>}
 
                                     <button
                                         type="submit"
-                                        className="btn btn-primary btn-block mb-3 font-weight-bold"
+                                        className="btn btn-primary btn-block mb-2 font-weight-bold"
                                         disabled={isLoading}
-                                        style={{ height: '48px', background: '#17D1AC', border: 'none', borderRadius: '8px', boxShadow: 'none' }}
+                                        style={{ height: '42px', background: '#17D1AC', border: 'none', borderRadius: '8px', boxShadow: 'none', fontSize: '0.9rem' }}
                                     >
                                         {isLoading ? 'Processing...' : (accessType === 'signup' ? 'Create Account' : 'Sign In')}
                                     </button>
 
-                                    <div className="mb-3 d-flex align-items-center">
-                                        <hr className="flex-fill" /> <span className="mx-2 small text-muted">OR</span> <hr className="flex-fill" />
+                                    <div className="mb-2 d-flex align-items-center">
+                                        <hr className="flex-fill" /> <span className="mx-2 small text-muted" style={{ fontSize: '0.7rem' }}>OR</span> <hr className="flex-fill" />
                                     </div>
 
                                     <button
                                         type="button"
-                                        className="btn btn-outline-light btn-block mb-4 border d-flex align-items-center justify-content-center gap-2"
-                                        style={{ height: '48px', borderRadius: '8px', background: 'white', color: '#666' }}
+                                        className="btn btn-outline-light btn-block mb-3 border d-flex align-items-center justify-content-center gap-2"
+                                        style={{ height: '42px', borderRadius: '8px', background: 'white', color: '#666' }}
                                     >
-                                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18" height="18" alt="Google" />
-                                        <span className="small font-weight-bold">
+                                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="16" height="16" alt="Google" />
+                                        <span className="small font-weight-bold" style={{ fontSize: '0.8rem' }}>
                                             {accessType === 'signup' ? 'Sign up with Google' : 'Sign in with Google'}
                                         </span>
                                     </button>
 
-                                    <div className="text-center mt-3" style={{ fontSize: '0.75rem', opacity: 0.8 }}>
+                                    <div className="text-center mt-2" style={{ fontSize: '0.7rem', opacity: 0.8 }}>
                                         <span className="text-muted">
                                             {accessType === 'signup' ? 'Already have an account?' : "Don't have an account?"}
                                         </span>{' '}
@@ -242,7 +242,7 @@ export function LoginPage() {
                                                 padding: 0,
                                                 margin: 0,
                                                 color: '#17D1AC',
-                                                fontSize: '0.75rem',
+                                                fontSize: '0.7rem',
                                                 fontWeight: 600,
                                                 cursor: 'pointer',
                                                 boxShadow: 'none',
@@ -277,9 +277,9 @@ export function LoginPage() {
                                 </button>
                             </div>
                         )}
-                        <div className="mt-4 pt-4 border-top">
-                            <Link to="/" className="text-muted small d-inline-flex align-items-center">
-                                <ArrowLeft size={14} className="mr-1" strokeWidth={1.5} /> Back to website
+                        <div className="mt-3 pt-3 border-top">
+                            <Link to="/" className="text-muted small d-inline-flex align-items-center" style={{ fontSize: '0.75rem' }}>
+                                <ArrowLeft size={12} className="mr-1" strokeWidth={1.5} /> Back to website
                             </Link>
                         </div>
                     </div>
